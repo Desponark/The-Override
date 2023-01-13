@@ -1,0 +1,175 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/player/Player_unanimated.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/env/Healthbar/HealthBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/player/Player_attack.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/Player_jump_up.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/Player_jump_down.png" type="Texture" id=6]
+[ext_resource path="res://assets/player/Player_idle1.png" type="Texture" id=7]
+[ext_resource path="res://assets/player/Player_idle2.png" type="Texture" id=8]
+[ext_resource path="res://assets/player/Player_run_new1.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/Player_run_new3.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/Player_run_new2.png" type="Texture" id=11]
+[ext_resource path="res://assets/player/Player_run_new4.png" type="Texture" id=12]
+[ext_resource path="res://assets/weapons/DefaultGun.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 26.5, 32 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 90.0222
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "attack"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fall"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 6 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "run"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 9 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+jump_speed = -1000
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -67 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="HurtBox" type="Area2D" parent="Sprite"]
+position = Vector2( 43, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HurtBox"]
+position = Vector2( 0, -1 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="ChargeArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChargeArea"]
+shape = SubResource( 2 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 3 )]
+margin_left = -50.0
+margin_top = -52.0
+margin_right = -50.0
+margin_bottom = -52.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 6 )
+anims/attack = SubResource( 5 )
+anims/fall = SubResource( 8 )
+anims/idle = SubResource( 9 )
+anims/jump = SubResource( 7 )
+anims/run = SubResource( 10 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -80 )
+current = true
+offset_v = -1.0
+
+[node name="DefaultGun" parent="." instance=ExtResource( 13 )]
+
+[connection signal="area_entered" from="ChargeArea" to="." method="_on_ChargeArea_area_entered"]
+[connection signal="area_exited" from="ChargeArea" to="." method="_on_ChargeArea_area_exited"]

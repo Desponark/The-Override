@@ -1,0 +1,21 @@
+extends Node2D
+
+export (PackedScene) var enemySpawn
+
+export var minSpawnRate = 0.5
+export var maxSpawnRate = 1.5
+
+func spawn_enemy():
+	var enemy = enemySpawn.instance()
+	
+	# Set spawn location for enemy to enemySpawnPoint
+	var enemySpawnLocation = $Position2D.position
+	enemy.position = enemySpawnLocation
+	
+	# Spawn new enemy if a randomly generated number is greater than the given value below
+	add_child(enemy)
+
+
+func _on_Timer_timeout():
+	spawn_enemy()
+	$Timer.wait_time = rand_range(minSpawnRate, maxSpawnRate)
