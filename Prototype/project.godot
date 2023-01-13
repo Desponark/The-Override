@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "HitBox",
+"language": "GDScript",
+"path": "res://assets/CollisionBoxes/HitBox.gd"
+}, {
+"base": "Area2D",
+"class": "HurtBox",
+"language": "GDScript",
+"path": "res://assets/CollisionBoxes/HurtBox.gd"
+} ]
+_global_script_class_icons={
+"HitBox": "",
+"HurtBox": ""
+}
+
 [application]
 
 config/name="GameJam2"
@@ -90,6 +106,7 @@ shoot={
 2d_render/layer_2="CrystalCharge"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="CrystalCharge"
+2d_physics/layer_3="Hitboxes"
 
 [physics]
 
