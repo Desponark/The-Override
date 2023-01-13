@@ -14,6 +14,11 @@ config/name="GameJam2"
 run/main_scene="res://assets/env/Map.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
 [global]
 
 import=false

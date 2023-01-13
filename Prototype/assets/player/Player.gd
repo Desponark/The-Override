@@ -15,6 +15,7 @@ var healthKillRestore = 50
 
 var motion = Vector2.ZERO
 
+export(NodePath) var crystalPath = null
 var isCrystalInChargeRange = false
 var crystal
 var isCrystalFollowing = false
@@ -24,9 +25,15 @@ func setup(projectileParent):
 
 func _ready():
 	health = maxHealth
-	crystal = get_parent().get_node("Crystal")
+#	crystal = get_parent().get_node("Crystal")
+	if crystalPath != null:
+		crystal = get_node(crystalPath)
 	
 func _process(delta):
+	# clamp health to max
+	if health > maxHealth:
+		health = maxHealth
+	
 	if isCrystalInChargeRange == true:
 		if Input.is_action_pressed("charge_crystal"):
 			# charge the crystal
