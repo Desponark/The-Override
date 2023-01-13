@@ -3,7 +3,7 @@ extends KinematicBody2D
 export (PackedScene) var crystal
 
 export var speed = 100
-var crystalPosition = Vector2(494,527)
+export var crystalPosition = Vector2(494,527)
 
 export var maxHealth = 100
 export var health = 100

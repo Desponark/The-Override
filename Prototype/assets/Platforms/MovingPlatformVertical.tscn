@@ -39,7 +39,7 @@ tracks/0/keys = {
 }
 
 [node name="PlatformVertical" type="Node2D"]
-position = Vector2( 554, 322 )
+position = Vector2( 552, 320 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="MovingPlatformVertical" type="KinematicBody2D" parent="."]
