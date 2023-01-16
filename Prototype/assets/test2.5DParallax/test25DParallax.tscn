@@ -45,6 +45,7 @@ tile_data = PoolIntArray( 720887, 0, 0, 786422, 0, 0, 786423, 0, 0, 851958, 0, 0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 268, 532 )
+jump_speed = -500
 
 [node name="Visuals" type="Node2D" parent="."]
 
@@ -66,14 +67,9 @@ layer = -1
 follow_viewport_enable = true
 follow_viewport_scale = 0.9
 
-[node name="Sprite2" type="Sprite" parent="Visuals/-1"]
-position = Vector2( 317, 428 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-
 [node name="Sprite3" type="Sprite" parent="Visuals/-1"]
-position = Vector2( 1268, 429 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 825, 243 )
+z_index = -1
 texture = ExtResource( 4 )
 
 [node name="0" type="CanvasLayer" parent="Visuals"]
