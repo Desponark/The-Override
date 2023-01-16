@@ -12,10 +12,11 @@ var velocity = Vector2.ZERO
 
 export var maxHealth = 100
 var health = 100
-
+var stateMachine
 
 func _ready():
 	health = maxHealth
+	stateMachine = $AnimationTree.get("parameters/playback")
 	pass
 
 func _process(delta):
@@ -27,14 +28,18 @@ func _physics_process(delta):
 		# speed up the player
 		velocity.x = lerp(velocity.x, direction * maxSpeed, acceleration)
 		switchSpriteDirection(direction)
+		$AnimationPlayer.play("Run")
+#		stateMachine.travel("run")
 	else:
 		# slow down the player
 		velocity.x = lerp(velocity.x, 0, friction)
+		$AnimationPlayer.play("Idle")
+#		stateMachine.travel("idle")
 		
 	# aplly downwards gravity
 	velocity.y += gravity * delta
-	
-	move_and_slide(velocity, Vector2.UP)
+		
+	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	jump()
 	
