@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "HitBox",
 "language": "GDScript",
-"path": "res://assets/collisionBoxes/HitBox.gd"
+"path": "res://assets/customNodes/HitBox.gd"
 }, {
 "base": "Area2D",
 "class": "HurtBox",
 "language": "GDScript",
-"path": "res://assets/collisionBoxes/HurtBox.gd"
+"path": "res://assets/customNodes/HurtBox.gd"
 } ]
 _global_script_class_icons={
 "HitBox": "",
@@ -29,6 +29,10 @@ _global_script_class_icons={
 config/name="Prototype 2"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+EventBus="*res://assets/autoLoad/EventBus.gd"
 
 [display]
 
