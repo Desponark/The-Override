@@ -17,6 +17,7 @@ var velocity = Vector2.ZERO
 export var maxHealth = 100
 var health = 100
 
+# Lars: use enum
 var isFalling = false
 var isJumping = false
 var isDoubleJumping = false
@@ -63,7 +64,7 @@ func handleJumping():
 	elif isJumpCancelled:
 		velocity.y = minJumpHeight
 	elif isIdling or isRunning:
-		jumpsMade = 0	
+		jumpsMade = 0
 
 func playAnimations():
 	# if attack animation plays dont play any other animation
@@ -81,14 +82,23 @@ func playAnimations():
 	elif isIdling:
 		$AnimationPlayer.play("idle")
 	
-	
 func calculateMoveVelocity(horizontalDirection, delta):
 	if horizontalDirection != 0:
 		# speed up the player
 		velocity.x = lerp(velocity.x, horizontalDirection * maxSpeed, acceleration)
+		
+		# Lars: use tween instead of lerp
+		# experimental tween approach
+#		var tween = create_tween()
+#		velocity.x = tween.interpolate_value(velocity.x, (horizontalDirection * maxSpeed) - velocity.x, 0.1, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	else:
 		# slow down the player
 		velocity.x = lerp(velocity.x, 0, friction)
+
+		# experimental tween approach
+#		var tween = create_tween()
+#		velocity.x = tween.interpolate_value(velocity.x, 0.0 - velocity.x, 0.2, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	
 	# aplly downwards gravity
 	velocity.y += gravity * delta
 	
