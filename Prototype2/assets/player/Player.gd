@@ -17,22 +17,42 @@ var velocity = Vector2.ZERO
 export var maxHealth = 100
 var health = 100
 
+var isFalling = false
+var isJumping = false
+var isDoubleJumping = false
+var isJumpCancelled = false
+var isIdling = false
+var isRunning = false
+
 func _ready():
 	health = maxHealth
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("attack"):
+		$AnimationPlayer.play("attack")
+	pass
 	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	velocity = calculateMoveVelocity(horizontalDirection, delta)
 	
-	var isFalling = velocity.y > 0.0 and not is_on_floor()
-	var isJumping = Input.is_action_just_pressed("jump") and is_on_floor()
-	var isDoubleJumping = Input.is_action_just_pressed("jump") and isFalling
-	var isJumpCancelled = Input.is_action_just_released("jump") and velocity.y < minJumpHeight
-	var isIdling = is_on_floor() and is_zero_approx(velocity.x)
-	var isRunning = is_on_floor() and not is_zero_approx(velocity.x)
+	isFalling = velocity.y > 0.0 and not is_on_floor()
+	isJumping = Input.is_action_just_pressed("jump") and is_on_floor()
+	isDoubleJumping = Input.is_action_just_pressed("jump") and isFalling
+	isJumpCancelled = Input.is_action_just_released("jump") and velocity.y < minJumpHeight
+	isIdling = is_on_floor() and (velocity.x < 1 and velocity.x > -1) #is_zero_approx(velocity.x)
+	isRunning = is_on_floor() and not (velocity.x < 1 and velocity.x > -1) #not is_zero_approx(velocity.x)
+
+	handleJumping()
 	
-	# handle jumping
+	playAnimations()
+	
+	velocity = move_and_slide(velocity, upDiretion)
+	
+	switchSpriteDirection(horizontalDirection)
+	
+func handleJumping():
 	if isJumping:
 		jumpsMade += 1
 		velocity.y = maxJumpHeight
@@ -43,22 +63,24 @@ func _physics_process(delta: float):
 	elif isJumpCancelled:
 		velocity.y = minJumpHeight
 	elif isIdling or isRunning:
-		jumpsMade = 0
+		jumpsMade = 0	
+
+func playAnimations():
+	# if attack animation plays dont play any other animation
+	if $AnimationPlayer.current_animation == "attack":
+		return
 	
-	# play animations	
 	if isJumping or isDoubleJumping:
-		$AnimationPlayer.play("Jump")
+#		$AnimationPlayer.play("jump")
+		pass
 	elif isRunning:
-		$AnimationPlayer.play("Run")
+		$AnimationPlayer.play("run")
 	elif isFalling:
-#		$AnimationPlayer.play("Fall")
+#		$AnimationPlayer.play("fall")
 		pass
 	elif isIdling:
-		$AnimationPlayer.play("Idle")
+		$AnimationPlayer.play("idle")
 	
-	velocity = move_and_slide(velocity, upDiretion)
-	
-	switchSpriteDirection(horizontalDirection)
 	
 func calculateMoveVelocity(horizontalDirection, delta):
 	if horizontalDirection != 0:
