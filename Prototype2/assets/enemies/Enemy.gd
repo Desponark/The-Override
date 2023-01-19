@@ -1,5 +1,4 @@
 extends KinematicBody2D
-#extends RigidBody2D
 
 const upDiretion = Vector2.UP
 
@@ -22,8 +21,7 @@ func takeDamage(damage):
 func knockBack(sourcePosition):
 	$HitParticles.rotation = get_angle_to(sourcePosition) + PI
 	knockBackForce = - global_position.direction_to(sourcePosition) * 300
-#	velocity = knockBackForce
-	
+#	velocity = knockBackForce	
 	print(knockBackForce)
 
 func _physics_process(delta):
@@ -33,8 +31,5 @@ func _physics_process(delta):
 	
 	# apply gravity	
 	velocity.y += gravity * delta
-#	velocity.x += -moveSpeed * delta
-#	clamp(velocity.x, 0.0, moveSpeed)
-#	velocity.x = lerp(velocity.x, horizontalDirection * moveSpeed, acceleration)
 	move_and_slide(velocity, upDiretion)
 
