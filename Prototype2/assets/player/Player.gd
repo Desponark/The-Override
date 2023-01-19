@@ -119,3 +119,8 @@ func switchSpriteDirection(horizontalDirection):
 			$Sprite.flip_h = false
 		else:
 			$Sprite.flip_h = true
+
+func takeDamage(damage):
+	$AnimationPlayer.play("hit")
+	print("player was hit by projectile: ", damage)
+	pass

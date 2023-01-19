@@ -9,7 +9,7 @@
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 115, 527 )
+position = Vector2( 483, 772 )
 acceleration = 0.05
 
 [node name="GrayBlock" parent="." instance=ExtResource( 2 )]
