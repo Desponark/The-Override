@@ -22,11 +22,6 @@ var motionState = MOTIONSTATE.idling
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
-	if event.is_action_pressed("interact"):
-		# check if interact zones are overlapping and if they are trigger the interact method
-		# on the object to be interacted with
-		
-		pass
 	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -124,4 +119,7 @@ func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
 	if $HealthBar.has_method("getDamaged"):
 		$HealthBar.getDamaged(damage)
-	pass
+	
+func getRobotFollowPosition():
+	return $RobotFollowPosition.global_transform
+	

@@ -46,7 +46,6 @@ position = Vector2( 126, 923 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 403, 953 )
-jump_speed = -400
 crystalPath = NodePath("../Crystal")
 
 [node name="Door" parent="." instance=ExtResource( 9 )]
