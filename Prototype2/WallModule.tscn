@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/environment/Walls/Ceilings_1_Defuse.png" type="Texture" id=1]
+[ext_resource path="res://assets/environment/Walls/Wall_4_Bottom_Defuse.png" type="Texture" id=2]
+[ext_resource path="res://assets/environment/Walls/Wall_4_Bottom_Normal.png" type="Texture" id=3]
+[ext_resource path="res://assets/environment/Walls/Wall_4_Top_Normal.png" type="Texture" id=4]
+[ext_resource path="res://assets/environment/Walls/Ceilings_1_Normal.png" type="Texture" id=5]
+[ext_resource path="res://assets/environment/Walls/Wall_4_Top_Defuse.png" type="Texture" id=6]
+[ext_resource path="res://assets/environment/Walls/Floor_1_Defuse.png" type="Texture" id=7]
+[ext_resource path="res://assets/environment/Walls/Floor_1_Normal.png" type="Texture" id=8]
+
+[node name="Node2D" type="Sprite"]
+scale = Vector2( 0.2, 0.2 )
+
+[node name="WallBottom" type="Sprite" parent="."]
+position = Vector2( 0, -1200 )
+texture = ExtResource( 2 )
+normal_map = ExtResource( 3 )
+
+[node name="WallTop" type="Sprite" parent="."]
+position = Vector2( 0, -3200 )
+texture = ExtResource( 6 )
+normal_map = ExtResource( 4 )
+
+[node name="Floor" type="Sprite" parent="."]
+texture = ExtResource( 7 )
+normal_map = ExtResource( 8 )
+
+[node name="Ceiling" type="Sprite" parent="."]
+position = Vector2( 0, -4400 )
+texture = ExtResource( 1 )
+normal_map = ExtResource( 5 )
