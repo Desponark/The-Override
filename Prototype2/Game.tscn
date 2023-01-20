@@ -13,3 +13,5 @@ script = ExtResource( 4 )
 [node name="LevelFinn" parent="." instance=ExtResource( 2 )]
 
 [node name="LevelFelix" parent="." instance=ExtResource( 3 )]
+
+[node name="Projectiles" type="Node2D" parent="."]

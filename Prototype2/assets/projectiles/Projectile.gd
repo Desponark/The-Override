@@ -28,7 +28,6 @@ func takeDamage():
 	pass
 
 func _on_Projectile_body_entered(body):
-	print("projectile entered body: ", body)
 	queue_free()
 	pass # Replace with function body.
 

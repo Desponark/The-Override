@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/ui/HealthBar.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ShaderMaterial" id=8]
+resource_local_to_scene = true
 shader = ExtResource( 7 )
 shader_param/active = false
 
@@ -126,6 +127,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+resource_local_to_scene = true
 resource_name = "run"
 length = 0.8
 loop = true
@@ -211,7 +213,6 @@ texture = ExtResource( 8 )
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource( 12 )
