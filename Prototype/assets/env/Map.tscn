@@ -26,7 +26,6 @@ scale = Vector2( 128, 128 )
 texture = ExtResource( 11 )
 
 [node name="TreeBackground" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1072, 533 )
 scale = Vector2( 1.37891, 1.36898 )
 texture = ExtResource( 8 )
