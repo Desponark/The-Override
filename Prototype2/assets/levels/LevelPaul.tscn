@@ -15,6 +15,9 @@ color = Color( 0.27451, 0.27451, 0.27451, 1 )
 scale = Vector2( 128, 128 )
 texture = ExtResource( 5 )
 
+[node name="Robot" parent="." instance=ExtResource( 4 )]
+position = Vector2( 298, 743 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 483, 772 )
 acceleration = 0.05
@@ -24,9 +27,6 @@ tile_data = PoolIntArray( 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 989, 778 )
-
-[node name="Robot" parent="." instance=ExtResource( 4 )]
-position = Vector2( 298, 743 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1204, 764 )
