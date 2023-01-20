@@ -6,18 +6,19 @@ export(float) var projectileSpeed = 350
 var projectileParent
 
 var target
-var stopTimer = false
 
 func startShooting(body):
 	target = body
-	stopTimer = false
+	shoot(target)
 	$Timer.start()
 	
 func stopShooting():
-	# stopTimer is used to delay stopping of the timer by 1 execution of the timer
-	stopTimer = true
+	$Timer.stop()
+	target = null
 
-func shoot():
+func shoot(target):
+	look_at(target.global_position)	
+	
 	var newProjectile = projectile.instance()
 	
 	var globalDirection = global_transform.basis_xform(Vector2.RIGHT)
@@ -28,7 +29,7 @@ func shoot():
 
 
 func _on_Timer_timeout():
-	look_at(target.global_position)
-	shoot()
-	if stopTimer:
-		$Timer.stop()
+	if target == null:
+		stopShooting()
+		return
+	shoot(target)
