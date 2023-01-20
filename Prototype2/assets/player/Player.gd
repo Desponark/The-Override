@@ -14,14 +14,10 @@ export (float, 0, 1.0) var friction = 0.2
 var jumpsMade = 0
 var velocity = Vector2.ZERO
 
-export var maxHealth = 100
-var health = 100
-
 enum MOTIONSTATE {falling, jumping, doubleJumping, jumpCancelled, idling, running, ascending}
 var motionState = MOTIONSTATE.idling
 
-func _ready():
-	health = maxHealth
+
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
@@ -122,5 +118,6 @@ func switchSpriteDirection(horizontalDirection):
 
 func takeDamage(damage):
 	$AnimationPlayer.play("hit")
-	print("player was hit by projectile: ", damage)
+	if $HealthBar.has_method("getDamaged"):
+		$HealthBar.getDamaged(damage)
 	pass
