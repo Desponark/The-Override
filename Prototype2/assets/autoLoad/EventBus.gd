@@ -4,3 +4,4 @@
 extends Node
 
 signal enemyWasHit
+signal spawnProjectile(newProjectile)

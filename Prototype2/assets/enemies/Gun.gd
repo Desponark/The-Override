@@ -22,10 +22,10 @@ func shoot(target):
 	var newProjectile = projectile.instance()
 	
 	var globalDirection = global_transform.basis_xform(Vector2.RIGHT)
-	newProjectile.setup(globalDirection.normalized() * projectileSpeed)
-	
-	owner.add_child(newProjectile)
+	newProjectile.setup(globalDirection.normalized() * projectileSpeed)	
 	newProjectile.global_position = $MuzzlePosition.global_position
+	EventBus.emit_signal("spawnProjectile", newProjectile)
+#	owner.add_child(newProjectile)
 
 
 func _on_Timer_timeout():
