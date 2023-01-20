@@ -8,7 +8,7 @@ func _ready():
 	$Health.max_value = maxHealth
 	$Health.value = health
 
-func _process(delta):
+func _process(_delta):
 	$Health.value = health
 	if health <= 0:
 		health = 0
