@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "HurtBox",
 "language": "GDScript",
 "path": "res://assets/customNodes/HurtBox.gd"
+}, {
+"base": "Area2D",
+"class": "InteractionableBox",
+"language": "GDScript",
+"path": "res://assets/customNodes/InteractionableBox.gd"
 } ]
 _global_script_class_icons={
 "HitBox": "",
-"HurtBox": ""
+"HurtBox": "",
+"InteractionableBox": ""
 }
 
 [application]
@@ -99,6 +105,7 @@ attack={
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="neutral"
+2d_physics/layer_5="interactable"
 
 [physics]
 
