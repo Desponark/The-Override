@@ -16,11 +16,6 @@ func _ready():
 func _integrate_forces(state):
 	state.linear_velocity = linear_velocity.normalized() * maxSpeed
 	
-#func _physics_process(delta):
-#	distanceTravelled += global_position.distance_to(startPosition)
-#	if distanceTravelled >= maxDistance:
-#		queue_free()
-	
 func _process(delta):
 	fixRotation()
 	
