@@ -14,6 +14,8 @@ var knockBackForce = Vector2.ZERO
 func takeDamage(damage):
 	$AnimationPlayer.play("hit")
 	EventBus.emit_signal("enemyWasHit")
+	if $HealthBar.has_method("getDamaged"):
+		$HealthBar.getDamaged(damage)
 
 func knockBack(sourcePosition):
 	$HitParticles.rotation = get_angle_to(sourcePosition) + PI
