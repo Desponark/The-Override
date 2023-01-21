@@ -26,6 +26,7 @@ scale = Vector2( 128, 128 )
 texture = ExtResource( 11 )
 
 [node name="TreeBackground" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1072, 533 )
 scale = Vector2( 1.37891, 1.36898 )
 texture = ExtResource( 8 )
@@ -60,13 +61,9 @@ position = Vector2( 3804, 1200 )
 
 [node name="Spawner" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3076, 549 )
-spawnerTarget = NodePath("../Socket")
-signalNode = NodePath("../Socket")
 
 [node name="Spawner2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 4800, 941 )
-spawnerTarget = NodePath("../Socket")
-signalNode = NodePath("../Socket")
 
 [node name="Projectiles" type="Node2D" parent="."]
 
