@@ -18,7 +18,6 @@ enum MOTIONSTATE {falling, jumping, doubleJumping, jumpCancelled, idling, runnin
 var motionState = MOTIONSTATE.idling
 
 
-	
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
@@ -29,11 +28,10 @@ func _physics_process(delta: float):
 	velocity = calculateMoveVelocity(horizontalDirection, delta)
 	
 	motionState = getPlayerMotionState()
-#	print(MOTIONSTATE.keys()[motionState])
 
 	handleJumping()
 	
-	playAnimations()
+	playAnimations(horizontalDirection)
 	
 	velocity = move_and_slide(velocity, upDiretion)
 	
@@ -50,9 +48,11 @@ func getPlayerMotionState():
 		return MOTIONSTATE.falling
 	elif velocity.y < 0.0 and not is_on_floor():
 		return MOTIONSTATE.ascending
-	elif is_on_floor() and not (velocity.x < 1 and velocity.x > -1): #not is_zero_approx(velocity.x)
+	elif is_on_floor() and not (velocity.x < 1 and velocity.x > -1): #not is_zero_approx(velocity.x):
 		return MOTIONSTATE.running
-	elif is_on_floor() and (velocity.x < 1 and velocity.x > -1): #is_zero_approx(velocity.x)
+	elif is_on_floor() and (velocity.x < 1 and velocity.x > -1): #is_zero_approx(velocity.x):
+		return MOTIONSTATE.idling
+	else: # return idling as default state
 		return MOTIONSTATE.idling
 	
 func handleJumping():
@@ -69,22 +69,24 @@ func handleJumping():
 		MOTIONSTATE.idling, MOTIONSTATE.running:
 			jumpsMade = 0
 
-func playAnimations():
+func playAnimations(horizontalDirection):
 	# if attack animation plays dont play any other animation
 	if $AnimationPlayer.current_animation == "attack":
 		return
 	match motionState:
 		MOTIONSTATE.jumping, MOTIONSTATE.doubleJumping:
-#			$AnimationPlayer.play("jump")
-			pass
+			$AnimationPlayer.play("jump2")
 		MOTIONSTATE.running:
-			$AnimationPlayer.play("run")
+			# slow down animation speed if the player is decelerating
+			if horizontalDirection == 0 and velocity.x != 0:
+				$AnimationPlayer.play("run", -1, 0.4)
+			else:
+				$AnimationPlayer.play("run")
 		MOTIONSTATE.falling:
-#			$AnimationPlayer.play("fall")
-			pass
+			$AnimationPlayer.play("fall")
 		MOTIONSTATE.idling:
 			$AnimationPlayer.play("idle")
-	
+
 func calculateMoveVelocity(horizontalDirection, delta):
 	if horizontalDirection != 0:
 		# speed up the player
@@ -102,7 +104,7 @@ func calculateMoveVelocity(horizontalDirection, delta):
 		# experimental tween approach
 #		var tween = create_tween()
 #		velocity.x = tween.interpolate_value(velocity.x, 0.0 - velocity.x, 0.2, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	
+#	$AnimationPlayer.playback_speed = 1.0
 	# aplly downwards gravity
 	velocity.y += gravity * delta
 	

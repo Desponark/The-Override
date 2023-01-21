@@ -16,7 +16,7 @@ scale = Vector2( 128, 128 )
 texture = ExtResource( 5 )
 
 [node name="Robot" parent="." instance=ExtResource( 4 )]
-position = Vector2( 298, 743 )
+position = Vector2( 260, 733 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 483, 772 )
