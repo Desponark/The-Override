@@ -588,5 +588,6 @@ shape = SubResource( 12 )
 [node name="RobotFollowPosition" type="Position2D" parent="."]
 position = Vector2( 0, -45 )
 
+[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
 [connection signal="area_exited" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_exited"]

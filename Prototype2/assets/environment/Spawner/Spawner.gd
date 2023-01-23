@@ -6,28 +6,29 @@ export var maxSpawnRate = 2
 
 func _ready():
 	randomize()
-	
-#func _physics_process(delta):
-#	spawn_enemy()
 
-func spawn_enemy():
+func spawnEnemy():
 	var enemy = enemySpawn.instance()
-	# Set spawn location for enemy to enemySpawnPoint
-	var enemySpawnLocation = $Position2D.position
-	enemy.position = enemySpawnLocation
-	# Spawn new enemy if a randomly generated number is greater than the given value below
-	add_child(enemy)
+	enemy.global_position = $Position2D.global_position
+	EventBus.emit_signal("spawnEnemy", enemy)
 
 func _on_Timer_timeout():
-	spawn_enemy()
+	spawnEnemy()
 	$Timer.wait_time = rand_range(minSpawnRate, maxSpawnRate)
 	
-func _on_SocketActivated():
+func startSpawner():
 	# start spawning of enemies
 	$Timer.start()
 	pass
 
-func _on_SocketFullyCharged():
+func stopSpawner():
 	# stop spawning of enemies
 	$Timer.stop()
 	pass
+
+# sockets functions
+func socketIsCharging():
+	startSpawner()
+	
+func socketFullyCharged():
+	stopSpawner()

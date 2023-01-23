@@ -17,6 +17,8 @@ var velocity = Vector2.ZERO
 enum MOTIONSTATE {falling, jumping, doubleJumping, jumpCancelled, idling, running, ascending}
 var motionState = MOTIONSTATE.idling
 
+var robotRef
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
@@ -119,9 +121,18 @@ func switchSpriteDirection(horizontalDirection):
 
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
-	if $HealthBar.has_method("getDamaged"):
-		$HealthBar.getDamaged(damage)
+	if $HealthBar.has_method("subtractHealth"):
+		$HealthBar.subtractHealth(damage)
 	
 func getRobotFollowPosition():
 	return $RobotFollowPosition.global_transform
 	
+func setRobotRef(robot):
+	robotRef = robot
+	
+func getRobotRef():
+	return robotRef
+	
+func _on_HealthBar_healthReachedZero():
+	# handle player death here
+	get_tree().reload_current_scene()
