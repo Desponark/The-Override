@@ -24,7 +24,7 @@ func fixRotation():
 	$Sprite.global_rotation = rotation
 
 func takeDamage():
-	print("takeDamage")
+	print("projectile takeDamage")
 	pass
 
 func _on_Projectile_body_entered(_body):

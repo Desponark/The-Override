@@ -14,8 +14,8 @@ var knockBackForce = Vector2.ZERO
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
 	EventBus.emit_signal("enemyWasHit")
-	if $HealthBar.has_method("getDamaged"):
-		$HealthBar.getDamaged(damage)
+	if $HealthBar.has_method("subtractHealth"):
+		$HealthBar.subtractHealth(damage)
 
 func knockBack(sourcePosition):
 	# not currently functional
@@ -34,3 +34,6 @@ func _on_DetectionArea_body_entered(body):
 
 func _on_DetectionArea_body_exited(body):
 	$Gun.stopShooting()
+
+func _on_HealthBar_healthReachedZero():
+	queue_free()

@@ -239,3 +239,4 @@ rect_scale = Vector2( 0.5, 0.5 )
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]
 [connection signal="timeout" from="Gun/Timer" to="Gun" method="_on_Timer_timeout"]
+[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
