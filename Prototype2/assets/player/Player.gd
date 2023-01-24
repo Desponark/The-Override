@@ -133,6 +133,9 @@ func setRobotRef(robot):
 func getRobotRef():
 	return robotRef
 	
+func getPriority():
+	return 1
+	
 func _on_HealthBar_healthReachedZero():
 	# handle player death here
 	get_tree().reload_current_scene()

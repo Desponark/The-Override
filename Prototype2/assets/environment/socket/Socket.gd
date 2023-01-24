@@ -15,7 +15,7 @@ func _physics_process(delta):
 func interact(area):
 	# disable socket interaction completely if fully charged
 	if isFullyCharged:
-		return	
+		return
 	# TODO: change implementation so player and robot are accessed differently
 	player = area.owner
 	robot = player.getRobotRef()
@@ -30,7 +30,8 @@ func interact(area):
 
 func getRobotDockPosition():
 	return $Position2D.global_position
-	
+
+# TODO: think about a better name
 func triggerEachScene():
 	for nodePath in triggerScenes:
 		var node = get_node(nodePath)

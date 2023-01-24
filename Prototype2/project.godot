@@ -104,11 +104,14 @@ attack={
 2d_render/layer_2="player"
 2d_render/layer_3="enemy"
 2d_render/layer_4="neutral"
+2d_render/layer_5="interactable"
+2d_render/layer_9="robot"
 2d_physics/layer_1="world"
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="neutral"
 2d_physics/layer_5="interactable"
+2d_physics/layer_9="robot"
 
 [physics]
 

@@ -517,7 +517,7 @@ height = 8.0
 [sub_resource type="CircleShape2D" id=12]
 radius = 64.195
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource( 2 )
 friction = 0.15
