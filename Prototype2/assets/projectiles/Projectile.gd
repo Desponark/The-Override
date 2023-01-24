@@ -1,8 +1,6 @@
 extends RigidBody2D
 
 var maxSpeed
-export var maxDistance = 25000.0
-var distanceTravelled = 0.0
 
 onready var startPosition = global_position
 
@@ -24,13 +22,11 @@ func fixRotation():
 	$Sprite.global_rotation = rotation
 
 func takeDamage():
+	# TODO: think about destructible projectiles
 	print("projectile takeDamage")
-	pass
 
 func _on_Projectile_body_entered(_body):
 	queue_free()
-	pass # Replace with function body.
 
 func _on_Timer_timeout():
 	queue_free()
-	pass # Replace with function body.

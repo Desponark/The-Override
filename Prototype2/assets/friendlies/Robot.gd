@@ -29,3 +29,11 @@ func interact(area):
 #			isFollowingPlayer = false
 #			$InteractionableBox/CollisionShape2D.disabled = false
 #			player = null
+
+func takeDamage(damage):
+	$VFXAnimationPlayer.play("hit")
+	if $HealthBar.has_method("subtractHealth"):
+		$HealthBar.subtractHealth(damage)
+
+func getPriority():
+	return 2
