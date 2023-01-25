@@ -9,11 +9,17 @@ func _integrate_forces(state):
 func _physics_process(delta):
 	if player != null:
 		if isFollowingPlayer:
+			$AnimationPlayer.play("idle")
 			setRobotTransform(player.getRobotFollowPosition())
 
 func setRobotTransform(transform):
 	var tween = create_tween()
 	tween.tween_property(self, "global_transform", transform, 0.5)
+	
+func putRobotInSocket(transform):
+	$AnimationPlayer.play("RESET")
+	isFollowingPlayer = false
+	setRobotTransform(transform)
 
 func interact(area):
 	if player == null:

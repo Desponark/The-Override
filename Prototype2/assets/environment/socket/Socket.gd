@@ -21,8 +21,7 @@ func interact(area):
 	robot = player.getRobotRef()
 	if robot != null and robot.isFollowingPlayer:
 		# socket the robot
-		robot.isFollowingPlayer = false
-		robot.setRobotTransform($Position2D.global_transform)
+		robot.putRobotInSocket($Position2D.global_transform)
 		
 		# trigger everything that triggers on socket charging up that is connected
 		isCharging = true
