@@ -7,9 +7,11 @@ var player = null
 func _integrate_forces(state):
 	rotation_degrees = 0 # disable rotation... only useful if robot actually has collisions
 	
+# TODO: think about a better way to change light scale
 func _process(delta):
 	var lightScale = 3 * (getHealth() / getMaxHealth())
-	print(lightScale)
+	if lightScale <= 0.4:
+		lightScale = 0.4
 	$Light2D.set_texture_scale(lightScale)
 	
 func _physics_process(delta):

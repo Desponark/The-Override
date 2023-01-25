@@ -1,7 +1,7 @@
 extends Control
 
-export var maxHealth = 100
-export var health = 100
+export var maxHealth = 100.0
+export var health = 100.0
 signal healthReachedZero
 signal healthReachedMax
 # potentially add signal for health being damaged...
