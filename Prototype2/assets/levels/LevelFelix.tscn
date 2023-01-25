@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/environment/backgrounds/space_window.png" type="Texture" id=6]
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/levels/LevelFelix.gd" type="Script" id=8]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/environment/door/Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/environment/backgrounds/space_window.02.png" type="Texture" id=11]
@@ -16,11 +15,17 @@
 [ext_resource path="res://assets/levels/Level Assets/Bar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/levels/Level Assets/Ceiling.tscn" type="PackedScene" id=16]
 
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+func _physics_process(delta):
+	pass
+"
+
 [node name="LevelFelix" type="Node2D"]
-script = ExtResource( 8 )
+script = SubResource( 1 )
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
 
 [node name="Layer -2" type="Node2D" parent="."]
