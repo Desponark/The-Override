@@ -742,19 +742,19 @@ isLocked = true
 
 [node name="Socket" parent="." instance=ExtResource( 9 )]
 position = Vector2( 928, 0 )
-triggerScenes = [ NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Spawner3"), NodePath("../Door") ]
+triggerScenes = [ NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Door") ]
 
 [node name="Spawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( -264, -352 )
 z_index = 2
+minSpawnRate = 5
+maxSpawnRate = 10
 
 [node name="Spawner2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1968, -528 )
 z_index = 2
-
-[node name="Spawner3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1944, 0 )
-z_index = 2
+minSpawnRate = 5
+maxSpawnRate = 10
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -24, -88 )

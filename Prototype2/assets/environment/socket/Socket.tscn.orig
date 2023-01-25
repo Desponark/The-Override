@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/environment/tileset-16px.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://assets/ui/HealthBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/environment/socket/Socket.gd" type="Script" id=3]
 [ext_resource path="res://assets/customNodes/InteractionableBox.gd" type="Script" id=4]
@@ -12,18 +12,19 @@ radius = 42.0
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 189, 94, 38, 35 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 2 )]
-margin_left = -37.0
-margin_top = 24.0
-margin_right = 66.0
-margin_bottom = 48.0
-rect_scale = Vector2( 0.75, 0.75 )
-maxHealth = 1000.0
+margin_left = -25.0
+margin_top = -12.0
+margin_right = 78.0
+margin_bottom = 12.0
+rect_scale = Vector2( 0.5, 0.5 )
+<<<<<<< working copy
+maxHealth = 2500
+=======
+maxHealth = 200
+>>>>>>> destination
 health = 0
 
 [node name="InteractionableBox" type="Area2D" parent="."]
