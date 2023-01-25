@@ -3,6 +3,7 @@ extends RigidBody2D
 var isFollowingPlayer = false
 var player = null
 
+
 func _integrate_forces(state):
 	rotation_degrees = 0 # disable rotation... only useful if robot actually has collisions
 	
@@ -40,6 +41,12 @@ func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
+		
+func getHealth():
+	return $HealthBar.getHealth()
+	
+func getMaxHealth():
+	return $HealthBar.getMaxHealth()
 
 func getPriority():
 	return 2

@@ -1,25 +1,28 @@
 extends Node2D
 
-export var isCharging = false
-export var isFullyCharged = false
 export var healthTransferAmount = 1.0
 export(Array, NodePath) var triggerScenes = []
+
+# TODO: use enum instead of bools? (empty, charging, full)
+var isCharging = false
+var isFullyCharged = false
 
 var player
 var robot
 
+
 func _physics_process(delta):
 	if isCharging:
+		if robot.getHealth() <= 1:
+			return
+		robot.takeDamage(healthTransferAmount)
 		$HealthBar.subtractHealth(-healthTransferAmount)
 
 func interact(area):
-	# disable socket interaction completely if fully charged
-	if isFullyCharged:
-		return
 	# TODO: change implementation so player and robot are accessed differently
 	player = area.owner
 	robot = player.getRobotRef()
-	if robot != null and robot.isFollowingPlayer:
+	if robot != null and robot.isFollowingPlayer and !isFullyCharged:
 		# socket the robot
 		robot.putRobotInSocket($Position2D.global_transform)
 		
@@ -45,5 +48,7 @@ func _on_HealthBar_healthReachedMax():
 	isCharging = false
 	isFullyCharged = true
 	robot.isFollowingPlayer = true
+	# disable socket interaction completely if fully charged
+	$InteractionableBox/CollisionShape2D.disabled = true
 	# trigger everything on socket being full that is connected
 	triggerEachScene()

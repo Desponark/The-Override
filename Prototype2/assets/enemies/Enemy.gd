@@ -14,6 +14,7 @@ var knockBackForce = Vector2.ZERO
 var approachTargets = []
 var rangedTargets = []
 
+export(PackedScene) var healthDrop
 
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
@@ -79,7 +80,15 @@ func _on_RangedAggroZone_body_exited(body):
 	if rangedTargets.size() == 0:
 		$Gun.stopShooting()
 
+
 func _on_HealthBar_healthReachedZero():
+	# drop health
+	if healthDrop != null:
+		var newHealthDrop = healthDrop.instance()
+		newHealthDrop.global_position = global_position
+		EventBus.emit_signal("spawnLoot", newHealthDrop)
+	
+	# remove enemy
 	queue_free()
 	
 func _on_AggroZone_body_entered(body):
