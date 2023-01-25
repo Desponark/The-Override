@@ -4,7 +4,7 @@ export var maxHealth = 100
 export var health = 100
 signal healthReachedZero
 signal healthReachedMax
-# potentially add signals for health reaching max or health being damaged etc...
+# potentially add signal for health being damaged...
 
 func _ready():
 	$Health.max_value = maxHealth
@@ -12,6 +12,12 @@ func _ready():
 
 func _process(_delta):
 	$Health.value = health
+
+func getHealth():
+	return health
+	
+func getMaxHealth():
+	return maxHealth
 
 func subtractHealth(damage):
 	health -= damage

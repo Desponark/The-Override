@@ -7,6 +7,7 @@ func _ready():
 	EventBus.connect("enemyWasHit", self, "freezeEngine")
 	EventBus.connect("spawnProjectile", self, "spawnProjectile")
 	EventBus.connect("spawnEnemy", self, "spawnEnemy")
+	EventBus.connect("spawnLoot", self, "spawnLoot")
 	
 # this is for creating a nice hit stop / freeze effect for making melee hit feel more impactful
 func freezeEngine():
@@ -22,3 +23,6 @@ func spawnProjectile(newProjectile):
 # adds any given enemies to the enemies node
 func spawnEnemy(newEnemy):
 	$Enemies.add_child(newEnemy)
+
+func spawnLoot(newLoot):
+	$Loot.add_child(newLoot)

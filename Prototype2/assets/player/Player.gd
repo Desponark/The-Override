@@ -19,10 +19,35 @@ var motionState = MOTIONSTATE.idling
 
 var robotRef
 
+var isTransferingHealth = false
+export var healthTransferAmount = 2.0
+# TODO: Improve and cleanup health transfer system
+# Change where health is stored.
+# Change how health transfer works.
+# Change how robot and player are accessed
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
+	# health transfer
+	if event.is_action_pressed("transferHealth"):
+		isTransferingHealth = true
+	if event.is_action_released("transferHealth"):
+		isTransferingHealth = false
+		
+func _process(delta):
+	if isTransferingHealth and robotRef != null:
+		# if player has 1 health or less disallow transfering of health
+		if $HealthBar.getHealth() <= healthTransferAmount:
+			return
+		# if robot is full health disallow transfering of health
+		if robotRef.getHealth() >= robotRef.getMaxHealth():
+			return
+		# remove health from player
+		takeDamage(healthTransferAmount)
+		# add health to robot
+		robotRef.takeDamage(-healthTransferAmount)
 	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -77,7 +102,7 @@ func playAnimations(horizontalDirection):
 		return
 	match motionState:
 		MOTIONSTATE.jumping, MOTIONSTATE.doubleJumping:
-			$AnimationPlayer.play("jump2")
+			$AnimationPlayer.play("jump")
 		MOTIONSTATE.running:
 			# slow down animation speed if the player is decelerating
 			if horizontalDirection == 0 and velocity.x != 0:
@@ -133,6 +158,7 @@ func setRobotRef(robot):
 func getRobotRef():
 	return robotRef
 	
+	# TODO: think about different solution
 func getPriority():
 	return 1
 	

@@ -7,3 +7,4 @@ signal playerWasKilled
 signal enemyWasHit
 signal spawnProjectile(newProjectile)
 signal spawnEnemy(newEnemy)
+signal spawnLoot(loot)
