@@ -7,6 +7,11 @@ var player = null
 func _integrate_forces(state):
 	rotation_degrees = 0 # disable rotation... only useful if robot actually has collisions
 	
+func _process(delta):
+	var lightScale = 3 * (getHealth() / getMaxHealth())
+	print(lightScale)
+	$Light2D.set_texture_scale(lightScale)
+	
 func _physics_process(delta):
 	if player != null:
 		if isFollowingPlayer:
