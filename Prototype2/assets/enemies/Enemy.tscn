@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/enemies/Swordsman0000.png" type="Texture" id=1]
 [ext_resource path="res://assets/enemies/Swordsman0001.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/enemies/Gun.gd" type="Script" id=9]
 [ext_resource path="res://assets/projectiles/Projectile.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/ui/HealthBar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/enemies/Enemy.png" type="Texture" id=12]
 
 [sub_resource type="ShaderMaterial" id=8]
 resource_local_to_scene = true
@@ -18,7 +19,7 @@ shader = ExtResource( 7 )
 shader_param/active = false
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 25, 24 )
+extents = Vector2( 32, 34 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -166,7 +167,7 @@ scale = 0.5
 scale_curve = SubResource( 11 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 25, 24 )
+extents = Vector2( 32, 34 )
 
 [sub_resource type="CircleShape2D" id=14]
 radius = 1536.0
@@ -179,11 +180,10 @@ script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 8 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -3, 12 )
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -212,7 +212,6 @@ monitorable = false
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2( -3, 12 )
 shape = SubResource( 5 )
 
 [node name="AggroZone" type="Area2D" parent="."]

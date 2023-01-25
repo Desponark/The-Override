@@ -7,14 +7,14 @@ var target
 
 func startShooting(body):
 	target = body
-	shoot(target)
+	shoot()
 	$Timer.start()
 	
 func stopShooting():
 	$Timer.stop()
 	target = null
 	
-func shoot(target):
+func shoot():
 	look_at(target.global_position)	
 	
 	var newProjectile = projectile.instance()
@@ -28,4 +28,4 @@ func _on_Timer_timeout():
 	if target == null:
 		stopShooting()
 		return
-	shoot(target)
+	shoot()

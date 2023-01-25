@@ -520,6 +520,9 @@ radius = 64.195
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 friction = 0.15
 
 [node name="Sprite" type="Sprite" parent="."]

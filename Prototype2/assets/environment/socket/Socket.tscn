@@ -20,7 +20,7 @@ margin_top = -12.0
 margin_right = 78.0
 margin_bottom = 12.0
 rect_scale = Vector2( 0.5, 0.5 )
-maxHealth = 300
+maxHealth = 700
 health = 0
 
 [node name="InteractionableBox" type="Area2D" parent="."]
