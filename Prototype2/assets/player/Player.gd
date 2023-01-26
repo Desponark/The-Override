@@ -27,6 +27,7 @@ export var healthTransferAmount = 1.0
 # Change how robot and player are accessed
 
 
+
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
@@ -45,9 +46,11 @@ func _process(delta):
 		if robotRef.getHealth() >= robotRef.getMaxHealth():
 			return
 		# remove health from player
-		takeDamage(healthTransferAmount)
+#		takeDamage(healthTransferAmount)
+		transferHealth(healthTransferAmount)
 		# add health to robot
-		robotRef.takeDamage(-(healthTransferAmount * 2))
+#		robotRef.takeDamage(-(healthTransferAmount * 2))
+		robotRef.transferHealth(-(healthTransferAmount * 2))
 	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -131,7 +134,7 @@ func calculateMoveVelocity(horizontalDirection, delta):
 		# experimental tween approach
 #		var tween = create_tween()
 #		velocity.x = tween.interpolate_value(velocity.x, 0.0 - velocity.x, 0.2, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-#	$AnimationPlayer.playback_speed = 1.0
+
 	# aplly downwards gravity
 	velocity.y += gravity * delta
 	
@@ -146,6 +149,11 @@ func switchSpriteDirection(horizontalDirection):
 
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
+	if $HealthBar.has_method("subtractHealth"):
+		$HealthBar.subtractHealth(damage)
+	
+# TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
+func transferHealth(damage):
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
 	

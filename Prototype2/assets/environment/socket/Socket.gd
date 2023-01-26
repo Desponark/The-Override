@@ -15,7 +15,8 @@ func _physics_process(delta):
 	if isCharging:
 		if robot.getHealth() <= 1:
 			return
-		robot.takeDamage(healthTransferAmount)
+#		robot.takeDamage(healthTransferAmount)
+		robot.transferHealth(healthTransferAmount)
 		$HealthBar.subtractHealth(-healthTransferAmount)
 
 func interact(area):
