@@ -49,6 +49,11 @@ func takeDamage(damage):
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
 		
+# TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
+func transferHealth(damage):
+	if $HealthBar.has_method("subtractHealth"):
+		$HealthBar.subtractHealth(damage)
+		
 func getHealth():
 	return $HealthBar.getHealth()
 	
