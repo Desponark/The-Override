@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=2]
 [ext_resource path="res://assets/environment/backgrounds/back.png" type="Texture" id=3]
 [ext_resource path="res://assets/levels/Level Assets/Platform.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=5]
@@ -21,6 +22,29 @@ script/source = "extends Node2D
 func _physics_process(delta):
 	pass
 "
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/active = false
+
+[sub_resource type="Animation" id=3]
+resource_local_to_scene = true
+resource_name = "hit"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
 
 [node name="LevelFelix" type="Node2D"]
 script = SubResource( 1 )
@@ -721,7 +745,7 @@ position = Vector2( 0, -124 )
 scale = Vector2( 1, 1 )
 
 [node name="Bar3" parent="BaseLayer/SideWall" instance=ExtResource( 15 )]
-position = Vector2( 848, -29.3333 )
+position = Vector2( 848, -27.45 )
 scale = Vector2( 1, 1 )
 
 [node name="Bar4" parent="BaseLayer/SideWall" instance=ExtResource( 15 )]
@@ -731,13 +755,59 @@ scale = Vector2( 1, 1 )
 [node name="Crate" parent="BaseLayer" instance=ExtResource( 14 )]
 position = Vector2( -256, 0 )
 
-[node name="Foreground" type="Node2D" parent="."]
+[node name="Foreground" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.1
+
+[node name="Bar5" parent="Foreground" instance=ExtResource( 15 )]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 554, -164 )
+scale = Vector2( 1, 6 )
+
+[node name="LightOccluder2D" parent="Foreground/Bar5/Sprite" index="0"]
+visible = false
+
+[node name="LightOccluder2D" parent="Foreground/Bar5/Sprite2" index="0"]
+visible = false
+
+[node name="Bar6" parent="Foreground" instance=ExtResource( 15 )]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 554, -921 )
+scale = Vector2( 1, 6 )
+
+[node name="LightOccluder2D" parent="Foreground/Bar6/Sprite" index="0"]
+visible = false
+
+[node name="LightOccluder2D" parent="Foreground/Bar6/Sprite2" index="0"]
+visible = false
+
+[node name="Bar7" parent="Foreground" instance=ExtResource( 15 )]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1692, -161 )
+scale = Vector2( 1, 6 )
+
+[node name="LightOccluder2D" parent="Foreground/Bar7/Sprite" index="0"]
+visible = false
+
+[node name="LightOccluder2D" parent="Foreground/Bar7/Sprite2" index="0"]
+visible = false
+
+[node name="Bar8" parent="Foreground" instance=ExtResource( 15 )]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1692, -918 )
+scale = Vector2( 1, 6 )
+
+[node name="LightOccluder2D" parent="Foreground/Bar8/Sprite" index="0"]
+visible = false
+
+[node name="LightOccluder2D" parent="Foreground/Bar8/Sprite2" index="0"]
+visible = false
 
 [node name="Robot" parent="." instance=ExtResource( 5 )]
 position = Vector2( 336, -48 )
 
 [node name="Door" parent="." instance=ExtResource( 10 )]
-position = Vector2( 2128, -32 )
+position = Vector2( 2158, -20 )
 isLocked = true
 
 [node name="Socket" parent="." instance=ExtResource( 9 )]
@@ -760,6 +830,18 @@ maxSpawnRate = 10
 position = Vector2( -24, -88 )
 z_index = 1
 
+[node name="Sprite" parent="Player" index="0"]
+material = SubResource( 2 )
+
+[node name="VFXAnimationPlayer" parent="Player" index="3"]
+anims/hit = SubResource( 3 )
+
+[node name="Camera2D" parent="Player" index="4"]
+position = Vector2( 1, 0 )
+limit_left = -450
+limit_top = -1000
+limit_bottom = 80
+
 [node name="Label" type="Label" parent="."]
 margin_left = 848.0
 margin_top = -96.0
@@ -773,3 +855,9 @@ margin_top = -104.0
 margin_right = 415.0
 margin_bottom = -90.0
 text = "Press E to pick up robot"
+
+[editable path="Foreground/Bar5"]
+[editable path="Foreground/Bar6"]
+[editable path="Foreground/Bar7"]
+[editable path="Foreground/Bar8"]
+[editable path="Player"]

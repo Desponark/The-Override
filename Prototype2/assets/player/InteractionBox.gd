@@ -18,7 +18,7 @@ func _on_InteractionBox_area_entered(area):
 	# they overwrite the interaction making it very hard to interact
 	# with the thing one wants to interact with
 	# solution -> keep all possible interactions in mind and choose the one that is closest
-	# show ui prompt -> press e to interact
+	# TODO: show ui prompt -> press e to interact
 
 func _on_InteractionBox_area_exited(area):
 	interactable = null

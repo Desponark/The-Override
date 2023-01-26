@@ -20,7 +20,7 @@ var motionState = MOTIONSTATE.idling
 var robotRef
 
 var isTransferingHealth = false
-export var healthTransferAmount = 2.0
+export var healthTransferAmount = 1.0
 # TODO: Improve and cleanup health transfer system
 # Change where health is stored.
 # Change how health transfer works.
@@ -47,7 +47,7 @@ func _process(delta):
 		# remove health from player
 		takeDamage(healthTransferAmount)
 		# add health to robot
-		robotRef.takeDamage(-healthTransferAmount)
+		robotRef.takeDamage(-(healthTransferAmount * 2))
 	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
