@@ -351,7 +351,6 @@ shape = SubResource( 1 )
 
 [node name="bar12" parent="Collision Bars" instance=ExtResource( 9 )]
 position = Vector2( 1188, -1782 )
-scale = Vector2( 3, 6 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collision Bars/bar12"]
 

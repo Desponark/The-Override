@@ -9,6 +9,11 @@ func _ready():
 	EventBus.connect("spawnEnemy", self, "spawnEnemy")
 	EventBus.connect("spawnLoot", self, "spawnLoot")
 	
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
+
 # this is for creating a nice hit stop / freeze effect for making melee hit feel more impactful
 func freezeEngine():
 	Engine.time_scale = freezeSlow
