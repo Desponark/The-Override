@@ -1,7 +1,7 @@
 extends Node2D
 
 export(PackedScene) var projectile
-export(float) var projectileSpeed = 350
+export(float) var projectileSpeed = 350.0
 
 var target
 
@@ -15,7 +15,7 @@ func stopShooting():
 	target = null
 	
 func shoot():
-	look_at(target.global_position)	
+	look_at(target.global_position)
 	
 	var newProjectile = projectile.instance()
 	

@@ -21,10 +21,13 @@ var robotRef
 
 var isTransferingHealth = false
 export var healthTransferAmount = 1.0
+# this multiplies the player health when charging the robot so the robot receives more (or less) health
+# example: healthTransferAmount = 1.0, healthTransferMultiplier = 2.0, means 1 player health is 2 robot health
+export var healthTransferMultiplier = 2.0
 # TODO: Improve and cleanup health transfer system
 # Change where health is stored.
 # Change how health transfer works.
-# Change how robot and player are accessed
+# Change how robot and player are accessed.
 
 
 
@@ -37,20 +40,14 @@ func _unhandled_input(event):
 	if event.is_action_released("transferHealth"):
 		isTransferingHealth = false
 		
-func _process(delta):
+func _process(_delta):
 	if isTransferingHealth and robotRef != null:
-		# if player has 1 health or less disallow transfering of health
-		if $HealthBar.getHealth() <= healthTransferAmount:
+		if $HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
 			return
-		# if robot is full health disallow transfering of health
-		if robotRef.getHealth() >= robotRef.getMaxHealth():
+		if robotRef.getHealth() >= robotRef.getMaxHealth(): # if robot is full health disallow transfering of health
 			return
-		# remove health from player
-#		takeDamage(healthTransferAmount)
 		transferHealth(healthTransferAmount)
-		# add health to robot
-#		robotRef.takeDamage(-(healthTransferAmount * 2))
-		robotRef.transferHealth(-(healthTransferAmount * 2))
+		robotRef.transferHealth(-(healthTransferAmount * healthTransferMultiplier))
 	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -166,7 +163,7 @@ func setRobotRef(robot):
 func getRobotRef():
 	return robotRef
 	
-	# TODO: think about different solution
+# TODO: think about different solution
 func getPriority():
 	return 1
 	

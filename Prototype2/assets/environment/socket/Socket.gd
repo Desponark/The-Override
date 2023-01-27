@@ -11,7 +11,7 @@ var player
 var robot
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if isCharging:
 		if robot.getHealth() <= 1:
 			return

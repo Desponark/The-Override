@@ -104,7 +104,6 @@ radius = 17.0294
 collision_layer = 256
 collision_mask = 0
 mode = 3
-gravity_scale = 0.0
 script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -8,13 +8,18 @@ export (float, 0, 1.0) var acceleration = 0.1
 var horizontalDirection = 0
 var velocity = Vector2.ZERO
 
-var knockBackForce = Vector2.ZERO
-
 # targeting
 var approachTargets = []
 var rangedTargets = []
 
 export(PackedScene) var healthDrop
+
+
+func _physics_process(delta):
+	# apply gravity
+	velocity.y += gravity * delta
+	velocity = moveEnemyTowardsTarget(getPriorityTarget(approachTargets))
+	velocity = move_and_slide(velocity, upDirection)
 
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
@@ -22,18 +27,11 @@ func takeDamage(damage):
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
 
-func _physics_process(delta):
-	# apply gravity
-	velocity.y += gravity * delta
-	velocity = moveEnemyTowardsPlayer(velocity)
-	velocity = move_and_slide(velocity, upDirection)
-
-func moveEnemyTowardsPlayer(velocity):
-	# TODO: Clean up code 
-	var target = getPriorityTarget(approachTargets)
-	# only move towards target it target is found AND another target isn't in range
-	if target != null and rangedTargets.size() <= 0:
-		if target.global_position.x > global_position.x:
+# move enemy towards the x direction of the given target
+func moveEnemyTowardsTarget(approachTarget):
+	# only move towards target if target is found AND another target isn't in range
+	if approachTarget != null and rangedTargets.size() <= 0:
+		if approachTarget.global_position.x > global_position.x:
 			horizontalDirection = 1
 		else:
 			horizontalDirection = -1
@@ -56,26 +54,25 @@ func getPriorityTarget(array):
 				prio = element.getPriority()
 				index = i
 	return array[index]
-	
+
+func startOrStopShooting():
+	var target = getPriorityTarget(rangedTargets)
+	if target != null:
+		$Gun.startShooting(target)
+	elif rangedTargets.size() <= 0:
+		$Gun.stopShooting()
 
 # if body enters range start ranged combat
 func _on_RangedAggroZone_body_entered(body):
 	if body.is_in_group("player") or body.is_in_group("robot"):
 		rangedTargets.append(body)
-	# TODO: split up code
-	var target = getPriorityTarget(rangedTargets)
-	if target != null:
-		$Gun.startShooting(target)
-	
+	startOrStopShooting()
 
 func _on_RangedAggroZone_body_exited(body):
 	var found = rangedTargets.find(body)
 	if found != -1:
 		rangedTargets.remove(found)
-		
-	if rangedTargets.size() == 0:
-		$Gun.stopShooting()
-
+	startOrStopShooting()
 
 func _on_HealthBar_healthReachedZero():
 	# drop health
