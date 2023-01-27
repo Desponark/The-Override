@@ -22,13 +22,6 @@ func takeDamage(damage):
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
 
-# TODO: implement knockback
-func knockBack(sourcePosition):
-	# not currently functional
-#	$HitParticles.rotation = get_angle_to(sourcePosition) + PI
-#	knockBackForce = - global_position.direction_to(sourcePosition) * 300
-	pass
-
 func _physics_process(delta):
 	# apply gravity
 	velocity.y += gravity * delta
@@ -38,11 +31,14 @@ func _physics_process(delta):
 func moveEnemyTowardsPlayer(velocity):
 	# TODO: Clean up code 
 	var target = getPriorityTarget(approachTargets)
-	if target != null:
+	# only move towards target it target is found AND another target isn't in range
+	if target != null and rangedTargets.size() <= 0:
 		if target.global_position.x > global_position.x:
 			horizontalDirection = 1
 		else:
 			horizontalDirection = -1
+	else:
+		horizontalDirection = 0
 
 	velocity.x = lerp(velocity.x, horizontalDirection * moveSpeed, acceleration)
 	return velocity
