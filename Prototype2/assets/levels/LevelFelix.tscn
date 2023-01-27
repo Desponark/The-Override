@@ -767,22 +767,10 @@ position = Vector2( 928, 0 )
 triggerScenes = [ NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Door") ]
 
 [node name="Spawner" parent="." instance=ExtResource( 7 )]
-position = Vector2( -266, -356 )
-z_index = 2
-minSpawnRate = 5
-maxSpawnRate = 8
-
-[node name="Spawner3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 518, -236 )
-z_index = 2
-minSpawnRate = 5
-maxSpawnRate = 8
+position = Vector2( -231, -426 )
 
 [node name="Spawner2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1974, -557 )
-z_index = 2
-minSpawnRate = 5
-maxSpawnRate = 10
+position = Vector2( 2015, -649 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -17, -88 )
