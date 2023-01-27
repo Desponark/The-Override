@@ -55,24 +55,22 @@ func getPriorityTarget(array):
 				index = i
 	return array[index]
 
-func startOrStopShooting():
-	var target = getPriorityTarget(rangedTargets)
-	if target != null:
-		$Gun.startShooting(target)
-	elif rangedTargets.size() <= 0:
-		$Gun.stopShooting()
-
 # if body enters range start ranged combat
 func _on_RangedAggroZone_body_entered(body):
 	if body.is_in_group("player") or body.is_in_group("robot"):
 		rangedTargets.append(body)
-	startOrStopShooting()
+	
+	var target = getPriorityTarget(rangedTargets)
+	if target != null:
+		$Gun.startShooting(target)
 
 func _on_RangedAggroZone_body_exited(body):
 	var found = rangedTargets.find(body)
 	if found != -1:
 		rangedTargets.remove(found)
-	startOrStopShooting()
+	
+	if rangedTargets.size() <= 0:
+		$Gun.stopShooting()
 
 func _on_HealthBar_healthReachedZero():
 	# drop health
