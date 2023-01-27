@@ -188,7 +188,6 @@ collision_mask = 258
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroZone"]
-position = Vector2( -295, 0 )
 shape = SubResource( 14 )
 
 [node name="RangedAggroZone" type="Area2D" parent="."]

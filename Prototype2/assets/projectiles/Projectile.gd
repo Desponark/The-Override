@@ -14,7 +14,7 @@ func _ready():
 func _integrate_forces(state):
 	state.linear_velocity = linear_velocity.normalized() * maxSpeed
 	
-func _process(delta):
+func _process(_delta):
 	fixRotation()
 	
 func fixRotation():

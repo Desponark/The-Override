@@ -7,5 +7,3 @@ export var damage = 10
 func damageHitTarget(area):
 	if area.owner.has_method("takeDamage"):
 		area.owner.takeDamage(damage)
-	if area.owner.has_method("knockBack"):
-		area.owner.knockBack(global_position)

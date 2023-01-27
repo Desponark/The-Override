@@ -3,7 +3,7 @@
 # or increases code complexity substantially.
 extends Node
 
-signal playerWasKilled
+# warning-ignore-all:UNUSED_SIGNAL
 signal enemyWasHit
 signal spawnProjectile(newProjectile)
 signal spawnEnemy(newEnemy)

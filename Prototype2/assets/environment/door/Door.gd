@@ -6,6 +6,7 @@ var currentlyOpen = false
 
 # TODO: think about using a trigger instead of process
 func _process(_delta):
+	# change the color of the door to red to symbolize it being locked
 	if isLocked:
 		modulate = Color( 1, 0, 0 ) # red; note that self_modulate doesn't seem to work for some reason
 		return
@@ -28,7 +29,7 @@ func setLock(lock):
 	isLocked = lock
 
 # player interacts with door
-func interact(area):
+func interact(_area):
 	toggleDoorOpen(!isOpen)
 
 func socketIsCharging():
