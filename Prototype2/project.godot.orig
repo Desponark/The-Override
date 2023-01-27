@@ -42,9 +42,15 @@ EventBus="*res://assets/autoLoad/EventBus.gd"
 
 [display]
 
+<<<<<<< working copy
 window/size/width=1920
 window/size/height=1080
+window/size/borderless=true
 window/size/fullscreen=true
+=======
+window/size/width=1440
+window/size/height=810
+>>>>>>> destination
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

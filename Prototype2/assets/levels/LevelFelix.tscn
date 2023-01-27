@@ -16,14 +16,7 @@
 [ext_resource path="res://assets/levels/Level Assets/Crate.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/levels/Level Assets/Bar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/levels/Level Assets/Ceiling.tscn" type="PackedScene" id=16]
-[ext_resource path="res://assets/environment/backgrounds/background.png" type="Texture" id=17]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Node2D
-
-func _physics_process(delta):
-	pass
-"
+[ext_resource path="res://EndGameScreen.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -48,15 +41,19 @@ tracks/0/keys = {
 "values": [ true, false, true, false ]
 }
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 141.693
+
 [node name="LevelFelix" type="Node2D"]
-script = SubResource( 1 )
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="."]
 color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
-[node name="Layer -2" type="Node2D" parent="."]
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_scale = 0.7
 
-[node name="Background" type="Sprite" parent="Layer -2"]
+[node name="Background" type="Sprite" parent="BackgroundLayer"]
 position = Vector2( 768, -792 )
 scale = Vector2( 1.36, 1.76 )
 texture = ExtResource( 12 )
@@ -593,15 +590,11 @@ position = Vector2( 2432, -768 )
 texture = ExtResource( 6 )
 
 [node name="SpaceWindow10" type="Sprite" parent="Layer -1/Windows"]
-position = Vector2( 2760, -176 )
+position = Vector2( 2759, -176 )
 texture = ExtResource( 11 )
 
 [node name="SpaceWindow11" type="Sprite" parent="Layer -1/Windows"]
 position = Vector2( 3176, -176 )
-texture = ExtResource( 11 )
-
-[node name="SpaceWindow12" type="Sprite" parent="Layer -1/Windows"]
-position = Vector2( 3600, -176 )
 texture = ExtResource( 11 )
 
 [node name="SpaceWindow8" type="Sprite" parent="Layer -1/Windows"]
@@ -761,146 +754,6 @@ position = Vector2( -256, 0 )
 follow_viewport_enable = true
 follow_viewport_scale = 1.1
 
-[node name="Bar5" parent="Foreground" instance=ExtResource( 15 )]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 554, -164 )
-scale = Vector2( 1, 6 )
-
-[node name="LightOccluder2D" parent="Foreground/Bar5/Sprite" index="0"]
-visible = false
-
-[node name="LightOccluder2D" parent="Foreground/Bar5/Sprite2" index="0"]
-visible = false
-
-[node name="Bar6" parent="Foreground" instance=ExtResource( 15 )]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 554, -921 )
-scale = Vector2( 1, 6 )
-
-[node name="LightOccluder2D" parent="Foreground/Bar6/Sprite" index="0"]
-visible = false
-
-[node name="LightOccluder2D" parent="Foreground/Bar6/Sprite2" index="0"]
-visible = false
-
-[node name="Bar7" parent="Foreground" instance=ExtResource( 15 )]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1692, -161 )
-scale = Vector2( 1, 6 )
-
-[node name="LightOccluder2D" parent="Foreground/Bar7/Sprite" index="0"]
-visible = false
-
-[node name="LightOccluder2D" parent="Foreground/Bar7/Sprite2" index="0"]
-visible = false
-
-[node name="Bar8" parent="Foreground" instance=ExtResource( 15 )]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1692, -918 )
-scale = Vector2( 1, 6 )
-
-[node name="LightOccluder2D" parent="Foreground/Bar8/Sprite" index="0"]
-visible = false
-
-[node name="LightOccluder2D" parent="Foreground/Bar8/Sprite2" index="0"]
-visible = false
-
-[node name="Crate2" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( 613, 36 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate2" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate2" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-
-[node name="Crate6" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( 615, 66 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate6" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate6" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-
-[node name="Crate3" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( 465, 54 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate3" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate3" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-
-[node name="Crate5" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( -250, 41 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate5" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate5" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -3.5, 0 )
-
-[node name="Crate7" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( -346, 42 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate7" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate7" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -3, -0.25 )
-
-[node name="Crate8" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( -327, -36 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate8" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate8" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -7.25, 0 )
-
-[node name="Crate9" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( -268, -32 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate9" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate9" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -7.75, -1 )
-
-[node name="Crate10" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( -306, -99 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate10" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate10" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -12.25, -0.75 )
-
-[node name="Crate4" parent="Foreground" instance=ExtResource( 14 )]
-position = Vector2( 1496, 55 )
-
-[node name="CollisionShape2D" parent="Foreground/Crate4" index="0"]
-visible = false
-disabled = true
-
-[node name="Sprite" parent="Foreground/Crate4" index="1"]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 15.75, -1 )
-
 [node name="Robot" parent="." instance=ExtResource( 5 )]
 position = Vector2( 336, -48 )
 
@@ -914,10 +767,16 @@ position = Vector2( 928, 0 )
 triggerScenes = [ NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Door") ]
 
 [node name="Spawner" parent="." instance=ExtResource( 7 )]
-position = Vector2( -262, -382 )
+position = Vector2( -266, -356 )
 z_index = 2
 minSpawnRate = 5
-maxSpawnRate = 10
+maxSpawnRate = 8
+
+[node name="Spawner3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 518, -236 )
+z_index = 2
+minSpawnRate = 5
+maxSpawnRate = 8
 
 [node name="Spawner2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1974, -557 )
@@ -926,8 +785,12 @@ minSpawnRate = 5
 maxSpawnRate = 10
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -24, -88 )
+position = Vector2( -17, -88 )
 z_index = 1
+maxJumpHeight = -850.0
+minJumpHeight = -300.0
+doubleJumpHeight = -700.0
+gravity = 2000.0
 
 [node name="Sprite" parent="Player" index="0"]
 material = SubResource( 2 )
@@ -936,46 +799,49 @@ material = SubResource( 2 )
 anims/hit = SubResource( 3 )
 
 [node name="Camera2D" parent="Player" index="4"]
-position = Vector2( 1, 0 )
+zoom = Vector2( 0.7, 0.7 )
 limit_left = -430
-limit_top = -1000
+limit_top = -941
 limit_bottom = 80
 
-[node name="Label" type="Label" parent="."]
+[node name="PickUpRobotTutorial" type="Label" parent="."]
 margin_left = 848.0
 margin_top = -96.0
 margin_right = 998.0
 margin_bottom = -82.0
 text = "Press E to put in socket"
 
-[node name="Label2" type="Label" parent="."]
+[node name="PutInSocketTutorial" type="Label" parent="."]
 margin_left = 264.0
 margin_top = -104.0
 margin_right = 415.0
 margin_bottom = -90.0
 text = "Press E to pick up robot"
 
+[node name="HealthExchangeTutorial" type="Label" parent="."]
+margin_left = 187.0
+margin_top = -145.0
+margin_right = 489.0
+margin_bottom = -131.0
+text = "Hold Q to exchange health from player to robot"
+
 [node name="GrayBlock" parent="." instance=ExtResource( 8 )]
 position = Vector2( -375, -140 )
 tile_data = PoolIntArray( -1245057, 0, 0, -1245056, 0, 0, -1245055, 0, 0, -1179521, 0, 0, -1179519, 0, 0, -1179518, 0, 0, -1113986, 0, 0, -1113985, 0, 0, -1113982, 0, 0, -1113981, 0, 0, -1048450, 0, 0, -1048445, 0, 0, -982915, 0, 0, -982914, 0, 0, -982913, 0, 0, -917380, 0, 0, -917379, 0, 0, -917377, 0, 0, -917376, 0, 0, -917368, 0, 0, -851844, 0, 0, -851840, 0, 0, -851839, 0, 0, -851833, 0, 0, -851832, 0, 0, -786309, 0, 0, -786308, 0, 0, -786298, 0, 0, -786297, 0, 0, -786296, 0, 0, -720773, 0, 0, -720772, 0, 0, -720771, 0, 0, -720763, 0, 0, -720762, 0, 0, -720760, 0, 0, -655235, 0, 0, -655234, 0, 0, -655228, 0, 0, -655227, 0, 0, -655225, 0, 0, -655224, 0, 0, -655220, 0, 0, -655219, 0, 0, -589698, 0, 0, -589697, 0, 0, -589693, 0, 0, -589692, 0, 0, -589689, 0, 0, -589685, 0, 0, -589684, 0, 0, -524158, 0, 0, -524157, 0, 0, -524154, 0, 0, -524153, 0, 0, -524150, 0, 0, -524149, 0, 0, -458622, 0, 0, -458618, 0, 0, -458615, 0, 0, -458614, 0, 0, -458609, 0, 0, -458608, 0, 0, -393083, 0, 0, -393082, 0, 0, -393080, 0, 0, -393079, 0, 0, -393074, 0, 0, -393073, 0, 0, -393072, 0, 0, -327547, 0, 0, -327546, 0, 0, -327545, 0, 0, -327544, 0, 0, -327539, 0, 0, -327538, 0, 0, -327536, 0, 0, -262011, 0, 0, -262010, 0, 0, -262004, 0, 0, -262003, 0, 0, -262000, 0, 0, -261999, 0, 0, -196469, 0, 0, -196468, 0, 0, -196463, 0, 0, -130934, 0, 0, -130933, 0, 0, -130927, 0, 0, -65399, 0, 0, -65398, 0, 0, -65392, 0, 0, -65391, 0, 0, 137, 0, 0, 138, 0, 0, 139, 0, 0, 140, 0, 0, 143, 0, 0, 144, 0, 0, 65676, 0, 0, 65677, 0, 0, 65678, 0, 0, 65679, 0, 0 )
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 3846, -545 )
-scale = Vector2( 20, 20 )
-z_index = -10
-texture = ExtResource( 17 )
+[node name="FinishScreenTrigger" type="Area2D" parent="."]
+position = Vector2( 2722, 47 )
 
-[editable path="Foreground/Bar5"]
-[editable path="Foreground/Bar6"]
-[editable path="Foreground/Bar7"]
-[editable path="Foreground/Bar8"]
-[editable path="Foreground/Crate2"]
-[editable path="Foreground/Crate6"]
-[editable path="Foreground/Crate3"]
-[editable path="Foreground/Crate5"]
-[editable path="Foreground/Crate7"]
-[editable path="Foreground/Crate8"]
-[editable path="Foreground/Crate9"]
-[editable path="Foreground/Crate10"]
-[editable path="Foreground/Crate4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishScreenTrigger"]
+position = Vector2( 77, -122 )
+shape = SubResource( 4 )
+
+[node name="EndGameScreen" parent="." instance=ExtResource( 17 )]
+margin_left = 2747.0
+margin_top = -387.0
+margin_right = 2747.0
+margin_bottom = -387.0
+
+[connection signal="area_entered" from="FinishScreenTrigger" to="EndGameScreen" method="_on_FinishScreenTrigger_area_entered"]
+
 [editable path="Player"]
