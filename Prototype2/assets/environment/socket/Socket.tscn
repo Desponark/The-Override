@@ -10,6 +10,7 @@ radius = 42.0
 
 [node name="Socket" type="Node2D"]
 script = ExtResource( 3 )
+healthTransferAmount = 0.1
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
@@ -23,7 +24,7 @@ margin_top = 24.0
 margin_right = 66.0
 margin_bottom = 48.0
 rect_scale = Vector2( 0.75, 0.75 )
-maxHealth = 1000.0
+maxHealth = 200.0
 health = 0
 
 [node name="InteractionableBox" type="Area2D" parent="."]
