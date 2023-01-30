@@ -17,6 +17,11 @@ var velocity = Vector2.ZERO
 enum MOTIONSTATE {falling, jumping, doubleJumping, jumpCancelled, idling, running, ascending}
 var motionState = MOTIONSTATE.idling
 
+var canDash = false
+var isDashButtonPressed = false
+export var dashStrength = 2000.0
+export var dashDuration = 0.2
+
 var robotRef
 
 var isTransferingHealth = false
@@ -39,6 +44,11 @@ func _unhandled_input(event):
 		isTransferingHealth = true
 	if event.is_action_released("transferHealth"):
 		isTransferingHealth = false
+	
+	if event.is_action_pressed("dash"):
+		if $Dash.canDash and !$Dash.isDashing():
+			isDashButtonPressed = true
+			$Dash.startDash($Sprite, dashDuration)
 		
 func _process(_delta):
 	if isTransferingHealth and robotRef != null:
@@ -57,6 +67,8 @@ func _physics_process(delta: float):
 	motionState = getPlayerMotionState()
 
 	handleJumping()
+	
+	dash(horizontalDirection)
 	
 	playAnimations(horizontalDirection)
 	
@@ -81,6 +93,11 @@ func getPlayerMotionState():
 		return MOTIONSTATE.idling
 	else: # return idling as default state
 		return MOTIONSTATE.idling
+	
+func dash(horizontalDirection):
+	if isDashButtonPressed and horizontalDirection != 0:
+		velocity.x = horizontalDirection * dashStrength
+		isDashButtonPressed = false
 	
 func handleJumping():
 	match motionState:
@@ -119,18 +136,10 @@ func calculateMoveVelocity(horizontalDirection, delta):
 		# speed up the player
 		velocity.x = lerp(velocity.x, horizontalDirection * maxSpeed, acceleration)
 		
-		# Lars: use tween instead of lerp
-		# experimental tween approach
-		# problem: using this approach works but spams an unknown error
-#		var tween = create_tween()
-#		velocity.x = tween.interpolate_value(velocity.x, (horizontalDirection * maxSpeed) - velocity.x, 0.1, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		# Lars: use tween instead of lerp for example tween method -> tween_method(setVelocityX(value), ...) 
 	else:
 		# slow down the player
 		velocity.x = lerp(velocity.x, 0, friction)
-		
-		# experimental tween approach
-#		var tween = create_tween()
-#		velocity.x = tween.interpolate_value(velocity.x, 0.0 - velocity.x, 0.2, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 
 	# aplly downwards gravity
 	velocity.y += gravity * delta
