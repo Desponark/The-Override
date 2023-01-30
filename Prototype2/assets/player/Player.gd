@@ -136,7 +136,7 @@ func calculateMoveVelocity(horizontalDirection, delta):
 		# speed up the player
 		velocity.x = lerp(velocity.x, horizontalDirection * maxSpeed, acceleration)
 		
-		# Lars: use tween instead of lerp for example tween method -> tween_method(setVelocityX(value), ...) 
+		# Lars: use tween instead of lerp for example tween method -> tween_method(setVelocityX(value), ...)
 	else:
 		# slow down the player
 		velocity.x = lerp(velocity.x, 0, friction)
@@ -153,7 +153,10 @@ func switchSpriteDirection(horizontalDirection):
 		else:
 			$Sprite.flip_h = true
 
+# TODO: implement heal function
 func takeDamage(damage):
+	if $Dash.isDashing():
+		return
 	$VFXAnimationPlayer.play("hit")
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
@@ -176,6 +179,5 @@ func getRobotRef():
 func getPriority():
 	return 1
 	
-func _on_HealthBar_healthReachedZero():
-	# handle player death here
+func _on_HealthBar_healthReachedZero(): # handle player death here
 	get_tree().reload_current_scene()

@@ -31,11 +31,15 @@ func isDashing():
 func endDash():
 	$GhostDuration.stop()
 	canDash = false
-	yield(get_tree().create_timer(0.4), "timeout")
-	canDash = true
+	$DashCooldown.start()
+#	yield(get_tree().create_timer(0.4), "timeout")
+#	canDash = true
 
 func _on_DashDuration_timeout():
 	endDash()
 
 func _on_GhostDuration_timeout():
 	instanceDashGhost()
+
+func _on_DashCooldown_timeout():
+	canDash = true

@@ -548,6 +548,9 @@ script = ExtResource( 11 )
 [node name="DashDuration" type="Timer" parent="Dash"]
 one_shot = true
 
+[node name="DashCooldown" type="Timer" parent="Dash"]
+one_shot = true
+
 [node name="GhostDuration" type="Timer" parent="Dash"]
 wait_time = 0.03
 
@@ -555,4 +558,5 @@ wait_time = 0.03
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
 [connection signal="area_exited" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_exited"]
 [connection signal="timeout" from="Dash/DashDuration" to="Dash" method="_on_DashDuration_timeout"]
+[connection signal="timeout" from="Dash/DashCooldown" to="Dash" method="_on_DashCooldown_timeout"]
 [connection signal="timeout" from="Dash/GhostDuration" to="Dash" method="_on_GhostDuration_timeout"]
