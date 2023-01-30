@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/player/SwordsmanIdle-sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=8]
 [ext_resource path="res://assets/ui/HealthBar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/player/InteractionBox.gd" type="Script" id=10]
+[ext_resource path="res://assets/player/Dash/Dash.gd" type="Script" id=11]
 
 [sub_resource type="ShaderMaterial" id=10]
 resource_local_to_scene = true
@@ -171,6 +172,9 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false, true ]
 }
+
+[sub_resource type="Animation" id=16]
+resource_name = "dash"
 
 [sub_resource type="Animation" id=14]
 resource_name = "fall"
@@ -485,6 +489,7 @@ shape = SubResource( 1 )
 autoplay = "idle"
 anims/RESET = SubResource( 6 )
 anims/attack = SubResource( 5 )
+anims/dash = SubResource( 16 )
 anims/fall = SubResource( 14 )
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 13 )
@@ -537,6 +542,17 @@ shape = SubResource( 12 )
 [node name="RobotFollowPosition" type="Position2D" parent="."]
 position = Vector2( 0, -45 )
 
+[node name="Dash" type="Node2D" parent="."]
+script = ExtResource( 11 )
+
+[node name="DashDuration" type="Timer" parent="Dash"]
+one_shot = true
+
+[node name="GhostDuration" type="Timer" parent="Dash"]
+wait_time = 0.03
+
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
 [connection signal="area_exited" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_exited"]
+[connection signal="timeout" from="Dash/DashDuration" to="Dash" method="_on_DashDuration_timeout"]
+[connection signal="timeout" from="Dash/GhostDuration" to="Dash" method="_on_GhostDuration_timeout"]

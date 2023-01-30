@@ -7,5 +7,6 @@ func _init():
 	collision_mask = 0
 
 func interact(area):
+	# LARS: use signal or give parent node and access its interact function here 
 	if owner.has_method("interact"):
 		owner.interact(area)
