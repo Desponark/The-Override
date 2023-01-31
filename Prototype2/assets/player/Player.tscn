@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/player/SwordsmanIdle-sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://assets/ui/HealthBar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/player/InteractionBox.gd" type="Script" id=10]
 [ext_resource path="res://assets/player/Dash/Dash.gd" type="Script" id=11]
+[ext_resource path="res://Sounds/Player/Hit.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/Player/PunchMetallic.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/Player/Footsteps/footstep04.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/Player/Footsteps/footstep05.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/Player/Footsteps/footstep01.ogg" type="AudioStream" id=19]
 
 [sub_resource type="ShaderMaterial" id=10]
 resource_local_to_scene = true
@@ -108,10 +113,23 @@ tracks/6/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("StepSound:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 19 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "attack"
 length = 0.2
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -441,6 +459,24 @@ tracks/3/keys = {
 "update": 1,
 "values": [ Vector2( -9, 0 ) ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("StepSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+} ],
+"times": PoolRealArray( 0, 0.45 )
+}
 
 [sub_resource type="Animation" id=11]
 resource_local_to_scene = true
@@ -553,6 +589,19 @@ one_shot = true
 
 [node name="GhostDuration" type="Timer" parent="Dash"]
 wait_time = 0.03
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="PunchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="StepSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]

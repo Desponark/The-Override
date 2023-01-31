@@ -38,6 +38,7 @@ export var healthTransferMultiplier = 2.0
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
+		#$PunchSound.play()
 	
 	if event.is_action_pressed("transferHealth"):
 		isTransferingHealth = true
@@ -148,10 +149,14 @@ func switchSpriteDirection(horizontalDirection):
 
 # TODO: implement heal function
 func takeDamage(damage):
+	$HitSound.play()
 	$VFXAnimationPlayer.play("hit")
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
-	
+
+func gainHealth(healAmount):
+	if $HealthBar.has_method("addHealth"):
+		$HealthBar.addHealth(healAmount)
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
 func transferHealth():
 	if isTransferingHealth and robotRef != null:
