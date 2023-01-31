@@ -26,6 +26,7 @@ func takeDamage(damage):
 	EventBus.emit_signal("enemyWasHit")
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
+		$HitSound.play()
 
 # move enemy towards the x direction of the given target
 func moveEnemyTowardsTarget(approachTarget):
@@ -63,6 +64,7 @@ func _on_RangedAggroZone_body_entered(body):
 	var target = getPriorityTarget(rangedTargets)
 	if target != null:
 		$Gun.startShooting(target)
+		$ShootSound.play()
 
 func _on_RangedAggroZone_body_exited(body):
 	var found = rangedTargets.find(body)
