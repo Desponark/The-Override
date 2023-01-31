@@ -14,8 +14,8 @@ export (float, 0, 1.0) var friction = 0.2
 var jumpsMade = 0
 var velocity = Vector2.ZERO
 
-enum MOTIONSTATE {falling, jumping, doubleJumping, jumpCancelled, idling, running, ascending}
-var motionState = MOTIONSTATE.idling
+enum MOTIONSTATE {FALLING, JUMPING, DOUBLEJUMPING, JUMPCANCELLED, IDLING, RUNNING, ASCENDING}
+var motionState = MOTIONSTATE.IDLING
 
 var canDash = false
 var isDashButtonPressed = false
@@ -27,7 +27,6 @@ var robotRef
 var isTransferingHealth = false
 export var healthTransferAmount = 1.0
 # this multiplies the player health when charging the robot so the robot receives more (or less) health
-# example: healthTransferAmount = 1.0, healthTransferMultiplier = 2.0, means 1 player health is 2 robot health
 export var healthTransferMultiplier = 2.0
 # TODO: Improve and cleanup health transfer system
 # Change where health is stored.
@@ -39,7 +38,7 @@ export var healthTransferMultiplier = 2.0
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
-	# health transfer
+	
 	if event.is_action_pressed("transferHealth"):
 		isTransferingHealth = true
 	if event.is_action_released("transferHealth"):
@@ -48,16 +47,10 @@ func _unhandled_input(event):
 	if event.is_action_pressed("dash"):
 		if $Dash.canDash and !$Dash.isDashing():
 			isDashButtonPressed = true
-			$Dash.startDash($Sprite, dashDuration)
+			$Dash.startDash($Sprite, dashDuration, $HurtBox/CollisionShape2D)
 		
 func _process(_delta):
-	if isTransferingHealth and robotRef != null:
-		if $HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
-			return
-		if robotRef.getHealth() >= robotRef.getMaxHealth(): # if robot is full health disallow transfering of health
-			return
-		transferHealth(healthTransferAmount)
-		robotRef.transferHealth(-(healthTransferAmount * healthTransferMultiplier))
+	transferHealth()
 	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -78,21 +71,21 @@ func _physics_process(delta: float):
 	
 func getPlayerMotionState():
 	if Input.is_action_just_released("jump") and velocity.y < minJumpHeight:
-		return MOTIONSTATE.jumpCancelled
-	elif Input.is_action_just_pressed("jump") and motionState == MOTIONSTATE.falling:
-		return MOTIONSTATE.doubleJumping
+		return MOTIONSTATE.JUMPCANCELLED
+	elif Input.is_action_just_pressed("jump") and motionState == MOTIONSTATE.FALLING:
+		return MOTIONSTATE.DOUBLEJUMPING
 	elif Input.is_action_just_pressed("jump") and is_on_floor():
-		return MOTIONSTATE.jumping
+		return MOTIONSTATE.JUMPING
 	elif velocity.y > 0.0 and not is_on_floor():
-		return MOTIONSTATE.falling
+		return MOTIONSTATE.FALLING
 	elif velocity.y < 0.0 and not is_on_floor():
-		return MOTIONSTATE.ascending
+		return MOTIONSTATE.ASCENDING
 	elif is_on_floor() and not (velocity.x < 1 and velocity.x > -1): #not is_zero_approx(velocity.x):
-		return MOTIONSTATE.running
+		return MOTIONSTATE.RUNNING
 	elif is_on_floor() and (velocity.x < 1 and velocity.x > -1): #is_zero_approx(velocity.x):
-		return MOTIONSTATE.idling
-	else: # return idling as default state
-		return MOTIONSTATE.idling
+		return MOTIONSTATE.IDLING
+	else: # return IDLING as default state
+		return MOTIONSTATE.IDLING
 	
 func dash(horizontalDirection):
 	if isDashButtonPressed and horizontalDirection != 0:
@@ -101,16 +94,16 @@ func dash(horizontalDirection):
 	
 func handleJumping():
 	match motionState:
-		MOTIONSTATE.jumping:
+		MOTIONSTATE.JUMPING:
 			jumpsMade += 1
 			velocity.y = maxJumpHeight
-		MOTIONSTATE.doubleJumping:
+		MOTIONSTATE.DOUBLEJUMPING:
 			jumpsMade += 1
 			if jumpsMade <= maximumJumps:
 				velocity.y = doubleJumpHeight
-		MOTIONSTATE.jumpCancelled:
+		MOTIONSTATE.JUMPCANCELLED:
 			velocity.y = minJumpHeight
-		MOTIONSTATE.idling, MOTIONSTATE.running:
+		MOTIONSTATE.IDLING, MOTIONSTATE.RUNNING:
 			jumpsMade = 0
 
 func playAnimations(horizontalDirection):
@@ -118,17 +111,17 @@ func playAnimations(horizontalDirection):
 	if $AnimationPlayer.current_animation == "attack":
 		return
 	match motionState:
-		MOTIONSTATE.jumping, MOTIONSTATE.doubleJumping:
+		MOTIONSTATE.JUMPING, MOTIONSTATE.DOUBLEJUMPING:
 			$AnimationPlayer.play("jump")
-		MOTIONSTATE.running:
+		MOTIONSTATE.RUNNING:
 			# slow down animation speed if the player is decelerating
 			if horizontalDirection == 0 and velocity.x != 0:
 				$AnimationPlayer.play("run", -1, 0.4)
 			else:
 				$AnimationPlayer.play("run")
-		MOTIONSTATE.falling:
+		MOTIONSTATE.FALLING:
 			$AnimationPlayer.play("fall")
-		MOTIONSTATE.idling:
+		MOTIONSTATE.IDLING:
 			$AnimationPlayer.play("idle")
 
 func calculateMoveVelocity(horizontalDirection, delta):
@@ -155,16 +148,20 @@ func switchSpriteDirection(horizontalDirection):
 
 # TODO: implement heal function
 func takeDamage(damage):
-	if $Dash.isDashing():
-		return
 	$VFXAnimationPlayer.play("hit")
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
 	
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
-func transferHealth(damage):
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
+func transferHealth():
+	if isTransferingHealth and robotRef != null:
+		if $HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
+			return
+		if robotRef.getHealth() >= robotRef.getMaxHealth(): # if robot is full health disallow transfering of health
+			return
+		if $HealthBar.has_method("subtractHealth"):
+			$HealthBar.subtractHealth(healthTransferAmount)
+		robotRef.transferHealth(-(healthTransferAmount * healthTransferMultiplier))
 	
 func getRobotFollowPosition():
 	return $RobotFollowPosition.global_transform
@@ -180,4 +177,4 @@ func getPriority():
 	return 1
 	
 func _on_HealthBar_healthReachedZero(): # handle player death here
-	get_tree().reload_current_scene()
+	var _ignore = get_tree().reload_current_scene()

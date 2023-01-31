@@ -62,6 +62,5 @@ func getMaxHealth():
 func getPriority():
 	return 2
 
-
 func _on_HealthBar_healthReachedZero():
-	get_tree().reload_current_scene()
+	var _ignore = get_tree().reload_current_scene()

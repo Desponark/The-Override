@@ -3,9 +3,13 @@ extends Node2D
 var canDash = true
 var dashGhostScene = preload("res://assets/player/Dash/DashGhost.tscn")
 var sprite
+var hurtBoxCollisionShape
 
-func startDash(sprite, duration):
-	self.sprite = sprite
+func startDash(givenSprite, duration, givenCollisionShape):
+	self.sprite = givenSprite
+	self.hurtBoxCollisionShape = givenCollisionShape
+	self.hurtBoxCollisionShape.disabled = true
+	
 	$DashDuration.wait_time = duration
 	$DashDuration.start()
 	
@@ -31,6 +35,7 @@ func isDashing():
 func endDash():
 	$GhostDuration.stop()
 	canDash = false
+	hurtBoxCollisionShape.disabled = false
 	$DashCooldown.start()
 	
 func _on_DashCooldown_timeout():
