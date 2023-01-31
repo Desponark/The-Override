@@ -502,6 +502,7 @@ anims/hit = SubResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+offset_v = -1.0
 editor_draw_limits = true
 
 [node name="HitBox" type="Area2D" parent="."]
