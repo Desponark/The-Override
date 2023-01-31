@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/environment/Room Assets/Walls/WallModule.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/environment/Room Assets/Walls/WallModule2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=4]
+[ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/active = false
+
+[sub_resource type="Animation" id=2]
+resource_local_to_scene = true
+resource_name = "hit"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="Wall Modules" type="Node2D" parent="."]
+
+[node name="WallModule" parent="Wall Modules" instance=ExtResource( 1 )]
+position = Vector2( -100, 1.81899e-12 )
+
+[node name="WallModule3" parent="Wall Modules" instance=ExtResource( 3 )]
+position = Vector2( 615, 0 )
+
+[node name="WallModule10" parent="Wall Modules" instance=ExtResource( 3 )]
+position = Vector2( 1329, 0 )
+
+[node name="WallModule11" parent="Wall Modules" instance=ExtResource( 3 )]
+position = Vector2( 2044, 0 )
+
+[node name="WallModule5" parent="Wall Modules" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 3466, 0 )
+
+[node name="WallModule9" parent="Wall Modules" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 5024, 73 )
+
+[node name="WallModule6" parent="Wall Modules" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 7372, 33 )
+
+[node name="WallModule7" parent="Wall Modules" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 11509, 44 )
+
+[node name="WallModule8" parent="Wall Modules" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 13846, 0 )
+
+[node name="WallModule2" parent="Wall Modules" instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 17112, -359 )
+
+[node name="WallModule4" parent="Wall Modules" instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 9168, 33 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 975, 88 )
+scale = Vector2( 4, 4 )
+
+[node name="Sprite" parent="Player" index="0"]
+material = SubResource( 1 )
+
+[node name="VFXAnimationPlayer" parent="Player" index="3"]
+anims/hit = SubResource( 2 )
+
+[node name="Camera2D" parent="Player" index="4"]
+limit_left = -402
+limit_top = -634
+limit_right = 5310
+limit_bottom = 697
+
+[node name="Robot" parent="." instance=ExtResource( 7 )]
+position = Vector2( 160, -56 )
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1775, 193 )
+scale = Vector2( 0.3, 0.3 )
+
+[editable path="Player"]
