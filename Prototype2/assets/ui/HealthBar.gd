@@ -7,6 +7,9 @@ signal healthReachedMax
 # potentially add signal for health being damaged...
 
 func _ready():
+	setup()
+
+func setup():
 	$Health.max_value = maxHealth
 	$Health.value = health
 

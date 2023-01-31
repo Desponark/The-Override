@@ -1,34 +1,38 @@
 extends Node2D
 
-export var healthTransferAmount = 1.0
+export var startEnergy = 50.0
+export var maxEnergy = 200.0
+export var energyTransferAmount = 1.0
 export(Array, NodePath) var triggerScenes = []
 
-# TODO: use enum instead of bools? (empty, charging, full)
-var isCharging = false
-var isFullyCharged = false
+enum CHARGESTATE {EMPTY, CHARGING, PAUSED, FULLYCHARGED}
+var chargeState = CHARGESTATE.EMPTY
 
+# TODO: change implementation so player and robot are accessed differently
 var player
 var robot
 
+func _ready():
+	$HealthBar.health = startEnergy
+	$HealthBar.maxHealth = maxEnergy
+	$HealthBar.setup()
 
 func _physics_process(_delta):
-	if isCharging:
+	if chargeState == CHARGESTATE.CHARGING:
 		if robot.getHealth() <= 1:
 			return
-#		robot.takeDamage(healthTransferAmount)
-		robot.transferHealth(healthTransferAmount)
-		$HealthBar.subtractHealth(-healthTransferAmount)
+		robot.transferHealth(energyTransferAmount)
+		$HealthBar.subtractHealth(-energyTransferAmount)
 
 func interact(area):
-	# TODO: change implementation so player and robot are accessed differently
 	player = area.owner
 	robot = player.getRobotRef()
-	if robot != null and robot.isFollowingPlayer and !isFullyCharged:
+	if robot != null and robot.isFollowingPlayer and chargeState != CHARGESTATE.FULLYCHARGED:
 		# socket the robot
 		robot.putRobotInSocket($Position2D.global_transform)
 		
 		# trigger everything that triggers on socket charging up that is connected
-		isCharging = true
+		chargeState = CHARGESTATE.CHARGING
 		triggerEachScene()
 
 func getRobotDockPosition():
@@ -38,18 +42,16 @@ func getRobotDockPosition():
 func triggerEachScene():
 	for nodePath in triggerScenes:
 		var node = get_node(nodePath)
-		if isCharging:
-			if node.has_method("socketIsCharging"):
-				node.socketIsCharging()
-		if isFullyCharged:
-			if node.has_method("socketFullyCharged"):
-				node.socketFullyCharged()
+		match chargeState:
+			CHARGESTATE.CHARGING:
+				if node.has_method("socketIsCharging"):
+					node.socketIsCharging()
+			CHARGESTATE.FULLYCHARGED:
+				if node.has_method("socketFullyCharged"):
+					node.socketFullyCharged()
 
 func _on_HealthBar_healthReachedMax():
-	isCharging = false
-	isFullyCharged = true
+	chargeState = CHARGESTATE.FULLYCHARGED
 	robot.isFollowingPlayer = true
-	# disable socket interaction completely if fully charged
-	$InteractionableBox/CollisionShape2D.disabled = true
-	# trigger everything on socket being full that is connected
-	triggerEachScene()
+	$InteractionableBox/CollisionShape2D.disabled = true # disable socket interaction completely if fully charged
+	triggerEachScene() # trigger everything on socket being full that is connected
