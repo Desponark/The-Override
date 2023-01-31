@@ -30,3 +30,12 @@ func subtractHealth(damage):
 	if health >= maxHealth:
 		health = maxHealth
 		emit_signal("healthReachedMax")
+		
+func addHealth(healAmount):
+	health += healAmount
+	if health <= 0:
+		health = 0
+		emit_signal("healthReachedZero")
+	if health >= maxHealth:
+		health = maxHealth
+		emit_signal("healthReachedMax")
