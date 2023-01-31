@@ -15,6 +15,11 @@ func stopShooting():
 	target = null
 	
 func shoot():
+	if $ShootSound.playing:
+		$ShootSound.stop()
+	else:
+		$ShootSound.play()
+	print("shoot")
 	look_at(target.global_position)
 	
 	var newProjectile = projectile.instance()
