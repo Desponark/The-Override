@@ -30,6 +30,7 @@ func interact(area):
 	if robot != null and robot.isFollowingPlayer and chargeState != CHARGESTATE.FULLYCHARGED:
 		# socket the robot
 		robot.putRobotInSocket($Position2D.global_transform)
+		$InsertSound.play()
 		
 		# trigger everything that triggers on socket charging up that is connected
 		chargeState = CHARGESTATE.CHARGING
@@ -55,3 +56,5 @@ func _on_HealthBar_healthReachedMax():
 	robot.isFollowingPlayer = true
 	$InteractionableBox/CollisionShape2D.disabled = true # disable socket interaction completely if fully charged
 	triggerEachScene() # trigger everything on socket being full that is connected
+	# Play ChargingFinished sound
+	$ChargingFinishedSound.play()

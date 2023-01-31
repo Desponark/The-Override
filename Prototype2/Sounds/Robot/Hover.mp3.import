@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hover.mp3-a08a2b1a9f059c4317560db526fcc3ed.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Robot/Hover.mp3"
+dest_files=[ "res://.import/Hover.mp3-a08a2b1a9f059c4317560db526fcc3ed.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
