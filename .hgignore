@@ -2,4 +2,4 @@ syntax: glob
 Prototype/.import/*
 Prototype2/.import/*
 */.import/*
-*.import*
+*.orig
