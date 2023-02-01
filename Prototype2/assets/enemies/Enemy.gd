@@ -23,7 +23,6 @@ func _physics_process(delta):
 
 func takeDamage(damage):
 	$DamagedSound.play()
-	print("hit")
 	$VFXAnimationPlayer.play("hit")
 	EventBus.emit_signal("enemyWasHit")
 	if $HealthBar.has_method("subtractHealth"):
