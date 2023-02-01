@@ -67,7 +67,7 @@ position = Vector2( 425, 730 )
 position = Vector2( -488, 782 )
 maxEnergy = 350.0
 energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../Switch"), NodePath("../Spawner2"), NodePath("../Spawner") ]
+triggerScenes = [ NodePath("../Switch") ]
 
 [node name="Socket2" parent="." instance=ExtResource( 6 )]
 position = Vector2( -2, 785 )
@@ -92,10 +92,10 @@ isLocked = true
 position = Vector2( 660, 644 )
 
 [node name="Switch" parent="." instance=ExtResource( 10 )]
-position = Vector2( -810, 757 )
+position = Vector2( -804, 757 )
 socketPath = NodePath("../Socket")
 minRandomPause = 6
-maxrandomPause = 12
+maxRandomPause = 12
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -262, 690 )
