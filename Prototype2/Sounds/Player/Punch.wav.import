@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Hit.wav-ebf3aa0effb5cf78f148f45f158f7e55.sample"
+path="res://.import/Punch.wav-3cf16cba83b75e9b491ffe5fd132b62b.sample"
 
 [deps]
 
-source_file="res://Sounds/Enemy/Hit.wav"
-dest_files=[ "res://.import/Hit.wav-ebf3aa0effb5cf78f148f45f158f7e55.sample" ]
+source_file="res://Sounds/Player/Punch.wav"
+dest_files=[ "res://.import/Punch.wav-3cf16cba83b75e9b491ffe5fd132b62b.sample" ]
 
 [params]
 

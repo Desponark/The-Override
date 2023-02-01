@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/PunchMetallic.wav-63415d7773616109d26bbc3c3af7e161.sample"
+path="res://.import/JumpFemale.wav-93af8e5d194215f41169e88a7932127a.sample"
 
 [deps]
 
-source_file="res://Sounds/Player/Footsteps/PunchMetallic.wav"
-dest_files=[ "res://.import/PunchMetallic.wav-63415d7773616109d26bbc3c3af7e161.sample" ]
+source_file="res://Sounds/Player/JumpFemale.wav"
+dest_files=[ "res://.import/JumpFemale.wav-93af8e5d194215f41169e88a7932127a.sample" ]
 
 [params]
 

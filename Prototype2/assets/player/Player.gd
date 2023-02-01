@@ -38,7 +38,7 @@ export var healthTransferMultiplier = 2.0
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
-		#$PunchSound.play()
+		$PunchSound.play()
 	
 	if event.is_action_pressed("transferHealth"):
 		isTransferingHealth = true
@@ -90,6 +90,7 @@ func getPlayerMotionState():
 	
 func dash(horizontalDirection):
 	if isDashButtonPressed and horizontalDirection != 0:
+		$DodgeSound.play()
 		velocity.x = horizontalDirection * dashStrength
 		isDashButtonPressed = false
 	
@@ -113,6 +114,7 @@ func playAnimations(horizontalDirection):
 		return
 	match motionState:
 		MOTIONSTATE.JUMPING, MOTIONSTATE.DOUBLEJUMPING:
+			$JumpSound.play()
 			$AnimationPlayer.play("jump")
 		MOTIONSTATE.RUNNING:
 			# slow down animation speed if the player is decelerating
@@ -124,6 +126,9 @@ func playAnimations(horizontalDirection):
 			$AnimationPlayer.play("fall")
 		MOTIONSTATE.IDLING:
 			$AnimationPlayer.play("idle")
+	
+	if !Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
+		$StepSound.stop()
 
 func calculateMoveVelocity(horizontalDirection, delta):
 	if horizontalDirection != 0:
@@ -149,7 +154,7 @@ func switchSpriteDirection(horizontalDirection):
 
 # TODO: implement heal function
 func takeDamage(damage):
-	$HitSound.play()
+	$DamagedSound.play()
 	$VFXAnimationPlayer.play("hit")
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)

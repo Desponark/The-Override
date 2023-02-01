@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/PunchMetallic.wav-f2dc59d9aad6eab4f1d1dff35e1cdc9f.sample"
+path="res://.import/Jump.wav-6d5ae19780a89b2139b4a9edecc9283b.sample"
 
 [deps]
 
-source_file="res://Sounds/Player/PunchMetallic.wav"
-dest_files=[ "res://.import/PunchMetallic.wav-f2dc59d9aad6eab4f1d1dff35e1cdc9f.sample" ]
+source_file="res://Sounds/Player/Jump.wav"
+dest_files=[ "res://.import/Jump.wav-6d5ae19780a89b2139b4a9edecc9283b.sample" ]
 
 [params]
 

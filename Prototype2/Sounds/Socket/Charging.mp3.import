@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Charging.mp3-fca4d04d7665570bc5f762b9ba52342d.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Socket/Charging.mp3"
+dest_files=[ "res://.import/Charging.mp3-fca4d04d7665570bc5f762b9ba52342d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
