@@ -47,6 +47,7 @@ func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
+		$DamagedSound.play()
 		
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
 func transferHealth(damage):

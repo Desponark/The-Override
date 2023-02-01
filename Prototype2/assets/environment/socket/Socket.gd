@@ -46,9 +46,11 @@ func triggerEachScene():
 		match chargeState:
 			CHARGESTATE.CHARGING:
 				if node.has_method("socketIsCharging"):
+					$ChargingSound.play()
 					node.socketIsCharging()
 			CHARGESTATE.FULLYCHARGED:
 				if node.has_method("socketFullyCharged"):
+					$ChargingSound.stop()
 					node.socketFullyCharged()
 
 func _on_HealthBar_healthReachedMax():

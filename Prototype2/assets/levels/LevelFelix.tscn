@@ -16,7 +16,7 @@
 [ext_resource path="res://assets/levels/Level Assets/Crate.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/levels/Level Assets/Bar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/levels/Level Assets/Ceiling.tscn" type="PackedScene" id=16]
-[ext_resource path="res://EndGameScreen.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/ui/EndGameScreen.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Sounds/Environment/BackgroundFight.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=19]
 
@@ -766,6 +766,7 @@ isLocked = true
 
 [node name="Socket" parent="." instance=ExtResource( 9 )]
 position = Vector2( 928, 0 )
+energyTransferAmount = 0.5
 triggerScenes = [ NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Door") ]
 
 [node name="Enemy" parent="Socket" instance=ExtResource( 19 )]
@@ -841,8 +842,7 @@ margin_bottom = -387.0
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = -19.697
-autoplay = true
+volume_db = -10.0
 
 [connection signal="area_entered" from="FinishScreenTrigger" to="EndGameScreen" method="_on_FinishScreenTrigger_area_entered"]
 

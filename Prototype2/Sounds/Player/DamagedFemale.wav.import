@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Hit.wav-aecbf29389fc27f033ee8919520bc5c5.sample"
+path="res://.import/DamagedFemale.wav-b453714253f245e3f336bbe7715ef315.sample"
 
 [deps]
 
-source_file="res://Sounds/Player/Hit.wav"
-dest_files=[ "res://.import/Hit.wav-aecbf29389fc27f033ee8919520bc5c5.sample" ]
+source_file="res://Sounds/Player/DamagedFemale.wav"
+dest_files=[ "res://.import/DamagedFemale.wav-b453714253f245e3f336bbe7715ef315.sample" ]
 
 [params]
 
