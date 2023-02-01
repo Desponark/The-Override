@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=2]
@@ -16,7 +16,9 @@
 [ext_resource path="res://assets/environment/Storage/Crate.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/Storage/Bar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/environment/Room Assets/Ceilings/Ceiling.tscn" type="PackedScene" id=16]
-[ext_resource path="res://EndGameScreen.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/ui/EndGameScreen.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sounds/Environment/BackgroundFight.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -764,13 +766,21 @@ isLocked = true
 
 [node name="Socket" parent="." instance=ExtResource( 9 )]
 position = Vector2( 928, 0 )
+energyTransferAmount = 0.5
 triggerScenes = [ NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Door") ]
+
+[node name="Enemy" parent="Socket" instance=ExtResource( 19 )]
+position = Vector2( -106, -49 )
 
 [node name="Spawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( -231, -426 )
+minSpawnRate = 5
+maxSpawnRate = 15
 
 [node name="Spawner2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2015, -649 )
+minSpawnRate = 4
+maxSpawnRate = 13
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -17, -88 )
@@ -829,6 +839,10 @@ margin_left = 2747.0
 margin_top = -387.0
 margin_right = 2747.0
 margin_bottom = -387.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -10.0
 
 [connection signal="area_entered" from="FinishScreenTrigger" to="EndGameScreen" method="_on_FinishScreenTrigger_area_entered"]
 
