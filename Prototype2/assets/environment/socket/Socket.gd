@@ -7,8 +7,9 @@ export(Array, NodePath) var triggerScenes = []
 
 enum CHARGESTATE {EMPTY, CHARGING, PAUSED, FULLYCHARGED}
 var chargeState = CHARGESTATE.EMPTY
+var currentChargeState
 
-# TODO: change implementation so player and robot are accessed differently
+# TODO: maybe change implementation so player and robot are accessed differently?
 var player
 var robot
 
@@ -34,6 +35,15 @@ func interact(area):
 		# trigger everything that triggers on socket charging up that is connected
 		chargeState = CHARGESTATE.CHARGING
 		triggerEachScene()
+
+func pauseChargeProcess(isPaused):
+	if chargeState != CHARGESTATE.PAUSED:
+		currentChargeState = chargeState
+	if isPaused:
+		chargeState = CHARGESTATE.PAUSED
+	else:
+		chargeState = currentChargeState
+	triggerEachScene()
 
 func getRobotDockPosition():
 	return $Position2D.global_position
