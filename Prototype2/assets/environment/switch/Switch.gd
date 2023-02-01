@@ -3,7 +3,7 @@ extends Node2D
 export(NodePath) var socketPath
 onready var socket = get_node(socketPath)
 export var minRandomPause = 2
-export var maxrandomPause = 5
+export var maxRandomPause = 5
 var isPaused = false
 
 
@@ -29,7 +29,7 @@ func togglePause():
 
 func socketIsCharging():
 	# start random deactivation process
-	$RandomPause.start(rand_range(minRandomPause, maxrandomPause))
+	$RandomPause.start(rand_range(minRandomPause, maxRandomPause))
 
 func socketFullyCharged():
 	$RandomPause.stop()
