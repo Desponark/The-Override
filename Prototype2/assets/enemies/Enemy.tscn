@@ -13,6 +13,11 @@
 [ext_resource path="res://assets/ui/HealthBar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sounds/Enemy/Damaged.wav" type="AudioStream" id=12]
 
+[sub_resource type="ShaderMaterial" id=8]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/active = false
+
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 60, 41.5 )
 
@@ -132,31 +137,27 @@ scale = 0.5
 scale_curve = SubResource( 11 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 83, 61 )
+extents = Vector2( 60, 41.5 )
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 1536.0
+radius = 2048.0
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 400.0
 
-[sub_resource type="ShaderMaterial" id=8]
-resource_local_to_scene = true
-shader = ExtResource( 7 )
-shader_param/active = false
-
 [node name="Enemy" type="KinematicBody2D"]
+scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 6 )
 moveSpeed = 150.0
 healthDrop = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 8 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 0, -45 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 1.5 )
 shape = SubResource( 15 )
 
@@ -185,7 +186,7 @@ monitorable = false
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2( 0, 20 )
+position = Vector2( 0, 1.5 )
 shape = SubResource( 5 )
 
 [node name="AggroZone" type="Area2D" parent="."]

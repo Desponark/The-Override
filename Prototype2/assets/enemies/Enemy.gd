@@ -39,6 +39,7 @@ func moveEnemyTowardsTarget(approachTarget):
 	else:
 		horizontalDirection = 0
 
+	switchSpriteDirection(horizontalDirection)
 	velocity.x = lerp(velocity.x, horizontalDirection * moveSpeed, acceleration)
 	return velocity
 
@@ -55,6 +56,13 @@ func getPriorityTarget(array):
 				prio = element.getPriority()
 				index = i
 	return array[index]
+
+func switchSpriteDirection(horizontalDirection):
+	if horizontalDirection != 0:
+		if horizontalDirection > 0:
+			$Sprite.flip_h = true
+		else:
+			$Sprite.flip_h = false
 
 # if body enters range start ranged combat
 func _on_RangedAggroZone_body_entered(body):
