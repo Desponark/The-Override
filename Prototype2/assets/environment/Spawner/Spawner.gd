@@ -4,6 +4,7 @@ export (PackedScene) var enemySpawn
 export var minSpawnRate = 1
 export var maxSpawnRate = 2
 
+
 func _ready():
 	randomize()
 
@@ -14,11 +15,10 @@ func spawnEnemy():
 
 func _on_Timer_timeout():
 	spawnEnemy()
-	$Timer.wait_time = rand_range(minSpawnRate, maxSpawnRate)
 	
 func startSpawner():
 	# start spawning of enemies
-	$Timer.start()
+	$Timer.start(rand_range(minSpawnRate, maxSpawnRate))
 	pass
 
 func stopSpawner():
