@@ -1,8 +1,8 @@
 extends Node2D
 
 export (PackedScene) var enemySpawn
-export var minSpawnRate = 1
-export var maxSpawnRate = 2
+export var minSpawnRate = 3
+export var maxSpawnRate = 6
 
 
 func _ready():

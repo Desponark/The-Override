@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Wall_1_Gitter.png-de8246b7603bd9d225a4dd3b3864e2a4.stex"
+path="res://.import/Wall_4_Bottom_Defuse.png-6ff342823dc72f773c5c0c78f9350608.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/Room Assets/Walls/Wall_1_Gitter.png"
-dest_files=[ "res://.import/Wall_1_Gitter.png-de8246b7603bd9d225a4dd3b3864e2a4.stex" ]
+source_file="res://assets/environment/roomAssets/Walls/Wall_4_Bottom_Defuse.png"
+dest_files=[ "res://.import/Wall_4_Bottom_Defuse.png-6ff342823dc72f773c5c0c78f9350608.stex" ]
 
 [params]
 

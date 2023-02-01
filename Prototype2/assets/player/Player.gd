@@ -38,7 +38,6 @@ export var healthTransferMultiplier = 2.0
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
-		$PunchSound.play()
 	
 	if event.is_action_pressed("transferHealth"):
 		isTransferingHealth = true

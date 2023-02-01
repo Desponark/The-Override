@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/placeholderCrab.png-bb565c90b1f7975be479130a797bae6f.stex"
+path="res://.import/Ceiling_1.png-a0a92e3814aea809f4a0b4247a7239b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/placeholderCrab.png"
-dest_files=[ "res://.import/placeholderCrab.png-bb565c90b1f7975be479130a797bae6f.stex" ]
+source_file="res://assets/environment/roomAssets/Ceilings/Ceiling_1.png"
+dest_files=[ "res://.import/Ceiling_1.png-a0a92e3814aea809f4a0b4247a7239b7.stex" ]
 
 [params]
 

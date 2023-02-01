@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=8]
 [ext_resource path="res://assets/ui/HealthBar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/player/InteractionBox.gd" type="Script" id=10]
-[ext_resource path="res://assets/player/Dash/Dash.gd" type="Script" id=11]
+[ext_resource path="res://assets/player/dash/Dash.gd" type="Script" id=11]
 [ext_resource path="res://Sounds/Player/Damaged.wav" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/Player/Punch.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/Player/30_Jump_03.wav" type="AudioStream" id=14]
@@ -115,10 +115,22 @@ tracks/6/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("PunchSound:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "attack"
-length = 0.2
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -179,6 +191,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PunchSound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -510,8 +534,8 @@ radius = 61.0
 radius = 32.0
 height = 8.0
 
-[sub_resource type="CircleShape2D" id=12]
-radius = 64.195
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 34, 48 )
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_layer = 3
@@ -544,7 +568,9 @@ next/fall = "land"
 anims/hit = SubResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -93 )
 current = true
+zoom = Vector2( 0.5, 0.5 )
 offset_v = -1.0
 editor_draw_limits = true
 
@@ -581,7 +607,7 @@ collision_mask = 16
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
-shape = SubResource( 12 )
+shape = SubResource( 17 )
 
 [node name="RobotFollowPosition" type="Position2D" parent="."]
 position = Vector2( 0, -45 )

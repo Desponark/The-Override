@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/environment/Room Assets/Floors/Floor.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/environment/Room Assets/Ceilings/Ceiling.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/environment/roomAssets/Floors/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.5, 23.25 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ceiling_1.png-25531a8439b4f82571c33472ebdb0fdd.stex"
+path="res://.import/Wall_1.png-310a875653f6b6cf25f3744a7dcf768e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/Room Assets/Ceilings/Ceiling_1.png"
-dest_files=[ "res://.import/Ceiling_1.png-25531a8439b4f82571c33472ebdb0fdd.stex" ]
+source_file="res://assets/environment/roomAssets/Walls/Wall_1.png"
+dest_files=[ "res://.import/Wall_1.png-310a875653f6b6cf25f3744a7dcf768e.stex" ]
 
 [params]
 
