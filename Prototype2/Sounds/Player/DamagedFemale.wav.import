@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DamagedFemale.wav-b453714253f245e3f336bbe7715ef315.sample"
+
+[deps]
+
+source_file="res://Sounds/Player/DamagedFemale.wav"
+dest_files=[ "res://.import/DamagedFemale.wav-b453714253f245e3f336bbe7715ef315.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
