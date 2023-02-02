@@ -16,7 +16,7 @@
 [ext_resource path="res://assets/environment/storage/Crate.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/storage/Bar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling.tscn" type="PackedScene" id=16]
-[ext_resource path="res://assets/ui/EndGameScreen.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/ui/EndGameScreen/EndGameScreen.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Sounds/Environment/BackgroundFight.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=19]
 
