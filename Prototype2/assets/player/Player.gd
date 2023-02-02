@@ -17,8 +17,6 @@ var velocity = Vector2.ZERO
 enum MOTIONSTATE {FALLING, JUMPING, DOUBLEJUMPING, JUMPCANCELLED, IDLING, RUNNING, ASCENDING}
 var motionState = MOTIONSTATE.IDLING
 
-var canDash = false
-var isDashButtonPressed = false
 export var dashStrength = 2000.0
 export var dashDuration = 0.2
 
@@ -46,8 +44,9 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("dash"):
 		if $Dash.canDash and !$Dash.isDashing():
-			isDashButtonPressed = true
-			$Dash.startDash($Sprite, dashDuration, $HurtBox/CollisionShape2D)
+#			isDashButtonPressed = true
+			$DodgeSound.play()
+			$Dash.startDash($Sprite, dashDuration)
 		
 func _process(_delta):
 	transferHealth()
@@ -88,10 +87,13 @@ func getPlayerMotionState():
 		return MOTIONSTATE.IDLING
 	
 func dash(horizontalDirection):
-	if isDashButtonPressed and horizontalDirection != 0:
-		$DodgeSound.play()
+	if $Dash.isDashing():
 		velocity.x = horizontalDirection * dashStrength
-		isDashButtonPressed = false
+		collision_mask = 0
+		$HurtBox/CollisionShape2D.disabled = true
+	else:
+		collision_mask = 1
+		$HurtBox/CollisionShape2D.disabled = false
 	
 func handleJumping():
 	match motionState:

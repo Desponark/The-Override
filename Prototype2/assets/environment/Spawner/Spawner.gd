@@ -19,11 +19,9 @@ func _on_Timer_timeout():
 	if waveSpawns < waveSpawnAmount:
 		spawnEnemy()
 		waveSpawns += 1
-		print("waveSpawns: ", waveSpawns)
 		$Timer.wait_time = rand_range(minSpawnRate, maxSpawnRate)
 	else:
 		waveSpawns = 0
-		print("cooldown start: ", waveCooldown)
 		$Cooldown.start(waveCooldown)
 		$Timer.stop()
 
