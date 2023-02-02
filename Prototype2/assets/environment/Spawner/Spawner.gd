@@ -3,7 +3,9 @@ extends Node2D
 export (PackedScene) var enemySpawn
 export var minSpawnRate = 3
 export var maxSpawnRate = 6
-
+export var waveSpawnAmount = 5
+export var waveCooldown = 20
+var waveSpawns = 0
 
 func _ready():
 	randomize()
@@ -14,17 +16,26 @@ func spawnEnemy():
 	EventBus.emit_signal("spawnEnemy", enemy)
 
 func _on_Timer_timeout():
-	spawnEnemy()
-	
+	if waveSpawns < waveSpawnAmount:
+		spawnEnemy()
+		waveSpawns += 1
+		print("waveSpawns: ", waveSpawns)
+		$Timer.wait_time = rand_range(minSpawnRate, maxSpawnRate)
+	else:
+		waveSpawns = 0
+		print("cooldown start: ", waveCooldown)
+		$Cooldown.start(waveCooldown)
+		$Timer.stop()
+
 func startSpawner():
-	# start spawning of enemies
 	$Timer.start(rand_range(minSpawnRate, maxSpawnRate))
-	pass
 
 func stopSpawner():
-	# stop spawning of enemies
 	$Timer.stop()
-	pass
+	$Cooldown.stop()
+	
+func _on_Cooldown_timeout():
+	startSpawner()
 
 # sockets functions
 func socketIsCharging():
