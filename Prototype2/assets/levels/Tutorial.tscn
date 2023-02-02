@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Walls/Wall1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/environment/spawner/Spawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/environment/door/Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/environment/roomAssets/Corners/ceilingCorners/ceilingCornerRight.tscn" type="PackedScene" id=12]
 
 [node name="Tutorial" type="Node2D"]
 
@@ -20,41 +21,38 @@ color = Color( 0.392157, 0.392157, 0.392157, 1 )
 [node name="Ceilings" type="Node2D" parent="."]
 scale = Vector2( 0.1, 0.1 )
 
-[node name="Ceiling" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( -4090, -3450 )
-
 [node name="Ceiling2" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( -2060, -3450 )
+position = Vector2( -2060, -4070 )
 
 [node name="Ceiling3" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( -30, -3450 )
+position = Vector2( -26, -4066 )
 
 [node name="Ceiling4" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 2000, -3450 )
+position = Vector2( 2004, -4066 )
 
 [node name="Ceiling5" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 4040, -3450 )
+position = Vector2( 4044, -4066 )
 
 [node name="Ceiling6" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 6070, -3450 )
+position = Vector2( 6074, -4066 )
 
 [node name="Ceiling7" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 8100, -3450 )
+position = Vector2( 8104, -4066 )
 
 [node name="Ceiling8" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 10130, -3450 )
+position = Vector2( 10134, -4066 )
 
 [node name="Ceiling9" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 12170, -3450 )
+position = Vector2( 12174, -4066 )
 
 [node name="Ceiling10" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 14200, -3450 )
+position = Vector2( 14204, -4066 )
 
 [node name="Ceiling11" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 16230, -3450 )
+position = Vector2( 16230, -4070 )
 
-[node name="Ceiling12" parent="Ceilings" instance=ExtResource( 8 )]
-position = Vector2( 18260, -3450 )
+[node name="Corner" parent="Ceilings" instance=ExtResource( 12 )]
+position = Vector2( 18270, -4070 )
 
 [node name="Walls" type="Node2D" parent="."]
 scale = Vector2( 0.1, 0.1 )
@@ -136,58 +134,58 @@ position = Vector2( 0, 131 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="Floor" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -4090, -110 )
+position = Vector2( -4086, 734 )
 
 [node name="Floor2" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -2060, -110 )
+position = Vector2( -2056, 734 )
 
 [node name="Floor3" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -20.0005, -110 )
+position = Vector2( -16.0005, 734 )
 
 [node name="Floor4" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 2010, -110 )
+position = Vector2( 2014, 734 )
 
 [node name="Floor5" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -20.0005, -110 )
+position = Vector2( -16.0005, 734 )
 
 [node name="Floor6" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 2010, -110 )
+position = Vector2( 2014, 734 )
 
 [node name="Floor7" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 4040, -110 )
+position = Vector2( 4044, 734 )
 
 [node name="Floor8" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 6070, -110 )
+position = Vector2( 6074, 734 )
 
 [node name="Floor9" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 8110, -110 )
+position = Vector2( 8114, 734 )
 
 [node name="Floor10" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 10140, -110 )
+position = Vector2( 10144, 734 )
 
 [node name="Floor11" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 8110, -110 )
+position = Vector2( 8114, 734 )
 
 [node name="Floor12" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 10140, -110 )
+position = Vector2( 10144, 734 )
 
 [node name="Floor13" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 12170, -110 )
+position = Vector2( 12174, 734 )
 
 [node name="Floor14" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 14200, -110 )
+position = Vector2( 14204, 734 )
 
 [node name="Floor15" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 16240, -110 )
+position = Vector2( 16244, 734 )
 
 [node name="Floor16" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 18270, -110 )
+position = Vector2( 18274, 734 )
 
 [node name="Floor17" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 16240, -110 )
+position = Vector2( 16244, 734 )
 
 [node name="Floor18" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 18270, -110 )
+position = Vector2( 18274, 734 )
 
 [node name="Socket" parent="." instance=ExtResource( 6 )]
 position = Vector2( 601, 95 )
