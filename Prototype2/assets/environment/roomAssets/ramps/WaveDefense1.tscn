@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Floors/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/backgrounds/background.png" type="Texture" id=2]
@@ -13,8 +13,43 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/environment/roomAssets/Corners/ceilingCorners/cornerRight.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/environment/roomAssets/Corners/ceilingCorners/cornerLeft.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=14]
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+glow_enabled = true
+glow_hdr_threshold = 0.0
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/active = false
+
+[sub_resource type="Animation" id=2]
+resource_local_to_scene = true
+resource_name = "hit"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
 
 [node name="WaveDefense1" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="Background" type="Sprite" parent="."]
 self_modulate = Color( 1, 0.0117647, 0.682353, 1 )
@@ -853,17 +888,14 @@ scale = Vector2( 0.1, 0.1 )
 [node name="cornerRight" parent="Corners" instance=ExtResource( 13 )]
 position = Vector2( -3480, 2530.01 )
 rotation = 0.0
-scale = Vector2( 1, 1 )
 
 [node name="cornerRight2" parent="Corners" instance=ExtResource( 13 )]
 position = Vector2( -1440, 2530 )
 rotation = 0.0
-scale = Vector2( 1, 1 )
 
 [node name="cornerRight3" parent="Corners" instance=ExtResource( 13 )]
 position = Vector2( 600, 2530 )
 rotation = 0.0
-scale = Vector2( 1, 1 )
 
 [node name="cornerRight5" parent="Corners" instance=ExtResource( 12 )]
 position = Vector2( 600.094, 35160 )
@@ -904,3 +936,15 @@ position = Vector2( 873, -452 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -74 )
+
+[node name="Sprite" parent="Player" index="0"]
+material = SubResource( 1 )
+
+[node name="VFXAnimationPlayer" parent="Player" index="3"]
+anims/hit = SubResource( 2 )
+
+[node name="Camera2D" parent="Player" index="4"]
+limit_top = -915
+limit_bottom = 19
+
+[editable path="Player"]
