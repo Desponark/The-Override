@@ -7,6 +7,7 @@
 scale = Vector2( 0.1, 0.1 )
 
 [node name="Wall1" parent="." instance=ExtResource( 2 )]
+position = Vector2( -100, 280 )
 
 [node name="Floor" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 1200 )
