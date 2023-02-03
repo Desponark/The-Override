@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/player/SwordsmanIdle-sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
@@ -18,8 +18,9 @@
 [ext_resource path="res://Sounds/Player/Death.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Sounds/Player/Dodge.wav" type="AudioStream" id=17]
 [ext_resource path="res://Sounds/Player/Footsteps/footstep05.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/player/dash/DashGhost.tscn" type="PackedScene" id=19]
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=18]
 resource_local_to_scene = true
 shader = ExtResource( 8 )
 shader_param/active = false
@@ -104,24 +105,12 @@ tracks/5/keys = {
 "values": [ true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite:material:shader_param/active")
+tracks/6/path = NodePath("PunchSound:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("PunchSound:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -509,6 +498,21 @@ tracks/5/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
 [sub_resource type="Animation" id=11]
 resource_local_to_scene = true
 resource_name = "hit"
@@ -548,7 +552,7 @@ minJumpHeight = -700.0
 friction = 0.15
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 10 )
+material = SubResource( 18 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 4
@@ -570,12 +574,13 @@ anims/run = SubResource( 4 )
 next/fall = "land"
 
 [node name="VFXAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 19 )
 anims/hit = SubResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -93 )
 current = true
-drag_margin_v_enabled = true
+limit_left = -6272
+limit_bottom = 680
 offset_v = -1.0
 editor_draw_limits = true
 
@@ -619,6 +624,7 @@ position = Vector2( 0, -45 )
 
 [node name="Dash" type="Node2D" parent="."]
 script = ExtResource( 11 )
+dashGhostScene = ExtResource( 19 )
 
 [node name="DashDuration" type="Timer" parent="Dash"]
 one_shot = true

@@ -1,7 +1,7 @@
 extends Node2D
 
 var canDash = true
-var dashGhostScene = preload("res://assets/player/Dash/DashGhost.tscn")
+export(PackedScene) var dashGhostScene
 var sprite
 
 func startDash(givenSprite, duration):
