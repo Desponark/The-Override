@@ -1210,7 +1210,7 @@ custom_fonts/font = SubResource( 7 )
 text = "Press [Q] to exchange own health to robots health"
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3877, 468 )
+position = Vector2( -3673, 520 )
 
 [node name="Robot" parent="." instance=ExtResource( 7 )]
 position = Vector2( -1457, 540 )
