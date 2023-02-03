@@ -25,6 +25,7 @@ func instanceDashGhost():
 	ghost.frame = sprite.frame
 	ghost.flip_h = sprite.flip_h
 	ghost.scale = sprite.scale
+	ghost.scale *= 2 # TODO: Fix this properly
 
 # tells us if the timer is currently running -> therefore dashing
 func isDashing():

@@ -42,7 +42,7 @@ margin_bottom = -86.0
 text = "E"
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -1, -29 )
+position = Vector2( 0, -47 )
 
 [node name="InsertSound" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2( 2, 2 )
