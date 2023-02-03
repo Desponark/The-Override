@@ -571,6 +571,7 @@ anims/hit = SubResource( 11 )
 position = Vector2( 0, -93 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
+drag_margin_v_enabled = true
 offset_v = -1.0
 editor_draw_limits = true
 

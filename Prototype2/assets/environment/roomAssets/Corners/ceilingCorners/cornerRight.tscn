@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 228.5, 1023 )
 
-[node name="CeilingCornerRight" type="Sprite"]
+[node name="cornerRight" type="Sprite"]
 rotation = 1.5708
 flip_v = true
 
