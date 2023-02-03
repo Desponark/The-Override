@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Alarm_Loop_01.mp3-4838d9c90c31eb718b366bd4fffa575f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Switch/Alarm_Loop_01.mp3"
+dest_files=[ "res://.import/Alarm_Loop_01.mp3-4838d9c90c31eb718b366bd4fffa575f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
