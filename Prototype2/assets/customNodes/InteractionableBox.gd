@@ -10,3 +10,10 @@ func interact(area):
 	# LARS: use signal or give parent node and access its interact function here 
 	if owner.has_method("interact"):
 		owner.interact(area)
+
+
+func _on_InteractionableBox_area_entered(area):
+	$Label.show()
+
+func _on_InteractionableBox_area_exited(area):
+	$Label.hide()
