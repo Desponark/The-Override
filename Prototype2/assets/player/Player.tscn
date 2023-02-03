@@ -572,6 +572,7 @@ anims/hit = SubResource( 11 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -93 )
 current = true
+drag_margin_v_enabled = true
 offset_v = -1.0
 editor_draw_limits = true
 
