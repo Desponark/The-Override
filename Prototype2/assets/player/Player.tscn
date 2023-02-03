@@ -538,6 +538,7 @@ height = 8.0
 extents = Vector2( 34, 48 )
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
+scale = Vector2( 2, 2 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
@@ -633,6 +634,7 @@ stream = ExtResource( 13 )
 
 [node name="StepSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
+stream = ExtResource( 15 )
 volume_db = -20.0
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
