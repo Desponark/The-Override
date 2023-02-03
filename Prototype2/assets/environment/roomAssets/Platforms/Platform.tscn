@@ -20,3 +20,12 @@ one_way_collision = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Platform"]
 occluder = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.58, 1.16, 1.16, 1 )
+margin_left = -239.0
+margin_top = 86.0
+margin_right = -199.0
+margin_bottom = 126.0
+rect_scale = Vector2( 12.7302, 1.19241 )
+color = Color( 0.00337219, 0.863281, 0.822973, 1 )
