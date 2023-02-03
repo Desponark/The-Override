@@ -5,7 +5,7 @@ onready var socket = get_node(socketPath)
 export var minRandomPause = 2
 export var maxRandomPause = 5
 var isPaused = false
-
+var active = false
 
 func _ready():
 	randomize()
@@ -13,7 +13,8 @@ func _ready():
 func interact(area):
 	if !socket:
 		return
-	togglePause()
+	if active:
+		togglePause()
 
 func togglePause():
 	if !isPaused:
@@ -30,10 +31,11 @@ func togglePause():
 		isPaused = false
 
 func socketIsCharging():
-	# start random deactivation process
+	active = true
 	$RandomPause.start(rand_range(minRandomPause, maxRandomPause))
 
 func socketFullyCharged():
+	active = false
 	$RandomPause.stop()
 
 func _on_RandomPause_timeout():
