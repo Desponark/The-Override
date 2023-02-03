@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/ui/mainMenu/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
@@ -15,12 +15,6 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=2]
 size = 192
 font_data = ExtResource( 3 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 60, 981 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 105, 996.25 )
 
 [sub_resource type="ShaderMaterial" id=7]
 resource_local_to_scene = true
@@ -56,27 +50,34 @@ margin_bottom = 256.0
 rect_scale = Vector2( 2.15656, 2.76648 )
 color = Color( 0.0745098, 0.121569, 0.211765, 1 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 204, 408 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Wall2" parent="Node2D" instance=ExtResource( 7 )]
-position = Vector2( 864, 800 )
+[node name="Wall3" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 1224, 408 )
+scale = Vector2( 0.5, 0.5 )
 
-[node name="Wall3" parent="Node2D" instance=ExtResource( 7 )]
-position = Vector2( 2912, 800 )
+[node name="Wall4" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 2244, 408 )
+scale = Vector2( 0.5, 0.5 )
 
-[node name="Floor" type="Node2D" parent="."]
+[node name="Floors" type="Node2D" parent="."]
 position = Vector2( 24, 536 )
+
+[node name="Floor" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 180, 892 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Floor" parent="Floor" instance=ExtResource( 4 )]
-position = Vector2( -224, 1776 )
+[node name="Floor2" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 1200, 892 )
+scale = Vector2( 0.5, 0.5 )
 
-[node name="Floor2" parent="Floor" instance=ExtResource( 4 )]
-position = Vector2( 1824, 1776 )
-
-[node name="Floor3" parent="Floor" instance=ExtResource( 4 )]
-position = Vector2( 3872, 1776 )
+[node name="Floor3" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 2220, 892 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="NewGame" type="Button" parent="."]
 margin_left = 404.0
@@ -119,22 +120,6 @@ margin_right = 1813.0
 margin_bottom = 330.0
 custom_fonts/font = SubResource( 2 )
 text = "Projekt Nettelnburg"
-
-[node name="CollisionWalls" type="Node2D" parent="."]
-position = Vector2( 112, 104 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 32, 497.5 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1875, 495.125 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 6 )
 
 [node name="Robot" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1375, 559 )
