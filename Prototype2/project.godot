@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Prototype 2"
-run/main_scene="res://assets/ui/mainMenu/StartScreen.tscn"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -123,6 +123,7 @@ dash={
 2d_physics/layer_4="neutral"
 2d_physics/layer_5="interactable"
 2d_physics/layer_9="robot"
+2d_physics/layer_12="camera"
 
 [physics]
 
