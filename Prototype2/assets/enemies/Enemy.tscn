@@ -224,6 +224,7 @@ position = Vector2( 55.7143, 0 )
 wait_time = 2.0
 
 [node name="HealthBar" parent="." instance=ExtResource( 11 )]
+visible = false
 margin_left = -25.0
 margin_top = -29.0
 margin_right = 75.0

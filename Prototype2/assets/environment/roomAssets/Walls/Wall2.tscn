@@ -2,7 +2,6 @@
 
 [ext_resource path="res://assets/environment/roomAssets/Walls/Wall_1_Gitter.png" type="Texture" id=1]
 
-[node name="Wall2" type="Node2D"]
-
-[node name="Wall2" type="Sprite" parent="."]
+[node name="Wall2" type="Sprite"]
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )

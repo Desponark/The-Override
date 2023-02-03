@@ -13,20 +13,21 @@ extents = Vector2( 50, 91 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 51.25, 119.125 )
 
-[node name="RampDown" type="StaticBody2D"]
-
-[node name="Sprite" type="Sprite" parent="."]
+[node name="RampDown" type="Sprite"]
+scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="RampDown" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RampDown"]
 position = Vector2( -0.698907, 393.715 )
 rotation = 0.50221
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RampDown"]
 position = Vector2( 970, 926 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RampDown"]
 position = Vector2( -971.75, -112.125 )
 shape = SubResource( 3 )
