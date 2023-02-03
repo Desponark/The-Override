@@ -539,6 +539,7 @@ extents = Vector2( 34, 48 )
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_layer = 3
+collision_mask = 3
 script = ExtResource( 2 )
 friction = 0.15
 
