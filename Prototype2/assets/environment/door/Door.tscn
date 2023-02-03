@@ -70,6 +70,7 @@ radius = 26.0
 height = 170.0
 
 [node name="Door" type="StaticBody2D"]
+scale = Vector2( 1.11419, 2.28836 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
