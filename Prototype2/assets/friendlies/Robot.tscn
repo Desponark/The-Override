@@ -140,22 +140,26 @@ collision_mask = 0
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionableBox"]
+visible = false
 shape = SubResource( 2 )
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 256
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 shape = SubResource( 3 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 1 )]
-margin_left = -25.0
-margin_top = -30.0
-margin_right = 75.0
-margin_bottom = -10.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_left = -23.0
+margin_top = 5.0
+margin_right = 77.0
+margin_bottom = 25.0
+rect_rotation = -89.9999
+rect_scale = Vector2( 0.2, 0.2 )
 maxHealth = 500.0
 health = 300.0
 
