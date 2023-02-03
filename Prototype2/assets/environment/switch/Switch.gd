@@ -19,11 +19,13 @@ func togglePause():
 	if !isPaused:
 		if socket.has_method("pauseChargeProcess"):
 			socket.pauseChargeProcess(true)
+			$SwitchOffSound.play()
 		$Sprite.self_modulate = Color(1,0,0)
 		isPaused = true
 	else:
 		if socket.has_method("pauseChargeProcess"):
 			socket.pauseChargeProcess(false)
+			$SwitchOnSound.play()
 		$Sprite.self_modulate = Color(1,1,1)
 		isPaused = false
 

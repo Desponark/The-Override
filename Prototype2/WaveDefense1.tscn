@@ -18,7 +18,7 @@
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://assets/ui/EndGameScreen/EndGameScreen.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=19]
+[ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=19]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -35,8 +35,6 @@ font_data = ExtResource( 17 )
 
 [sub_resource type="ShaderMaterial" id=9]
 resource_local_to_scene = true
-shader = ExtResource( 19 )
-shader_param/active = false
 
 [sub_resource type="Animation" id=10]
 resource_local_to_scene = true
@@ -1216,9 +1214,9 @@ custom_fonts/font = SubResource( 6 )
 text = "Dash with [SHIFT]: Makes you invulnerable to damage"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = -1329.0
+margin_left = -1441.0
 margin_top = 393.0
-margin_right = -953.0
+margin_right = -1065.0
 margin_bottom = 462.0
 custom_fonts/font = SubResource( 7 )
 text = "When switch turns red -> socket stops charging.
@@ -1226,12 +1224,28 @@ text = "When switch turns red -> socket stops charging.
 Press [E] to turn back on"
 
 [node name="Label3" type="Label" parent="."]
-margin_left = -1884.0
-margin_top = 393.0
-margin_right = -1497.0
-margin_bottom = 462.0
+margin_left = -2099.0
+margin_top = 426.0
+margin_right = -1712.0
+margin_bottom = 495.0
 custom_fonts/font = SubResource( 7 )
 text = "Press [Q] to exchange own health to robots health"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 1250.0
+margin_top = 462.0
+margin_right = 1637.0
+margin_bottom = 531.0
+custom_fonts/font = SubResource( 7 )
+text = "Press [E] to insert robot into socket"
+
+[node name="Label5" type="Label" parent="."]
+margin_left = -1149.0
+margin_top = 489.0
+margin_right = -762.0
+margin_bottom = 558.0
+custom_fonts/font = SubResource( 7 )
+text = "Press [E] to insert robot into socket"
 
 [node name="Robot" parent="." instance=ExtResource( 7 )]
 position = Vector2( -1918, 550 )
@@ -1266,6 +1280,11 @@ margin_left = -110.0
 margin_top = -508.0
 margin_right = -110.0
 margin_bottom = -508.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -8.739
+autoplay = true
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]
 
