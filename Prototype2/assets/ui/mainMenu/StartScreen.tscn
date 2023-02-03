@@ -1,54 +1,146 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/ui/mainMenu/StartScreen.gd" type="Script" id=1]
-[ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/environment/Room Assets/Floors/Floor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=6]
 
 [sub_resource type="DynamicFont" id=1]
+size = 43
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 192
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 60, 981 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 105, 996.25 )
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/active = false
+
+[sub_resource type="Animation" id=8]
+resource_local_to_scene = true
+resource_name = "hit"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_left = -1000.0
+margin_top = -824.0
+margin_right = 920.0
+margin_bottom = 256.0
+rect_scale = Vector2( 2.15656, 2.76648 )
 color = Color( 0.0745098, 0.121569, 0.211765, 1 )
 
-[node name="NewGame" type="ColorRect" parent="."]
-margin_left = 688.0
-margin_top = 539.0
-margin_right = 1248.0
-margin_bottom = 619.0
-color = Color( 0, 0, 0, 1 )
+[node name="NewGame" type="Button" parent="."]
+margin_left = 404.0
+margin_top = 474.0
+margin_right = 964.0
+margin_bottom = 554.0
 
 [node name="Label" type="Label" parent="NewGame"]
-margin_left = 235.0
-margin_top = -140.0
-margin_right = 340.0
-margin_bottom = -99.0
+margin_left = 217.0
+margin_top = 14.0
+margin_right = 339.0
+margin_bottom = 73.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
+align = 1
+valign = 1
 
-[node name="LoadGame" type="ColorRect" parent="."]
-margin_left = 680.0
-margin_top = 372.0
-margin_right = 1240.0
-margin_bottom = 452.0
-color = Color( 0, 0, 0, 1 )
+[node name="QuitGame" type="Button" parent="."]
+margin_left = 404.0
+margin_top = 599.0
+margin_right = 964.0
+margin_bottom = 679.0
 
-[node name="Label" type="Label" parent="LoadGame"]
-margin_right = 40.0
-margin_bottom = 14.0
-
-[node name="Quit" type="ColorRect" parent="."]
-margin_left = 691.0
-margin_top = 699.0
-margin_right = 1251.0
-margin_bottom = 779.0
-color = Color( 0, 0, 0, 1 )
-
-[node name="Label" type="Label" parent="Quit"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label" type="Label" parent="QuitGame"]
+margin_left = 217.0
+margin_top = 14.0
+margin_right = 339.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+align = 1
+valign = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 112.0
+margin_top = 104.0
+margin_right = 1813.0
+margin_bottom = 330.0
+custom_fonts/font = SubResource( 2 )
+text = "Projekt Nettelnburg"
+
+[node name="Floor" type="Node2D" parent="."]
+position = Vector2( 112, 104 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Floor" parent="Floor" instance=ExtResource( 4 )]
+position = Vector2( -224, 1776 )
+
+[node name="Floor2" parent="Floor" instance=ExtResource( 4 )]
+position = Vector2( 1824, 1776 )
+
+[node name="Floor3" parent="Floor" instance=ExtResource( 4 )]
+position = Vector2( 3872, 1778 )
+
+[node name="CollisionWalls" type="Node2D" parent="."]
+position = Vector2( 112, 104 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 32, 497.5 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1875, 495.125 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 6 )
+
+[node name="Robot" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1375, 559 )
+scale = Vector2( 3, 3 )
+
+[node name="Sprite" parent="Robot" index="0"]
+material = SubResource( 7 )
+
+[node name="VFXAnimationPlayer" parent="Robot" index="3"]
+anims/hit = SubResource( 8 )
+
+[node name="HealthBar" parent="Robot" index="7"]
+visible = false
+health = 20.0
+
+[connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="QuitGame" to="." method="_on_QuitGame_pressed"]
+
+[editable path="Robot"]
