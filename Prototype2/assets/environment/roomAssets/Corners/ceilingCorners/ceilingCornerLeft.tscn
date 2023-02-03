@@ -9,7 +9,7 @@ extents = Vector2( 228.5, 1023 )
 extents = Vector2( 793, 403.5 )
 
 [node name="ceilingCornerLeft" type="Sprite"]
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 flip_h = true
 
