@@ -569,12 +569,6 @@ next/fall = "land"
 [node name="VFXAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/hit = SubResource( 11 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -93 )
-current = true
-offset_v = -1.0
-editor_draw_limits = true
-
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
@@ -596,10 +590,10 @@ script = ExtResource( 7 )
 shape = SubResource( 8 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 9 )]
-margin_left = -425.0
-margin_top = -141.0
-margin_right = -325.0
-margin_bottom = -121.0
+margin_left = -432.0
+margin_top = -69.0
+margin_right = -332.0
+margin_bottom = -49.0
 rect_rotation = -90.0
 
 [node name="InteractionBox" type="Area2D" parent="."]
@@ -657,6 +651,8 @@ stream = ExtResource( 17 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
