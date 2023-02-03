@@ -9,8 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="Projectile" type="RigidBody2D"]
-collision_layer = 0
-collision_mask = 257
+collision_mask = 256
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
