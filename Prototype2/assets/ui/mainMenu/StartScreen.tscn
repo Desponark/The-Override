@@ -3,10 +3,10 @@
 [ext_resource path="res://assets/ui/mainMenu/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/environment/Room Assets/Floors/Floor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/environment/roomAssets/Floors/Floor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=6]
-[ext_resource path="res://assets/environment/Room Assets/Walls/Wall2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/environment/roomAssets/Walls/Wall2.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -56,8 +56,17 @@ margin_bottom = 256.0
 rect_scale = Vector2( 2.15656, 2.76648 )
 color = Color( 0.0745098, 0.121569, 0.211765, 1 )
 
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Wall2" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 864, 800 )
+
+[node name="Wall3" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 2912, 800 )
+
 [node name="Floor" type="Node2D" parent="."]
-position = Vector2( 112, 104 )
+position = Vector2( 24, 536 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Floor" parent="Floor" instance=ExtResource( 4 )]
@@ -67,16 +76,7 @@ position = Vector2( -224, 1776 )
 position = Vector2( 1824, 1776 )
 
 [node name="Floor3" parent="Floor" instance=ExtResource( 4 )]
-position = Vector2( 3872, 1778 )
-
-[node name="Node2D" type="Node2D" parent="."]
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Wall2" parent="Node2D" instance=ExtResource( 7 )]
-position = Vector2( 864, 800 )
-
-[node name="Wall3" parent="Node2D" instance=ExtResource( 7 )]
-position = Vector2( 2912, 800 )
+position = Vector2( 3872, 1776 )
 
 [node name="NewGame" type="Button" parent="."]
 margin_left = 404.0
