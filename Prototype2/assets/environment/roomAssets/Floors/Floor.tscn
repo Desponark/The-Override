@@ -6,7 +6,7 @@
 extents = Vector2( 3411.67, 450 )
 
 [node name="Floor" type="Sprite"]
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 flip_h = true
 
