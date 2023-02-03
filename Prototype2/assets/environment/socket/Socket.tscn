@@ -33,6 +33,14 @@ script = ExtResource( 4 )
 position = Vector2( 2.5, 0.5 )
 shape = SubResource( 1 )
 
+[node name="Label" type="Label" parent="InteractionableBox"]
+visible = false
+margin_left = -3.0
+margin_top = -100.0
+margin_right = 37.0
+margin_bottom = -86.0
+text = "E"
+
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( -1, -29 )
 

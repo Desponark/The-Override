@@ -6,6 +6,7 @@
 extents = Vector2( 255, 78 )
 
 [node name="Platform" type="StaticBody2D"]
+scale = Vector2( 0.2, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
