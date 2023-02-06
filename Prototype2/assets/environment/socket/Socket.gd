@@ -32,7 +32,7 @@ func interact(area):
 	robot = player.getRobotRef()
 	if robot != null and robot.isFollowingPlayer and chargeState != CHARGESTATE.FULLYCHARGED:
 		# socket the robot
-		robot.putRobotInSocket($Position2D.global_transform)
+		robot.putRobotInSocket($Position2D.global_position)
 		$InsertSound.play()
 		
 		# trigger everything that triggers on socket charging up that is connected

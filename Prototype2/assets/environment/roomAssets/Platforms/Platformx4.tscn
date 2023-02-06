@@ -6,6 +6,7 @@
 extents = Vector2( 255, 78 )
 
 [node name="Platform" type="StaticBody2D"]
+scale = Vector2( 0.2, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -41,3 +42,39 @@ texture = ExtResource( 1 )
 position = Vector2( 1546, 159.5 )
 shape = SubResource( 1 )
 one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.58, 1.16, 1.16, 1 )
+margin_left = 1286.0
+margin_top = 86.0
+margin_right = 1326.0
+margin_bottom = 126.0
+rect_scale = Vector2( 12.7302, 1.19241 )
+color = Color( 0.00337219, 0.863281, 0.822973, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color( 0.58, 1.16, 1.16, 1 )
+margin_left = 777.0
+margin_top = 86.0
+margin_right = 817.0
+margin_bottom = 126.0
+rect_scale = Vector2( 12.7302, 1.19241 )
+color = Color( 0.00337219, 0.863281, 0.822973, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+modulate = Color( 0.58, 1.16, 1.16, 1 )
+margin_left = 268.0
+margin_top = 86.0
+margin_right = 308.0
+margin_bottom = 126.0
+rect_scale = Vector2( 12.7302, 1.19241 )
+color = Color( 0.00337219, 0.863281, 0.822973, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+modulate = Color( 0.58, 1.16, 1.16, 1 )
+margin_left = -241.0
+margin_top = 86.0
+margin_right = -201.0
+margin_bottom = 126.0
+rect_scale = Vector2( 12.7302, 1.19241 )
+color = Color( 0.00337219, 0.863281, 0.822973, 1 )

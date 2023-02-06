@@ -4,4 +4,3 @@
 
 [node name="WallRight" instance=ExtResource( 1 )]
 rotation = 1.5708
-scale = Vector2( 1, 1 )

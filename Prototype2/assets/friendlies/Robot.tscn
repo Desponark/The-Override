@@ -144,6 +144,14 @@ script = ExtResource( 7 )
 visible = false
 shape = SubResource( 2 )
 
+[node name="Label" type="Label" parent="InteractionableBox"]
+visible = false
+margin_left = -3.5
+margin_top = -36.0
+margin_right = 36.5
+margin_bottom = -22.0
+text = "E"
+
 [node name="HurtBox" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
@@ -172,4 +180,6 @@ autoplay = true
 stream = ExtResource( 10 )
 volume_db = -15.0
 
+[connection signal="area_entered" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_entered"]
+[connection signal="area_exited" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_exited"]
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
