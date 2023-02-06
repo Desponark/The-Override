@@ -64,7 +64,7 @@ func _physics_process(delta: float):
 	
 	playAnimations(horizontalDirection)
 	
-	velocity = move_and_slide(velocity, upDirection)
+	velocity = move_and_slide(velocity, upDirection, true)
 	
 	switchSpriteDirection(horizontalDirection)
 	

@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Camera/Camera.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 381.0
 height = 1172.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 43.1857
 
 [node name="CameraBody" type="KinematicBody2D"]
 collision_layer = 2048
@@ -15,6 +18,25 @@ script = ExtResource( 1 )
 position = Vector2( 0, 160 )
 rotation = 1.5708
 shape = SubResource( 1 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 497 )
+rotation = 0.00174533
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 917, 1.0815e-07 )
+rotation = 0.00174533
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2( -917, -1.06288e-07 )
+rotation = 0.00174533
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
