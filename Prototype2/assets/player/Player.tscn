@@ -577,8 +577,6 @@ next/fall = "land"
 anims/RESET = SubResource( 19 )
 anims/hit = SubResource( 11 )
 
-limit_left = -6272
-limit_bottom = 680
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
@@ -662,8 +660,6 @@ stream = ExtResource( 17 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]

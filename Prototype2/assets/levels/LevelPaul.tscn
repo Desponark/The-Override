@@ -6,12 +6,12 @@
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/environment/backgrounds/background.png" type="Texture" id=5]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Camera/Camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/enemies/loot/HealthDrop.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/environment/roomAssets/Walls/Wall2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=13]
 
 [node name="LevelPaul" type="Node2D"]
 
@@ -240,15 +240,6 @@ position = Vector2( 2040.8, 816.8 )
 [node name="Floor17" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 2448.8, 816.8 )
 
-[node name="Floor18" parent="Floors" instance=ExtResource( 2 )]
-position = Vector2( 2856, -408 )
-
-[node name="Floor19" parent="Floors" instance=ExtResource( 2 )]
-position = Vector2( 3264, -204 )
-
-[node name="Floor20" parent="Floors" instance=ExtResource( 2 )]
-position = Vector2( 3672, -1.52588e-05 )
-
 [node name="Floor21" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 2856, 816 )
 
@@ -260,9 +251,6 @@ position = Vector2( 3672, 816 )
 
 [node name="Floor24" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 4080, 816 )
-
-[node name="Floor25" parent="Floors" instance=ExtResource( 2 )]
-position = Vector2( 4080, 204 )
 
 [node name="Floor9" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( -3263.2, 816.8 )
@@ -311,10 +299,19 @@ maxRandomPause = 12
 [node name="Platform" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1824, 256 )
 
-[node name="Platform2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 2251, 29 )
+[node name="Platform4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2244, -8.07794e-28 )
+
+[node name="Platform5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2652, -4.81482e-35 )
+
+[node name="Platform6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3060, -2.86986e-42 )
+
+[node name="Platform7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3468, 0 )
+
+[node name="Platform8" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3876, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-
-[node name="CameraBody" parent="." instance=ExtResource( 7 )]
-playerPath = NodePath("../Player")
