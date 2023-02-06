@@ -175,7 +175,7 @@ func transferHealth():
 		robotRef.transferHealth(-(healthTransferAmount * healthTransferMultiplier))
 	
 func getRobotFollowPosition():
-	return $RobotFollowPosition.global_transform
+	return $RobotFollowPosition.global_position
 	
 func setRobotRef(robot):
 	robotRef = robot

@@ -1,7 +1,7 @@
 extends Node2D
 
 var canDash = true
-var dashGhostScene = preload("res://assets/player/Dash/DashGhost.tscn")
+export(PackedScene) var dashGhostScene
 var sprite
 
 func startDash(givenSprite, duration):
@@ -25,6 +25,7 @@ func instanceDashGhost():
 	ghost.frame = sprite.frame
 	ghost.flip_h = sprite.flip_h
 	ghost.scale = sprite.scale
+	ghost.scale *= 2 # TODO: Fix this properly
 
 # tells us if the timer is currently running -> therefore dashing
 func isDashing():

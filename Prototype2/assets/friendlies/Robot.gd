@@ -19,20 +19,20 @@ func _physics_process(_delta):
 			setRobotTransform(player.getRobotFollowPosition())
 
 func changeLightScale():
-	var lightScale = 3 * (getHealth() / getMaxHealth())
+	var lightScale = 2 * (getHealth() / getMaxHealth())
 	# stop lightscale from getting too small
 	if lightScale <= 0.4:
 		lightScale = 0.4
 	$Light2D.set_texture_scale(lightScale)
 
-func setRobotTransform(transform):
+func setRobotTransform(position):
 	var tween = create_tween()
-	tween.tween_property(self, "global_transform", transform, 0.5)
+	tween.tween_property(self, "global_position", position, 0.5)
 	
-func putRobotInSocket(transform):
+func putRobotInSocket(position):
 	$AnimationPlayer.play("RESET")
 	isFollowingPlayer = false
-	setRobotTransform(transform)
+	setRobotTransform(position)
 
 func interact(area):
 	if player == null:
