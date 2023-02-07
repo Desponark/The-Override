@@ -1,5 +1,4 @@
-#extends KinematicBody2D
-extends RigidBody2D
+extends KinematicBody2D
 
 
 const upDirection = Vector2.UP
@@ -19,6 +18,6 @@ func _physics_process(delta):
 	velocity = directionToPlayer * distanceToPlayer * cameraSpeedMultiplier
 	print(distanceToPlayer * cameraSpeedMultiplier)
 	
-#	velocity = move_and_slide(velocity, upDirection, false, 4, deg2rad(70))
+	velocity = move_and_slide(velocity, upDirection, false, 4, deg2rad(70))
 
 	
