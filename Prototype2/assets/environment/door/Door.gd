@@ -15,9 +15,11 @@ func _process(_delta):
 	
 	if !currentlyOpen and isOpen:
 		$AnimationPlayer.play("open")
+		$DoorOpeningSound.play()
 		currentlyOpen = true
 	elif currentlyOpen and !isOpen:
 		$AnimationPlayer.play_backwards("open")
+		$DoorClosingSound.play()
 		currentlyOpen = false
 	
 func toggleDoorOpen(isTrue):
