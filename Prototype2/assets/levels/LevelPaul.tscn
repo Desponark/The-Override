@@ -265,6 +265,30 @@ position = Vector2( 5712, 408 )
 [node name="Floor27" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 6120, 408 )
 
+[node name="Floor29" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1632, 408 )
+rotation = 1.5708
+
+[node name="Floor30" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1632, 3.05176e-05 )
+rotation = 1.5708
+
+[node name="Floor31" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1632, -408 )
+rotation = 1.5708
+
+[node name="Floor32" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1836, 0 )
+rotation = 1.5708
+
+[node name="Floor33" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1836, -408 )
+rotation = 1.5708
+
+[node name="Floor34" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1836, 408 )
+rotation = 1.5708
+
 [node name="Floor9" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( -3263.2, 816.8 )
 
