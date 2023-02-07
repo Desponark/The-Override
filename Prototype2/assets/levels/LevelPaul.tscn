@@ -346,6 +346,6 @@ collision_layer = 2048
 collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( -5.95068, 72.4636 )
+position = Vector2( 9, 73 )
 rotation = -0.453786
 shape = SubResource( 1 )
