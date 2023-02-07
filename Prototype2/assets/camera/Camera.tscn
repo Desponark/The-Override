@@ -7,9 +7,9 @@ radius = 381.0
 height = 1172.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 43.1857
+radius = 543.023
 
-[node name="CameraBody" type="KinematicBody2D"]
+[node name="CameraBody" type="RigidBody2D"]
 collision_layer = 2048
 collision_mask = 2048
 script = ExtResource( 1 )
@@ -21,21 +21,6 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 497 )
-rotation = 0.00174533
-scale = Vector2( 1, 1 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2( 917, 1.0815e-07 )
-rotation = 0.00174533
-scale = Vector2( 1, 1 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2( -917, -1.06288e-07 )
-rotation = 0.00174533
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -1,4 +1,5 @@
-extends KinematicBody2D
+#extends KinematicBody2D
+extends RigidBody2D
 
 
 const upDirection = Vector2.UP
@@ -8,7 +9,7 @@ onready var player = get_node(playerPath)
 var velocity = Vector2.ZERO
 export var cameraSpeedMultiplier = 100.0
 var move
-var snap = Vector2.DOWN
+var snap = 32.0
 
 func _physics_process(delta):
 	# follow player with move and slide
@@ -18,6 +19,6 @@ func _physics_process(delta):
 	velocity = directionToPlayer * distanceToPlayer * cameraSpeedMultiplier
 	print(distanceToPlayer * cameraSpeedMultiplier)
 	
-	velocity = move_and_slide(velocity, upDirection, false, 4, deg2rad(70))
-#	var move = move_and_slide_with_snap(velocity, snap, upDirection, true, 4, deg2rad(60))
+#	velocity = move_and_slide(velocity, upDirection, false, 4, deg2rad(70))
+
 	
