@@ -9,7 +9,7 @@ height = 1172.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 543.023
 
-[node name="CameraBody" type="RigidBody2D"]
+[node name="CameraBody" type="KinematicBody2D"]
 collision_layer = 2048
 collision_mask = 2048
 script = ExtResource( 1 )
