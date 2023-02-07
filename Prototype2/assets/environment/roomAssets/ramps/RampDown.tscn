@@ -5,13 +5,13 @@ flags = 4
 load_path = "res://.import/RampDown.png-6083818e09f31f83b5d921abda674069.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1107.8, 104.553 )
+extents = Vector2( 1092.47, 78.0713 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 50, 91 )
+extents = Vector2( 50, 83.4996 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 51.25, 119.125 )
+extents = Vector2( 51.25, 88.5 )
 
 [node name="RampDown" type="Sprite"]
 scale = Vector2( 0.1, 0.1 )
@@ -20,14 +20,17 @@ texture = SubResource( 4 )
 [node name="RampDown" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RampDown"]
-position = Vector2( -0.698907, 393.715 )
+position = Vector2( -0.00857949, 424.306 )
 rotation = 0.50221
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RampDown"]
-position = Vector2( 970, 926 )
+position = Vector2( 969.999, 929 )
+scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="RampDown"]
-position = Vector2( -971.75, -112.125 )
+position = Vector2( -971.75, -81.5 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
