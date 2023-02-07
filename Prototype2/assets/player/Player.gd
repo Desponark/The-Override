@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const upDiretion = Vector2.UP
+const upDirection = Vector2.UP
 
 export var maxSpeed = 600.0
 export var maxJumpHeight = -1500.0
@@ -64,7 +64,7 @@ func _physics_process(delta: float):
 	
 	playAnimations(horizontalDirection)
 	
-	velocity = move_and_slide(velocity, upDiretion)
+	velocity = move_and_slide(velocity, upDirection, true)
 	
 	switchSpriteDirection(horizontalDirection)
 	
