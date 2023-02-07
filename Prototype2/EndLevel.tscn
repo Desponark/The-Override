@@ -112,21 +112,27 @@ position = Vector2( 817.8, 0.799988 )
 
 [node name="RampDown" parent="Floor" instance=ExtResource( 2 )]
 position = Vector2( 2450, -135 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="RampDown2" parent="Floor" instance=ExtResource( 2 )]
 position = Vector2( 2859, 70 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="RampDown3" parent="Floor" instance=ExtResource( 2 )]
 position = Vector2( 3265.8, 271.8 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="RampDown4" parent="Floor" instance=ExtResource( 2 )]
 position = Vector2( 3674.8, 476.8 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="RampDown5" parent="Floor" instance=ExtResource( 2 )]
 position = Vector2( 4083.8, 678.8 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="RampDown6" parent="Floor" instance=ExtResource( 2 )]
 position = Vector2( 4492.8, 883.8 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="SideWalls" type="Node2D" parent="."]
 
