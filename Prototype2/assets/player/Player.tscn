@@ -577,13 +577,6 @@ next/fall = "land"
 anims/RESET = SubResource( 19 )
 anims/hit = SubResource( 11 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-limit_left = -6272
-limit_bottom = 680
-offset_v = -1.0
-editor_draw_limits = true
-
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
@@ -605,10 +598,10 @@ script = ExtResource( 7 )
 shape = SubResource( 8 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 9 )]
-margin_left = -425.0
-margin_top = -141.0
-margin_right = -325.0
-margin_bottom = -121.0
+margin_left = -432.0
+margin_top = -69.0
+margin_right = -332.0
+margin_bottom = -49.0
 rect_rotation = -90.0
 
 [node name="InteractionBox" type="Area2D" parent="."]
