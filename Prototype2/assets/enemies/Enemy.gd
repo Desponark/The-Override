@@ -60,10 +60,8 @@ func getPriorityTarget(array):
 
 func switchSpriteDirection(horizontalDirection):
 	if horizontalDirection != 0:
-		if horizontalDirection > 0:
-			$Sprite.flip_h = true
-		else:
-			$Sprite.flip_h = false
+		var facingRight = horizontalDirection > 0
+		$Sprite.flip_h = facingRight
 
 func setInitialMoveDirection(direction):
 	horizontalDirection = direction
