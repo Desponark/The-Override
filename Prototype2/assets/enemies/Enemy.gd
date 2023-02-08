@@ -34,10 +34,10 @@ func moveEnemyTowardsTarget(approachTarget):
 	if approachTarget != null and rangedTargets.size() <= 0:
 		if approachTarget.global_position.x > global_position.x:
 			horizontalDirection = 1
-		else:
+		elif approachTarget.global_position.x < global_position.x:
 			horizontalDirection = -1
-	else:
-		horizontalDirection = 0
+		elif approachTarget.global_position.x == global_position.x:
+			horizontalDirection = 0
 
 	switchSpriteDirection(horizontalDirection)
 	velocity.x = lerp(velocity.x, horizontalDirection * moveSpeed, acceleration)
@@ -64,7 +64,9 @@ func switchSpriteDirection(horizontalDirection):
 		else:
 			$Sprite.flip_h = false
 
-# if body enters range start ranged combat
+func setInitialMoveDirection(direction):
+	horizontalDirection = direction
+
 func _on_RangedAggroZone_body_entered(body):
 	if body.is_in_group("player") or body.is_in_group("robot"):
 		rangedTargets.append(body)
