@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Walls/Wall1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/environment/roomAssets/Corners/floorCorners/floorCornerRight.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/environment/door/automaticDoor.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/environment/door/SpawnerDoor.tscn" type="PackedScene" id=23]
@@ -510,6 +511,9 @@ scale = Vector2( 0.2, 0.2 )
 
 [node name="RampUp2" parent="Ramps" instance=ExtResource( 5 )]
 position = Vector2( 4284.8, -1631.2 )
+
+[node name="CollisionShape2D" parent="Ramps/RampUp2/CameraCollision" index="0"]
+disabled = true
 
 [node name="RampUp4" parent="Ramps" instance=ExtResource( 5 )]
 position = Vector2( 3876.8, -3193.2 )
@@ -1222,6 +1226,10 @@ position = Vector2( 1530.8, -917.2 )
 friction = 0.9
 healthTransferMultiplier = 2.0
 
+[node name="CameraBody" parent="Alive" instance=ExtResource( 20 )]
+position = Vector2( 1287, -1155 )
+playerPath = NodePath("../Player")
+
 [node name="Robot" parent="Alive" instance=ExtResource( 7 )]
 position = Vector2( 2703.8, -3365.2 )
 
@@ -1232,3 +1240,5 @@ position = Vector2( 9588.8, -4149.2 )
 
 [node name="Platform39" parent="Foreground" instance=ExtResource( 19 )]
 position = Vector2( 9179.8, -4149.2 )
+
+[editable path="Ramps/RampUp2"]
