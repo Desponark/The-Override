@@ -20,6 +20,7 @@ shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Platform"]
+visible = false
 occluder = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
