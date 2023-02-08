@@ -546,10 +546,11 @@ scale = Vector2( 2, 2 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
-maxSpeed = 800.0
-maxJumpHeight = -2000.0
-minJumpHeight = -700.0
+maxJumpHeight = -1700.0
+minJumpHeight = -600.0
+maximumJumps = 1
 friction = 0.15
+healthTransferMultiplier = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 18 )
@@ -577,6 +578,7 @@ next/fall = "land"
 anims/RESET = SubResource( 19 )
 anims/hit = SubResource( 11 )
 
+offset = Vector2( 0, 100 )
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
@@ -598,10 +600,10 @@ script = ExtResource( 7 )
 shape = SubResource( 8 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 9 )]
-margin_left = -432.0
-margin_top = -69.0
-margin_right = -332.0
-margin_bottom = -49.0
+margin_left = -430.5
+margin_top = 71.5
+margin_right = -350.5
+margin_bottom = 91.5
 rect_rotation = -90.0
 
 [node name="InteractionBox" type="Area2D" parent="."]
