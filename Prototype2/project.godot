@@ -117,6 +117,8 @@ dash={
 2d_render/layer_4="neutral"
 2d_render/layer_5="interactable"
 2d_render/layer_9="robot"
+2d_render/layer_12="camera"
+2d_render/layer_13="projectile"
 2d_physics/layer_1="world"
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
@@ -124,6 +126,7 @@ dash={
 2d_physics/layer_5="interactable"
 2d_physics/layer_9="robot"
 2d_physics/layer_12="camera"
+2d_physics/layer_13="projectile"
 
 [physics]
 

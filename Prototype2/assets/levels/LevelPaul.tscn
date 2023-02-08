@@ -330,7 +330,7 @@ minRandomPause = 6
 maxRandomPause = 12
 
 [node name="Platform" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1824, 256 )
+position = Vector2( 1786, 313 )
 
 [node name="Platform4" parent="." instance=ExtResource( 13 )]
 position = Vector2( 2244, -8.07794e-28 )
@@ -353,10 +353,16 @@ position = Vector2( 3876, 0 )
 playerPath = NodePath("../Player")
 
 [node name="Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2652, 408 )
+position = Vector2( 3672, 408 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Enemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3060, 408 )
+position = Vector2( 4080, 408 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 4726, 451 )
