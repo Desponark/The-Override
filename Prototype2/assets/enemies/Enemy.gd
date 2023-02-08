@@ -14,6 +14,7 @@ var rangedTargets = []
 
 export(PackedScene) var healthDrop
 
+export(int) var stopDistance = 200
 
 func _physics_process(delta):
 	# apply gravity
@@ -28,17 +29,17 @@ func takeDamage(damage):
 	if $HealthBar.has_method("subtractHealth"):
 		$HealthBar.subtractHealth(damage)
 
-# move enemy towards the x direction of the given target
 func moveEnemyTowardsTarget(approachTarget):
-	# only move towards target if target is found AND another target isn't in range
-	if approachTarget != null and rangedTargets.size() <= 0:
-		if approachTarget.global_position.x > global_position.x:
+	if approachTarget != null:
+		if abs(approachTarget.global_position.x - global_position.x) <= stopDistance:
+			horizontalDirection = 0
+		elif approachTarget.global_position.x > global_position.x:
 			horizontalDirection = 1
 		elif approachTarget.global_position.x < global_position.x:
 			horizontalDirection = -1
-		elif approachTarget.global_position.x == global_position.x:
+		else:
 			horizontalDirection = 0
-
+	
 	switchSpriteDirection(horizontalDirection)
 	velocity.x = lerp(velocity.x, horizontalDirection * moveSpeed, acceleration)
 	return velocity
