@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Floors/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/roomAssets/ramps/RampDown.tscn" type="PackedScene" id=2]
@@ -14,7 +14,14 @@
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/environment/roomAssets/Walls/Wall2.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/environment/roomAssets/Corners/collisionWalls/CollisionWallRight.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=18]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/Ceiling_01.png-182850b37882bd3f6b37015f15ec17cc.stex"
 
 [node name="WaveDefense2" type="Node2D"]
 position = Vector2( 204, 204 )
@@ -150,13 +157,13 @@ position = Vector2( 0.799988, 0.799988 )
 position = Vector2( 409.8, 0.799988 )
 
 [node name="Floor3" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( 2041.8, 0.799988 )
+position = Vector2( 2040, 0 )
 
 [node name="Floor4" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( 1633.8, 0.799988 )
+position = Vector2( 1632, 0 )
 
 [node name="Floor5" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( 1225.8, 0.799988 )
+position = Vector2( 1224, 0 )
 
 [node name="Floor6" parent="Floor" instance=ExtResource( 1 )]
 position = Vector2( 817.8, 0.799988 )
@@ -186,10 +193,10 @@ position = Vector2( 6120, 0 )
 position = Vector2( 5712, 0 )
 
 [node name="RampDown" parent="Floor" instance=ExtResource( 2 )]
-position = Vector2( 2450, -135 )
+position = Vector2( 2448, 0 )
 
 [node name="RampDown2" parent="Floor" instance=ExtResource( 2 )]
-position = Vector2( 2859, 70 )
+position = Vector2( 2856, 204 )
 
 [node name="RampUp" parent="Floor" instance=ExtResource( 3 )]
 position = Vector2( 4488, 70 )
@@ -204,6 +211,7 @@ position = Vector2( 2042, -1224 )
 
 [node name="WallRight" parent="SideWalls" instance=ExtResource( 14 )]
 position = Vector2( 5304, -1224 )
+texture = SubResource( 1 )
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -305,3 +313,13 @@ position = Vector2( 3645, 119 )
 socketPath = NodePath("../Socket")
 minRandomPause = 7
 maxRandomPause = 15
+
+[node name="Robot" parent="." instance=ExtResource( 18 )]
+position = Vector2( -6, -292 )
+
+[node name="Player" parent="." instance=ExtResource( 15 )]
+position = Vector2( 166, -266 )
+
+[node name="CameraBody" parent="." instance=ExtResource( 16 )]
+position = Vector2( 318, -696 )
+playerPath = NodePath("../Player")
