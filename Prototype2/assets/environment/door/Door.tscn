@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/customNodes/InteractionableBox.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/environment/roomAssets/Platforms/Platform.png" type="Texture" id=2]
 [ext_resource path="res://assets/environment/door/Door.gd" type="Script" id=3]
 [ext_resource path="res://Sounds/Door/door_open.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Door/doorClosing.mp3" type="AudioStream" id=5]
@@ -76,11 +76,11 @@ scale = Vector2( 1.11419, 2.28836 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 3.48438 )
+rotation = -1.57079
+scale = Vector2( 0.249747, 0.214194 )
 texture = ExtResource( 2 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
-occluder = SubResource( 2 )
+region_enabled = true
+region_rect = Rect2( 37.1725, 427.134, 512.531, 155.986 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

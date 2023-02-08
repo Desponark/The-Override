@@ -169,8 +169,6 @@ margin_right = 77.0
 margin_bottom = 25.0
 rect_rotation = -89.9999
 rect_scale = Vector2( 0.2, 0.2 )
-maxHealth = 500.0
-health = 300.0
 
 [node name="HoverSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
