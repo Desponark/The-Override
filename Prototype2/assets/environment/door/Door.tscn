@@ -1,11 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/customNodes/InteractionableBox.gd" type="Script" id=1]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platform.png" type="Texture" id=2]
 [ext_resource path="res://assets/environment/door/Door.gd" type="Script" id=3]
-
-[sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 64 )
@@ -78,9 +75,6 @@ scale = Vector2( 0.249747, 0.214194 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 37.1725, 427.134, 512.531, 155.986 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
-occluder = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
