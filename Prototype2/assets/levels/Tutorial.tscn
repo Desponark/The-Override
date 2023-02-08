@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Walls/Wall1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://assets/environment/door/automaticDoor.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/environment/door/SpawnerDoor.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=24]
 
 [node name="Tutorial" type="Node2D"]
 
@@ -482,41 +483,25 @@ position = Vector2( 6120.8, 1173.8 )
 position = Vector2( 4284.8, -745.199 )
 
 [node name="RampDown" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 4277.8, -2171.2 )
-scale = Vector2( 0.2, 0.2 )
-
-[node name="RampDown3" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 2652.8, -3193.2 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 4285, -2040 )
 
 [node name="RampDown2" parent="Ramps" instance=ExtResource( 12 )]
 position = Vector2( 4284.8, -2651.2 )
-scale = Vector2( 0.2, 0.2 )
-
-[node name="RampDown4" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 5100.8, -4010.2 )
-scale = Vector2( 0.2, 0.2 )
 
 [node name="RampDown6" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 5100.8, -4010.2 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 5100, -3874 )
 
 [node name="RampDown7" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 6324.8, -3806.2 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 6325, -3671 )
 
 [node name="RampDown5" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 5100.8, -4487.2 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 5102, -4436 )
 
 [node name="RampUp2" parent="Ramps" instance=ExtResource( 5 )]
 position = Vector2( 4284.8, -1631.2 )
 
 [node name="CollisionShape2D" parent="Ramps/RampUp2/CameraCollision" index="0"]
 disabled = true
-
-[node name="RampUp4" parent="Ramps" instance=ExtResource( 5 )]
-position = Vector2( 3876.8, -3193.2 )
 
 [node name="RampUp3" parent="Ramps" instance=ExtResource( 5 )]
 position = Vector2( 5304.8, 1245.8 )
@@ -1000,8 +985,14 @@ position = Vector2( 5916.8, -3875.2 )
 [node name="FloorPlatform4" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 2652.8, -3263.2 )
 
+[node name="CollisionShape2D" parent="Platform Floors/FloorPlatform4/Floor22/CameraCollision" index="0"]
+disabled = true
+
 [node name="FloorPlatform3" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 3876.8, -3263.2 )
+
+[node name="CollisionShape2D" parent="Platform Floors/FloorPlatform3/Floor22/CameraCollision" index="0"]
+disabled = true
 
 [node name="FloorPlatform30" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 3060, -2244 )
@@ -1061,22 +1052,28 @@ position = Vector2( 8364.8, -3671.2 )
 position = Vector2( 8772.8, -3671.2 )
 
 [node name="FloorPlatform19" parent="Platform Floors" instance=ExtResource( 13 )]
-position = Vector2( 9180.8, -1223.2 )
+position = Vector2( 9180, -1224 )
 
 [node name="FloorPlatform23" parent="Platform Floors" instance=ExtResource( 13 )]
-position = Vector2( 9588.8, -1223.2 )
+position = Vector2( 9588, -1224 )
 
 [node name="FloorPlatform24" parent="Platform Floors" instance=ExtResource( 13 )]
-position = Vector2( 9996.8, -1223.2 )
+position = Vector2( 9996, -1224 )
 
 [node name="FloorPlatform25" parent="Platform Floors" instance=ExtResource( 13 )]
-position = Vector2( 10404.8, -1223.2 )
+position = Vector2( 10404, -1224 )
 
 [node name="FloorPlatform21" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 9180.8, -4200.2 )
 
+[node name="CollisionShape2D" parent="Platform Floors/FloorPlatform21/Floor22/CameraCollision" index="0"]
+disabled = true
+
 [node name="FloorPlatform22" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 9588.8, -4200.2 )
+
+[node name="CollisionShape2D" parent="Platform Floors/FloorPlatform22/Floor22/CameraCollision" index="0"]
+disabled = true
 
 [node name="FloorPlatform15" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 9996.8, -3671.2 )
@@ -1118,16 +1115,16 @@ position = Vector2( 10404.8, -4181.7 )
 position = Vector2( 10812.8, -4181.2 )
 
 [node name="FloorPlatform26" parent="Platform Floors" instance=ExtResource( 13 )]
-position = Vector2( 10813.6, -1222.4 )
+position = Vector2( 10812, -1224 )
 
 [node name="FloorPlatform27" parent="Platform Floors" instance=ExtResource( 13 )]
-position = Vector2( 11222.4, -1221.6 )
+position = Vector2( 11220, -1224 )
 
 [node name="FloorPlatform28" parent="Platform Floors" instance=ExtResource( 13 )]
-position = Vector2( 11630.4, -1221.6 )
+position = Vector2( 11628, -1224 )
 
 [node name="FloorPlatform29" parent="Platform Floors" instance=ExtResource( 13 )]
-position = Vector2( 12038.4, -1221.6 )
+position = Vector2( 12036, -1224 )
 
 [node name="Doors" type="Node2D" parent="."]
 
@@ -1136,12 +1133,12 @@ position = Vector2( 4182.8, -4250.2 )
 scale = Vector2( 4, 4 )
 
 [node name="Door1stEnemy" parent="Doors" instance=ExtResource( 10 )]
-position = Vector2( 9180.8, -3518.2 )
+position = Vector2( 9183, -3585 )
 rotation = -1.5708
 scale = Vector2( 2, 3.2 )
 
 [node name="Door2Enemy" parent="Doors" instance=ExtResource( 10 )]
-position = Vector2( 9588.8, -3517.2 )
+position = Vector2( 9591, -3584 )
 rotation = 1.5708
 scale = Vector2( 2, 3.2 )
 
@@ -1173,8 +1170,9 @@ rotation = 1.5708
 
 [node name="Socket2" parent="Puzzle Elements" instance=ExtResource( 6 )]
 position = Vector2( 9384.8, -4200.2 )
+maxEnergy = 100.0
 energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../../Doors/Door1stEnemy"), NodePath("../../Doors/Door2Enemy"), NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Spawner3") ]
+triggerScenes = [ NodePath("../../Doors/Door1stEnemy"), NodePath("../../Doors/Door2Enemy"), NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Spawner3"), NodePath("../../Switch") ]
 
 [node name="Socket" parent="Puzzle Elements" instance=ExtResource( 6 )]
 position = Vector2( 3886.8, -4113.2 )
@@ -1199,6 +1197,10 @@ waveCooldown = 100
 position = Vector2( 10710.8, -5354.2 )
 waveCooldown = 100
 
+[node name="Switch" parent="." instance=ExtResource( 24 )]
+position = Vector2( 8888, -4267 )
+socketPath = NodePath("../Puzzle Elements/Socket2")
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 18 )]
@@ -1222,16 +1224,15 @@ position = Vector2( 9639, -4335 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Player" parent="Alive" instance=ExtResource( 2 )]
-position = Vector2( 1530.8, -917.2 )
+position = Vector2( 3274, -2321 )
 friction = 0.9
-healthTransferMultiplier = 2.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 20 )]
-position = Vector2( 1287, -1155 )
+position = Vector2( 3060, -2448 )
 playerPath = NodePath("../Player")
 
 [node name="Robot" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 2703.8, -3365.2 )
+position = Vector2( 2603, -3334 )
 
 [node name="Foreground" type="Node2D" parent="."]
 
@@ -1242,3 +1243,11 @@ position = Vector2( 9588.8, -4149.2 )
 position = Vector2( 9179.8, -4149.2 )
 
 [editable path="Ramps/RampUp2"]
+[editable path="Platform Floors/FloorPlatform4"]
+[editable path="Platform Floors/FloorPlatform4/Floor22"]
+[editable path="Platform Floors/FloorPlatform3"]
+[editable path="Platform Floors/FloorPlatform3/Floor22"]
+[editable path="Platform Floors/FloorPlatform21"]
+[editable path="Platform Floors/FloorPlatform21/Floor22"]
+[editable path="Platform Floors/FloorPlatform22"]
+[editable path="Platform Floors/FloorPlatform22/Floor22"]
