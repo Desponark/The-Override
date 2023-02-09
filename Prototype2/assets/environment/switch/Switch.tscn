@@ -21,6 +21,15 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionableBox"]
 shape = SubResource( 1 )
 
+[node name="Label" type="Label" parent="InteractionableBox"]
+visible = false
+margin_left = -7.0
+margin_top = -83.0
+margin_right = 33.0
+margin_bottom = -69.0
+rect_scale = Vector2( 2, 2 )
+text = "E"
+
 [node name="RandomPause" type="Timer" parent="."]
 one_shot = true
 
@@ -30,4 +39,6 @@ stream = ExtResource( 4 )
 [node name="SwitchOffSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 
+[connection signal="area_entered" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_entered"]
+[connection signal="area_exited" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_exited"]
 [connection signal="timeout" from="RandomPause" to="." method="_on_RandomPause_timeout"]

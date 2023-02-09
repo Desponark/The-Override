@@ -597,12 +597,15 @@ script = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 8 )
 
-[node name="HealthBar" parent="." instance=ExtResource( 9 )]
-margin_left = -430.5
-margin_top = 71.5
-margin_right = -350.5
-margin_bottom = 91.5
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 9 )]
+margin_left = 120.0
+margin_top = 599.0
+margin_right = 200.0
+margin_bottom = 619.0
 rect_rotation = -90.0
+rect_scale = Vector2( 2, 2 )
 
 [node name="InteractionBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -661,7 +664,7 @@ stream = ExtResource( 17 )
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
+[connection signal="healthReachedZero" from="CanvasLayer/HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
 [connection signal="area_exited" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_exited"]
 [connection signal="timeout" from="Dash/DashDuration" to="Dash" method="_on_DashDuration_timeout"]

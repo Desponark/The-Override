@@ -157,21 +157,21 @@ func switchSpriteDirection(horizontalDirection):
 func takeDamage(damage):
 	$DamagedSound.play()
 	$VFXAnimationPlayer.play("hit")
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
+	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
+		$CanvasLayer/HealthBar.subtractHealth(damage)
 
 func gainHealth(healAmount):
-	if $HealthBar.has_method("addHealth"):
-		$HealthBar.addHealth(healAmount)
+	if $CanvasLayer/HealthBar.has_method("addHealth"):
+		$CanvasLayer/HealthBar.addHealth(healAmount)
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
 func transferHealth():
 	if isTransferingHealth and robotRef != null:
-		if $HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
+		if $CanvasLayer/HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
 			return
 		if robotRef.getHealth() >= robotRef.getMaxHealth(): # if robot is full health disallow transfering of health
 			return
-		if $HealthBar.has_method("subtractHealth"):
-			$HealthBar.subtractHealth(healthTransferAmount)
+		if $CanvasLayer/HealthBar.has_method("subtractHealth"):
+			$CanvasLayer/HealthBar.subtractHealth(healthTransferAmount)
 		robotRef.transferHealth(-(healthTransferAmount * healthTransferMultiplier))
 	
 func getRobotFollowPosition():
