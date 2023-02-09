@@ -37,7 +37,7 @@ extents = Vector2( 215, 28 )
 [node name="Tutorial" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.470588, 0.470588, 0.470588, 1 )
+color = Color( 0.54902, 0.54902, 0.54902, 1 )
 
 [node name="Background" type="Sprite" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )
