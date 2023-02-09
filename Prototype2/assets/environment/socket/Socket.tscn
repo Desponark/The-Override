@@ -36,10 +36,11 @@ shape = SubResource( 1 )
 
 [node name="Label" type="Label" parent="InteractionableBox"]
 visible = false
-margin_left = -3.0
-margin_top = -100.0
-margin_right = 37.0
-margin_bottom = -86.0
+margin_left = -8.0
+margin_top = -92.0
+margin_right = 32.0
+margin_bottom = -78.0
+rect_scale = Vector2( 2, 2 )
 text = "E"
 
 [node name="Position2D" type="Position2D" parent="."]
@@ -61,3 +62,5 @@ pitch_scale = 0.8
 
 [connection signal="healthReachedMax" from="HealthBar" to="." method="_on_HealthBar_healthReachedMax"]
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
+[connection signal="area_entered" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_entered"]
+[connection signal="area_exited" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_exited"]

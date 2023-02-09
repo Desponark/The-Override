@@ -151,6 +151,7 @@ collision_mask = 4
 script = ExtResource( 6 )
 moveSpeed = 250.0
 healthDrop = ExtResource( 2 )
+stopDistance = 400
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 8 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Walls/Wall1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
@@ -24,12 +24,28 @@
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/environment/door/SpawnerDoor.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/environment/backgrounds/background.png" type="Texture" id=25]
+[ext_resource path="res://assets/ui/EndGameScreen/EndGameScreen.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=27]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 141.693
 
 [node name="Tutorial" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color( 0.392157, 0.392157, 0.392157, 1 )
+color = Color( 0.470588, 0.470588, 0.470588, 1 )
+
+[node name="Background" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 7329, -2161 )
+scale = Vector2( 200, 200 )
+texture = ExtResource( 25 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+volume_db = -10.0
+autoplay = true
 
 [node name="BGWalls" type="Node2D" parent="."]
 
@@ -591,6 +607,9 @@ position = Vector2( 612.801, -1223.2 )
 [node name="WallLeft7" parent="CollisionWalls" instance=ExtResource( 11 )]
 position = Vector2( 2652.8, -2447.2 )
 
+[node name="WallLeft23" parent="CollisionWalls" instance=ExtResource( 11 )]
+position = Vector2( 2654, -2242 )
+
 [node name="WallLeft8" parent="CollisionWalls" instance=ExtResource( 11 )]
 position = Vector2( 2652.8, -2855.2 )
 
@@ -843,6 +862,10 @@ position = Vector2( 11629.6, -1834.4 )
 [node name="Ceiling44" parent="Ceilings" instance=ExtResource( 9 )]
 position = Vector2( 12037.6, -1834.4 )
 
+[node name="Switch" parent="." instance=ExtResource( 24 )]
+position = Vector2( 8888, -4267 )
+socketPath = NodePath("../Puzzle Elements/Socket2")
+
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 19 )]
@@ -969,6 +992,9 @@ position = Vector2( 9951.2, -3755.5 )
 
 [node name="FloorPlatform" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 3876.8, -4079.2 )
+
+[node name="CollisionShape2D" parent="Platform Floors/FloorPlatform/Floor22/CameraCollision" index="0"]
+disabled = true
 
 [node name="FloorPlatform2" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 4284.8, -4079.2 )
@@ -1176,7 +1202,7 @@ triggerScenes = [ NodePath("../../Doors/Door1stEnemy"), NodePath("../../Doors/Do
 
 [node name="Socket" parent="Puzzle Elements" instance=ExtResource( 6 )]
 position = Vector2( 3886.8, -4113.2 )
-maxEnergy = 20.0
+maxEnergy = 90.0
 triggerScenes = [ NodePath("../../Doors/DoorTutorial") ]
 
 [node name="Spawner" parent="Puzzle Elements" instance=ExtResource( 22 )]
@@ -1197,42 +1223,45 @@ waveCooldown = 100
 position = Vector2( 10710.8, -5354.2 )
 waveCooldown = 100
 
-[node name="Switch" parent="." instance=ExtResource( 24 )]
-position = Vector2( 8888, -4267 )
-socketPath = NodePath("../Puzzle Elements/Socket2")
-
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 5712, -4029 )
+position = Vector2( 6017, -4018 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 18 )]
 position = Vector2( 6375, -4488 )
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 6681, -4488 )
-
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 7599, -4488 )
-
-[node name="Enemy5" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 9231, -4335 )
+position = Vector2( 8776, -3780 )
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 9639, -4335 )
+position = Vector2( 10867, -4286 )
+
+[node name="EndGameScreen" parent="." instance=ExtResource( 26 )]
+margin_left = 10975.0
+margin_top = -1572.0
+margin_right = 10975.0
+margin_bottom = -1572.0
+
+[node name="FinishScreenTrigger" type="Area2D" parent="."]
+position = Vector2( 10485, -1216 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishScreenTrigger"]
+position = Vector2( 77, -122 )
+shape = SubResource( 1 )
 
 [node name="Alive" type="Node2D" parent="."]
 
+[node name="Robot" parent="Alive" instance=ExtResource( 7 )]
+position = Vector2( 2516, -3320 )
+
 [node name="Player" parent="Alive" instance=ExtResource( 2 )]
-position = Vector2( 3274, -2321 )
+position = Vector2( 3231, -2440 )
 friction = 0.9
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 20 )]
-position = Vector2( 3060, -2448 )
+position = Vector2( 3223, -2600 )
 playerPath = NodePath("../Player")
-
-[node name="Robot" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 2603, -3334 )
 
 [node name="Foreground" type="Node2D" parent="."]
 
@@ -1242,7 +1271,11 @@ position = Vector2( 9588.8, -4149.2 )
 [node name="Platform39" parent="Foreground" instance=ExtResource( 19 )]
 position = Vector2( 9179.8, -4149.2 )
 
+[connection signal="area_entered" from="FinishScreenTrigger" to="EndGameScreen" method="_on_FinishScreenTrigger_area_entered"]
+
 [editable path="Ramps/RampUp2"]
+[editable path="Platform Floors/FloorPlatform"]
+[editable path="Platform Floors/FloorPlatform/Floor22"]
 [editable path="Platform Floors/FloorPlatform4"]
 [editable path="Platform Floors/FloorPlatform4/Floor22"]
 [editable path="Platform Floors/FloorPlatform3"]
