@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Walls/Wall1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
@@ -31,6 +31,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 141.693
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 215, 28 )
+
 [node name="Tutorial" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -41,6 +44,9 @@ self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 7329, -2161 )
 scale = Vector2( 200, 200 )
 texture = ExtResource( 25 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
@@ -492,35 +498,6 @@ position = Vector2( 4488.8, 1581.8 )
 
 [node name="Floor12" parent="Floors" instance=ExtResource( 3 )]
 position = Vector2( 6120.8, 1173.8 )
-
-[node name="Ramps" type="Node2D" parent="."]
-
-[node name="RampUp" parent="Ramps" instance=ExtResource( 5 )]
-position = Vector2( 4284.8, -745.199 )
-
-[node name="RampDown" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 4285, -2040 )
-
-[node name="RampDown2" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 4284.8, -2651.2 )
-
-[node name="RampDown6" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 5100, -3874 )
-
-[node name="RampDown7" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 6325, -3671 )
-
-[node name="RampDown5" parent="Ramps" instance=ExtResource( 12 )]
-position = Vector2( 5102, -4436 )
-
-[node name="RampUp2" parent="Ramps" instance=ExtResource( 5 )]
-position = Vector2( 4284.8, -1631.2 )
-
-[node name="CollisionShape2D" parent="Ramps/RampUp2/CameraCollision" index="0"]
-disabled = true
-
-[node name="RampUp3" parent="Ramps" instance=ExtResource( 5 )]
-position = Vector2( 5304.8, 1245.8 )
 
 [node name="Corners" type="Node2D" parent="."]
 
@@ -1152,6 +1129,35 @@ position = Vector2( 11628, -1224 )
 [node name="FloorPlatform29" parent="Platform Floors" instance=ExtResource( 13 )]
 position = Vector2( 12036, -1224 )
 
+[node name="Ramps" type="Node2D" parent="."]
+
+[node name="RampUp" parent="Ramps" instance=ExtResource( 5 )]
+position = Vector2( 4284.8, -745.199 )
+
+[node name="RampDown" parent="Ramps" instance=ExtResource( 12 )]
+position = Vector2( 4285, -2040 )
+
+[node name="RampDown2" parent="Ramps" instance=ExtResource( 12 )]
+position = Vector2( 4284.8, -2651.2 )
+
+[node name="RampDown6" parent="Ramps" instance=ExtResource( 12 )]
+position = Vector2( 5100, -3874 )
+
+[node name="RampDown7" parent="Ramps" instance=ExtResource( 12 )]
+position = Vector2( 6325, -3671 )
+
+[node name="RampDown5" parent="Ramps" instance=ExtResource( 12 )]
+position = Vector2( 5102, -4436 )
+
+[node name="RampUp2" parent="Ramps" instance=ExtResource( 5 )]
+position = Vector2( 4284.8, -1631.2 )
+
+[node name="CollisionShape2D" parent="Ramps/RampUp2/CameraCollision" index="0"]
+disabled = true
+
+[node name="RampUp3" parent="Ramps" instance=ExtResource( 5 )]
+position = Vector2( 5304.8, 1245.8 )
+
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="DoorTutorial" parent="Doors" instance=ExtResource( 10 )]
@@ -1224,6 +1230,7 @@ position = Vector2( 10710.8, -5354.2 )
 waveCooldown = 100
 
 [node name="Enemies" type="Node2D" parent="."]
+visible = false
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 18 )]
 position = Vector2( 6017, -4018 )
@@ -1271,9 +1278,26 @@ position = Vector2( 9588.8, -4149.2 )
 [node name="Platform39" parent="Foreground" instance=ExtResource( 19 )]
 position = Vector2( 9179.8, -4149.2 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 5088, -3876 )
+rotation = 0.489123
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 6289, -3674 )
+rotation = 0.489123
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 2 )
+
 [connection signal="area_entered" from="FinishScreenTrigger" to="EndGameScreen" method="_on_FinishScreenTrigger_area_entered"]
 
-[editable path="Ramps/RampUp2"]
 [editable path="Platform Floors/FloorPlatform"]
 [editable path="Platform Floors/FloorPlatform/Floor22"]
 [editable path="Platform Floors/FloorPlatform4"]
@@ -1284,3 +1308,4 @@ position = Vector2( 9179.8, -4149.2 )
 [editable path="Platform Floors/FloorPlatform21/Floor22"]
 [editable path="Platform Floors/FloorPlatform22"]
 [editable path="Platform Floors/FloorPlatform22/Floor22"]
+[editable path="Ramps/RampUp2"]
