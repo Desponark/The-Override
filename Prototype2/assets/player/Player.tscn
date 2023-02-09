@@ -672,32 +672,40 @@ wait_time = 0.03
 [node name="DamagedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -10.0
+bus = "Sound Effects"
 
 [node name="PunchSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+volume_db = -5.0
+bus = "Sound Effects"
 
 [node name="StepSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 15 )
-volume_db = -20.0
+volume_db = -25.0
+bus = "Sound Effects"
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 14 )
+bus = "Sound Effects"
 
 [node name="LandSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 18 )
 volume_db = -10.0
+bus = "Sound Effects"
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 16 )
 volume_db = -10.0
+bus = "Sound Effects"
 
 [node name="DodgeSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 17 )
+bus = "Sound Effects"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

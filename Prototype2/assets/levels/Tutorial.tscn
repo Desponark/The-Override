@@ -50,8 +50,8 @@ __meta__ = {
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
-volume_db = -10.0
 autoplay = true
+bus = "Music"
 
 [node name="BGWalls" type="Node2D" parent="."]
 
@@ -1230,7 +1230,6 @@ position = Vector2( 10710.8, -5354.2 )
 waveCooldown = 100
 
 [node name="Enemies" type="Node2D" parent="."]
-visible = false
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 18 )]
 position = Vector2( 6017, -4018 )
