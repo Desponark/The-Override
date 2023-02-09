@@ -49,16 +49,20 @@ position = Vector2( 0, -47 )
 [node name="InsertSound" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2( 2, 2 )
 stream = ExtResource( 5 )
+bus = "Sound Effects"
 
 [node name="ChargingFinishedSound" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2( 2, 2 )
 stream = ExtResource( 6 )
+volume_db = -5.0
+bus = "Sound Effects"
 
 [node name="ChargingSound" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2( 2, 2 )
 stream = ExtResource( 7 )
 volume_db = -20.0
 pitch_scale = 0.8
+bus = "Sound Effects"
 
 [connection signal="healthReachedMax" from="HealthBar" to="." method="_on_HealthBar_healthReachedMax"]
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/customNodes/InteractionableBox.gd" type="Script" id=1]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platform.png" type="Texture" id=2]
@@ -6,11 +6,8 @@
 [ext_resource path="res://Sounds/Door/door_open.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Door/doorClosing.mp3" type="AudioStream" id=5]
 
-[sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 111 )
+extents = Vector2( 16, 63.8011 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -97,6 +94,8 @@ shape = SubResource( 3 )
 
 [node name="DoorOpeningSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+bus = "Sound Effects"
 
 [node name="DoorClosingSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+bus = "Sound Effects"
