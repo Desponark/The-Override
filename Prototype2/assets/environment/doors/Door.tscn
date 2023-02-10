@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/environment/doors/Door.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 63.8011 )
+extents = Vector2( 76, 255.5 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -64,16 +64,14 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 26.0
-height = 170.0
+radius = 89.0
+height = 520.0
 
 [node name="Door" type="StaticBody2D"]
-scale = Vector2( 1.11419, 2.28836 )
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.57079
-scale = Vector2( 0.249747, 0.214194 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 37.1725, 427.134, 512.531, 155.986 )
