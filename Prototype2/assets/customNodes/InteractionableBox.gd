@@ -11,9 +11,8 @@ func interact(area):
 	if owner.has_method("interact"):
 		owner.interact(area)
 
-
 func _on_InteractionableBox_area_entered(area):
-	$Label.show()
+	$Sprite.show()
 
 func _on_InteractionableBox_area_exited(area):
-	$Label.hide()
+	$Sprite.hide()
