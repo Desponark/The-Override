@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/camera/Camera.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 140.431
+radius = 395.081
 
 [node name="CameraBody" type="KinematicBody2D"]
 collision_layer = 2048
