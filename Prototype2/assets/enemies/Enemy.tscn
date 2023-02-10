@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/enemies/ice_particle_white.png" type="Texture" id=8]
 [ext_resource path="res://assets/enemies/Gun.gd" type="Script" id=9]
 [ext_resource path="res://assets/projectiles/Projectile.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/ui/HealthBar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sounds/Enemy/Damaged.wav" type="AudioStream" id=12]
 
 [sub_resource type="ShaderMaterial" id=8]
