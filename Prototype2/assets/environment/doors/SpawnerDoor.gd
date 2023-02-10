@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 
 export var isOpen = false
@@ -14,7 +14,9 @@ func _process(delta):
 		
 	if !currentlyOpen and isOpen:
 		$AnimationPlayer.play("open")
+		$DoorOpeningSound.play()
 		currentlyOpen = true
 	elif currentlyOpen and !isOpen:
 		$AnimationPlayer.play_backwards("open")
+		$DoorClosingSound.play()
 		currentlyOpen = false
