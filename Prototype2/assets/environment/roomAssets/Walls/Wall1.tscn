@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://assets/environment/roomAssets/Walls/Wall_1.png" type="Texture" id=1]
-
-[node name="WallGitter" type="Sprite"]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 1 )
