@@ -1181,7 +1181,6 @@ position = Vector2( 5304.8, 1245.8 )
 
 [node name="DoorTutorial" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 4182.8, -4250.2 )
-scale = Vector2( 4, 4 )
 
 [node name="Door1stEnemy" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 9183, -3585 )
@@ -1251,7 +1250,7 @@ waveCooldown = 100
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 6017, -4018 )
+position = Vector2( 6732, -3876 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 18 )]
 position = Vector2( 6375, -4488 )
