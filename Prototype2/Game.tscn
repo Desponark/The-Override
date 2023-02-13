@@ -7,7 +7,6 @@
 script = ExtResource( 4 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
-position = Vector2( -47, -208 )
 
 [node name="Projectiles" type="Node2D" parent="."]
 

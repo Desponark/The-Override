@@ -55,6 +55,7 @@ extents = Vector2( 215, 28 )
 [node name="Tutorial" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.54902, 0.54902, 0.54902, 1 )
 
 [node name="Background" type="Sprite" parent="."]
@@ -679,7 +680,7 @@ position = Vector2( 9996.8, -1835.2 )
 position = Vector2( 5100.8, -2243.2 )
 
 [node name="WallRight24" parent="CollisionWalls" instance=ExtResource( 14 )]
-position = Vector2( 11628.8, -4436.2 )
+position = Vector2( 11628, -4386 )
 
 [node name="WallRight38" parent="CollisionWalls" instance=ExtResource( 14 )]
 position = Vector2( 11628.8, -4028.2 )
@@ -1185,12 +1186,10 @@ position = Vector2( 4182.8, -4250.2 )
 [node name="Door1stEnemy" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 9183, -3585 )
 rotation = -1.5708
-scale = Vector2( 2, 3.2 )
 
 [node name="Door2Enemy" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 9591, -3584 )
 rotation = 1.5708
-scale = Vector2( 2, 3.2 )
 
 [node name="automaticDoor" parent="Doors" instance=ExtResource( 21 )]
 position = Vector2( 2142.8, -764.2 )
@@ -1256,10 +1255,10 @@ position = Vector2( 6732, -3876 )
 position = Vector2( 6375, -4488 )
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 8776, -3780 )
+position = Vector2( 15198, -4488 )
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 10867, -4286 )
+position = Vector2( 15810, -5100 )
 
 [node name="EndGameScreen" parent="." instance=ExtResource( 26 )]
 margin_left = 10975.0
