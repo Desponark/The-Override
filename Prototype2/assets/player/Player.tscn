@@ -576,7 +576,6 @@ script = ExtResource( 2 )
 maxJumpHeight = -1700.0
 minJumpHeight = -600.0
 maximumJumps = 1
-friction = 0.15
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 18 )
