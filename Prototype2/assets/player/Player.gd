@@ -5,13 +5,13 @@ const upDirection = Vector2.UP
 export var maxSpeed = 600.0
 export var maxJumpHeight = -1500.0
 export var minJumpHeight = -500.0
-export var maximumJumps = 2
+export var maximumDoubleJumps = 1
 export var doubleJumpHeight = -1200.0
 export var gravity = 4500.0
 export (float, 0, 1.0) var acceleration = 0.1
 export (float, 0, 1.0) var friction = 0.1
 
-var jumpsMade = 0
+var doubleJumpsMade = 0
 var velocity = Vector2.ZERO
 
 enum MOTIONSTATE {FALLING, JUMPING, DOUBLEJUMPING, JUMPCANCELLED, IDLING, RUNNING, ASCENDING}
@@ -55,7 +55,13 @@ func _physics_process(delta: float):
 	
 	velocity = calculateMoveVelocity(horizontalDirection, delta)
 	
+	var previousMotionState = motionState
+	
 	motionState = getPlayerMotionState()
+#	print(MOTIONSTATE.keys()[motionState])
+
+	if motionState == MOTIONSTATE.FALLING and (previousMotionState == MOTIONSTATE.RUNNING or previousMotionState == MOTIONSTATE.IDLING):
+		$CoyoteTimer.start()
 
 	handleJumping()
 	
@@ -86,19 +92,19 @@ func tweenVelocityX(tweenedVelocity):
 func getPlayerMotionState():
 	if Input.is_action_just_released("jump") and velocity.y < minJumpHeight:
 		return MOTIONSTATE.JUMPCANCELLED
-	elif Input.is_action_just_pressed("jump") and motionState == MOTIONSTATE.FALLING:
-		return MOTIONSTATE.DOUBLEJUMPING
-	elif Input.is_action_just_pressed("jump") and is_on_floor():
+	elif Input.is_action_just_pressed("jump") and (is_on_floor() or !$CoyoteTimer.is_stopped()):
 		return MOTIONSTATE.JUMPING
+	elif Input.is_action_just_pressed("jump") and motionState == MOTIONSTATE.FALLING and doubleJumpsMade < maximumDoubleJumps:
+		return MOTIONSTATE.DOUBLEJUMPING
 	elif velocity.y > 0.0 and not is_on_floor():
 		return MOTIONSTATE.FALLING
 	elif velocity.y < 0.0 and not is_on_floor():
 		return MOTIONSTATE.ASCENDING
-	elif is_on_floor() and not (velocity.x < 1 and velocity.x > -1): #not is_zero_approx(velocity.x):
+	elif is_on_floor() and not (velocity.x < 1 and velocity.x > -1):
 		return MOTIONSTATE.RUNNING
-	elif is_on_floor() and (velocity.x < 1 and velocity.x > -1): #is_zero_approx(velocity.x):
+	elif is_on_floor() and (velocity.x < 1 and velocity.x > -1):
 		return MOTIONSTATE.IDLING
-	else: # return IDLING as default state
+	else:
 		return MOTIONSTATE.IDLING
 	
 func dash(horizontalDirection):
@@ -113,28 +119,25 @@ func dash(horizontalDirection):
 func handleJumping():
 	match motionState:
 		MOTIONSTATE.JUMPING:
-			jumpsMade += 1
 			velocity.y = maxJumpHeight
 		MOTIONSTATE.DOUBLEJUMPING:
-			jumpsMade += 1
-			if jumpsMade <= maximumJumps:
-				velocity.y = doubleJumpHeight
+			doubleJumpsMade += 1
+			velocity.y = doubleJumpHeight
 		MOTIONSTATE.JUMPCANCELLED:
 			velocity.y = minJumpHeight
 		MOTIONSTATE.IDLING, MOTIONSTATE.RUNNING:
-			jumpsMade = 0
+			doubleJumpsMade = 0
+			$CoyoteTimer.stop() # stop coyote timer just to be sure
 
 func playAnimations(horizontalDirection):
-	# if attack animation plays dont play any other animation
-	if $AnimationPlayer.current_animation == "attack":
+	if $AnimationPlayer.current_animation == "attack": # if attack animation plays dont play any other animation
 		return
 	match motionState:
 		MOTIONSTATE.JUMPING, MOTIONSTATE.DOUBLEJUMPING:
 			$JumpSound.play()
 			$AnimationPlayer.play("jump")
 		MOTIONSTATE.RUNNING:
-			# slow down animation speed if the player is decelerating
-			if horizontalDirection == 0 and velocity.x != 0:
+			if horizontalDirection == 0 and velocity.x != 0: # slow down animation speed if the player is decelerating
 				$AnimationPlayer.play("run", -1, 0.4)
 			else:
 				$AnimationPlayer.play("run")
