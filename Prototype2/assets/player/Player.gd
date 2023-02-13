@@ -52,7 +52,7 @@ func _process(_delta):
 	transferHealth()
 	
 func _physics_process(delta: float):
-	var horizontalDirection = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	var horizontalDirection = Input.get_action_strength("right") - Input.get_action_strength("left")
 	
 	velocity = calculateMoveVelocity(horizontalDirection, delta)
 	
@@ -128,7 +128,7 @@ func playAnimations(horizontalDirection):
 		MOTIONSTATE.IDLING:
 			$AnimationPlayer.play("idle")
 	
-	if !Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
+	if !Input.is_action_pressed("left") and !Input.is_action_pressed("right"):
 		$StepSound.stop()
 
 func calculateMoveVelocity(horizontalDirection, delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling_2.png" type="Texture" id=2]
@@ -25,9 +25,6 @@ polygon = PoolVector2Array( 2060, 824, 0, 824, 0, 0, 2060, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 2048, 2048, 0, 2042.52, 0, 1247.92, 2048, 1238.66 )
-
-[sub_resource type="OccluderPolygon2D" id=19]
-polygon = PoolVector2Array( 2060, 412, 0, 412, 0, 206, 2060, 206 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 2048, 512, 0, 512, 0, 256, 2048, 256 )
@@ -307,7 +304,6 @@ points = PoolVector2Array( 2048, 512, 0, 512, 0, 256, 2048, 256 )
 10/region = Rect2( 0, 0, 2048, 2048 )
 10/tile_mode = 0
 10/occluder_offset = Vector2( 0, 0 )
-10/occluder = SubResource( 19 )
 10/navigation_offset = Vector2( 0, 0 )
 10/shape_offset = Vector2( 0, 0 )
 10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
