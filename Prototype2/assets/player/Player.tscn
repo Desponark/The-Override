@@ -706,9 +706,6 @@ pause_mode = 2
 stream = ExtResource( 17 )
 bus = "Sound Effects"
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [connection signal="healthReachedZero" from="CanvasLayer/HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
 [connection signal="area_exited" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_exited"]
