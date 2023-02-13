@@ -9,7 +9,7 @@ export var maximumJumps = 2
 export var doubleJumpHeight = -1200.0
 export var gravity = 4500.0
 export (float, 0, 1.0) var acceleration = 0.1
-export (float, 0, 1.0) var friction = 0.2
+export (float, 0, 1.0) var friction = 0.1
 
 var jumpsMade = 0
 var velocity = Vector2.ZERO
@@ -30,7 +30,6 @@ export var healthTransferMultiplier = 2.0
 # Change where health is stored.
 # Change how health transfer works.
 # Change how robot and player are accessed.
-
 
 
 func _unhandled_input(event):
@@ -67,6 +66,22 @@ func _physics_process(delta: float):
 	velocity = move_and_slide(velocity, upDirection, true)
 	
 	switchSpriteDirection(horizontalDirection)
+	
+func calculateMoveVelocity(horizontalDirection, delta):
+	var speedGoal = 0.0
+	var duration = friction
+	if horizontalDirection != 0:
+		speedGoal = horizontalDirection * maxSpeed
+		duration = acceleration
+		
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_method(self, "tweenVelocityX", velocity.x, speedGoal, duration)
+	
+	velocity.y += gravity * delta # apply downwards gravity
+	return velocity
+	
+func tweenVelocityX(tweenedVelocity):
+	velocity.x = tweenedVelocity
 	
 func getPlayerMotionState():
 	if Input.is_action_just_released("jump") and velocity.y < minJumpHeight:
@@ -131,27 +146,9 @@ func playAnimations(horizontalDirection):
 	if !Input.is_action_pressed("left") and !Input.is_action_pressed("right"):
 		$StepSound.stop()
 
-func calculateMoveVelocity(horizontalDirection, delta):
-	if horizontalDirection != 0:
-		# speed up the player
-		velocity.x = lerp(velocity.x, horizontalDirection * maxSpeed, acceleration)
-		
-		# Lars: use tween instead of lerp for example tween method -> tween_method(setVelocityX(value), ...)
-	else:
-		# slow down the player
-		velocity.x = lerp(velocity.x, 0, friction)
-
-	# aplly downwards gravity
-	velocity.y += gravity * delta
-	
-	return velocity
-	
 func switchSpriteDirection(horizontalDirection):
 	if horizontalDirection != 0:
-		if horizontalDirection > 0:
-			$Sprite.flip_h = false
-		else:
-			$Sprite.flip_h = true
+		$Sprite.flip_h = horizontalDirection < 0
 
 # TODO: implement heal function
 func takeDamage(damage):
