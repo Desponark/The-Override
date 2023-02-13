@@ -142,9 +142,6 @@ func playAnimations(horizontalDirection):
 			$AnimationPlayer.play("fall")
 		MOTIONSTATE.IDLING:
 			$AnimationPlayer.play("idle")
-	
-	if !Input.is_action_pressed("left") and !Input.is_action_pressed("right"):
-		$StepSound.stop()
 
 func switchSpriteDirection(horizontalDirection):
 	if horizontalDirection != 0:
