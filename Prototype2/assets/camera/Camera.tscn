@@ -2,8 +2,8 @@
 
 [ext_resource path="res://assets/camera/Camera.gd" type="Script" id=1]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 395.081
+[sub_resource type="CircleShape2D" id=1]
+radius = 528.001
 
 [node name="CameraBody" type="KinematicBody2D"]
 collision_layer = 2048
@@ -11,7 +11,8 @@ collision_mask = 2048
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+rotation = 1.57079
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

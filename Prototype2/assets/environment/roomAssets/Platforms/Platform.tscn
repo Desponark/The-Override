@@ -18,7 +18,6 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2( 13, 160 )
 shape = SubResource( 1 )
-one_way_collision = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Platform"]
 visible = false
