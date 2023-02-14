@@ -129,6 +129,8 @@ anims/RESET = SubResource( 7 )
 anims/hit = SubResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 3.8147e-06, 2.91038e-11 )
+scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 texture_scale = 0.5
 shadow_enabled = true
@@ -136,6 +138,14 @@ shadow_enabled = true
 [node name="Spotlight" type="Sprite" parent="Light2D"]
 visible = false
 texture = ExtResource( 5 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 1 )]
+margin_left = 1.52588e-05
+margin_top = -28.5
+margin_right = 1.52588e-05
+margin_bottom = -28.5
+rect_rotation = -359.999
+rect_scale = Vector2( 0.1, 0.1 )
 
 [node name="InteractionableBox" type="Area2D" parent="."]
 collision_layer = 16
@@ -166,14 +176,6 @@ script = ExtResource( 8 )
 visible = false
 shape = SubResource( 3 )
 
-[node name="HealthBar" parent="." instance=ExtResource( 1 )]
-margin_left = -23.0
-margin_top = 5.0
-margin_right = 77.0
-margin_bottom = 25.0
-rect_rotation = -89.9999
-rect_scale = Vector2( 0.2, 0.2 )
-
 [node name="HoverSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
@@ -182,6 +184,6 @@ autoplay = true
 stream = ExtResource( 10 )
 volume_db = -15.0
 
+[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_entered"]
 [connection signal="area_exited" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_exited"]
-[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]

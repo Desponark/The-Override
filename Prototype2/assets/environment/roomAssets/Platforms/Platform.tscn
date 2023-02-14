@@ -24,6 +24,7 @@ visible = false
 occluder = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 modulate = Color( 0.58, 1.16, 1.16, 1 )
 margin_left = -239.0
 margin_top = 86.0
@@ -34,4 +35,4 @@ color = Color( 0.00337219, 0.863281, 0.822973, 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 2 )
-color = Color( 0, 1, 0.882353, 1 )
+color = Color( 1, 0.470588, 0.00392157, 1 )
