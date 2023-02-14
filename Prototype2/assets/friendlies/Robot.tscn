@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sounds/Robot/Hover.mp3" type="AudioStream" id=2]
@@ -100,6 +100,9 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=2]
 radius = 29.0689
 
+[sub_resource type="CanvasItemMaterial" id=10]
+light_mode = 1
+
 [sub_resource type="CircleShape2D" id=3]
 radius = 17.0294
 
@@ -138,23 +141,19 @@ visible = false
 texture = ExtResource( 5 )
 
 [node name="InteractionableBox" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 0
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionableBox"]
-visible = false
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="InteractionableBox"]
-visible = false
-modulate = Color( 0.517647, 0.517647, 0.517647, 1 )
+[node name="Prompt" type="Sprite" parent="InteractionableBox"]
+light_mask = 0
+material = SubResource( 10 )
 position = Vector2( 0, -50 )
-scale = Vector2( 0.110352, 0.110352 )
+scale = Vector2( 0.055, 0.055 )
 texture = ExtResource( 11 )
-
-[node name="Light2D" type="Light2D" parent="InteractionableBox/Sprite"]
-texture = ExtResource( 3 )
 
 [node name="HurtBox" type="Area2D" parent="."]
 visible = false
@@ -182,6 +181,5 @@ autoplay = true
 stream = ExtResource( 10 )
 volume_db = -15.0
 
-[connection signal="area_entered" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_entered"]
-[connection signal="area_exited" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_exited"]
+[connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]

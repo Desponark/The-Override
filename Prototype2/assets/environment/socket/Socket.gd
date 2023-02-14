@@ -27,18 +27,6 @@ func _physics_process(_delta):
 		robot.transferHealth(energyTransferAmount)
 		$HealthBar.subtractHealth(-energyTransferAmount)
 
-func interact(area):
-	player = area.owner
-	robot = player.getRobotRef()
-	if robot != null and robot.isFollowingPlayer and chargeState != CHARGESTATE.FULLYCHARGED:
-		# socket the robot
-		robot.putRobotInSocket($Position2D.global_position)
-		$InsertSound.play()
-		
-		# trigger everything that triggers on socket charging up that is connected
-		chargeState = CHARGESTATE.CHARGING
-		triggerEachScene()
-
 func pauseChargeProcess(isPaused):
 	if chargeState != CHARGESTATE.PAUSED:
 		currentChargeState = chargeState
@@ -71,3 +59,15 @@ func _on_HealthBar_healthReachedMax():
 	triggerEachScene() # trigger everything on socket being full that is connected
 	# Play ChargingFinished sound
 	$ChargingFinishedSound.play()
+
+func _on_InteractionableBox_interacted(area):
+	player = area.owner
+	robot = player.getRobotRef()
+	if robot != null and robot.isFollowingPlayer and chargeState != CHARGESTATE.FULLYCHARGED:
+		# socket the robot
+		robot.putRobotInSocket($Position2D.global_position)
+		$InsertSound.play()
+		
+		# trigger everything that triggers on socket charging up that is connected
+		chargeState = CHARGESTATE.CHARGING
+		triggerEachScene()
