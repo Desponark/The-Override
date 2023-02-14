@@ -55,7 +55,6 @@ extents = Vector2( 215, 28 )
 [node name="Tutorial" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.54902, 0.54902, 0.54902, 1 )
 
 [node name="Background" type="Sprite" parent="."]

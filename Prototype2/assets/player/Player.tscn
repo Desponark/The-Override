@@ -638,12 +638,12 @@ shape = SubResource( 8 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 9 )]
-margin_left = 120.0
-margin_top = 599.0
-margin_right = 200.0
-margin_bottom = 619.0
+margin_left = 122.0
+margin_top = 572.0
+margin_right = 202.0
+margin_bottom = 592.0
 rect_rotation = -90.0
-rect_scale = Vector2( 2, 2 )
+rect_scale = Vector2( 0.7, 0.7 )
 
 [node name="InteractionBox" type="Area2D" parent="."]
 collision_layer = 0

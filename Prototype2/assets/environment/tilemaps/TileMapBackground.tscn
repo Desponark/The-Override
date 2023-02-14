@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall_1_Gitter.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall_7.png" type="Texture" id=5]
 [ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall_4.png" type="Texture" id=6]
 [ext_resource path="res://assets/environment/roomAssets/Walls/SideWall_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall_8_Test.png" type="Texture" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Wall_1.png 0"
@@ -107,10 +108,24 @@
 6/shape_one_way_margin = 0.0
 6/shapes = [  ]
 6/z_index = 0
+7/name = "Wall_8_Test.png 7"
+7/texture = ExtResource( 8 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 2048, 2048 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
 
 [node name="TileMapBackground" type="TileMap"]
 scale = Vector2( 0.2, 0.2 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 2048, 2048 )
 format = 1
-tile_data = PoolIntArray( -65536, 536870913, 0, -65534, 536870913, 0, -65533, 536870913, 0, -65532, 536870913, 0, -65531, 536870913, 0, 0, 536870912, 0, 2, 536870912, 0, 3, 536870912, 0, 4, 536870912, 0 )
+tile_data = PoolIntArray( -1, 7, 0, -65536, 7, 0, -65535, 7, 0, 65535, 7, 0, 0, 7, 0, 1, 7, 0 )
