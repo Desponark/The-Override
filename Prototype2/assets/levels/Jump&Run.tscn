@@ -1,221 +1,173 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://assets/environment/roomAssets/Floors/Floor.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall4.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall5.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall3.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling_2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/environment/roomAssets/Platforms/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/Wall1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/environment/roomAssets/Walls/WallLeft.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/environment/roomAssets/Corners/wallCorner/Corner.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling_3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/environment/roomAssets/Walls/WallRight.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/environment/roomAssets/Corners/wallCorner/CornerHorizontal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/camera/Cameraborder.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/environment/roomAssets/Floors/Floor2.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/environment/doors/SpawnerDoor.tscn" type="PackedScene" id=17]
-[ext_resource path="res://assets/environment/roomAssets/Floors/Floor3.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/environment/roomAssets/Floors/Floor4.tscn" type="PackedScene" id=19]
-[ext_resource path="res://assets/environment/roomAssets/Corners/wallCorner/CornerVerticalLeft.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=22]
 
+[sub_resource type="DynamicFont" id=1]
+size = 17
+font_data = ExtResource( 9 )
+
 [node name="Jump&Run" type="Node2D"]
 
-[node name="BackgroundWalls" type="Node2D" parent="."]
-scale = Vector2( 0.2, 0.2 )
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Music"
 
-[node name="WallGitter" parent="BackgroundWalls" instance=ExtResource( 8 )]
-position = Vector2( 6630, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Label2" type="Label" parent="."]
+margin_left = 3767.0
+margin_top = 1015.0
+margin_right = 4143.0
+margin_bottom = 1084.0
+custom_fonts/font = SubResource( 1 )
+text = "Press [Space] to jump"
 
-[node name="Wall2" parent="BackgroundWalls" instance=ExtResource( 5 )]
-position = Vector2( 6630, -1020 )
-scale = Vector2( 1, 1 )
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-[node name="Wall5" parent="BackgroundWalls" instance=ExtResource( 5 )]
-position = Vector2( 12750, -5100 )
-scale = Vector2( 1, 1 )
+[node name="TileMapBackground" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 11, 6, 0, 12, 1610612742, 0, 23, 6, 0, 24, 1610612742, 0, 29, 1610612742, 0, 30, 6, 0, 33, 1610612742, 0, 65547, 6, 0, 65548, 1610612742, 0, 65559, 6, 0, 65560, 1610612742, 0, 65565, 536870918, 0, 65566, 6, 0, 131101, 536870918, 0, 131102, 6, 0, 131104, 6, 0 )
 
-[node name="Wall12" parent="BackgroundWalls" instance=ExtResource( 5 )]
-position = Vector2( 14790, -5100 )
-scale = Vector2( 1, 1 )
+[node name="TilemapGame" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -196590, 14, 0, -131071, 1073741835, 0, -131054, 14, 0, -131041, 6, 0, -131040, 1, 0, -131039, 1, 0, -131038, 1, 0, -65511, 6, 0, -65510, 2, 0, -65509, 2, 0, -65508, 2, 0, -65507, 2, 0, -65506, 2, 0, -65505, 5, 0, 6, 13, 0, 7, 1610612738, 0, 8, 1610612738, 0, 9, 1610612738, 0, 10, 1610612738, 0, 11, 1073741826, 0, 12, 1610612736, 0, 13, 1610612738, 0, 14, 1610612738, 0, 15, 1610612738, 0, 16, 1610612738, 0, 17, 1610612738, 0, 18, 1610612738, 0, 19, 1610612738, 0, 20, 1610612738, 0, 21, 1610612738, 0, 22, 1610612737, 0, 23, 1610612737, 0, 24, 1610612737, 0, 25, 1610612740, 0, 32, 12, 0, 33, 8, 0, 34, 8, 0, 65542, 13, 0, 65568, 13, 0, 65569, 1610612749, 0, 131078, 13, 0, 131082, 12, 0, 131083, 7, 0, 131084, 7, 0, 131085, 536870924, 0, 131093, 12, 0, 131094, 7, 0, 131095, 7, 0, 131096, 7, 0, 131097, 8, 0, 131098, 536870924, 0, 131103, 1073741824, 0, 131105, 1610612749, 0, 196615, 7, 0, 196616, 9, 0, 196617, 7, 0, 196618, 8, 0, 196621, 7, 0, 196622, 7, 0, 196623, 536870919, 0, 196624, 536870919, 0, 196625, 536870924, 0, 196629, 13, 0, 196634, 8, 0, 196635, 536870922, 0, 196636, 536870922, 0, 196637, 536870922, 0, 196638, 8, 0, 262161, 536870920, 0, 262162, 536870920, 0, 262163, 536870920, 0, 262164, 536870920, 0, 262165, 10, 0 )
 
-[node name="Wall13" parent="BackgroundWalls" instance=ExtResource( 5 )]
-position = Vector2( 16830, -5100 )
-scale = Vector2( 1, 1 )
+[node name="Platforms" type="Node2D" parent="."]
 
-[node name="Wall3" parent="BackgroundWalls" instance=ExtResource( 2 )]
-position = Vector2( 8670, -1020 )
-scale = Vector2( 1, 1 )
+[node name="Platform" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 4288, 1008 )
 
-[node name="Wall4" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 10710, -1020 )
-scale = Vector2( 1, 1 )
+[node name="Platform2" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 4186, 1008 )
 
-[node name="Wall6" parent="BackgroundWalls" instance=ExtResource( 2 )]
-position = Vector2( 8670, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform3" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 5642.4, 1007.7 )
 
-[node name="Wall7" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 10710, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform4" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 5540.4, 1007.7 )
 
-[node name="Wall8" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 12750, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform7" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 7294.4, 1437.7 )
 
-[node name="Wall9" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 14790, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform8" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 7192.4, 1437.7 )
 
-[node name="Wall10" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 16830, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform9" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 7597.4, 1067.7 )
 
-[node name="Wall11" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 18870, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform10" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 7495.4, 1067.7 )
 
-[node name="Wall14" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 20910, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform11" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 8122.4, 956.7 )
 
-[node name="Wall15" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 20910, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform12" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 8020.4, 956.7 )
 
-[node name="Wall16" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 22950, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform13" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 8622.4, 867.7 )
 
-[node name="Wall17" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 24990, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform14" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 8520.4, 867.7 )
 
-[node name="Wall18" parent="BackgroundWalls" instance=ExtResource( 3 )]
-position = Vector2( 27030, -3060 )
-scale = Vector2( 1, 1 )
+[node name="Platform5" parent="Platforms" instance=ExtResource( 11 )]
+position = Vector2( 12491, 209 )
 
-[node name="Floors" type="Node2D" parent="."]
-
-[node name="Floor4" parent="Floors" instance=ExtResource( 16 )]
-position = Vector2( 2550, -204 )
-
-[node name="Floor5" parent="Floors" instance=ExtResource( 18 )]
-position = Vector2( 2958, -204 )
-
-[node name="Floor6" parent="Floors" instance=ExtResource( 19 )]
-position = Vector2( 3366, -204 )
-
-[node name="Floor7" parent="Floors" instance=ExtResource( 1 )]
-position = Vector2( 3774, -204 )
-
-[node name="Floor8" parent="Floors" instance=ExtResource( 1 )]
-position = Vector2( 4182, -204 )
-
-[node name="Floor9" parent="Floors" instance=ExtResource( 1 )]
-position = Vector2( 4590, -204 )
-
-[node name="Floor10" parent="Floors" instance=ExtResource( 1 )]
-position = Vector2( 4998, -204 )
-
-[node name="Floor11" parent="Floors" instance=ExtResource( 1 )]
-position = Vector2( 5406, -204 )
-
-[node name="Floor" parent="Floors" instance=ExtResource( 1 )]
-position = Vector2( 1326, 102 )
-
-[node name="Floor2" parent="Floors" instance=ExtResource( 1 )]
-position = Vector2( 1734, 102 )
-
-[node name="Floor3" parent="Floors" instance=ExtResource( 1 )]
-position = Vector2( 2142, 102 )
-
-[node name="CameraBorder" type="Node2D" parent="."]
-
-[node name="CornerHorizontal" parent="CameraBorder" instance=ExtResource( 13 )]
-position = Vector2( 2142, -1428 )
-
-[node name="CornerHorizontal2" parent="CameraBorder" instance=ExtResource( 13 )]
-position = Vector2( 3366, -1428 )
-flip_h = true
-
-[node name="WallLeft2" parent="CameraBorder" instance=ExtResource( 9 )]
-position = Vector2( 918, -204 )
-
-[node name="WallLeft3" parent="CameraBorder" instance=ExtResource( 9 )]
-position = Vector2( 918, -612 )
-
-[node name="WallLeft" parent="CameraBorder" instance=ExtResource( 12 )]
-position = Vector2( 2550, -102 )
-
-[node name="Corner" parent="CameraBorder" instance=ExtResource( 10 )]
-position = Vector2( 918, -1020 )
-
-[node name="Ceiling" parent="CameraBorder" instance=ExtResource( 6 )]
-position = Vector2( 1326, -1020 )
-
-[node name="Ceiling3" parent="CameraBorder" instance=ExtResource( 6 )]
-position = Vector2( 1734, -1020 )
-
-[node name="Ceiling6" parent="CameraBorder" instance=ExtResource( 6 )]
-position = Vector2( 3774, -1020 )
-
-[node name="Ceiling7" parent="CameraBorder" instance=ExtResource( 6 )]
-position = Vector2( 4182, -1020 )
-
-[node name="Ceiling8" parent="CameraBorder" instance=ExtResource( 6 )]
-position = Vector2( 4590, -1020 )
-
-[node name="Ceiling9" parent="CameraBorder" instance=ExtResource( 6 )]
-position = Vector2( 4998, -1020 )
-
-[node name="Ceiling10" parent="CameraBorder" instance=ExtResource( 6 )]
-position = Vector2( 5406, -1020 )
-
-[node name="Ceiling5" parent="CameraBorder" instance=ExtResource( 6 )]
-position = Vector2( 2550, -1428 )
-
-[node name="CornerVertical2" parent="CameraBorder" instance=ExtResource( 20 )]
-position = Vector2( 2142, -1020 )
-
-[node name="Ceiling2" parent="CameraBorder" instance=ExtResource( 11 )]
-position = Vector2( 1224, -1530 )
-
-[node name="Ceiling4" parent="CameraBorder" instance=ExtResource( 11 )]
-position = Vector2( 2958, -1428 )
+[node name="Platform15" parent="Platforms" instance=ExtResource( 11 )]
+position = Vector2( 12494, 578 )
 
 [node name="Doors" type="Node2D" parent="."]
-position = Vector2( 4182, -612 )
 
-[node name="AutomaticDoor" parent="." instance=ExtResource( 14 )]
-position = Vector2( 4284, -612 )
+[node name="AutomaticDoor" parent="Doors" instance=ExtResource( 14 )]
+position = Vector2( 4905, 499 )
+scale = Vector2( 1.2, 1.6 )
 collision_layer = 1
 collision_mask = 1
 
-[node name="SpawnerDoor" parent="." instance=ExtResource( 17 )]
-position = Vector2( 5406, -612 )
+[node name="AutomaticDoor2" parent="Doors" instance=ExtResource( 14 )]
+position = Vector2( 9843, 499 )
+scale = Vector2( 1.2, 1.6 )
+collision_layer = 1
+collision_mask = 1
 
-[node name="Door" parent="." instance=ExtResource( 15 )]
-position = Vector2( 3672, -612 )
+[node name="SpawnerDoor" parent="Doors" instance=ExtResource( 17 )]
+position = Vector2( 3468, -1632 )
+
+[node name="Door" parent="Doors" instance=ExtResource( 15 )]
+position = Vector2( 1734, -1632 )
 
 [node name="Socket" parent="." instance=ExtResource( 22 )]
-position = Vector2( 2958, -408 )
-triggerScenes = [ NodePath("../Door") ]
+position = Vector2( 2550, -1326 )
+triggerScenes = [ NodePath("../Doors/Door") ]
+
+[node name="Enemies" type="Node2D" parent="."]
+visible = false
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 10 )]
+position = Vector2( 11809, 301 )
+moveSpeed = 0.0
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 10 )]
+position = Vector2( 12234, 499 )
+moveSpeed = 0.0
+
+[node name="TileMapForeground" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 262161, 536870912, 0, 262165, 0, 0 )
 
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Player" parent="Alive" instance=ExtResource( 4 )]
-position = Vector2( 1938, -204 )
+position = Vector2( 9221, 703 )
+friction = 0.856
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 1938, -408 )
-scale = Vector2( 2, 2 )
+position = Vector2( 9221, 499 )
 playerPath = NodePath("../Player")
 
 [node name="Robot" parent="Alive" instance=ExtResource( 21 )]
-position = Vector2( 2142, -510 )
+position = Vector2( 13546, -117 )
+
+[node name="CameraBorders" type="Node2D" parent="."]
+visible = false
+
+[node name="Cameraborder" parent="CameraBorders" instance=ExtResource( 8 )]
+position = Vector2( 4918, 1236 )
+
+[node name="Cameraborder2" parent="CameraBorders" instance=ExtResource( 8 )]
+position = Vector2( 4039, 1487 )
+scale = Vector2( 3.25471, -0.787555 )
+
+[node name="Cameraborder5" parent="CameraBorders" instance=ExtResource( 8 )]
+position = Vector2( 7978, 1899 )
+scale = Vector2( 3.25471, -0.787555 )
+
+[node name="Cameraborder7" parent="CameraBorders" instance=ExtResource( 8 )]
+position = Vector2( 9182, 2121 )
+rotation = -1.57079
+scale = Vector2( -2.46946, -0.686741 )
+
+[node name="Cameraborder6" parent="CameraBorders" instance=ExtResource( 8 )]
+position = Vector2( 11433, 1100 )
+scale = Vector2( 6.05471, -0.787555 )
+
+[node name="Cameraborder4" parent="CameraBorders" instance=ExtResource( 8 )]
+position = Vector2( 6018, 1656 )
+rotation = 0.232549
+scale = Vector2( 3.25471, -0.787555 )
+
+[node name="Cameraborder3" parent="CameraBorders" instance=ExtResource( 8 )]
+position = Vector2( 2952, 629 )
+rotation = 1.57079
+scale = Vector2( 1.85471, -0.787555 )
