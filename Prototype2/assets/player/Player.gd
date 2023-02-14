@@ -188,4 +188,6 @@ func getPriority():
 	return 1
 	
 func _on_HealthBar_healthReachedZero(): # handle player death here
-	var _ignore = get_tree().reload_current_scene()
+	#var _ignore = get_tree().reload_current_scene()
+	get_node("/root/Game").free()
+	get_tree().change_scene("res://assets/ui/EndGameScreen/PlayerLoseScreen.tscn")
