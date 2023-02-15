@@ -16,6 +16,5 @@ func _on_Area2D_body_entered(body):
 	
 func _on_Area2D_area_entered(area):
 	if player and player.has_method("gainHealth"):
-		print("health absorbed: ", area)
 		player.gainHealth(healAmount)
 		queue_free()
