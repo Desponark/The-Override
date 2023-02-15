@@ -130,7 +130,6 @@ anims/hit = SubResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 3.8147e-06, 2.91038e-11 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 texture_scale = 0.5
 shadow_enabled = true

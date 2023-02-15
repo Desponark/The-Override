@@ -31,8 +31,8 @@ margin_top = 86.0
 margin_right = -199.0
 margin_bottom = 126.0
 rect_scale = Vector2( 12.7302, 1.19241 )
-color = Color( 0.00337219, 0.863281, 0.822973, 1 )
+color = Color( 0, 0.862745, 0.823529, 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 2 )
-color = Color( 1, 0.470588, 0.00392157, 1 )
+color = Color( 0, 0.862745, 0.823529, 1 )
