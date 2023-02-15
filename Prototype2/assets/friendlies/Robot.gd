@@ -54,6 +54,13 @@ func getMaxHealth():
 
 func getPriority():
 	return 2
+	
+func playVoice(dialougeStream):
+	print("play voice: ", dialougeStream)
+	if !dialougeStream:
+		return
+	$VoicePlayer.stream = dialougeStream
+	$VoicePlayer.play()
 
 func _on_HealthBar_healthReachedZero():
 	#var _ignore = get_tree().reload_current_scene()
