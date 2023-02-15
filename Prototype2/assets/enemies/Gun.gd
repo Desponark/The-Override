@@ -1,7 +1,7 @@
 extends Node2D
 
 export(PackedScene) var projectile
-export(float) var projectileSpeed = 900.0
+export(float) var projectileSpeed = 1000.0
 
 var target
 

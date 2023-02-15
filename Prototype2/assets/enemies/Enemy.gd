@@ -14,7 +14,7 @@ var rangedTargets = []
 
 export(PackedScene) var healthDrop
 
-export(int) var stopDistance = 200
+export(int) var stopDistance = 200.0
 
 func _physics_process(delta):
 	# apply gravity
