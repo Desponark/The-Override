@@ -30,15 +30,14 @@ func toggleDoorOpen(isTrue):
 func setLock(lock):
 	isLocked = lock
 
-# player interacts with door
-func interact(_area):
-	toggleDoorOpen(!isOpen)
-
+# socket functions
 func socketIsCharging():
 #	setLock(true)
 	pass
 
-# socket functions
 func socketFullyCharged():
 	setLock(false)
+	toggleDoorOpen(!isOpen)
+
+func _on_InteractionableBox_interacted(area):
 	toggleDoorOpen(!isOpen)

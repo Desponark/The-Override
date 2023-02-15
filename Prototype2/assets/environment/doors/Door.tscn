@@ -97,3 +97,5 @@ bus = "Sound Effects"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
 anims/open = SubResource( 5 )
+
+[connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]

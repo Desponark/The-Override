@@ -34,15 +34,6 @@ func putRobotInSocket(position):
 	isFollowingPlayer = false
 	setRobotTransform(position)
 
-func interact(area):
-	if player == null:
-		player = area.owner
-		if player.has_method("setRobotRef"):
-			player.setRobotRef(self)
-			isFollowingPlayer = true
-			# disable robot interaction collision shape so it can't be activated again
-			$InteractionableBox/CollisionShape2D.disabled = true
-
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
 	if $HealthBar.has_method("subtractHealth"):
@@ -67,3 +58,12 @@ func _on_HealthBar_healthReachedZero():
 	#var _ignore = get_tree().reload_current_scene()
 	get_node("/root/Game").free()
 	get_tree().change_scene("res://assets/ui/EndGameScreen/RobotLoseScreen.tscn")
+
+func _on_InteractionableBox_interacted(area):
+	if player == null:
+		player = area.owner
+		if player.has_method("setRobotRef"):
+			player.setRobotRef(self)
+			isFollowingPlayer = true
+			# disable robot interaction collision shape so it can't be activated again
+			$InteractionableBox/CollisionShape2D.disabled = true
