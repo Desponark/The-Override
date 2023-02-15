@@ -140,7 +140,7 @@ scale_curve = SubResource( 11 )
 extents = Vector2( 93.5, 63.0001 )
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 2048.0
+radius = 962.033
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 800.0
@@ -208,6 +208,7 @@ monitorable = false
 shape = SubResource( 12 )
 
 [node name="Gun" type="Node2D" parent="."]
+position = Vector2( -25, -29 )
 script = ExtResource( 9 )
 projectile = ExtResource( 10 )
 
@@ -217,7 +218,6 @@ stream = ExtResource( 3 )
 volume_db = -10.0
 
 [node name="MuzzlePosition" type="Position2D" parent="Gun"]
-position = Vector2( 55.7143, 0 )
 
 [node name="Timer" type="Timer" parent="Gun"]
 wait_time = 2.0

@@ -12,15 +12,20 @@ func _ready():
 func setup():
 	$Health.max_value = maxHealth
 	$Health.value = health
+	$progressbar.scale.x = 1
 
 func _process(_delta):
 	$Health.value = health
+	$progressbar.scale.x = get_Health_procent()
 
 func getHealth():
 	return health
 	
 func getMaxHealth():
 	return maxHealth
+
+func get_Health_procent(): #jebac wam matki kurwz j
+	return health / maxHealth
 
 func subtractHealth(damage):
 	health -= damage
