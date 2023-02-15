@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -10,9 +10,12 @@
 [ext_resource path="res://assets/environment/tilemaps/TilemapCamera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/light/conelight.png" type="Texture" id=9]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/Robot/voice/introduction.ogg" type="AudioStream" id=11]
 [ext_resource path="res://assets/environment/doors/Lift.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/environment/narrative/Voice.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=22]
 
@@ -155,10 +158,10 @@ triggerScenes = [ NodePath("../Door") ]
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Player" parent="Alive" instance=ExtResource( 4 )]
-position = Vector2( 10192, 605 )
+position = Vector2( 3055, 1091 )
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 10764, 380 )
+position = Vector2( 3627, 866 )
 playerPath = NodePath("../Player")
 
 [node name="Robot" parent="Alive" instance=ExtResource( 21 )]
@@ -237,3 +240,12 @@ mode = 2
 
 [node name="TileMapForeground" parent="." instance=ExtResource( 3 )]
 tile_data = PoolIntArray( 524320, 1610612736, 0 )
+
+[node name="DialogueTrigger" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3546, 781 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Voice" parent="." instance=ExtResource( 16 )]
+position = Vector2( 3603, 768 )
+stream = ExtResource( 11 )
