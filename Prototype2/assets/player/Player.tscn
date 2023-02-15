@@ -565,9 +565,9 @@ radius = 61.0
 radius = 32.0
 height = 8.0
 
-[sub_resource type="CapsuleShape2D" id=21]
-radius = 16.0
-height = 187.0
+[sub_resource type="CapsuleShape2D" id=22]
+radius = 18.0
+height = 182.0
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 34, 48 )
@@ -658,7 +658,7 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthAbsorbtionArea"]
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="InteractionBox" type="Area2D" parent="."]
 collision_layer = 0
