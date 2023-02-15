@@ -1,7 +1,10 @@
 extends Area2D
 
-signal entered
+export(AudioStream) var dialougeStream
 
-func _on_DialogueTrigger_area_entered(area):
-	emit_signal("entered")
-	print("entered")
+func _on_DialogueTrigger_body_entered(body):
+	if body.has_method("playVoice"):
+		body.playVoice(dialougeStream)
+	
+	# disable collisions so voice cant be triggered again
+	collision_mask = 0
