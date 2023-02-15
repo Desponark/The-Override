@@ -182,5 +182,8 @@ autoplay = true
 stream = ExtResource( 10 )
 volume_db = -15.0
 
+[node name="VoicePlayer" type="AudioStreamPlayer2D" parent="."]
+bus = "Voice"
+
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
