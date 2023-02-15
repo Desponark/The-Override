@@ -156,7 +156,6 @@ triggerScenes = [ NodePath("../Door") ]
 
 [node name="Player" parent="Alive" instance=ExtResource( 4 )]
 position = Vector2( 10192, 605 )
-friction = 0.856
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 7 )]
 position = Vector2( 10764, 380 )
