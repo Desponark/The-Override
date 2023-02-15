@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/afterFirstWaveDefense.ogg-e877a4df3a871c2ddef6cccfaccbc634.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/afterFirstWaveDefense.ogg"
+dest_files=[ "res://.import/afterFirstWaveDefense.ogg-e877a4df3a871c2ddef6cccfaccbc634.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
