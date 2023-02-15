@@ -1,6 +1,7 @@
 extends Node2D
 
 export (PackedScene) var enemySpawn
+export var autostart = false
 export var minSpawnRate = 3
 export var maxSpawnRate = 6
 export var waveSpawnAmount = 5
@@ -9,9 +10,10 @@ var waveSpawns = 0
 enum MOVEDIRECTIONS {NONE = 0, LEFT = -1, RIGHT = 1}
 export(MOVEDIRECTIONS) var initialMoveDirection = MOVEDIRECTIONS.NONE
 
-
 func _ready():
 	randomize()
+	if autostart:
+		startSpawner()
 
 func spawnEnemy():
 	var enemy = enemySpawn.instance()
