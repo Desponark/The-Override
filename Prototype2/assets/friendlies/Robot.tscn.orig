@@ -148,6 +148,7 @@ margin_right = 1.52588e-05
 margin_bottom = -28.5
 rect_rotation = -359.999
 rect_scale = Vector2( 0.1, 0.1 )
+health = 0.0
 
 [node name="InteractionableBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -165,7 +166,6 @@ scale = Vector2( 0.055, 0.055 )
 texture = ExtResource( 11 )
 
 [node name="HurtBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 256
 script = ExtResource( 8 )
@@ -182,11 +182,5 @@ autoplay = true
 stream = ExtResource( 10 )
 volume_db = -15.0
 
-<<<<<<< working copy
+[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
-[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
-=======
-[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
-[connection signal="area_entered" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_entered"]
-[connection signal="area_exited" from="InteractionableBox" to="InteractionableBox" method="_on_InteractionableBox_area_exited"]
->>>>>>> merge rev

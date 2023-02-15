@@ -5,17 +5,24 @@
 [ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=7]
 
 [node name="HubRoom" type="Node2D"]
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+bus = "Music"
+
+[node name="TileMapBackground" parent="." instance=ExtResource( 5 )]
+tile_data = PoolIntArray( -1, 7, 0, -65536, 7, 0, -65535, 7, 0, -65490, 0, 0, -65489, 0, 0, -65487, 9, 0, 65535, 7, 0, 0, 7, 0, 1, 7, 0, 44, 5, 0, 45, 5, 0, 46, 5, 0, 47, 5, 0, 48, 5, 0, 65580, 536870917, 0, 65581, 536870917, 0, 65582, 536870917, 0, 65583, 536870917, 0, 65584, 536870917, 0, 131116, 1073741833, 0, 131118, 1610612736, 0, 131119, 1073741824, 0, 131121, 1073741833, 0 )
+
 [node name="Jump&Run" parent="." instance=ExtResource( 4 )]
+position = Vector2( 21, -39 )
 
 [node name="TilemapGame" parent="." instance=ExtResource( 1 )]
 show_collision = true
-tile_data = PoolIntArray( -65498, 0, 0, -65497, 0, 0, -65496, 0, 0, -65495, 0, 0 )
-
-[node name="TileMapBackground" parent="." instance=ExtResource( 5 )]
+tile_data = PoolIntArray( -131027, 6, 0, -131026, 536870913, 0, -131025, 536870913, 0, -131024, 536870918, 0, -65492, 536870913, 0, -65491, 5, 0, -65488, 536870917, 0, 131117, 1073741829, 0, 131120, 1610612741, 0, 196653, 1073741830, 0, 196654, 1610612737, 0, 196655, 1610612737, 0, 196656, 1610612742, 0 )
 
 [node name="TilemapCamera" parent="." instance=ExtResource( 2 )]
 
@@ -24,9 +31,6 @@ tile_data = PoolIntArray( -65498, 0, 0, -65497, 0, 0, -65496, 0, 0, -65495, 0, 0
 [node name="doors" type="Node2D" parent="."]
 
 [node name="platforms" type="Node2D" parent="."]
-
-[node name="Platform" parent="platforms" instance=ExtResource( 6 )]
-position = Vector2( 15931, 394 )
 
 [node name="enemies" type="Node2D" parent="."]
 

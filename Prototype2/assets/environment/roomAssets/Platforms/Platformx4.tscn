@@ -96,4 +96,4 @@ color = Color( 0.00337219, 0.863281, 0.822973, 1 )
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 4, 1 )
 texture = ExtResource( 2 )
-color = Color( 0, 1, 0.882353, 1 )
+color = Color( 0.905882, 0.533333, 0.168627, 1 )
