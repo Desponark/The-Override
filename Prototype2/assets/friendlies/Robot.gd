@@ -26,6 +26,7 @@ func changeLightScale():
 	$Light2D.set_texture_scale(lightScale)
 
 func setRobotTransform(position):
+	# TODO: recreating a new tween every frame seems bad? Creates slight stutter in some cases...
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", position, 0.5)
 	
