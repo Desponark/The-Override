@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -6,9 +6,14 @@
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/background.png" type="Texture" id=5]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/enemies/loot/HealthDrop.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 409.508, 81.5 )
 
 [node name="LevelPaul" type="Node2D"]
 
@@ -28,7 +33,10 @@ __meta__ = {
 tile_data = PoolIntArray( -4, 0, 0, -3, 2, 0, -2, 2, 0, -1, 5, 0, -65536, 5, 0, -65535, 3, 0, -65534, 2, 0, -65533, 2, 0, -65532, 4, 0, -65531, 0, 0, 65532, 2, 0, 65533, 0, 0, 65534, 4, 0, 65535, 5, 0, 0, 0, 0, 1, 1, 0, 2, 2, 0, 3, 3, 0, 4, 2, 0, 5, 4, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 3, 0, 65536, 3, 0, 65537, 3, 0, 65538, 0, 0, 65539, 5, 0, 65540, 3, 0, 65541, 2, 0 )
 
 [node name="TilemapGame" parent="." instance=ExtResource( 2 )]
+show_collision = true
 tile_data = PoolIntArray( 196604, 8, 0, 196605, 7, 0, 196606, 9, 0, 196607, 10, 0, 131072, 8, 0, 131073, 10, 0, 131074, 9, 0, 131075, 10, 0, 131076, 7, 0, 131077, 7, 0 )
+
+[node name="TileMapForeground" parent="." instance=ExtResource( 7 )]
 
 [node name="Socket" parent="." instance=ExtResource( 6 )]
 position = Vector2( 796, 783 )
@@ -57,3 +65,13 @@ position = Vector2( -152, 630 )
 [node name="CameraBody" parent="." instance=ExtResource( 14 )]
 position = Vector2( -152, 263 )
 playerPath = NodePath("../Player")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2848.63, 770.24 )
+rotation = -0.453786
+shape = SubResource( 1 )
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2221, 681 )

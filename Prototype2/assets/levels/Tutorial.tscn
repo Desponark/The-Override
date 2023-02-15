@@ -1281,7 +1281,6 @@ position = Vector2( 2516, -3320 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 2 )]
 position = Vector2( 3231, -2440 )
-friction = 0.9
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 20 )]
 position = Vector2( 3223, -2600 )

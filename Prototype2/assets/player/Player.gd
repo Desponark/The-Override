@@ -5,13 +5,13 @@ const upDirection = Vector2.UP
 export var maxSpeed = 600.0
 export var maxJumpHeight = -1500.0
 export var minJumpHeight = -500.0
-export var maximumJumps = 2
+export var maximumDoubleJumps = 1
 export var doubleJumpHeight = -1200.0
 export var gravity = 4500.0
 export (float, 0, 1.0) var acceleration = 0.1
-export (float, 0, 1.0) var friction = 0.2
+export (float, 0, 1.0) var friction = 0.1
 
-var jumpsMade = 0
+var doubleJumpsMade = 0
 var velocity = Vector2.ZERO
 
 enum MOTIONSTATE {FALLING, JUMPING, DOUBLEJUMPING, JUMPCANCELLED, IDLING, RUNNING, ASCENDING}
@@ -30,7 +30,6 @@ export var healthTransferMultiplier = 2.0
 # Change where health is stored.
 # Change how health transfer works.
 # Change how robot and player are accessed.
-
 
 
 func _unhandled_input(event):
@@ -56,7 +55,13 @@ func _physics_process(delta: float):
 	
 	velocity = calculateMoveVelocity(horizontalDirection, delta)
 	
+	var previousMotionState = motionState
+	
 	motionState = getPlayerMotionState()
+#	print(MOTIONSTATE.keys()[motionState])
+
+	if motionState == MOTIONSTATE.FALLING and (previousMotionState == MOTIONSTATE.RUNNING or previousMotionState == MOTIONSTATE.IDLING):
+		$CoyoteTimer.start()
 
 	handleJumping()
 	
@@ -68,22 +73,38 @@ func _physics_process(delta: float):
 	
 	switchSpriteDirection(horizontalDirection)
 	
+func calculateMoveVelocity(horizontalDirection, delta):
+	var speedGoal = 0.0
+	var duration = friction
+	if horizontalDirection != 0:
+		speedGoal = horizontalDirection * maxSpeed
+		duration = acceleration
+		
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_method(self, "tweenVelocityX", velocity.x, speedGoal, duration)
+	
+	velocity.y += gravity * delta # apply downwards gravity
+	return velocity
+	
+func tweenVelocityX(tweenedVelocity):
+	velocity.x = tweenedVelocity
+	
 func getPlayerMotionState():
 	if Input.is_action_just_released("jump") and velocity.y < minJumpHeight:
 		return MOTIONSTATE.JUMPCANCELLED
-	elif Input.is_action_just_pressed("jump") and motionState == MOTIONSTATE.FALLING:
-		return MOTIONSTATE.DOUBLEJUMPING
-	elif Input.is_action_just_pressed("jump") and is_on_floor():
+	elif Input.is_action_just_pressed("jump") and (is_on_floor() or !$CoyoteTimer.is_stopped()):
 		return MOTIONSTATE.JUMPING
+	elif Input.is_action_just_pressed("jump") and motionState == MOTIONSTATE.FALLING and doubleJumpsMade < maximumDoubleJumps:
+		return MOTIONSTATE.DOUBLEJUMPING
 	elif velocity.y > 0.0 and not is_on_floor():
 		return MOTIONSTATE.FALLING
 	elif velocity.y < 0.0 and not is_on_floor():
 		return MOTIONSTATE.ASCENDING
-	elif is_on_floor() and not (velocity.x < 1 and velocity.x > -1): #not is_zero_approx(velocity.x):
+	elif is_on_floor() and not (velocity.x < 1 and velocity.x > -1):
 		return MOTIONSTATE.RUNNING
-	elif is_on_floor() and (velocity.x < 1 and velocity.x > -1): #is_zero_approx(velocity.x):
+	elif is_on_floor() and (velocity.x < 1 and velocity.x > -1):
 		return MOTIONSTATE.IDLING
-	else: # return IDLING as default state
+	else:
 		return MOTIONSTATE.IDLING
 	
 func dash(horizontalDirection):
@@ -98,28 +119,25 @@ func dash(horizontalDirection):
 func handleJumping():
 	match motionState:
 		MOTIONSTATE.JUMPING:
-			jumpsMade += 1
 			velocity.y = maxJumpHeight
 		MOTIONSTATE.DOUBLEJUMPING:
-			jumpsMade += 1
-			if jumpsMade <= maximumJumps:
-				velocity.y = doubleJumpHeight
+			doubleJumpsMade += 1
+			velocity.y = doubleJumpHeight
 		MOTIONSTATE.JUMPCANCELLED:
 			velocity.y = minJumpHeight
 		MOTIONSTATE.IDLING, MOTIONSTATE.RUNNING:
-			jumpsMade = 0
+			doubleJumpsMade = 0
+			$CoyoteTimer.stop() # stop coyote timer just to be sure
 
 func playAnimations(horizontalDirection):
-	# if attack animation plays dont play any other animation
-	if $AnimationPlayer.current_animation == "attack":
+	if $AnimationPlayer.current_animation == "attack": # if attack animation plays dont play any other animation
 		return
 	match motionState:
 		MOTIONSTATE.JUMPING, MOTIONSTATE.DOUBLEJUMPING:
 			$JumpSound.play()
 			$AnimationPlayer.play("jump")
 		MOTIONSTATE.RUNNING:
-			# slow down animation speed if the player is decelerating
-			if horizontalDirection == 0 and velocity.x != 0:
+			if horizontalDirection == 0 and velocity.x != 0: # slow down animation speed if the player is decelerating
 				$AnimationPlayer.play("run", -1, 0.4)
 			else:
 				$AnimationPlayer.play("run")
@@ -127,31 +145,10 @@ func playAnimations(horizontalDirection):
 			$AnimationPlayer.play("fall")
 		MOTIONSTATE.IDLING:
 			$AnimationPlayer.play("idle")
-	
-	if !Input.is_action_pressed("left") and !Input.is_action_pressed("right"):
-		$StepSound.stop()
 
-func calculateMoveVelocity(horizontalDirection, delta):
-	if horizontalDirection != 0:
-		# speed up the player
-		velocity.x = lerp(velocity.x, horizontalDirection * maxSpeed, acceleration)
-		
-		# Lars: use tween instead of lerp for example tween method -> tween_method(setVelocityX(value), ...)
-	else:
-		# slow down the player
-		velocity.x = lerp(velocity.x, 0, friction)
-
-	# aplly downwards gravity
-	velocity.y += gravity * delta
-	
-	return velocity
-	
 func switchSpriteDirection(horizontalDirection):
 	if horizontalDirection != 0:
-		if horizontalDirection > 0:
-			$Sprite.flip_h = false
-		else:
-			$Sprite.flip_h = true
+		$Sprite.flip_h = horizontalDirection < 0
 
 # TODO: implement heal function
 func takeDamage(damage):
