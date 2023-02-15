@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapCamera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/environment/doors/AutomaticDoor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+font_data = ExtResource( 4 )
 
 [node name="HubRoom" type="Node2D"]
 
@@ -15,25 +21,93 @@ autoplay = true
 bus = "Music"
 
 [node name="TileMapBackground" parent="." instance=ExtResource( 5 )]
-tile_data = PoolIntArray( -1, 7, 0, -65536, 7, 0, -65535, 7, 0, -65490, 0, 0, -65489, 0, 0, -65487, 9, 0, 65535, 7, 0, 0, 7, 0, 1, 7, 0, 44, 5, 0, 45, 5, 0, 46, 5, 0, 47, 5, 0, 48, 5, 0, 65580, 536870917, 0, 65581, 536870917, 0, 65582, 536870917, 0, 65583, 536870917, 0, 65584, 536870917, 0, 131116, 1073741833, 0, 131118, 1610612736, 0, 131119, 1073741824, 0, 131121, 1073741833, 0 )
-
-[node name="Jump&Run" parent="." instance=ExtResource( 4 )]
-position = Vector2( 21, -39 )
+tile_data = PoolIntArray( -65490, 0, 0, -65489, 0, 0, -65487, 8, 0, 44, 5, 0, 45, 5, 0, 46, 5, 0, 47, 5, 0, 48, 5, 0, 49, 5, 0, 50, 5, 0, 51, 5, 0, 52, 5, 0, 53, 5, 0, 65580, 536870917, 0, 65581, 536870917, 0, 65582, 536870917, 0, 65583, 536870917, 0, 65584, 536870917, 0, 65585, 5, 0, 65586, 5, 0, 65587, 5, 0, 65588, 5, 0, 65589, 5, 0, 131116, 1073741832, 0, 131118, 1610612736, 0, 131119, 1073741824, 0, 131121, 1073741832, 0 )
 
 [node name="TilemapGame" parent="." instance=ExtResource( 1 )]
 show_collision = true
-tile_data = PoolIntArray( -131027, 6, 0, -131026, 536870913, 0, -131025, 536870913, 0, -131024, 536870918, 0, -65492, 536870913, 0, -65491, 5, 0, -65488, 536870917, 0, 131117, 1073741829, 0, 131120, 1610612741, 0, 196653, 1073741830, 0, 196654, 1610612737, 0, 196655, 1610612737, 0, 196656, 1610612742, 0 )
+tile_data = PoolIntArray( -262094, 6, 0, -262093, 536870912, 0, -262092, 1, 0, -262091, 1, 0, -262090, 1, 0, -262089, 536870912, 0, -262088, 536870912, 0, -262087, 536870912, 0, -196558, 536870927, 0, -131027, 6, 0, -131026, 536870913, 0, -131025, 536870913, 0, -131024, 536870918, 0, -131022, 536870927, 0, -65492, 536870913, 0, -65491, 5, 0, -65488, 536870917, 0, -65487, 0, 0, -65486, 5, 0, 65595, 12, 0, 131117, 1073741829, 0, 131120, 1610612741, 0, 131121, 1073741824, 0, 131122, 1073741826, 0, 131123, 1073741826, 0, 131124, 1073741826, 0, 131125, 1073741826, 0, 131126, 1073741825, 0, 131127, 1073741825, 0, 131128, 1073741825, 0, 131129, 1073741825, 0, 131130, 1610612738, 0, 131131, 1610612742, 0, 196653, 1073741830, 0, 196654, 1610612737, 0, 196655, 1610612737, 0, 196656, 1610612742, 0 )
 
 [node name="TilemapCamera" parent="." instance=ExtResource( 2 )]
 
 [node name="alive" type="Node2D" parent="."]
 
-[node name="doors" type="Node2D" parent="."]
-
 [node name="platforms" type="Node2D" parent="."]
 
-[node name="enemies" type="Node2D" parent="."]
+[node name="Platform28" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 19202, 395 )
+
+[node name="Platform33" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 19612, 395 )
+
+[node name="Platform34" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 20022, 395 )
+
+[node name="Platform35" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 20432, 395 )
+
+[node name="Platform36" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 20842, 395 )
+
+[node name="Platform37" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 21252, 395 )
+
+[node name="Platform38" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 21662, 395 )
+
+[node name="Platform39" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 22072, 395 )
+
+[node name="Platform40" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 22482, 395 )
+
+[node name="Platform41" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 22892, 395 )
+
+[node name="Platform42" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 23302, 395 )
+
+[node name="Platform43" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 20845, -129 )
+
+[node name="Platform44" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 24122, 395 )
+
+[node name="Platform45" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 23712, 395 )
+
+[node name="Platform31" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 18792, 395 )
+
+[node name="Platform32" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( 18385, 395 )
+
+[node name="doors" type="Node2D" parent="."]
+
+[node name="AutomaticDoor" parent="doors" instance=ExtResource( 6 )]
+position = Vector2( 20280, 197 )
+scale = Vector2( 0.9, 0.9 )
+
+[node name="AutomaticDoor2" parent="doors/AutomaticDoor" instance=ExtResource( 6 )]
+position = Vector2( 0, 477.778 )
 
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="TileMapForeground" parent="." instance=ExtResource( 3 )]
+
+[node name="Control" type="Control" parent="."]
+margin_left = 2.0
+margin_top = -27.0
+margin_right = 42.0
+margin_bottom = 13.0
+
+[node name="Label3" type="Label" parent="Control"]
+margin_left = 19048.0
+margin_top = 156.0
+margin_right = 19435.0
+margin_bottom = 225.0
+rect_scale = Vector2( 1.33293, 1.33293 )
+custom_fonts/font = SubResource( 1 )
+text = "[LMB] to Attack
+
+"
+uppercase = true
