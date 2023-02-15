@@ -16,7 +16,7 @@ func setup():
 
 func _process(_delta):
 	$Health.value = health
-	$progressbar.scale.x = get_Health_procent()
+	$progressbar.scale.x = getHealthPercent()
 
 func getHealth():
 	return health
@@ -24,7 +24,7 @@ func getHealth():
 func getMaxHealth():
 	return maxHealth
 
-func get_Health_procent(): #jebac wam matki kurwz j
+func getHealthPercent():
 	return health / maxHealth
 
 func subtractHealth(damage):
