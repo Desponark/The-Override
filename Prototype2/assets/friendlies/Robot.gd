@@ -3,7 +3,7 @@ extends RigidBody2D
 var isFollowingPlayer = false
 var player = null
 
-# TODO: think about changing enemy from rigid body to node2d or sprite if physics are not needed for it
+# TODO: think about changing from rigid body to node2d or sprite if physics are not needed for it
 
 func _integrate_forces(_state):
 	rotation_degrees = 0 # disable rotation... only useful if robot actually has collisions

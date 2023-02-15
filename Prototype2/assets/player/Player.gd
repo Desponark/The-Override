@@ -75,13 +75,15 @@ func _physics_process(delta: float):
 	switchSpriteDirection(horizontalDirection)
 	
 func calculateMoveVelocity(horizontalDirection, delta):
+	# TODO: look at this
 	var speedGoal = 0.0
 	var duration = friction
 	if horizontalDirection != 0:
 		speedGoal = horizontalDirection * maxSpeed
 		duration = acceleration
-		
-	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	
+	# TODO: change implementation because creating a new tween every frame is wasteful
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	tween.tween_method(self, "tweenVelocityX", velocity.x, speedGoal, duration)
 	
 	velocity.y += gravity * delta # apply downwards gravity
@@ -163,11 +165,13 @@ func gainHealth(healAmount):
 		$CanvasLayer/HealthBar.addHealth(healAmount)
 		
 func getHealthBarPosition():
+	# TODO: look at this
 	# https://stackoverflow.com/questions/73038798/is-there-an-easier-way-to-turn-canvas-locations-into-node2d-locations
 	# turns a different canvas position into the main canvas position
 	return get_viewport_transform().affine_inverse() * $CanvasLayer/Position2D.global_position
 	
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
+# TODO: make it so that the player can only give the robot life if the robot has enough missing health
 func transferHealth():
 	if isTransferingHealth and robotRef != null:
 		if $CanvasLayer/HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
