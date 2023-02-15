@@ -49,6 +49,7 @@ func _unhandled_input(event):
 		
 func _process(_delta):
 	transferHealth()
+	$HealthAbsorbtionArea.global_position = getHealthBarPosition()
 	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -160,6 +161,12 @@ func takeDamage(damage):
 func gainHealth(healAmount):
 	if $CanvasLayer/HealthBar.has_method("addHealth"):
 		$CanvasLayer/HealthBar.addHealth(healAmount)
+		
+func getHealthBarPosition():
+	# https://stackoverflow.com/questions/73038798/is-there-an-easier-way-to-turn-canvas-locations-into-node2d-locations
+	# turns a different canvas position into the main canvas position
+	return get_viewport_transform().affine_inverse() * $CanvasLayer/Position2D.global_position
+	
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
 func transferHealth():
 	if isTransferingHealth and robotRef != null:
