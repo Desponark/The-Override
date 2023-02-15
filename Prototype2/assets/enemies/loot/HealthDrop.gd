@@ -6,6 +6,7 @@ var player = null
 
 func _process(delta):
 	if player:
+		# TODO: check if tween is bad here
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		tween.tween_property(self, "global_position", player.getHealthBarPosition(), 1)
 		

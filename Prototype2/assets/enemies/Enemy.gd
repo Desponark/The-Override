@@ -1,14 +1,13 @@
 extends KinematicBody2D
 
 const upDirection = Vector2.UP
-# movement vars
+
 export var gravity = 4500.0
 export var moveSpeed = 200.0
 export (float, 0, 1.0) var acceleration = 0.1
 var horizontalDirection = 0
 var velocity = Vector2.ZERO
 
-# targeting
 var approachTargets = []
 var rangedTargets = []
 
@@ -17,7 +16,6 @@ export(PackedScene) var healthDrop
 export(int) var stopDistance = 200.0
 
 func _physics_process(delta):
-	# apply gravity
 	velocity.y += gravity * delta
 	velocity = moveEnemyTowardsTarget(getPriorityTarget(approachTargets))
 	velocity = move_and_slide(velocity, upDirection)
@@ -44,7 +42,6 @@ func moveEnemyTowardsTarget(approachTarget):
 	velocity.x = lerp(velocity.x, horizontalDirection * moveSpeed, acceleration)
 	return velocity
 
-# TODO: clean up!!!!
 func getPriorityTarget(array):
 	if array.size() == 0:
 		return null
@@ -83,13 +80,11 @@ func _on_RangedAggroZone_body_exited(body):
 		$Gun.stopShooting()
 
 func _on_HealthBar_healthReachedZero():
-	# drop health
 	if healthDrop != null:
 		var newHealthDrop = healthDrop.instance()
 		newHealthDrop.global_position = global_position
 		EventBus.emit_signal("spawnLoot", newHealthDrop)
 	
-	# remove enemy
 	queue_free()
 	
 func _on_AggroZone_body_entered(body):

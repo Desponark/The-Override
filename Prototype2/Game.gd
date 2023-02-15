@@ -12,9 +12,8 @@ func _ready():
 	EventBus.connect("spawnEnemy", self, "spawnEnemy")
 	EventBus.connect("spawnLoot", self, "spawnLoot")
 
-func _unhandled_input(event): # close game if esc is pressed (for testing)
+func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-#		get_tree().quit()
 		get_tree().change_scene("res://assets/ui/mainMenu/StartScreen.tscn")
 
 func freezeEngine(): # this is for creating a nice hit stop / freeze effect for making melee hit feel more impactful
@@ -35,4 +34,3 @@ func spawnEnemy(newEnemy):
 
 func spawnLoot(newLoot):
 	$Loot.call_deferred("add_child", newLoot)
-#	$Loot.add_child(newLoot)
