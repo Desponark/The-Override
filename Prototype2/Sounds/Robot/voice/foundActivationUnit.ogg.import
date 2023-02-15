@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/foundActivationUnit.ogg-9141e17ea08d34402fc02ce1f3d93545.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/foundActivationUnit.ogg"
+dest_files=[ "res://.import/foundActivationUnit.ogg-9141e17ea08d34402fc02ce1f3d93545.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -54,10 +54,16 @@ func getMaxHealth():
 
 func getPriority():
 	return 2
+	
+func playVoice(dialougeStream):
+	print("play voice: ", dialougeStream)
+	if !dialougeStream:
+		return
+	$VoicePlayer.stream = dialougeStream
+	$VoicePlayer.play()
 
 func _on_HealthBar_healthReachedZero():
 	#var _ignore = get_tree().reload_current_scene()
-	get_node("/root/Game").free()
 	get_tree().change_scene("res://assets/ui/EndGameScreen/RobotLoseScreen.tscn")
 
 func _on_InteractionableBox_interacted(area):
