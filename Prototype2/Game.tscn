@@ -6,7 +6,14 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -3060.0
+margin_right = 22440.0
+margin_bottom = 5508.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 204 )
 
 [node name="Projectiles" type="Node2D" parent="."]
 

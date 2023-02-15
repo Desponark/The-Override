@@ -148,6 +148,7 @@ margin_right = 1.52588e-05
 margin_bottom = -28.5
 rect_rotation = -359.999
 rect_scale = Vector2( 0.1, 0.1 )
+health = 5.0
 
 [node name="InteractionableBox" type="Area2D" parent="."]
 collision_layer = 0
