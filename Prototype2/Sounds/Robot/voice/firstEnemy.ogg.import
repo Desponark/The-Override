@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/firstEnemy.ogg-fa4e722d0f97ab56699a86f022cd8c7b.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/firstEnemy.ogg"
+dest_files=[ "res://.import/firstEnemy.ogg-fa4e722d0f97ab56699a86f022cd8c7b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
