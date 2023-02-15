@@ -154,7 +154,7 @@ material = SubResource( 7 )
 [node name="VFXAnimationPlayer" parent="Robot" index="3"]
 anims/hit = SubResource( 8 )
 
-[node name="HealthBar" parent="Robot" index="7"]
+[node name="HealthBar" parent="Robot" index="5"]
 visible = false
 health = 20.0
 

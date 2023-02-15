@@ -5,9 +5,8 @@
 [ext_resource path="res://Sounds/Door/doorClosing.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/Door/door_open.ogg" type="AudioStream" id=4]
 
-[sub_resource type="CapsuleShape2D" id=5]
-radius = 205.912
-height = 836.168
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 16.8149, 38.6501 )
 
 [sub_resource type="Animation" id=6]
 length = 0.001
@@ -75,6 +74,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 1.5708
+scale = Vector2( 0.931, 0.8 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 35.219, 426.113, 515.535, 150.45 )
@@ -85,13 +85,15 @@ collision_mask = 262
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.57106
-shape = SubResource( 5 )
+scale = Vector2( 10.767, 10 )
+shape = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 6 )
 anims/open = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.931, 0.95 )
 shape = SubResource( 1 )
 
 [node name="DoorOpeningSound" type="AudioStreamPlayer2D" parent="."]

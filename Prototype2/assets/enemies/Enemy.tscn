@@ -140,7 +140,7 @@ scale_curve = SubResource( 11 )
 extents = Vector2( 93.5, 63.0001 )
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 2048.0
+radius = 962.033
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 800.0
