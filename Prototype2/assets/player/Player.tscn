@@ -25,7 +25,7 @@ resource_local_to_scene = true
 shader = ExtResource( 8 )
 shader_param/active = false
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=21]
 radius = 32.0
 height = 8.0
 
@@ -575,8 +575,7 @@ collision_mask = 3
 script = ExtResource( 2 )
 maxJumpHeight = -1700.0
 minJumpHeight = -600.0
-maximumJumps = 1
-friction = 0.15
+maximumDoubleJumps = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 18 )
@@ -586,7 +585,7 @@ hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
-shape = SubResource( 1 )
+shape = SubResource( 21 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
@@ -669,6 +668,11 @@ one_shot = true
 [node name="GhostDuration" type="Timer" parent="Dash"]
 wait_time = 0.03
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.1
+one_shot = true
+
 [node name="DamagedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -10.0
@@ -706,9 +710,6 @@ bus = "Sound Effects"
 pause_mode = 2
 stream = ExtResource( 17 )
 bus = "Sound Effects"
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
 
 [connection signal="healthReachedZero" from="CanvasLayer/HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
