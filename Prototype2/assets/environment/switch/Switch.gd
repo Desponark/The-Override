@@ -10,12 +10,6 @@ var active = false
 func _ready():
 	randomize()
 
-func interact(area):
-	if !socket:
-		return
-	if active:
-		togglePause()
-
 func togglePause():
 	if !isPaused:
 		if socket.has_method("pauseChargeProcess"):
@@ -41,3 +35,9 @@ func socketFullyCharged():
 func _on_RandomPause_timeout():
 	isPaused = false
 	togglePause()
+
+func _on_InteractionableBox_interacted(area):
+	if !socket:
+		return
+	if active:
+		togglePause()

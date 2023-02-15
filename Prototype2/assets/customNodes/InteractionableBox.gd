@@ -1,18 +1,20 @@
 class_name InteractionableBox
 extends Area2D
 
+signal interacted(area)
+
 func _init():
-	# set the interactionable box to always exist on the interaction layer (5)
-	collision_layer = 5
+	# set the interactionable box to always exist on the interaction layer 5 (value 16)
+	collision_layer = 16
 	collision_mask = 0
+	
+func _ready():
+	changePromptVisibility(false)
 
 func interact(area):
-	# LARS: use signal or give parent node and access its interact function here 
-	if owner.has_method("interact"):
-		owner.interact(area)
+	emit_signal("interacted", area)
 
-func _on_InteractionableBox_area_entered(area):
-	$Sprite.show()
-
-func _on_InteractionableBox_area_exited(area):
-	$Sprite.hide()
+func changePromptVisibility(isVisible):
+	var prompt = get_node_or_null("Prompt")
+	if prompt:
+		prompt.visible = isVisible
