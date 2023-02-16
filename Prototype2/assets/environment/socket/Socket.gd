@@ -40,6 +40,7 @@ func getRobotDockPosition():
 	return $Position2D.global_position
 
 # TODO: think about a better name
+# TODO: think about using signals instead?
 func triggerEachScene():
 	for nodePath in triggerScenes:
 		var node = get_node(nodePath)
@@ -50,6 +51,12 @@ func triggerEachScene():
 			CHARGESTATE.FULLYCHARGED:
 				if node.has_method("socketFullyCharged"):
 					node.socketFullyCharged()
+
+func getEnergy():
+	return $HealthBar.health
+	
+func getMaxEnergy():
+	return $HealthBar.maxHealth
 
 func _on_HealthBar_healthReachedMax():
 	chargeState = CHARGESTATE.FULLYCHARGED
