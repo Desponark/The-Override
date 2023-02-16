@@ -148,13 +148,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" parent="Robot" index="0"]
+[node name="Sprite" parent="Robot" index="1"]
 material = SubResource( 7 )
 
-[node name="VFXAnimationPlayer" parent="Robot" index="3"]
+[node name="VFXAnimationPlayer" parent="Robot" index="4"]
 anims/hit = SubResource( 8 )
 
-[node name="HealthBar" parent="Robot" index="5"]
+[node name="HealthBar" parent="Robot" index="6"]
 visible = false
 health = 20.0
 
