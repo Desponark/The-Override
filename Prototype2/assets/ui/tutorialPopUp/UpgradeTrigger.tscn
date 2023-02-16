@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+func _on_UpgradeTrigger_body_entered(body):
+	if body.has_method(\"showPopUp\"):
+		body.showPopUp()
+		queue_free()
+"
+
+[node name="UpgradeTrigger" type="Area2D"]
+script = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_UpgradeTrigger_body_entered"]
