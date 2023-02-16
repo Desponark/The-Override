@@ -12,7 +12,6 @@ func setup(dialogueText, duration):
 	$Tween.interpolate_property(self, "percent_visible", 0, 1, duration)
 
 func start():
-	show()
 	$Tween.start()
 
 func _process(delta):
@@ -34,3 +33,8 @@ func _on_Timer_timeout():
 		$Timer.start()
 	else:
 		hide()
+
+func _on_Tween_tween_started(object, key):
+	# when starting the speech bubble via a timer the text can only be made visible
+	# AFTER the tween is started otherwise there is a bug in which the whole text is shortly fully visible
+	show()

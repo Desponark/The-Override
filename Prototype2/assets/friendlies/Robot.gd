@@ -55,7 +55,7 @@ func getMaxHealth():
 func getPriority():
 	return 2
 	
-func playSpeech(dialougeStream, dialogueText):
+func playSpeech(dialougeStream, dialogueText, delay):
 	if !dialougeStream:
 		return
 	
