@@ -64,7 +64,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 76.5, 255 )
+extents = Vector2( 62.8357, 250 )
 
 [node name="AutomaticDoor" type="StaticBody2D"]
 z_as_relative = false

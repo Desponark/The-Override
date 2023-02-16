@@ -5,13 +5,11 @@
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.gd" type="Script" id=4]
 
 [node name="HealthBar" type="Control"]
-light_mask = 0
 margin_top = -135.0
 margin_bottom = -135.0
 script = ExtResource( 4 )
 
 [node name="Health" type="TextureProgress" parent="."]
-light_mask = 0
 anchor_right = 8.34
 anchor_bottom = 5.333
 margin_right = -858.02

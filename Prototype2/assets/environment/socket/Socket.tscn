@@ -20,6 +20,12 @@ light_mode = 1
 script = ExtResource( 3 )
 startEnergy = 0.0
 
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 9 )
+texture_scale = 0.7
+color = Color( 0.145098, 0.545098, 0, 1 )
+energy = 2.0
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 4, -162 )
 scale = Vector2( 0.3, 0.3 )
@@ -69,12 +75,6 @@ stream = ExtResource( 7 )
 volume_db = -20.0
 pitch_scale = 0.8
 bus = "Sound Effects"
-
-[node name="Light2D" type="Light2D" parent="."]
-texture = ExtResource( 9 )
-texture_scale = 0.7
-color = Color( 0.145098, 0.545098, 0, 1 )
-energy = 2.0
 
 [connection signal="healthReachedMax" from="HealthBar" to="." method="_on_HealthBar_healthReachedMax"]
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]

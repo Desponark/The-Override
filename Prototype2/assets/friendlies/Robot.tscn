@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sounds/Robot/Hover.mp3" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=9]
 [ext_resource path="res://Sounds/Player/Damaged.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/ui/EButton.png" type="Texture" id=11]
+[ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
@@ -113,6 +114,8 @@ collision_mask = 0
 mode = 3
 script = ExtResource( 6 )
 
+[node name="TileMapBackground" parent="." instance=ExtResource( 12 )]
+
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 5 )
 position = Vector2( 0, -5 )
@@ -134,7 +137,7 @@ anims/hit = SubResource( 6 )
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 3.8147e-06, 2.91038e-11 )
 texture = ExtResource( 3 )
-texture_scale = 0.5
+texture_scale = 0.25
 shadow_enabled = true
 
 [node name="Spotlight" type="Sprite" parent="Light2D"]
@@ -142,13 +145,14 @@ visible = false
 texture = ExtResource( 5 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 1 )]
+light_mask = 0
 margin_left = 1.52588e-05
 margin_top = -28.5
 margin_right = 1.52588e-05
 margin_bottom = -28.5
 rect_rotation = -359.999
 rect_scale = Vector2( 0.1, 0.1 )
-health = 5.0
+health = 40.0
 
 [node name="InteractionableBox" type="Area2D" parent="."]
 collision_layer = 0
