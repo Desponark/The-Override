@@ -200,5 +200,7 @@ func _on_HealthBar_healthReachedZero(): # handle player death here
 	get_node("/root/Game").free()
 	get_tree().change_scene("res://assets/ui/EndGameScreen/PlayerLoseScreen.tscn")
 	
-func showPopUp():
-	$CanvasLayer/PopUpReflect.show()
+func showPopUp(videoStream, headline, button, explainationText):
+	$CanvasLayer/AbilityPopUp.show()
+	$CanvasLayer/AbilityPopUp.setup(videoStream, headline, button, explainationText)
+	$CanvasLayer/AbilityPopUp.start()
