@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapCamera.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/light/conelight.png" type="Texture" id=14]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstWaveDefense.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/ui/leftMouseButton.png" type="Texture" id=17]
+[ext_resource path="res://assets/ui/spaceKey.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -294,16 +296,24 @@ text = "[LMB] to Attack
 uppercase = true
 
 [node name="Label4" type="Label" parent="Control"]
-margin_left = 21236.0
-margin_top = 133.0
-margin_right = 21623.0
-margin_bottom = 202.0
+margin_left = 21310.0
+margin_top = 134.0
+margin_right = 21697.0
+margin_bottom = 203.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 custom_fonts/font = SubResource( 1 )
-text = "[LMB] + [Space]
+text = "+
 
 "
 uppercase = true
+
+[node name="LeftMouseButton" type="Sprite" parent="Control"]
+position = Vector2( 21365, 144 )
+texture = ExtResource( 17 )
+
+[node name="SpaceKey" type="Sprite" parent="Control"]
+position = Vector2( 21245, 144 )
+texture = ExtResource( 18 )
 
 [node name="Spawner" type="Node2D" parent="."]
 
