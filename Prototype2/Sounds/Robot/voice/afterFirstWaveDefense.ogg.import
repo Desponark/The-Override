@@ -11,5 +11,5 @@ dest_files=[ "res://.import/afterFirstWaveDefense.ogg-e877a4df3a871c2ddef6cccfac
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

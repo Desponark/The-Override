@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/aftterFirstSocket.ogg-8feb8d01af885a8513e0e8ead78b4e32.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/aftterFirstSocket.ogg"
+dest_files=[ "res://.import/aftterFirstSocket.ogg-8feb8d01af885a8513e0e8ead78b4e32.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

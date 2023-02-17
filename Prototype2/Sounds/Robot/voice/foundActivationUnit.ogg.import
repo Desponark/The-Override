@@ -11,5 +11,5 @@ dest_files=[ "res://.import/foundActivationUnit.ogg-9141e17ea08d34402fc02ce1f3d9
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

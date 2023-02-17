@@ -11,5 +11,5 @@ dest_files=[ "res://.import/firstSocket.ogg-521710d50662e108a64e692e93f76771.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
