@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/ui/SpeechBubble/SpeechBubble.gd" type="Script" id=1]
+
+[node name="SpeechBubble" type="RichTextLabel"]
+margin_right = 372.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+text = "Initiating wake up sequence.Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the Artificial Intelligence got out of control and its army of war machines wiped out almost the entire humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity. to survive."
+scroll_active = false
+script = ExtResource( 1 )
+duration = 54
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="tween_started" from="Tween" to="." method="_on_Tween_tween_started"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
