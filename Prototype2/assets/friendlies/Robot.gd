@@ -58,7 +58,7 @@ func playSpeech(dialougeStream, dialogueText, delay):
 	$SpeechBubble.start()
 
 func _on_HealthBar_healthReachedZero():
-	get_tree().change_scene("res://assets/ui/EndGameScreen/RobotLoseScreen.tscn")
+	showLoseScreen()
 
 func _on_InteractionableBox_interacted(area):
 	if player == null:
@@ -68,3 +68,7 @@ func _on_InteractionableBox_interacted(area):
 			isFollowingPlayer = true
 			# disable robot interaction collision shape so it can't be activated again
 			$InteractionableBox/CollisionShape2D.disabled = true
+
+func showLoseScreen():
+	$CanvasLayer/LoseScreen.show()
+	$CanvasLayer/LoseScreen/AnimationPlayer.play()
