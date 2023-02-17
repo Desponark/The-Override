@@ -11,5 +11,5 @@ dest_files=[ "res://.import/firstEnemy.ogg-fa4e722d0f97ab56699a86f022cd8c7b.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

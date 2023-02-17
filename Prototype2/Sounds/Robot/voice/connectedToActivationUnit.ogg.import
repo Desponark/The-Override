@@ -11,5 +11,5 @@ dest_files=[ "res://.import/connectedToActivationUnit.ogg-58a2cdbfa4302e00e506c7
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

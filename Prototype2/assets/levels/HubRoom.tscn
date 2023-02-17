@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapCamera.tscn" type="PackedScene" id=2]
@@ -14,10 +14,15 @@
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/environment/doors/SpawnerDoor.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/light/conelight.png" type="Texture" id=14]
+[ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sounds/Robot/voice/afterFirstWaveDefense.ogg" type="AudioStream" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
 font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 184.5, 277.5 )
 
 [node name="HubRoom" type="Node2D"]
 __meta__ = {
@@ -238,7 +243,7 @@ position = Vector2( 25704.4, -1479.3 )
 position = Vector2( 24161, 393 )
 maxEnergy = 100.0
 energyTransferAmount = 0.05
-triggerScenes = [ NodePath("../../Spawner/Spawner"), NodePath("../../Spawner/Spawner2"), NodePath("../Door") ]
+triggerScenes = [ NodePath("../../Spawner/Spawner"), NodePath("../../Spawner/Spawner2"), NodePath("../Door"), NodePath("../../afterFirstWaveDefense") ]
 
 [node name="AutomaticDoor2" parent="doors" instance=ExtResource( 6 )]
 position = Vector2( 20280, 627 )
@@ -337,5 +342,14 @@ texture = ExtResource( 14 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+
+[node name="afterFirstWaveDefense" parent="." instance=ExtResource( 15 )]
+collision_mask = 0
+dialougeStream = ExtResource( 16 )
+dialogueText = "Done. I'd say we make a good team. I open things, you destroy things. The door is open, lets move on."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="afterFirstWaveDefense"]
+position = Vector2( 24162.5, 198.5 )
+shape = SubResource( 2 )
 
 [editable path="doors/AutomaticDoor2"]

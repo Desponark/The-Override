@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -9,8 +9,32 @@
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/levels/BuildTutorial.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/ui/tutorialPopUp/AbilityPopUp.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/ui/EndGameScreen/LoseScreen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/Robot/voice/firstSocket.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Robot/voice/firstEnemy.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/Robot/voice/secondSocket.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/Robot/voice/aftterFirstSocket.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/ui/tutorialPopUp/AbilityPopUp.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/ui/EndGameScreen/LoseScreen.tscn" type="PackedScene" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 153.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 112, 209 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 65, 246 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 244.5, 177.75 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 141, 606.75 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 66, 128 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -18,20 +42,20 @@ script = ExtResource( 4 )
 [node name="MenuElements" type="CanvasLayer" parent="."]
 pause_mode = 2
 
-[node name="AbilityPopUp" parent="MenuElements" instance=ExtResource( 10 )]
+[node name="AbilityPopUp" parent="MenuElements" instance=ExtResource( 17 )]
 visible = false
 
-[node name="LoseScreen" parent="MenuElements" instance=ExtResource( 12 )]
+[node name="LoseScreen" parent="MenuElements" instance=ExtResource( 18 )]
 visible = false
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
-position = Vector2( 13505, 1205 )
-scale = Vector2( 45.3956, 141.844 )
+position = Vector2( 33194.5, -141.998 )
+scale = Vector2( 103.282, 472.734 )
 texture = ExtResource( 1 )
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2446, -1 )
+position = Vector2( 9009, 0 )
 
 [node name="BuildTutorial" parent="." instance=ExtResource( 9 )]
 position = Vector2( 12287, 1639 )
@@ -45,20 +69,20 @@ position = Vector2( 7933, -1260 )
 [node name="Platform2" parent="BuildTutorial/Platforms" index="1"]
 position = Vector2( 7525, -1260 )
 
-[node name="Platform3" parent="BuildTutorial/Platforms" index="2"]
+[node name="Platform3" parent="BuildTutorial/Platforms" index="3"]
 position = Vector2( 7117, -1260 )
 
-[node name="Platform4" parent="BuildTutorial/Platforms" index="3"]
+[node name="Platform4" parent="BuildTutorial/Platforms" index="20"]
 position = Vector2( 6707, -1260 )
 
-[node name="Platform5" parent="BuildTutorial/Platforms" index="4"]
+[node name="Platform5" parent="BuildTutorial/Platforms" index="21"]
 position = Vector2( 6300, -1260 )
 
 [node name="UpgradeTrigger" parent="BuildTutorial" index="5"]
-position = Vector2( 9105, -1403 )
+position = Vector2( 15363, -1350 )
 
 [node name="UpgradeTrigger2" parent="BuildTutorial" index="6"]
-position = Vector2( 9670, -1403 )
+position = Vector2( 16485, -1348 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
@@ -67,29 +91,78 @@ position = Vector2( 9670, -1403 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 24101, -224 )
+position = Vector2( 30624, -206 )
 moveSpeed = 0.0
 healthDrop = null
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 23436, -239 )
+position = Vector2( 29959, -221 )
 healthDrop = null
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 19454, 279 )
+position = Vector2( 20323, 240 )
 
 [node name="Loot" type="Node2D" parent="."]
 
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 20476, 273 )
+position = Vector2( 9250, 2322 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 20741, 259 )
+position = Vector2( 3196, 1048 )
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 21078, 34 )
+position = Vector2( 3533, 823 )
 playerPath = NodePath("../Player")
+
+[node name="introduction" parent="." instance=ExtResource( 10 )]
+position = Vector2( 122, -2 )
+dialogueText = "[Initiating wake up sequence] Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the artificial intelligence got out of control and its army of war machines wiped out almost the entire humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="introduction"]
+position = Vector2( 9423, 2360 )
+shape = SubResource( 1 )
+
+[node name="FirstSocket" parent="." instance=ExtResource( 10 )]
+dialougeStream = ExtResource( 11 )
+dialogueText = "I can do something about these closed passages. Put me into this socket and I will be able to open the door."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSocket"]
+position = Vector2( 12248, 2716 )
+shape = SubResource( 2 )
+
+[node name="AfterFirstSocket" parent="." instance=ExtResource( 10 )]
+dialougeStream = ExtResource( 15 )
+dialogueText = "When I am charging a socket, I lose energy and my light decreases. If I am low on energy, transfer your own energy into me. Always check on my wellbeing. My survival is of utmost importance."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstSocket"]
+position = Vector2( 13499, 2673 )
+shape = SubResource( 6 )
+
+[node name="FirstEnemy" parent="." instance=ExtResource( 10 )]
+dialougeStream = ExtResource( 12 )
+dialogueText = "Careful! Hostile machines ahead. Now that I am activated, they will try to destroy us. You will have to deal with them."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstEnemy"]
+position = Vector2( 17816, 2687 )
+shape = SubResource( 3 )
+
+[node name="SecondSocket" parent="." instance=ExtResource( 10 )]
+dialougeStream = ExtResource( 13 )
+dialogueText = "Another socket. You know what to do. Put me in."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondSocket"]
+position = Vector2( 32214, -200.25 )
+shape = SubResource( 4 )
+
+[node name="AfterFirstEnemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( -268, 0 )
+dialougeStream = ExtResource( 14 )
+dialogueText = "Good. There are more of them ahead. Once, these machines were created as builders to support humans. I guess they are not building anymore, now they only destroy."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstEnemy"]
+position = Vector2( 21190, 276 )
+shape = SubResource( 5 )
 
 [editable path="BuildTutorial"]
