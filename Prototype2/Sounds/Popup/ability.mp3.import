@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ability.mp3-228cc0a2ca88707ecac078819a6f6b30.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Popup/ability.mp3"
+dest_files=[ "res://.import/ability.mp3-228cc0a2ca88707ecac078819a6f6b30.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
