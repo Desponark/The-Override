@@ -16,6 +16,7 @@ func setup(text):
 
 func start():
 	show()
+	$AnimationPlayer.play(\"zoom\")
 	get_tree().paused = true
 
 func _on_Button_pressed():
@@ -79,7 +80,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "zoom"
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_scale")
 tracks/0/interp = 1
