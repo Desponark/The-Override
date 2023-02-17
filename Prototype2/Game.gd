@@ -3,15 +3,15 @@ extends Node2D
 export var freezeSlow = 0.07
 export var freezeTime = 0.3
 
-
-
 func _ready():
 	# warning-ignore-all:RETURN_VALUE_DISCARDED
 	EventBus.connect("enemyWasHit", self, "freezeEngine")
 	EventBus.connect("spawnProjectile", self, "spawnProjectile")
 	EventBus.connect("spawnEnemy", self, "spawnEnemy")
 	EventBus.connect("spawnLoot", self, "spawnLoot")
-
+	EventBus.connect("playerAbilityUnlocked", self, "showAbilityPopup")
+	EventBus.connect("loseEvent", self, "showLoseScreen")
+	
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().change_scene("res://assets/ui/mainMenu/StartScreen.tscn")
@@ -34,3 +34,11 @@ func spawnEnemy(newEnemy):
 
 func spawnLoot(newLoot):
 	$Loot.call_deferred("add_child", newLoot)
+
+func showAbilityPopup(videoStream, headline, button, explainationText):
+	$MenuElements/AbilityPopUp.setup(videoStream, headline, button, explainationText)
+	$MenuElements/AbilityPopUp.start()
+
+func showLoseScreen(message):
+	$MenuElements/LoseScreen.setup(message)
+	$MenuElements/LoseScreen.start()

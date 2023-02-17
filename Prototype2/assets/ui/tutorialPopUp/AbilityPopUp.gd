@@ -7,10 +7,15 @@ func setup(videoStream, headline, button, explainationText):
 	$Panel/Explaination/Part2.text = explainationText
 	
 func start():
+	get_tree().paused = true
+	show()
 	$Panel/VideoPlayer.play()
+	$AudioStreamPlayer2D.play()
 	
 func _on_VideoPlayer_finished():
-	start()
+	$Panel/VideoPlayer.play()
 
 func _on_Button_pressed():
 	hide()
+	$Panel/VideoPlayer.stop()
+	get_tree().paused = false

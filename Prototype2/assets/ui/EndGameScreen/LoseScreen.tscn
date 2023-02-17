@@ -1,22 +1,44 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/ui/EndGameScreen/EndGameScreen.gd" type="Script" id=1]
-[ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/player/runner-hero-sheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Control
+
+func _ready():
+	visible = false
+
+func setup(text):
+	if text:
+		$Control/Label.text = text
+
+func start():
+	show()
+	get_tree().paused = true
+
+func _on_Button_pressed():
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	
+func _on_Button2_pressed():
+	get_tree().quit()
+"
 
 [sub_resource type="DynamicFont" id=1]
 size = 139
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 70
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 70
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="DynamicFont" id=5]
+size = 70
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/Label:rect_scale")
@@ -55,7 +77,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "zoom"
 loop = true
 tracks/0/type = "value"
@@ -83,10 +105,15 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[node name="EndGameScreen" type="Control"]
+[node name="LoseScreen" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+margin_left = 808.0
+margin_top = 376.0
+margin_right = -791.0
+margin_bottom = -562.0
+script = SubResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.137
@@ -110,33 +137,42 @@ margin_right = -5.5
 margin_bottom = 28.0
 
 [node name="Label" type="Label" parent="Control"]
-margin_left = -490.5
-margin_top = -232.0
-margin_right = 523.5
-margin_bottom = -69.0
+margin_left = -931.0
+margin_top = -194.0
+margin_right = 916.0
+margin_bottom = -31.0
 custom_fonts/font = SubResource( 1 )
-text = "To be continued"
+text = "You died!"
 align = 1
+valign = 1
 
 [node name="Button" type="Button" parent="Control"]
-margin_left = -522.5
-margin_top = 88.0
-margin_right = -80.5
-margin_bottom = 258.0
-custom_fonts/font = SubResource( 2 )
+margin_left = -504.0
+margin_top = 117.152
+margin_right = -62.0
+margin_bottom = 287.152
+custom_fonts/font = SubResource( 4 )
 text = "Restart"
 
 [node name="Button2" type="Button" parent="Control"]
-margin_left = 93.5
-margin_top = 88.0
-margin_right = 562.5
-margin_bottom = 258.0
-custom_fonts/font = SubResource( 3 )
+margin_left = 114.0
+margin_top = 118.152
+margin_right = 583.0
+margin_bottom = 288.152
+custom_fonts/font = SubResource( 5 )
 text = "End Game"
 
+[node name="Runner-hero-sheet" type="Sprite" parent="."]
+visible = false
+position = Vector2( 216.233, 31.3044 )
+scale = Vector2( 1.278, 1.273 )
+texture = ExtResource( 2 )
+hframes = 10
+vframes = 4
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 4 )
-anims/zoom = SubResource( 5 )
+anims/RESET = SubResource( 2 )
+anims/zoom = SubResource( 3 )
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/Button2" to="." method="_on_Button2_pressed"]

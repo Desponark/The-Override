@@ -196,16 +196,8 @@ func getRobotRef():
 func getPriority():
 	return 3
 	
-func _on_HealthBar_healthReachedZero(): # handle player death here
-	#var _ignore = get_tree().reload_current_scene()
-	showLoseScreen()
+func _on_HealthBar_healthReachedZero():
+	EventBus.emit_signal("loseEvent", "You Died!")
 	
-func showPopUp(videoStream, headline, button, explainationText):
-	$CanvasLayer/AbilityPopUp.show()
-	$CanvasLayer/AbilityPopUp.setup(videoStream, headline, button, explainationText)
-	$CanvasLayer/AbilityPopUp.start()
-
-func showLoseScreen():
-	$CanvasLayer/LoseScreen.show()
-	$CanvasLayer/LoseScreen/AnimationPlayer.play()
-	get_tree().paused = true
+func unlockAbility(videoStream, headline, button, explainationText):
+	EventBus.emit_signal("playerAbilityUnlocked", videoStream, headline, button, explainationText)

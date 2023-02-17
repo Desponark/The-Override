@@ -53,12 +53,12 @@ func playSpeech(dialougeStream, dialogueText, delay):
 	if !dialougeStream:
 		return	
 	$VoicePlayer.stream = dialougeStream
-	$VoicePlayer.play()	
+	$VoicePlayer.play()
 	$SpeechBubble.setup(dialogueText, dialougeStream.get_length())
 	$SpeechBubble.start()
 
 func _on_HealthBar_healthReachedZero():
-	showLoseScreen()
+	EventBus.emit_signal("loseEvent", "Your Robot died!")
 
 func _on_InteractionableBox_interacted(area):
 	if player == null:
@@ -68,7 +68,3 @@ func _on_InteractionableBox_interacted(area):
 			isFollowingPlayer = true
 			# disable robot interaction collision shape so it can't be activated again
 			$InteractionableBox/CollisionShape2D.disabled = true
-
-func showLoseScreen():
-	$CanvasLayer/LoseScreen.show()
-	$CanvasLayer/LoseScreen/AnimationPlayer.play()

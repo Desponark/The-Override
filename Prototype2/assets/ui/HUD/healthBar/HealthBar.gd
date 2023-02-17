@@ -14,6 +14,9 @@ func setup():
 	$progressbar.scale.x = 1
 
 func _process(_delta):
+	updateUI()
+
+func updateUI():
 	$Health.value = health
 	$progressbar.scale.x = getHealthPercent()
 
@@ -30,6 +33,7 @@ func subtractHealth(damage):
 	health -= damage
 	if health <= 0:
 		health = 0
+		updateUI()
 		emit_signal("healthReachedZero")
 	if health >= maxHealth:
 		health = maxHealth
@@ -39,6 +43,7 @@ func addHealth(healAmount):
 	health += healAmount
 	if health <= 0:
 		health = 0
+		updateUI()
 		emit_signal("healthReachedZero")
 	if health >= maxHealth:
 		health = maxHealth
