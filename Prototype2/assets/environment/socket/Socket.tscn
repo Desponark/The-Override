@@ -49,7 +49,7 @@ shape = SubResource( 1 )
 [node name="Prompt" type="Sprite" parent="InteractionableBox"]
 light_mask = 0
 material = SubResource( 2 )
-position = Vector2( 0, -145 )
+position = Vector2( 0, -170 )
 scale = Vector2( 0.11, 0.11 )
 texture = ExtResource( 8 )
 
