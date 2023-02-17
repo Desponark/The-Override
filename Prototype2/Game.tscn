@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -8,18 +8,24 @@
 [ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/ui/shiftButton.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/tutorialPopUp/UpgradeTrigger.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/ui/tutorialPopUp/reflect.webm" type="VideoStream" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 186, 172 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
-position = Vector2( 12480, 784 )
+position = Vector2( 10526, 1051 )
 scale = Vector2( 45.3956, 141.844 )
 texture = ExtResource( 1 )
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
-position = Vector2( -22, 116 )
+position = Vector2( -1, 0 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
@@ -44,11 +50,21 @@ position = Vector2( 19796, 340 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 23956, 412 )
+position = Vector2( 18775, 307 )
 playerPath = NodePath("../Player")
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 23867, 319 )
+position = Vector2( 18392, 61 )
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 23856, 488 )
+position = Vector2( 18203, 206 )
+
+[node name="UpgradeTrigger" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3917, 929 )
+videoStream = ExtResource( 11 )
+headline = "Unlocked: Dash"
+button = ExtResource( 9 )
+explainationText = "Use dash to avoid damage and pass through enemies"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpgradeTrigger"]
+shape = SubResource( 1 )

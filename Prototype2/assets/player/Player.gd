@@ -192,7 +192,7 @@ func getRobotRef():
 	
 # TODO: think about different solution
 func getPriority():
-	return 1
+	return 3
 	
 func _on_HealthBar_healthReachedZero(): # handle player death here
 	#var _ignore = get_tree().reload_current_scene()
