@@ -18,15 +18,17 @@ func _ready():
 	$HealthBar.maxHealth = maxEnergy
 	$HealthBar.setup()
 
-func _physics_process(_delta):
+func _process(_delta):
 	if chargeState == CHARGESTATE.CHARGING:
 		if robot.getHealth() <= 1:
 			$ChargingSound.stop()
-			robot.playSocketStoppedCharging()
-			$Light2D.color = Color(126, 207, 89)
+			if robot.has_method("playSocketStoppedCharging"):
+				robot.playSocketStoppedCharging()
+			$Light2D.color = Color(0.81, 0.38, 0.34)
 			return
-		$ChargingSound.play()
-		$Light2D.color = Color(0, 255, 0)
+		if !$ChargingSound.playing:
+			$ChargingSound.play()
+		$Light2D.color = Color(0.49, 0.81, 0.34)
 		robot.transferHealth(energyTransferAmount)
 		$HealthBar.subtractHealth(-energyTransferAmount)
 
