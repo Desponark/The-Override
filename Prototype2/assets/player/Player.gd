@@ -5,7 +5,7 @@ const upDirection = Vector2.UP
 export var maxSpeed = 600.0
 export var maxJumpHeight = -1500.0
 export var minJumpHeight = -500.0
-export var maximumDoubleJumps = 1
+export var maximumDoubleJumps = 0
 export var doubleJumpHeight = -1200.0
 export var gravity = 4500.0
 export (float, 0, 1.0) var acceleration = 0.1
@@ -24,12 +24,14 @@ var robotRef
 
 var isTransferingHealth = false
 export var healthTransferAmount = 1.0
-# this multiplies the player health when charging the robot so the robot receives more (or less) health
-export var healthTransferMultiplier = 2.0
+export var healthTransferMultiplier = 2.0 # this multiplies the player health when charging the robot so the robot receives more (or less) health
 # TODO: Improve and cleanup health transfer system
 # Change where health is stored.
-# Change how health transfer works.
 # Change how robot and player are accessed.
+
+# TODO: implement properly when there is time
+var isDashUnlocked = false
+var isProjectileReflectUnlocked = false
 
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
@@ -40,7 +42,7 @@ func _unhandled_input(event):
 	if event.is_action_released("transferHealth"):
 		isTransferingHealth = false
 	
-	if event.is_action_pressed("dash"):
+	if event.is_action_pressed("dash") and isDashUnlocked:
 		if $Dash.canDash and !$Dash.isDashing():
 			$DodgeSound.play()
 			$Dash.startDash($Sprite, dashDuration)
@@ -199,5 +201,11 @@ func getPriority():
 func _on_HealthBar_healthReachedZero():
 	EventBus.emit_signal("loseEvent", "You Died!")
 	
-func unlockAbility(videoStream, headline, button, explainationText):
+# TODO: make this implementation proper when there is time
+func unlockAbility(ability, videoStream, headline, button, explainationText):
+	if ability == "dash":
+		isDashUnlocked = true
+	elif ability == "reflect":
+		isProjectileReflectUnlocked = true
+		$ProjectileHitBox.set_collision_mask_bit(12, true)
 	EventBus.emit_signal("playerAbilityUnlocked", videoStream, headline, button, explainationText)
