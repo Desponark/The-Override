@@ -60,8 +60,6 @@ margin_top = 536.0
 margin_right = 445.0
 margin_bottom = 586.0
 custom_fonts/font = SubResource( 1 )
-text = "Unlocked: Reflect"
-align = 1
 valign = 1
 uppercase = true
 
