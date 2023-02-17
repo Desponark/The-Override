@@ -68,7 +68,7 @@ tracks/1/keys = {
 extents = Vector2( 76.5, 255 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 51, 255 )
+extents = Vector2( 76, 254.5 )
 
 [node name="SpawnerDoor" type="StaticBody2D"]
 script = ExtResource( 2 )
@@ -102,9 +102,10 @@ bus = "Sound Effects"
 stream = ExtResource( 3 )
 bus = "Sound Effects"
 
-[node name="Area2D2" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
-[node name="BlockPlayerShape" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 0.5 )
 shape = SubResource( 8 )
