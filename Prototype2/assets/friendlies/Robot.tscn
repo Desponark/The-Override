@@ -114,6 +114,8 @@ collision_mask = 0
 mode = 3
 script = ExtResource( 6 )
 
+[node name="TileMapBackground" parent="." instance=ExtResource( 12 )]
+
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 5 )
 position = Vector2( 0, -5 )
@@ -135,7 +137,7 @@ anims/hit = SubResource( 6 )
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 3.8147e-06, 2.91038e-11 )
 texture = ExtResource( 3 )
-texture_scale = 0.5
+texture_scale = 0.25
 shadow_enabled = true
 
 [node name="Spotlight" type="Sprite" parent="Light2D"]
@@ -143,12 +145,14 @@ visible = false
 texture = ExtResource( 5 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 1 )]
+light_mask = 0
 margin_left = 1.52588e-05
 margin_top = -28.5
 margin_right = 1.52588e-05
 margin_bottom = -28.5
 rect_rotation = -359.999
 rect_scale = Vector2( 0.1, 0.1 )
+health = 40.0
 
 [node name="InteractionableBox" type="Area2D" parent="."]
 collision_layer = 0

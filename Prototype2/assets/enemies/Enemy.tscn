@@ -140,7 +140,7 @@ scale_curve = SubResource( 11 )
 extents = Vector2( 93.5, 63.0001 )
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 962.033
+radius = 1091.02
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 800.0
@@ -149,9 +149,9 @@ radius = 800.0
 collision_layer = 5
 collision_mask = 4
 script = ExtResource( 6 )
-moveSpeed = 250.0
+moveSpeed = 300.0
 healthDrop = ExtResource( 2 )
-stopDistance = 800
+stopDistance = 600
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 8 )
@@ -208,7 +208,7 @@ monitorable = false
 shape = SubResource( 12 )
 
 [node name="Gun" type="Node2D" parent="."]
-position = Vector2( -25, -29 )
+position = Vector2( 0, -43 )
 script = ExtResource( 9 )
 projectile = ExtResource( 10 )
 
