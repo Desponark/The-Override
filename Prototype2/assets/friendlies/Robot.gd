@@ -69,5 +69,7 @@ func _on_InteractionableBox_interacted(area):
 			# disable robot interaction collision shape so it can't be activated again
 			$InteractionableBox/CollisionShape2D.disabled = true
 
+# TODO: implement properly
 func playSocketStoppedCharging():
-	$SocketStoppedCharging.play()
+	if !$SocketStoppedCharging.playing:
+		$SocketStoppedCharging.play()

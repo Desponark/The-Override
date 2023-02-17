@@ -50,7 +50,7 @@ shape = SubResource( 1 )
 light_mask = 0
 material = SubResource( 2 )
 position = Vector2( 0, -170 )
-scale = Vector2( 0.11, 0.11 )
+scale = Vector2( 0.22, 0.22 )
 texture = ExtResource( 8 )
 
 [node name="Position2D" type="Position2D" parent="."]

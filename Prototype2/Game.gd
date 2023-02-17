@@ -42,3 +42,7 @@ func showAbilityPopup(videoStream, headline, button, explainationText):
 func showLoseScreen(message):
 	$MenuElements/LoseScreen.setup(message)
 	$MenuElements/LoseScreen.start()
+
+
+func _on_Area2D_body_entered(body):
+	showLoseScreen("To be continued.")
