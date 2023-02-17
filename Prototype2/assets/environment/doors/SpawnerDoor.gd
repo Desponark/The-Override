@@ -3,9 +3,12 @@ extends StaticBody2D
 
 export var isOpen = false
 var currentlyOpen = false
-
+var isLocked = false
 
 func _process(delta):
+	if isLocked:
+		return
+	
 	var bodies = $Area2D.get_overlapping_bodies()
 	if bodies.size() > 0:
 		isOpen = true

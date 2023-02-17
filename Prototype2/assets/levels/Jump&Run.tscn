@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -15,11 +15,20 @@
 [ext_resource path="res://assets/enemies/loot/HealthDrop.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/environment/doors/AutomaticDoor.gd" type="Script" id=17]
+[ext_resource path="res://assets/levels/Area2D.gd" type="Script" id=18]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
 font_data = ExtResource( 11 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 170.5, 229 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 105.5, 143.5 )
 
 [node name="Jump&Run" type="Node2D"]
 
@@ -137,9 +146,11 @@ scale = Vector2( 1.2, 1.531 )
 
 [node name="AutomaticDoor3" parent="Doors" instance=ExtResource( 14 )]
 position = Vector2( 9868, 2285 )
+script = ExtResource( 17 )
 
 [node name="Door" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 13188, 2687 )
+isLocked = true
 
 [node name="Socket2" parent="Doors" instance=ExtResource( 22 )]
 position = Vector2( 12683, 2829 )
@@ -313,10 +324,10 @@ scale = Vector2( 0.605032, 0.605032 )
 texture = ExtResource( 5 )
 
 [node name="Label4" type="Label" parent="Control"]
-margin_left = 9101.0
-margin_top = 2187.0
-margin_right = 9510.0
-margin_bottom = 2256.0
+margin_left = 11861.0
+margin_top = 2673.0
+margin_right = 12270.0
+margin_bottom = 2742.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 custom_fonts/font = SubResource( 1 )
 text = "Press            to energize your new Companion
@@ -334,6 +345,19 @@ margin_left = 16896.0
 margin_top = 3390.0
 margin_right = 17457.0
 margin_bottom = 3459.0
+rect_scale = Vector2( 1.33293, 1.33293 )
+rect_pivot_offset = Vector2( 238.571, 27.0083 )
+custom_fonts/font = SubResource( 1 )
+text = "Green Drops recharge your energy
+
+"
+uppercase = true
+
+[node name="Label7" type="Label" parent="Control"]
+margin_left = 6264.0
+margin_top = 1068.0
+margin_right = 6825.0
+margin_bottom = 1137.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 rect_pivot_offset = Vector2( 238.571, 27.0083 )
 custom_fonts/font = SubResource( 1 )
@@ -362,6 +386,42 @@ rotation = -0.785397
 position = Vector2( 16856, 3464 )
 rotation = -2.35619
 
+[node name="HealthDrop6" parent="HealthDrops" instance=ExtResource( 13 )]
+position = Vector2( 6385, 1170 )
+rotation = -2.35619
+
+[node name="HealthDrop7" parent="HealthDrops" instance=ExtResource( 13 )]
+position = Vector2( 6424, 1205 )
+rotation = -2.35619
+
+[node name="HealthDrop9" parent="HealthDrops" instance=ExtResource( 13 )]
+position = Vector2( 6462, 1225 )
+rotation = -2.35619
+
+[node name="HealthDrop8" parent="HealthDrops" instance=ExtResource( 13 )]
+position = Vector2( 6351, 1205 )
+rotation = -2.35619
+
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="introduction" parent="." instance=ExtResource( 16 )]
+dialogueText = "[Initiating wake up sequence] Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the artificial intelligence got out of control and its army of war machines wiped out almost the entire humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
+doorPath = NodePath("../Doors/AutomaticDoor3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="introduction"]
+position = Vector2( 9324.5, 2285 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 9239, 2290 )
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 18 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -193.5, 57 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 
 [editable path="Doors/Lift"]

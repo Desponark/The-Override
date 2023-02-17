@@ -8,6 +8,9 @@ export(NodePath) var socketPath
 onready var socket = get_node_or_null(socketPath)
 export var socketTriggerPercent = 80.0
 
+export(NodePath) var doorPath
+onready var door = get_node_or_null(doorPath)
+
 func _process(delta):
 	# TODO: when there is more time change implementation
 	if !socket:
@@ -30,3 +33,6 @@ func _on_DialogueTrigger_body_entered(body):
 	if body.has_method("playSpeech"):
 		body.playSpeech(dialougeStream, dialogueText, delay)
 		collision_mask = 0
+		
+	if door and door.has_method("lock"):
+		door.lock(dialougeStream.get_length())

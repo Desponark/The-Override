@@ -144,7 +144,6 @@ visible = false
 texture = ExtResource( 5 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 1 )]
-light_mask = 0
 margin_left = 1.52588e-05
 margin_top = -28.5
 margin_right = 1.52588e-05
@@ -194,9 +193,9 @@ stream = ExtResource( 13 )
 
 [node name="SpeechBubble" parent="." instance=ExtResource( 12 )]
 margin_left = -182.0
-margin_top = -110.0
+margin_top = -81.0
 margin_right = 218.0
-margin_bottom = -65.0
+margin_bottom = -36.0
 
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
