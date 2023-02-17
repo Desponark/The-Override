@@ -3,11 +3,16 @@ extends RichTextLabel
 export var duration = 100
 export var scrollAfterXLines = 2
 export var scrollAmount = 2
+onready var scrollXLines = scrollAfterXLines
 
 func _ready():
 	hide()
 
 func setup(dialogueText, duration):
+	hide()
+	$Timer.stop()
+	$Tween.stop_all()
+	scrollAfterXLines = scrollXLines
 	text = dialogueText
 	$Tween.interpolate_property(self, "percent_visible", 0, 1, duration)
 

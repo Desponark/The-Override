@@ -13,6 +13,9 @@ var currentChargeState
 var player
 var robot
 
+# TODO: temporary solution for socket stopped charging being played on repeat
+var isSocketStoppedCharging = false
+
 func _ready():
 	$HealthBar.health = startEnergy
 	$HealthBar.maxHealth = maxEnergy
@@ -21,13 +24,16 @@ func _ready():
 func _process(_delta):
 	if chargeState == CHARGESTATE.CHARGING:
 		if robot.getHealth() <= 1:
-			$ChargingSound.stop()
-			if robot.has_method("playSocketStoppedCharging"):
-				robot.playSocketStoppedCharging()
-			$Light2D.color = Color(0.81, 0.38, 0.34)
+			if !isSocketStoppedCharging:
+				$ChargingSound.stop()
+				if robot.has_method("playSocketStoppedCharging"):
+					robot.playSocketStoppedCharging()
+				$Light2D.color = Color(0.81, 0.38, 0.34)
+				isSocketStoppedCharging = true
 			return
-		if !$ChargingSound.playing:
-			$ChargingSound.play()
+		isSocketStoppedCharging = false
+#		if !$ChargingSound.playing:
+		$ChargingSound.play()
 		$Light2D.color = Color(0.49, 0.81, 0.34)
 		robot.transferHealth(energyTransferAmount)
 		$HealthBar.subtractHealth(-energyTransferAmount)

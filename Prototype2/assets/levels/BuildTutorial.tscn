@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
+[ext_resource path="res://assets/enemies/loot/HealthDrop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/tutorialPopUp/UpgradeTrigger.tscn" type="PackedScene" id=4]
@@ -107,18 +108,19 @@ position = Vector2( 6311, -1259 )
 position = Vector2( 5904, -1259 )
 
 [node name="UpgradeTrigger" parent="." instance=ExtResource( 4 )]
-position = Vector2( 6768, -1316 )
+position = Vector2( 13069, -1314 )
 videoStream = ExtResource( 10 )
-headline = "Tutorial: Dash"
+headline = "Unlocked: Dash"
 button = ExtResource( 9 )
 explainationText = "to dash forward and avoid all damage"
 
 [node name="UpgradeTrigger2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 8216, -1316 )
+position = Vector2( 14517, -1314 )
 videoStream = ExtResource( 11 )
-headline = "Tutorial: Reflect"
+headline = "Unlocked: Reflect"
 button = ExtResource( 12 )
 explainationText = "to reflect projectile back to enemy"
+ability = "reflect"
 
 [node name="TileMapCable" parent="." instance=ExtResource( 7 )]
 rotation = -0.000111551
@@ -152,3 +154,20 @@ text = "[LMB] + [Space]
 
 "
 uppercase = true
+
+[node name="HealthDrops" type="Node2D" parent="."]
+
+[node name="HealthDrop" parent="HealthDrops" instance=ExtResource( 1 )]
+position = Vector2( 11099, -1331 )
+
+[node name="HealthDrop2" parent="HealthDrops" instance=ExtResource( 1 )]
+position = Vector2( 11099, -1381 )
+
+[node name="HealthDrop3" parent="HealthDrops" instance=ExtResource( 1 )]
+position = Vector2( 11137, -1365 )
+
+[node name="HealthDrop4" parent="HealthDrops" instance=ExtResource( 1 )]
+position = Vector2( 11054, -1365 )
+
+[node name="HealthDrop5" parent="HealthDrops" instance=ExtResource( 1 )]
+position = Vector2( 11054, -1315 )
