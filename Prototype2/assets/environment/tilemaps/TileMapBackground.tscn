@@ -173,6 +173,7 @@ points = PoolVector2Array( 799.879, 2048, 0, 2048, 0, 512, 799.879, 502.675 )
 9/z_index = 0
 
 [node name="TileMapBackground" type="TileMap"]
+self_modulate = Color( 0.698039, 0.698039, 0.698039, 1 )
 scale = Vector2( 0.2, 0.2 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 2048, 2048 )
