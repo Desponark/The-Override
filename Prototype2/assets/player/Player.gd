@@ -43,7 +43,6 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("dash"):
 		if $Dash.canDash and !$Dash.isDashing():
-#			isDashButtonPressed = true
 			$DodgeSound.play()
 			$Dash.startDash($Sprite, dashDuration)
 		

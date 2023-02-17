@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sounds/Robot/Hover.mp3" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=9]
 [ext_resource path="res://Sounds/Player/Damaged.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/ui/EButton.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/SpeechBubble/SpeechBubble.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
@@ -171,7 +172,6 @@ collision_mask = 256
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-visible = false
 shape = SubResource( 3 )
 
 [node name="HoverSound" type="AudioStreamPlayer2D" parent="."]
@@ -184,6 +184,12 @@ volume_db = -15.0
 
 [node name="VoicePlayer" type="AudioStreamPlayer2D" parent="."]
 bus = "Voice"
+
+[node name="SpeechBubble" parent="." instance=ExtResource( 12 )]
+margin_left = -182.0
+margin_top = -110.0
+margin_right = 218.0
+margin_bottom = -65.0
 
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
