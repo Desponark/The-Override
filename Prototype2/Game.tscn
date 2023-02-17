@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Sounds/Robot/voice/secondSocket.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Sounds/Robot/voice/aftterFirstSocket.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/ui/tutorialPopUp/AbilityPopUp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/ui/EndGameScreen/LoseScreen.tscn" type="PackedScene" id=18]
 
@@ -39,6 +40,15 @@ extents = Vector2( 66, 128 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+autoplay = true
+bus = "Music"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.54902, 0.54902, 0.54902, 1 )
+
 [node name="MenuElements" type="CanvasLayer" parent="."]
 pause_mode = 2
 
@@ -58,32 +68,7 @@ texture = ExtResource( 1 )
 position = Vector2( 9009, 0 )
 
 [node name="BuildTutorial" parent="." instance=ExtResource( 9 )]
-position = Vector2( 12287, 1639 )
-
-[node name="TilemapGame" parent="BuildTutorial" index="0"]
-tile_data = PoolIntArray( -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -327662, 0, 0, -327661, 0, 0, -196594, 1610612751, 0, -131058, 1610612737, 0, -131057, 1610612737, 0, -131056, 1610612736, 0, -131055, 1610612737, 0, -131054, 1610612738, 0, -131053, 1610612736, 0, -131052, 1610612736, 0 )
-
-[node name="Platform" parent="BuildTutorial/Platforms" index="0"]
-position = Vector2( 7933, -1260 )
-
-[node name="Platform2" parent="BuildTutorial/Platforms" index="1"]
-position = Vector2( 7525, -1260 )
-
-[node name="Platform3" parent="BuildTutorial/Platforms" index="3"]
-position = Vector2( 7117, -1260 )
-
-[node name="Platform4" parent="BuildTutorial/Platforms" index="20"]
-position = Vector2( 6707, -1260 )
-
-[node name="Platform5" parent="BuildTutorial/Platforms" index="21"]
-position = Vector2( 6300, -1260 )
-
-[node name="UpgradeTrigger" parent="BuildTutorial" index="5"]
-position = Vector2( 15363, -1350 )
-
-[node name="UpgradeTrigger2" parent="BuildTutorial" index="6"]
-position = Vector2( 16485, -1348 )
-ability = "reflect"
+position = Vector2( 12288, 1638 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
@@ -108,13 +93,14 @@ position = Vector2( 20323, 240 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 9250, 2322 )
+position = Vector2( 27153, 218 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 3196, 1048 )
+position = Vector2( 26945, 199 )
+maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 3533, 823 )
+position = Vector2( 26945, 205 )
 playerPath = NodePath("../Player")
 
 [node name="introduction" parent="." instance=ExtResource( 10 )]
@@ -165,5 +151,3 @@ dialogueText = "Good. There are more of them ahead. Once, these machines were cr
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstEnemy"]
 position = Vector2( 21190, 276 )
 shape = SubResource( 5 )
-
-[editable path="BuildTutorial"]
