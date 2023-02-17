@@ -1,6 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/environment/spawner/Spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=5]
@@ -8,7 +9,6 @@
 [ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platform.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/environment/doors/SpawnerDoor.tscn" type="PackedScene" id=13]
@@ -246,13 +246,13 @@ position = Vector2( 25602.4, -1479.3 )
 [node name="Platform15" parent="Platforms Hubroom" instance=ExtResource( 9 )]
 position = Vector2( 25704.4, -1479.3 )
 
-[node name="doors" type="Node2D" parent="."]
-
-[node name="Socket" parent="doors" instance=ExtResource( 11 )]
+[node name="Socket" parent="." instance=ExtResource( 11 )]
 position = Vector2( 24161, 393 )
 maxEnergy = 100.0
 energyTransferAmount = 0.05
-triggerScenes = [ NodePath("../../Spawner/Spawner"), NodePath("../../Spawner/Spawner2"), NodePath("../Door"), NodePath("../../afterFirstWaveDefense") ]
+triggerScenes = [ NodePath("../Spawner/Spawner"), NodePath("../Spawner/Spawner2"), NodePath("../doors/Door"), NodePath("../afterFirstWaveDefense") ]
+
+[node name="doors" type="Node2D" parent="."]
 
 [node name="AutomaticDoor2" parent="doors" instance=ExtResource( 6 )]
 position = Vector2( 20280, 627 )
@@ -331,7 +331,7 @@ texture = ExtResource( 18 )
 
 [node name="Spawner" type="Node2D" parent="."]
 
-[node name="Spawner" parent="Spawner" instance=ExtResource( 10 )]
+[node name="Spawner" parent="Spawner" instance=ExtResource( 2 )]
 position = Vector2( 21719, -1161 )
 minSpawnRate = 2
 maxSpawnRate = 4
@@ -339,7 +339,7 @@ waveSpawnAmount = 3
 waveCooldown = 40
 initialMoveDirection = 1
 
-[node name="Spawner2" parent="Spawner" instance=ExtResource( 10 )]
+[node name="Spawner2" parent="Spawner" instance=ExtResource( 2 )]
 position = Vector2( 20796, -137 )
 initialMoveDirection = 1
 
