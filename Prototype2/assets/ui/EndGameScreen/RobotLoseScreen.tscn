@@ -1,33 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://assets/ui/EndGameScreen/EndGameScreen.gd" type="Script" id=1]
-[ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=3]
 
-[sub_resource type="ShaderMaterial" id=1]
-resource_local_to_scene = true
-shader = ExtResource( 3 )
-shader_param/active = false
-
-[sub_resource type="Animation" id=2]
-resource_local_to_scene = true
-resource_name = "hit"
-length = 0.3
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material:shader_param/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false ]
-}
-
-[node name="EndGameScreen" type="Control"]
+[node name="LoseScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 808.0
@@ -66,22 +41,5 @@ margin_right = 124.301
 margin_bottom = 58.1522
 text = "End Game"
 
-[node name="Robot" parent="." instance=ExtResource( 2 )]
-position = Vector2( 202.719, 32.8696 )
-
-[node name="Sprite" parent="Robot" index="0"]
-material = SubResource( 1 )
-
-[node name="VFXAnimationPlayer" parent="Robot" index="3"]
-anims/hit = SubResource( 2 )
-
-[node name="HealthBar" parent="Robot" index="7"]
-visible = false
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 42.7962, 32.8696 )
-
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
-
-[editable path="Robot"]

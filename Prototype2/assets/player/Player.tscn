@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/player/SwordsmanIdle-sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Sounds/Player/Footsteps/footstep05.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/player/dash/DashGhost.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/ui/tutorialPopUp/AbilityPopUp.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/ui/EndGameScreen/PlayerLoseScreen.tscn" type="PackedScene" id=21]
 
 [sub_resource type="ShaderMaterial" id=18]
 resource_local_to_scene = true
@@ -655,6 +656,8 @@ position = Vector2( 122, 509 )
 
 [node name="AbilityPopUp" parent="CanvasLayer" instance=ExtResource( 20 )]
 visible = false
+
+[node name="LoseScreen" parent="CanvasLayer" instance=ExtResource( 21 )]
 
 [node name="HealthAbsorbtionArea" type="Area2D" parent="."]
 position = Vector2( 61, 254.5 )
