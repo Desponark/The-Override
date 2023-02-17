@@ -36,4 +36,4 @@ color = Color( 0, 0.862745, 0.823529, 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 2 )
-color = Color( 0, 0.862745, 0.823529, 1 )
+color = Color( 0.905882, 0.533333, 0.168627, 1 )

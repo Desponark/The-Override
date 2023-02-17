@@ -580,7 +580,7 @@ collision_mask = 3
 script = ExtResource( 2 )
 maxJumpHeight = -1700.0
 minJumpHeight = -600.0
-maximumDoubleJumps = 0
+maximumDoubleJumps = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 18 )

@@ -19,7 +19,7 @@ func _physics_process(_delta):
 			setRobotTransform(player.getRobotFollowPosition())
 
 func changeLightScale():
-	var lightScale = 2 * (getHealth() / getMaxHealth())
+	var lightScale = 0.5 * (getHealth() / getMaxHealth())
 	# stop lightscale from getting too small
 	if lightScale <= 0.4:
 		lightScale = 0.4

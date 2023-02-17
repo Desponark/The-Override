@@ -761,6 +761,7 @@ margin_left = -2099.0
 margin_top = 426.0
 margin_right = -1712.0
 margin_bottom = 495.0
+rect_pivot_offset = Vector2( 59, 186 )
 custom_fonts/font = SubResource( 7 )
 text = "Press [Q] to exchange own health to robots health"
 
