@@ -22,8 +22,11 @@ func _physics_process(_delta):
 	if chargeState == CHARGESTATE.CHARGING:
 		if robot.getHealth() <= 1:
 			$ChargingSound.stop()
+			robot.playSocketStoppedCharging()
+			$Light2D.color = Color(126, 207, 89)
 			return
 		$ChargingSound.play()
+		$Light2D.color = Color(0, 255, 0)
 		robot.transferHealth(energyTransferAmount)
 		$HealthBar.subtractHealth(-energyTransferAmount)
 
