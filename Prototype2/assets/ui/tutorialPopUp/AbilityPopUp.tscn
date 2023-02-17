@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/ui/tutorialPopUp/reflect.webm" type="VideoStream" id=1]
 [ext_resource path="res://assets/ui/tutorialPopUp/AbilityPopUp.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sounds/Popup/ability.mp3" type="AudioStream" id=4]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://assets/ui/leftMouseButton.png" type="Texture" id=6]
 
@@ -93,6 +94,9 @@ text = "at the right time to reflect projectiles"
 [node name="ButtonIcon" type="Sprite" parent="Panel/Explaination"]
 position = Vector2( 120, 25 )
 texture = ExtResource( 6 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="finished" from="Panel/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]

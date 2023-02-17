@@ -8,3 +8,5 @@ signal enemyWasHit
 signal spawnProjectile(newProjectile)
 signal spawnEnemy(newEnemy)
 signal spawnLoot(loot)
+signal playerAbilityUnlocked(videoStream, headline, button, explainationText)
+signal loseEvent(message)
