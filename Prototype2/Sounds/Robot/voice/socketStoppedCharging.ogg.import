@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/socketStoppedCharging.ogg-22847148834135a389fd64f2278eea17.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/socketStoppedCharging.ogg"
+dest_files=[ "res://.import/socketStoppedCharging.ogg-22847148834135a389fd64f2278eea17.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

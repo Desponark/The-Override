@@ -68,3 +68,6 @@ func _on_InteractionableBox_interacted(area):
 			isFollowingPlayer = true
 			# disable robot interaction collision shape so it can't be activated again
 			$InteractionableBox/CollisionShape2D.disabled = true
+
+func playSocketStoppedCharging():
+	$SocketStoppedCharging.play()
