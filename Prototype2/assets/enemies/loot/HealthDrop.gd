@@ -2,18 +2,22 @@ extends RigidBody2D
 
 
 export var healAmount = 25
+export var acceleration = 20
 var player = null
+var speed = 0
 
-func _process(delta):
+func _integrate_forces(state):
 	if player:
-		# TODO: check if tween is bad here
-		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(self, "global_position", player.getHealthBarPosition(), 1)
-		
-#		linear_velocity = (player.getHealthBarPosition() - global_position)
+		speed += acceleration
+		state.linear_velocity = global_position.direction_to(player.getHealthBarPosition()) * speed
 
 func _on_Area2D_body_entered(body):
 	player = body
+	# disable world collisions
+	collision_layer = 0
+	collision_mask = 0
+	# disable player collisions
+	$Area2D.set_collision_mask_bit(1, false)
 	
 func _on_Area2D_area_entered(area):
 	if player and player.has_method("gainHealth"):
