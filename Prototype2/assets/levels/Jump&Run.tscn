@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/rightMouseButton.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/DKey.png" type="Texture" id=5]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/ui/spaceKey.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/AKey.png" type="Texture" id=8]
 [ext_resource path="res://assets/light/conelight.png" type="Texture" id=9]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=11]
@@ -289,6 +291,26 @@ uppercase = true
 position = Vector2( 87.7767, 9.75293 )
 scale = Vector2( 0.605032, 0.605032 )
 texture = ExtResource( 7 )
+
+[node name="Label5" type="Label" parent="Control"]
+margin_left = 3098.0
+margin_top = 967.0
+margin_right = 3485.0
+margin_bottom = 1012.0
+rect_scale = Vector2( 1.33293, 1.33293 )
+custom_fonts/font = SubResource( 1 )
+text = "Move"
+uppercase = true
+
+[node name="AKey" type="Sprite" parent="Control/Label5"]
+position = Vector2( -34.5104, 12.7538 )
+scale = Vector2( 0.605032, 0.605032 )
+texture = ExtResource( 8 )
+
+[node name="DKey" type="Sprite" parent="Control/Label5"]
+position = Vector2( 85.5256, 12.0036 )
+scale = Vector2( 0.605032, 0.605032 )
+texture = ExtResource( 5 )
 
 [node name="Label4" type="Label" parent="Control"]
 margin_left = 9101.0
