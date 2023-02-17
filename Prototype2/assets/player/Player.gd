@@ -31,7 +31,6 @@ export var healthTransferMultiplier = 2.0
 # Change how health transfer works.
 # Change how robot and player are accessed.
 
-
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
@@ -199,10 +198,14 @@ func getPriority():
 	
 func _on_HealthBar_healthReachedZero(): # handle player death here
 	#var _ignore = get_tree().reload_current_scene()
-	get_node("/root/Game").free()
-	get_tree().change_scene("res://assets/ui/EndGameScreen/PlayerLoseScreen.tscn")
+	showLoseScreen()
 	
 func showPopUp(videoStream, headline, button, explainationText):
 	$CanvasLayer/AbilityPopUp.show()
 	$CanvasLayer/AbilityPopUp.setup(videoStream, headline, button, explainationText)
 	$CanvasLayer/AbilityPopUp.start()
+
+func showLoseScreen():
+	$CanvasLayer/LoseScreen.show()
+	$CanvasLayer/LoseScreen/AnimationPlayer.play()
+	get_tree().paused = true
