@@ -9,7 +9,6 @@ func _process(delta):
 	var bodies = $Area2D.get_overlapping_bodies()
 	if bodies.size() > 0:
 		isOpen = true
-		print()
 	else:
 		isOpen = false
 		

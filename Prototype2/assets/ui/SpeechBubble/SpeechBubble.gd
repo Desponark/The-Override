@@ -19,7 +19,6 @@ func _process(delta):
 		get_v_scroll().value += scrollAmount
 
 func _on_Tween_tween_all_completed():
-	print("tween finished")
 	$Timer.start()
 
 func _on_Timer_timeout():
