@@ -169,17 +169,20 @@ func getHealthBarPosition():
 	# turns a different canvas position into the main canvas position
 	return get_viewport_transform().affine_inverse() * $CanvasLayer/Position2D.global_position
 	
-# TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
-# TODO: make it so that the player can only give the robot life if the robot has enough missing health
 func transferHealth():
-	if isTransferingHealth and robotRef != null:
+	if isTransferingHealth and robotRef:
 		if $CanvasLayer/HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
 			return
-		if robotRef.getHealth() >= robotRef.getMaxHealth(): # if robot is full health disallow transfering of health
+			
+		var missingHealth = robotRef.getMaxHealth() - robotRef.getHealth()
+		var incomingHealth = healthTransferAmount * healthTransferMultiplier
+		
+		if (missingHealth) < incomingHealth: # only allow health transfer if the robot has enough missing health to fit the health that is going to be transferred
 			return
+			
 		if $CanvasLayer/HealthBar.has_method("subtractHealth"):
 			$CanvasLayer/HealthBar.subtractHealth(healthTransferAmount)
-		robotRef.transferHealth(-(healthTransferAmount * healthTransferMultiplier))
+		robotRef.transferHealth(-(incomingHealth))
 	
 func getRobotFollowPosition():
 	return $RobotFollowPosition.global_position
