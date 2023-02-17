@@ -83,6 +83,7 @@ position = Vector2( 15363, -1350 )
 
 [node name="UpgradeTrigger2" parent="BuildTutorial" index="6"]
 position = Vector2( 16485, -1348 )
+ability = "reflect"
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
