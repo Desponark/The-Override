@@ -23,7 +23,7 @@
 extents = Vector2( 112, 412 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 65, 393.5 )
+extents = Vector2( 305, 393.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 244.5, 177.75 )
@@ -66,7 +66,7 @@ scale = Vector2( 103.282, 472.734 )
 texture = ExtResource( 1 )
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9009, 0 )
+position = Vector2( 15564, 0 )
 
 [node name="BuildTutorial" parent="." instance=ExtResource( 9 )]
 position = Vector2( 12288, 1638 )
@@ -78,30 +78,30 @@ position = Vector2( 12288, 1638 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 30624, -206 )
+position = Vector2( 37186, -177 )
 moveSpeed = 0.0
 healthDrop = null
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 29959, -221 )
+position = Vector2( 36521, -192 )
 healthDrop = null
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 20323, 240 )
+position = Vector2( 21308, 263 )
 
 [node name="Loot" type="Node2D" parent="."]
 
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 9103, 2360 )
+position = Vector2( 9069, 2347 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 3147, 1107 )
+position = Vector2( 3100, 1141 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 3286, 854 )
+position = Vector2( 3239, 888 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
@@ -117,7 +117,7 @@ dialougeStream = ExtResource( 15 )
 dialogueText = "When I am charging a socket, I lose energy and my light decreases. If I am low on energy, transfer your own energy into me. Always check on my wellbeing. My survival is of utmost importance."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstSocket"]
-position = Vector2( 13812, 2523.5 )
+position = Vector2( 14112, 2498 )
 shape = SubResource( 6 )
 
 [node name="FirstEnemy" parent="." instance=ExtResource( 10 )]
@@ -125,10 +125,11 @@ dialougeStream = ExtResource( 12 )
 dialogueText = "Careful! Hostile machines ahead. Now that I am activated, they will try to destroy us. You will have to deal with them."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstEnemy"]
-position = Vector2( 17816, 2687 )
+position = Vector2( 17816, 410 )
 shape = SubResource( 3 )
 
 [node name="SecondSocket" parent="." instance=ExtResource( 10 )]
+position = Vector2( 6442, 64 )
 dialougeStream = ExtResource( 13 )
 dialogueText = "Another socket. You know what to do. Put me in."
 
@@ -142,11 +143,11 @@ dialougeStream = ExtResource( 14 )
 dialogueText = "Good. There are more of them ahead. Once, these machines were created as builders to support humans. I guess they are not building anymore, now they only destroy."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstEnemy"]
-position = Vector2( 21190, 276 )
+position = Vector2( 21986, 240 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 37001, 136 )
+position = Vector2( 43503, 240 )
 collision_layer = 0
 collision_mask = 2
 

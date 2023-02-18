@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.gd" type="Script" id=17]
 [ext_resource path="res://assets/levels/Area2D.gd" type="Script" id=18]
+[ext_resource path="res://Sounds/Robot/voice/introduction.ogg" type="AudioStream" id=19]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=22]
 
 [sub_resource type="DynamicFont" id=1]
@@ -405,7 +406,8 @@ rotation = -2.35619
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="introduction" parent="." instance=ExtResource( 16 )]
-dialogueText = "[Initiating wake up sequence] Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the artificial intelligence got out of control and its army of war machines wiped out almost the entire humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
+dialougeStream = ExtResource( 19 )
+dialogueText = "[Initiating wake up sequence] Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the artificial intelligence got out of control and its army of war machines wiped out almost all of humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
 doorPath = NodePath("../Doors/AutomaticDoor3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="introduction"]
