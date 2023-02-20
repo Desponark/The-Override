@@ -31,12 +31,18 @@ func moveEnemyTowardsTarget(approachTarget):
 	if approachTarget != null:
 		if abs(approachTarget.global_position.x - global_position.x) <= stopDistance:
 			horizontalDirection = 0
+			$AnimationPlayer.play("idle")
+			switchSpriteDirection(horizontalDirection)
 		elif approachTarget.global_position.x > global_position.x:
 			horizontalDirection = 1
+			$AnimationPlayer.play("walk")
 		elif approachTarget.global_position.x < global_position.x:
 			horizontalDirection = -1
+			$AnimationPlayer.play("walk")
 		else:
 			horizontalDirection = 0
+			$AnimationPlayer.play("idle")
+			switchSpriteDirection(horizontalDirection)
 	
 	switchSpriteDirection(horizontalDirection)
 	velocity.x = lerp(velocity.x, horizontalDirection * moveSpeed, acceleration)

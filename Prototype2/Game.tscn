@@ -99,11 +99,11 @@ position = Vector2( 21308, 263 )
 position = Vector2( 9069, 2347 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 3100, 1141 )
+position = Vector2( 19958, 189 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 3239, 888 )
+position = Vector2( 20097, -64 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
