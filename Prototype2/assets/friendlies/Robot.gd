@@ -6,6 +6,9 @@ export var followSpeedMultiplier = 3
 export var lightScaleMultiplier = 0.5
 export var minimumLightScaleMultiplier = 0.3
 
+func _ready():
+	$CanvasLayer/HealthBar.hide()
+
 # TODO: think about a better way to change light scale
 func _process(_delta):
 	changeLightScale()
@@ -31,20 +34,20 @@ func putRobotInSocket(position):
 
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
+	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
+		$CanvasLayer/HealthBar.subtractHealth(damage)
 		$DamagedSound.play()
 		
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
 func transferHealth(damage):
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
+	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
+		$CanvasLayer/HealthBar.subtractHealth(damage)
 		
 func getHealth():
-	return $HealthBar.getHealth()
+	return $CanvasLayer/HealthBar.getHealth()
 	
 func getMaxHealth():
-	return $HealthBar.getMaxHealth()
+	return $CanvasLayer/HealthBar.getMaxHealth()
 
 func getPriority():
 	return 2
@@ -66,6 +69,7 @@ func _on_InteractionableBox_interacted(area):
 		if player.has_method("setRobotRef"):
 			player.setRobotRef(self)
 			isFollowingPlayer = true
+			$CanvasLayer/HealthBar.show()
 			# disable robot interaction collision shape so it can't be activated again
 			$InteractionableBox/CollisionShape2D.disabled = true
 
