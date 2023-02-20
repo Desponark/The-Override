@@ -15,7 +15,7 @@ func _ready():
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().change_scene_to(startScreen)
+		$MenuElements/pauseMenu.show()
 
 func freezeEngine(): # this is for creating a nice hit stop / freeze effect for making melee hit feel more impactful
 	Engine.time_scale = freezeSlow

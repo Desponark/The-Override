@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/ui/menus/abilityPopup/AbilityPopUp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/ui/menus/pauseMenu/pauseMenu.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 112, 412 )
@@ -60,6 +61,9 @@ visible = false
 visible = false
 margin_left = 768.0
 margin_right = -831.0
+
+[node name="pauseMenu" parent="MenuElements" instance=ExtResource( 20 )]
+visible = false
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
