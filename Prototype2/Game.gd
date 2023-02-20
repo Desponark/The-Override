@@ -2,6 +2,7 @@ extends Node2D
 
 export var freezeSlow = 0.07
 export var freezeTime = 0.3
+export(PackedScene) var startScreen
 
 func _ready():
 	# warning-ignore-all:RETURN_VALUE_DISCARDED
@@ -14,7 +15,7 @@ func _ready():
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().change_scene("res://assets/ui/mainMenu/StartScreen.tscn")
+		get_tree().change_scene_to(startScreen)
 
 func freezeEngine(): # this is for creating a nice hit stop / freeze effect for making melee hit feel more impactful
 	Engine.time_scale = freezeSlow
