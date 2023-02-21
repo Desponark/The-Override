@@ -4,7 +4,7 @@ const upDirection = Vector2.UP
 
 export var gravity = 4500.0
 export var moveSpeed = 200.0
-export (float, 0, 1.0) var acceleration = 0.1
+export(int) var stopDistance = 200.0
 var horizontalDirection = 0
 var velocity = Vector2.ZERO
 
@@ -13,40 +13,19 @@ var rangedTargets = []
 
 export(PackedScene) var healthDrop
 
-export(int) var stopDistance = 200.0
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
-	velocity = moveEnemyTowardsTarget(getPriorityTarget(approachTargets))
-	velocity = move_and_slide(velocity, upDirection)
-
-func takeDamage(damage):
-	$DamagedSound.play()
-	$VFXAnimationPlayer.play("hit")
-	EventBus.emit_signal("enemyWasHit")
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
-
-func moveEnemyTowardsTarget(approachTarget):
-	if approachTarget != null:
-		if abs(approachTarget.global_position.x - global_position.x) <= stopDistance:
-			horizontalDirection = 0
-			$AnimationPlayer.play("idle")
-			switchSpriteDirection(horizontalDirection)
-		elif approachTarget.global_position.x > global_position.x:
-			horizontalDirection = 1
-			$AnimationPlayer.play("walk")
-		elif approachTarget.global_position.x < global_position.x:
-			horizontalDirection = -1
-			$AnimationPlayer.play("walk")
-		else:
-			horizontalDirection = 0
-			$AnimationPlayer.play("idle")
-			switchSpriteDirection(horizontalDirection)
 	
-	switchSpriteDirection(horizontalDirection)
-	velocity.x = lerp(velocity.x, horizontalDirection * moveSpeed, acceleration)
-	return velocity
+	var approachTarget = getPriorityTarget(approachTargets)
+	
+	velocity = moveEnemyTowardsTarget(approachTarget)
+	
+	switchSpriteDirection(approachTarget)
+	
+	playAnimations()
+	
+	velocity = move_and_slide(velocity, upDirection)
 
 func getPriorityTarget(array):
 	if array.size() == 0:
@@ -61,10 +40,42 @@ func getPriorityTarget(array):
 				index = i
 	return array[index]
 
-func switchSpriteDirection(horizontalDirection):
+func moveEnemyTowardsTarget(approachTarget):
+	if approachTarget != null:
+		if abs(approachTarget.global_position.x - global_position.x) <= stopDistance:
+			horizontalDirection = 0
+		elif approachTarget.global_position.x > global_position.x:
+			horizontalDirection = 1
+		elif approachTarget.global_position.x < global_position.x:
+			horizontalDirection = -1
+		else:
+			horizontalDirection = 0
+			
+	velocity.x = horizontalDirection * moveSpeed
+	return velocity
+
+func switchSpriteDirection(approachTarget):
 	if horizontalDirection != 0:
-		var facingRight = horizontalDirection > 0
+		var facingRight = horizontalDirection < 0
 		$Sprite.flip_h = facingRight
+	elif approachTarget: # face in the diretion of the target if not otherwise moving in another direction
+		var facingRight = approachTarget.global_position.x < global_position.x
+		$Sprite.flip_h = facingRight
+
+func playAnimations():
+	if $AnimationPlayer.current_animation == "destroyed":
+		return
+	if is_zero_approx(velocity.x):
+		$AnimationPlayer.stop(false)
+	else:
+		$AnimationPlayer.play("walk")
+
+func takeDamage(damage):
+	$DamagedSound.play()
+	$VFXAnimationPlayer.play("hit")
+	EventBus.emit_signal("enemyWasHit")
+	if $HealthBar.has_method("subtractHealth"):
+		$HealthBar.subtractHealth(damage)
 
 func setInitialMoveDirection(direction):
 	horizontalDirection = direction
@@ -90,8 +101,8 @@ func _on_HealthBar_healthReachedZero():
 		var newHealthDrop = healthDrop.instance()
 		newHealthDrop.global_position = global_position
 		EventBus.emit_signal("spawnLoot", newHealthDrop)
-	
-	queue_free()
+	$Sprite.scale.x *= -1 # swap x direction because destroyed animation sprites have swapped directions
+	$AnimationPlayer.play("destroyed")
 	
 func _on_AggroZone_body_entered(body):
 	if body.is_in_group("player") or body.is_in_group("robot"):
