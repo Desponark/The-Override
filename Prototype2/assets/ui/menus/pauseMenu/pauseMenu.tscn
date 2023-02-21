@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/ui/menus/pauseMenu/pauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=4]
 
 [sub_resource type="Theme" id=5]
 
@@ -74,7 +76,19 @@ margin_bottom = 782.0
 custom_fonts/font = SubResource( 4 )
 text = "Quit Game"
 
+[node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 3 )
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 4 )
+
+[connection signal="mouse_entered" from="Control/Continue" to="." method="_on_Continue_mouse_entered"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="Control/Options" to="." method="_on_Options_mouse_entered"]
 [connection signal="pressed" from="Control/Options" to="." method="_on_Options_pressed"]
+[connection signal="mouse_entered" from="Control/Main Menu" to="." method="_on_Main_Menu_mouse_entered"]
 [connection signal="pressed" from="Control/Main Menu" to="." method="_on_Main_Menu_pressed"]
+[connection signal="mouse_entered" from="Control/Quit Game" to="." method="_on_Quit_Game_mouse_entered"]
 [connection signal="pressed" from="Control/Quit Game" to="." method="_on_Quit_Game_pressed"]
