@@ -185,11 +185,15 @@ stream = ExtResource( 10 )
 volume_db = -15.0
 
 [node name="VoicePlayer" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 14 )
 bus = "Voice"
 
 [node name="SocketStoppedCharging" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
+volume_db = 10.0
+max_distance = 10000.0
+bus = "Voice"
 
 [node name="SpeechBubble" parent="." instance=ExtResource( 12 )]
 margin_left = -182.0
