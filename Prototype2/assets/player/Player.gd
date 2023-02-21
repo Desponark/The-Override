@@ -49,6 +49,11 @@ func _unhandled_input(event):
 		
 func _process(_delta):
 	transferHealth()
+	
+	if robotRef: #shows right mouse button if robot is low health
+		var healthPercent = robotRef.getHealth() / robotRef.getMaxHealth()
+		$RightMouseButton.visible = healthPercent <= .25
+		
 	$HealthAbsorbtionArea.global_position = getHealthBarPosition()
 	
 func _physics_process(delta: float):

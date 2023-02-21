@@ -9,7 +9,6 @@ export var minimumLightScaleMultiplier = 0.3
 # TODO: think about a better way to change light scale
 func _process(_delta):
 	changeLightScale()
-	showTransferWarning()
 	
 func _physics_process(_delta):
 	if player != null:
@@ -74,12 +73,3 @@ func _on_InteractionableBox_interacted(area):
 func playSocketStoppedCharging():
 	if !$SocketStoppedCharging.playing:
 		$SocketStoppedCharging.play()
-		
-func showTransferWarning():
-	if player != null:
-		if player.has_method("showRightMouseButton"):
-			if getHealth() <= 25:
-				if player.has_method("showRightMouseButton"):
-					player.showRightMouseButton()
-			if getHealth() > 25:
-				player.hideRightMouseButton()
