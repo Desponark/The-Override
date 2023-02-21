@@ -26,8 +26,8 @@ shader = ExtResource( 8 )
 shader_param/active = false
 
 [sub_resource type="CapsuleShape2D" id=21]
-radius = 32.0
-height = 8.0
+radius = 21.5
+height = 29.0
 
 [sub_resource type="Animation" id=6]
 length = 0.001
@@ -562,8 +562,8 @@ radius = 66.6877
 radius = 61.0
 
 [sub_resource type="CapsuleShape2D" id=8]
-radius = 32.0
-height = 8.0
+radius = 22.0
+height = 28.0
 
 [sub_resource type="CapsuleShape2D" id=22]
 radius = 18.0
@@ -574,8 +574,8 @@ extents = Vector2( 34, 48 )
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 2, 2 )
-collision_layer = 3
-collision_mask = 3
+collision_layer = 515
+collision_mask = 515
 script = ExtResource( 2 )
 maxJumpHeight = -1700.0
 minJumpHeight = -600.0
@@ -662,7 +662,7 @@ shape = SubResource( 22 )
 
 [node name="InteractionBox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 0
+collision_mask = 16
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
@@ -687,6 +687,10 @@ wait_time = 0.03
 [node name="CoyoteTimer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.1
+one_shot = true
+
+[node name="FallThroughPlatformTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [node name="DamagedSound" type="AudioStreamPlayer" parent="."]
@@ -730,6 +734,9 @@ bus = "Sound Effects"
 [connection signal="healthReachedZero" from="CanvasLayer/HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
 [connection signal="area_exited" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_exited"]
+[connection signal="dashEnd" from="Dash" to="." method="_on_Dash_dashEnd"]
+[connection signal="dashStart" from="Dash" to="." method="_on_Dash_dashStart"]
 [connection signal="timeout" from="Dash/DashDuration" to="Dash" method="_on_DashDuration_timeout"]
 [connection signal="timeout" from="Dash/DashCooldown" to="Dash" method="_on_DashCooldown_timeout"]
 [connection signal="timeout" from="Dash/GhostDuration" to="Dash" method="_on_GhostDuration_timeout"]
+[connection signal="timeout" from="FallThroughPlatformTimer" to="." method="_on_FallThroughPlatformTimer_timeout"]

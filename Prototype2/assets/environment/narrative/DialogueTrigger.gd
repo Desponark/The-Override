@@ -21,7 +21,7 @@ func _process(delta):
 		socket = null
 
 func enableDialogueTrigger():
-	collision_mask = 256 # robot mask layer
+	set_collision_mask_bit(8, true)
 
 func socketFullyCharged():
 	enableDialogueTrigger()
@@ -32,7 +32,7 @@ func _on_DialogueTrigger_body_entered(body):
 	
 	if body.has_method("playSpeech"):
 		body.playSpeech(dialougeStream, dialogueText, delay)
-		collision_mask = 0
+		set_collision_mask_bit(8, false)
 		
 	if door and door.has_method("lock"):
 		door.lock(dialougeStream.get_length())
