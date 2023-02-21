@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/player/SwordsmanIdle-sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Sounds/Player/Dodge.wav" type="AudioStream" id=17]
 [ext_resource path="res://Sounds/Player/Footsteps/footstep05.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/player/dash/DashGhost.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/ui/keyIcons/rightMouseButton.png" type="Texture" id=20]
 
 [sub_resource type="ShaderMaterial" id=18]
 resource_local_to_scene = true
@@ -730,6 +731,12 @@ bus = "Sound Effects"
 pause_mode = 2
 stream = ExtResource( 17 )
 bus = "Sound Effects"
+
+[node name="RightMouseButton" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -56 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
 
 [connection signal="healthReachedZero" from="CanvasLayer/HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
