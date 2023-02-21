@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SocketStoppedCharging.mp3-1ba943d7007b767b9a47d5dbdb563b1a.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Socket/SocketStoppedCharging.mp3"
+dest_files=[ "res://.import/SocketStoppedCharging.mp3-1ba943d7007b767b9a47d5dbdb563b1a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

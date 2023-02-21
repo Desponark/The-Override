@@ -209,3 +209,9 @@ func unlockAbility(ability, videoStream, headline, button, explainationText):
 		isProjectileReflectUnlocked = true
 		$ProjectileHitBox.set_collision_mask_bit(12, true)
 	EventBus.emit_signal("playerAbilityUnlocked", videoStream, headline, button, explainationText)
+
+func showRightMouseButton():
+	$RightMouseButton.show()
+	
+func hideRightMouseButton():
+	$RightMouseButton.hide()
