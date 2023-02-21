@@ -15,7 +15,8 @@ func _ready():
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().change_scene_to(startScreen)
+		$MenuElements/pauseMenu.setup(startScreen)
+		$MenuElements/pauseMenu.start()
 
 func freezeEngine(): # this is for creating a nice hit stop / freeze effect for making melee hit feel more impactful
 	Engine.time_scale = freezeSlow
@@ -43,7 +44,6 @@ func showAbilityPopup(videoStream, headline, button, explainationText):
 func showLoseScreen(message):
 	$MenuElements/LoseScreen.setup(message)
 	$MenuElements/LoseScreen.start()
-
 
 func _on_Area2D_body_entered(body):
 	showLoseScreen("To be continued.")
