@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/environment/socket/Socket.png" type="Texture" id=1]
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.tscn" type="PackedScene" id=2]
@@ -9,12 +9,19 @@
 [ext_resource path="res://Sounds/Socket/Charging.mp3" type="AudioStream" id=7]
 [ext_resource path="res://assets/ui/keyIcons/EButton.png" type="Texture" id=8]
 [ext_resource path="res://assets/light/light.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/Socket/SocketStoppedCharging.mp3" type="AudioStream" id=10]
+[ext_resource path="res://assets/ui/keyIcons/rightMouseButton.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 84.5, 72.375 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 1
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 12 )
 
 [node name="Socket" type="Node2D"]
 script = ExtResource( 3 )
@@ -75,6 +82,38 @@ stream = ExtResource( 7 )
 volume_db = -20.0
 pitch_scale = 0.8
 bus = "Sound Effects"
+
+[node name="ChargingStoppedSound" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2( 2, 2 )
+stream = ExtResource( 10 )
+volume_db = -10.0
+max_distance = 10000.0
+bus = "Sound Effects"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 668.0
+margin_top = 51.0
+margin_right = 1242.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 3 )
+text = "Socket Stopped Charging"
+align = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 1173.0
+margin_top = 87.0
+margin_right = 1848.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 3 )
+text = "Transfer Energy to Robot with"
+align = 1
+
+[node name="RightMouseButton" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1884, 118 )
+texture = ExtResource( 11 )
 
 [connection signal="healthReachedMax" from="HealthBar" to="." method="_on_HealthBar_healthReachedMax"]
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
