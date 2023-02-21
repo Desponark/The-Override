@@ -13,10 +13,9 @@ func _integrate_forces(state):
 
 func _on_Area2D_body_entered(body):
 	player = body
-	# disable world collisions
-	collision_layer = 0
-	collision_mask = 0
-	# disable player collisions
+	# disable all physics collisions if setting collision shape to disabled it wants to be called deferred
+	$CollisionShape2D.set_deferred("disabled", true)
+	# disable possible player collisions
 	$Area2D.set_collision_mask_bit(1, false)
 	
 func _on_Area2D_area_entered(area):

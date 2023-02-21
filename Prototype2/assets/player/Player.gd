@@ -59,14 +59,15 @@ func _physics_process(delta: float):
 	var previousMotionState = motionState
 	
 	motionState = getPlayerMotionState()
-#	print(MOTIONSTATE.keys()[motionState])
 
 	if motionState == MOTIONSTATE.FALLING and (previousMotionState == MOTIONSTATE.RUNNING or previousMotionState == MOTIONSTATE.IDLING):
 		$CoyoteTimer.start()
 
 	handleJumping()
-	
+
 	dash(horizontalDirection)
+
+	fallThroughPlatform()
 	
 	playAnimations(horizontalDirection)
 	
@@ -110,15 +111,6 @@ func getPlayerMotionState():
 	else:
 		return MOTIONSTATE.IDLING
 	
-func dash(horizontalDirection):
-	if $Dash.isDashing():
-		velocity.x = horizontalDirection * dashStrength
-		collision_mask = 0
-		$HurtBox/CollisionShape2D.disabled = true
-	else:
-		collision_mask = 1
-		$HurtBox/CollisionShape2D.disabled = false
-	
 func handleJumping():
 	match motionState:
 		MOTIONSTATE.JUMPING:
@@ -131,6 +123,17 @@ func handleJumping():
 		MOTIONSTATE.IDLING, MOTIONSTATE.RUNNING:
 			doubleJumpsMade = 0
 			$CoyoteTimer.stop() # stop coyote timer just to be sure
+
+func dash(horizontalDirection):
+	if $Dash.isDashing():
+		velocity.x = horizontalDirection * dashStrength
+
+func fallThroughPlatform():
+	if motionState == MOTIONSTATE.JUMPING and Input.is_action_pressed("down"):
+		velocity.y = 0
+		set_collision_layer_bit(9, false)
+		set_collision_mask_bit(9, false)
+		$FallThroughPlatformTimer.start()
 
 func playAnimations(horizontalDirection):
 	if $AnimationPlayer.current_animation == "attack": # if attack animation plays dont play any other animation
@@ -209,3 +212,17 @@ func unlockAbility(ability, videoStream, headline, button, explainationText):
 		isProjectileReflectUnlocked = true
 		$ProjectileHitBox.set_collision_mask_bit(12, true)
 	EventBus.emit_signal("playerAbilityUnlocked", videoStream, headline, button, explainationText)
+
+func _on_Dash_dashStart():
+	set_collision_mask_bit(0, false) # world collisions
+	set_collision_mask_bit(9, false) # platform collisions
+	$HurtBox/CollisionShape2D.disabled = true
+
+func _on_Dash_dashEnd():
+	set_collision_mask_bit(0, true)
+	set_collision_mask_bit(9, true)
+	$HurtBox/CollisionShape2D.disabled = false
+
+func _on_FallThroughPlatformTimer_timeout():
+	set_collision_layer_bit(9, true)
+	set_collision_mask_bit(9, true)
