@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ButtonPress.mp3-c779d8f9537b2a22cd9f1740be167ca4.mp3str"
+
+[deps]
+
+source_file="res://Sounds/UI/ButtonPress.mp3"
+dest_files=[ "res://.import/ButtonPress.mp3-c779d8f9537b2a22cd9f1740be167ca4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
