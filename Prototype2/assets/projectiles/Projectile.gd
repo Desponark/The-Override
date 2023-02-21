@@ -25,8 +25,8 @@ func takeDamage(damage):
 	# change projectile direction
 	linear_velocity = linear_velocity * -1
 	# change projectile collisions so it can hit enemies too
-	$HitBox.collision_layer = 4
-	collision_layer = 4
+	$HitBox.set_collision_layer_bit(2, true)
+	set_collision_layer_bit(2, true)
 	# change damage
 	$HitBox.damage = damage
 

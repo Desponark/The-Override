@@ -3,6 +3,8 @@ extends Node2D
 var canDash = true
 export(PackedScene) var dashGhostScene
 var sprite
+signal dashStart
+signal dashEnd
 
 func startDash(givenSprite, duration):
 	self.sprite = givenSprite
@@ -12,6 +14,7 @@ func startDash(givenSprite, duration):
 	
 	$GhostDuration.start()
 	instanceDashGhost()
+	emit_signal("dashStart")
 	
 func instanceDashGhost():
 	var ghost = dashGhostScene.instance()
@@ -35,6 +38,7 @@ func endDash():
 	$GhostDuration.stop()
 	canDash = false
 	$DashCooldown.start()
+	emit_signal("dashEnd")
 	
 func _on_DashCooldown_timeout():
 	canDash = true

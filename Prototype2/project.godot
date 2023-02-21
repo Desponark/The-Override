@@ -147,6 +147,7 @@ down={
 2d_render/layer_5="interactable"
 2d_render/layer_6="healthDrop"
 2d_render/layer_9="robot"
+2d_render/layer_10="platform"
 2d_render/layer_12="camera"
 2d_render/layer_13="projectile"
 2d_physics/layer_1="world"
@@ -156,6 +157,7 @@ down={
 2d_physics/layer_5="interactable"
 2d_physics/layer_6="healthDrop"
 2d_physics/layer_9="robot"
+2d_physics/layer_10="platform"
 2d_physics/layer_12="camera"
 2d_physics/layer_13="projectile"
 
