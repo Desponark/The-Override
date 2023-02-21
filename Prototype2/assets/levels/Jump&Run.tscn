@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -11,34 +11,35 @@
 [ext_resource path="res://assets/light/conelight.png" type="Texture" id=9]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/Platformx4.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://assets/environment/doors/Lift.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/environment/elevator/Elevator.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/enemies/loot/HealthDrop.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.gd" type="Script" id=17]
 [ext_resource path="res://assets/levels/Area2D.gd" type="Script" id=18]
-[ext_resource path="res://Sounds/Robot/voice/introduction.ogg" type="AudioStream" id=19]
-[ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
 font_data = ExtResource( 11 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 170.5, 229 )
-
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 105.5, 143.5 )
+extents = Vector2( 593, 33.75 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 599.5, 85 )
 
 [node name="Jump&Run" type="Node2D"]
 
 [node name="TileMapBackground" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1, 0 )
-tile_data = PoolIntArray( 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 536870915, 0, 19, 536870915, 0, 20, 536870915, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 24, 7, 0, 25, 7, 0, 26, 7, 0, 27, 7, 0, 28, 7, 0, 43, 2, 0, 65543, 5, 0, 65544, 5, 0, 65545, 5, 0, 65546, 5, 0, 65547, 536870912, 0, 65548, 0, 0, 65549, 5, 0, 65550, 5, 0, 65551, 5, 0, 65552, 5, 0, 65553, 5, 0, 65554, 0, 0, 65555, 5, 0, 65556, 536870912, 0, 65557, 5, 0, 65558, 5, 0, 65559, 5, 0, 65560, 7, 0, 65561, 7, 0, 65562, 7, 0, 65563, 7, 0, 65564, 7, 0, 65579, 2, 0, 131079, 5, 0, 131080, 3, 0, 131081, 5, 0, 131086, 5, 0, 131087, 3, 0, 131088, 5, 0, 131089, 5, 0, 131090, 5, 0, 131091, 5, 0, 131092, 5, 0, 131098, 7, 0, 131099, 7, 0, 131100, 536870919, 0, 131115, 2, 0, 196626, 5, 0, 196627, 3, 0, 196628, 5, 0, 196629, 5, 0, 196633, 1610612743, 0, 196634, 7, 0, 196635, 7, 0, 196636, 536870919, 0, 196651, 2, 0, 262165, -2147483640, 0, 262171, 7, 0, 262172, 1, 0, 262173, 5, 0, 262174, 5, 0, 262175, 536870912, 0, 262176, 536870918, 0, 262186, -1610612730, 0, 262187, 2, 0, 327702, 0, 0, 327703, 1, 0, 327704, 536870913, 0, 327705, 1610612739, 0, 327706, 1610612739, 0, 327707, 1073741829, 0, 327708, 1073741829, 0, 327709, 1073741829, 0, 327710, 1073741829, 0, 327711, 1610612736, 0, 327712, 1610612741, 0, 327713, 1610612741, 0, 327714, 1610612739, 0, 327715, 1610612741, 0, 327716, 1610612741, 0, 327717, 1610612739, 0, 327718, 1610612741, 0, 327719, 1610612741, 0, 327720, 1610612739, 0, 327721, 1610612741, 0, 327722, 1610612741, 0, 327723, 2, 0, 393237, 1073741832, 0, 393241, 1073741829, 0, 393242, 1610612741, 0, 393243, 1073741829, 0, 393244, 1073741829, 0, 393245, 1073741829, 0, 393246, 1073741829, 0, 393247, 1073741829, 0, 393248, 1610612741, 0, 393249, 1610612741, 0, 393250, 1610612741, 0, 393251, 1610612741, 0, 393252, 1610612741, 0, 393253, 1610612741, 0, 393254, 1610612741, 0, 393255, 1610612741, 0, 393256, 1610612741, 0, 393257, 1610612741, 0, 393258, 1610612741, 0, 393259, 2, 0, 458779, 536870912, 0, 458780, 0, 0, 458792, 1073741829, 0, 458793, 1073741829, 0, 458794, 1073741829, 0, 458795, 2, 0, 524328, 1073741829, 0, 524329, 1073741829, 0, 524330, 1073741829, 0 )
+show_collision = true
+tile_data = PoolIntArray( 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 536870915, 0, 19, 536870915, 0, 20, 536870915, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 24, 536870917, 0, 25, 536870917, 0, 26, 536870917, 0, 27, 536870917, 0, 28, 1073741824, 0, 29, 5, 0, 30, 5, 0, 31, 5, 0, 32, 5, 0, 33, 5, 0, 34, 5, 0, 35, 5, 0, 43, 2, 0, 65543, 5, 0, 65544, 5, 0, 65545, 5, 0, 65546, 5, 0, 65547, 536870912, 0, 65548, 0, 0, 65549, 5, 0, 65550, 5, 0, 65551, 5, 0, 65552, 5, 0, 65553, 5, 0, 65554, 0, 0, 65555, 5, 0, 65556, 536870912, 0, 65557, 5, 0, 65558, 5, 0, 65559, 5, 0, 65560, 536870917, 0, 65561, 536870917, 0, 65562, 536870917, 0, 65563, 536870917, 0, 65564, 536870917, 0, 65565, 5, 0, 65566, 5, 0, 65567, 5, 0, 65568, 5, 0, 65569, 5, 0, 65570, 5, 0, 65571, 5, 0, 65579, 2, 0, 131087, 3, 0, 131088, 5, 0, 131089, 5, 0, 131090, 5, 0, 131091, 5, 0, 131092, 5, 0, 131099, 536870917, 0, 131100, 536870917, 0, 131115, 2, 0, 196635, 1610612743, 0, 196636, 1610612743, 0, 196637, 1610612743, 0, 196638, 1610612743, 0, 196639, 1610612743, 0, 196651, 2, 0, 262171, 1610612743, 0, 262172, 1610612743, 0, 262173, 1610612743, 0, 262174, 1610612743, 0, 262175, 1610612743, 0, 262176, 536870918, 0, 262186, -1610612730, 0, 262187, 2, 0, 327699, 1610612743, 0, 327700, 1610612743, 0, 327701, 1610612743, 0, 327702, 1610612743, 0, 327703, 1610612743, 0, 327704, 1610612743, 0, 327705, 1610612743, 0, 327706, 1610612743, 0, 327707, 1610612743, 0, 327708, 1610612743, 0, 327709, 1610612743, 0, 327710, 1610612743, 0, 327711, 1610612743, 0, 327712, 1610612741, 0, 327713, 1610612741, 0, 327714, 1610612739, 0, 327715, 1610612741, 0, 327716, 1610612741, 0, 327717, 1610612739, 0, 327718, 1610612741, 0, 327719, 1610612741, 0, 327720, 1610612739, 0, 327721, 1610612741, 0, 327722, 1610612741, 0, 327723, 2, 0, 393235, 1610612743, 0, 393236, 1610612743, 0, 393237, 1610612743, 0, 393238, 1610612743, 0, 393239, 1610612743, 0, 393240, 1610612743, 0, 393241, 1610612743, 0, 393242, 1610612743, 0, 393243, 1610612743, 0, 393244, 1610612743, 0, 393245, 1610612743, 0, 393246, 1610612743, 0, 393247, 1610612743, 0, 393248, 1610612741, 0, 393249, 1610612741, 0, 393250, 1610612741, 0, 393251, 1610612741, 0, 393252, 1610612741, 0, 393253, 1610612741, 0, 393254, 1610612741, 0, 393255, 1610612741, 0, 393256, 1610612741, 0, 393257, 1610612741, 0, 393258, 1610612741, 0, 393259, 2, 0, 458771, 1610612743, 0, 458772, 1610612743, 0, 458773, 1610612743, 0, 458774, 1610612743, 0, 458775, 1610612743, 0, 458786, 7, 0, 458787, 1610612743, 0, 458792, 1073741829, 0, 458793, 1073741829, 0, 458794, 1073741829, 0, 458795, 2, 0, 524307, 1610612743, 0, 524308, 1610612743, 0, 524309, 1610612743, 0, 524310, 1610612743, 0, 524311, 1610612743, 0, 524322, 1073741831, 0, 524323, 1610612743, 0, 524328, 1073741829, 0, 524329, 1073741829, 0, 524330, 1073741829, 0, 524331, -1073741816, 0, 589843, 1610612743, 0, 589844, 1610612743, 0, 589845, 1610612743, 0, 589846, 1610612743, 0, 589847, 1610612743, 0, 589856, 1610612743, 0, 589857, 1610612743, 0, 589858, 1610612743, 0, 589859, 1610612743, 0, 589860, 1610612743, 0, 655379, 1610612743, 0, 655380, 1610612743, 0, 655381, 1610612743, 0, 655382, 1610612743, 0, 655383, 1610612743, 0, 655384, 1610612743, 0, 655385, 1610612743, 0, 655386, 1610612743, 0, 655387, 1610612743, 0, 655388, 1610612743, 0, 655392, 1610612743, 0, 655393, 1610612743, 0, 655394, 1610612743, 0, 655395, 1610612743, 0, 655396, 1610612743, 0, 720919, 7, 0, 720920, 7, 0, 720921, 7, 0, 720922, 7, 0, 720923, 7, 0, 720924, 7, 0, 720925, 7, 0, 720926, 7, 0, 720927, 7, 0, 720928, 7, 0, 720929, 7, 0, 720930, 7, 0, 720931, 7, 0, 786459, 7, 0, 786460, 7, 0, 786461, 7, 0, 786462, 7, 0, 786463, 7, 0, 786464, 7, 0, 786465, 7, 0, 786466, 7, 0, 851995, 1610612743, 0, 851996, 1610612743, 0, 851997, 1610612743, 0, 851998, 1610612743, 0, 851999, 1610612743, 0, 852000, 1610612743, 0, 852001, 1610612743, 0, 852002, 1610612743, 0, 917531, 1610612743, 0, 917532, 1610612743, 0, 917533, 1610612743, 0, 917534, 1610612743, 0, 917535, 1610612743, 0, 917536, 1610612743, 0, 917537, 1610612743, 0, 917538, 1610612743, 0, 983067, 1610612743, 0, 983068, 1610612743, 0, 983069, 1610612743, 0, 983070, 1610612743, 0, 983071, 1610612743, 0, 983072, 1610612743, 0 )
 
 [node name="TilemapGame" parent="." instance=ExtResource( 2 )]
-tile_data = PoolIntArray( -196590, 14, 0, -131071, 1073741835, 0, -131054, 14, 0, -65511, 6, 0, -65510, 2, 0, -65509, 2, 0, -65508, 536870918, 0, -65494, 4, 0, -65493, 0, 0, -65492, 1, 0, 6, 15, 0, 7, 1610612738, 0, 8, 1610612738, 0, 9, 1610612738, 0, 10, 1610612738, 0, 11, 1073741826, 0, 12, 1610612736, 0, 13, 1610612738, 0, 14, 1610612738, 0, 15, 1610612738, 0, 16, 1610612738, 0, 17, 1610612738, 0, 18, 1610612738, 0, 19, 1610612738, 0, 20, 1610612738, 0, 21, 1610612738, 0, 22, 1610612737, 0, 23, 1610612737, 0, 24, 1610612737, 0, 25, 1610612740, 0, 28, 15, 0, 42, 1073741839, 0, 65542, 15, 0, 65564, 1073741839, 0, 65578, 15, 0, 65580, 536870927, 0, 131078, 15, 0, 131082, 12, 0, 131083, 7, 0, 131084, 7, 0, 131085, 536870924, 0, 131093, 12, 0, 131094, 7, 0, 131095, 7, 0, 131096, 7, 0, 131097, 536870924, 0, 131100, 1073741839, 0, 131114, 15, 0, 131116, 536870927, 0, 196615, 7, 0, 196616, 9, 0, 196617, 8, 0, 196618, 8, 0, 196621, 7, 0, 196622, 7, 0, 196623, 536870919, 0, 196624, 536870919, 0, 196625, 536870924, 0, 196629, 15, 0, 196633, 536870927, 0, 196636, -1073741818, 0, 196637, 1, 0, 196638, 1, 0, 196639, 1, 0, 196640, 536870916, 0, 196650, 15, 0, 196652, 536870927, 0, 262161, 8, 0, 262162, 536870920, 0, 262163, 536870920, 0, 262164, 536870920, 0, 262165, 536870920, 0, 262166, 2, 0, 262167, 2, 0, 262168, 536870918, 0, 262169, 7, 0, 262170, 7, 0, 262171, 536870924, 0, 262176, 2, 0, 262177, 2, 0, 262178, 2, 0, 262179, 2, 0, 262180, 2, 0, 262181, 2, 0, 262182, 2, 0, 262183, 2, 0, 262184, 2, 0, 262185, 2, 0, 262186, 15, 0, 262188, 536870927, 0, 327701, 1073741839, 0, 327704, 1073741828, 0, 327705, 1073741826, 0, 327706, 1073741826, 0, 327707, -536870908, 0, 327712, 1610612751, 0, 327722, 15, 0, 327724, 536870927, 0, 393238, 536870919, 0, 393239, 536870919, 0, 393240, 536870924, 0, 393258, 15, 0, 393260, 536870927, 0, 458776, 536870922, 0, 458777, 536870922, 0, 458778, 536870924, 0, 458781, 12, 0, 458782, 10, 0, 458783, 10, 0, 458784, 10, 0, 458785, 10, 0, 458786, 10, 0, 458787, 10, 0, 458788, 10, 0, 458789, 10, 0, 458790, 10, 0, 458791, 10, 0, 458792, 536870924, 0, 458794, 1073741828, 0, 458796, 536870927, 0, 524314, 536870921, 0, 524315, 536870921, 0, 524316, 536870921, 0, 524317, 536870921, 0, 524328, 536870927, 0, 524331, 536870927, 0, 524332, 1610612740, 0, 589864, 1073741830, 0, 589865, 1073741826, 0, 589866, 1073741826, 0, 589867, -536870908, 0 )
+show_collision = true
+tile_data = PoolIntArray( -196590, 14, 0, -131071, 1073741835, 0, -131054, 14, 0, -65494, 4, 0, -65493, 0, 0, -65492, 1, 0, 6, 15, 0, 7, 1610612738, 0, 8, 1610612738, 0, 9, 1610612738, 0, 10, 1610612738, 0, 11, 1073741826, 0, 12, 1610612736, 0, 13, 1610612738, 0, 14, 1610612738, 0, 15, 1610612738, 0, 16, 1610612738, 0, 17, 1610612738, 0, 18, 1610612738, 0, 19, 1610612738, 0, 20, 1610612738, 0, 21, 1610612738, 0, 22, 1610612737, 0, 23, 1610612737, 0, 24, 1610612737, 0, 25, 1610612736, 0, 26, 1610612736, 0, 27, 1610612736, 0, 28, 1073741825, 0, 29, 1073741824, 0, 30, 1073741824, 0, 31, 1073741824, 0, 32, 1073741824, 0, 33, 1073741824, 0, 34, 1073741824, 0, 35, 1073741824, 0, 42, 1073741839, 0, 65542, 15, 0, 65578, 15, 0, 65580, 536870927, 0, 131079, 536870922, 0, 131080, 536870922, 0, 131081, 536870922, 0, 131082, 536870922, 0, 131083, 7, 0, 131084, 7, 0, 131085, 536870921, 0, 131086, 536870921, 0, 131087, 536870930, 0, 131092, 18, 0, 131093, 536870921, 0, 131094, 7, 0, 131095, 7, 0, 131096, 7, 0, 131097, 536870920, 0, 131098, 536870920, 0, 131099, 536870930, 0, 131100, 18, 0, 131101, 7, 0, 131102, 7, 0, 131103, 7, 0, 131104, 7, 0, 131105, 7, 0, 131106, 7, 0, 131107, 7, 0, 131114, 15, 0, 131116, 536870927, 0, 196623, 536870920, 0, 196624, 536870920, 0, 196625, 536870920, 0, 196626, 536870920, 0, 196627, 536870920, 0, 196628, 536870920, 0, 196635, 536870927, 0, 196636, -1073741820, 0, 196637, 1610612738, 0, 196638, 1610612738, 0, 196639, 1610612737, 0, 196640, 1610612751, 0, 196650, 15, 0, 196652, 536870927, 0, 262163, 6, 0, 262164, 2, 0, 262165, 1, 0, 262166, 536870913, 0, 262167, 2, 0, 262168, 1, 0, 262169, 1, 0, 262170, 1, 0, 262171, -536870906, 0, 262176, 2, 0, 262177, 2, 0, 262178, 2, 0, 262179, 2, 0, 262180, 2, 0, 262181, 2, 0, 262182, 2, 0, 262183, 2, 0, 262184, 2, 0, 262185, 2, 0, 262186, 15, 0, 262188, 536870927, 0, 327699, 536870927, 0, 327712, 1610612751, 0, 327718, 15, 0, 327722, 15, 0, 327724, 536870927, 0, 393235, 536870927, 0, 393258, 15, 0, 393260, 536870927, 0, 458771, 536870927, 0, 458776, 536870922, 0, 458777, 536870922, 0, 458778, 7, 0, 458779, 7, 0, 458780, 7, 0, 458781, 7, 0, 458782, 10, 0, 458783, 10, 0, 458784, 10, 0, 458785, 10, 0, 458786, 536870930, 0, 458787, 18, 0, 458788, 10, 0, 458789, 10, 0, 458790, 10, 0, 458791, 10, 0, 458792, 536870930, 0, 458794, 1073741828, 0, 458796, 536870927, 0, 524307, 536870927, 0, 524311, -2147483642, 0, 524312, 1610612740, 0, 524321, 6, 0, 524322, -536870906, 0, 524323, -1073741818, 0, 524324, 536870918, 0, 524328, 536870927, 0, 524331, 536870927, 0, 524332, 1610612740, 0, 589843, 536870927, 0, 589847, 15, 0, 589855, -2147483642, 0, 589856, 1073741824, 0, 589857, 1610612740, 0, 589860, 15, 0, 589864, 1073741830, 0, 589865, 1073741826, 0, 589866, 1073741826, 0, 589867, -536870908, 0, 655379, 536870927, 0, 655383, -1073741820, 0, 655384, 1610612737, 0, 655385, 1610612737, 0, 655386, 1610612737, 0, 655387, 1610612737, 0, 655388, 1610612737, 0, 655389, -1610612730, 0, 655391, 1073741839, 0, 655396, 15, 0, 720915, 536870922, 0, 720916, 536870922, 0, 720917, 536870922, 0, 720918, 536870922, 0, 720919, 536870924, 0, 720925, 1073741830, 0, 720926, 1610612737, 0, 720927, 1610612742, 0, 720931, -2147483642, 0, 720932, 1610612742, 0, 786455, 536870919, 0, 786456, 536870919, 0, 786457, 8, 0, 786458, 8, 0, 786459, 536870924, 0, 786466, -2147483642, 0, 786467, 1610612742, 0, 851995, 1610612751, 0, 851997, 6, 0, 851998, 536870913, 0, 851999, 536870916, 0, 852002, 1073741839, 0, 917531, 1610612751, 0, 917533, 536870927, 0, 917534, 6, 0, 917535, -536870906, 0, 917538, 1073741839, 0, 983067, 1610612751, 0, 983069, 1073741830, 0, 983070, 1610612740, 0, 983072, 12, 0, 983073, 7, 0, 983074, 7, 0, 1048603, 10, 0, 1048604, 10, 0, 1048605, 10, 0, 1048606, 10, 0, 1048607, 10, 0, 1048608, 7, 0 )
 
 [node name="TilemapCamera" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -46,72 +47,141 @@ modulate = Color( 1, 0, 0, 0.635294 )
 show_collision = true
 collision_layer = 2048
 collision_mask = 2048
-tile_data = PoolIntArray( -196590, 14, 0, -131071, 1073741835, 0, -131054, 14, 0, -65511, 6, 0, -65510, 2, 0, -65509, 2, 0, -65508, 536870918, 0, -65494, 4, 0, -65493, 0, 0, -65492, 1, 0, 6, 15, 0, 7, 1610612738, 0, 8, 1610612738, 0, 9, 1610612738, 0, 10, 1610612738, 0, 11, 1073741826, 0, 12, 1610612736, 0, 13, 1610612738, 0, 14, 1610612738, 0, 15, 1610612738, 0, 16, 1610612738, 0, 17, 1610612738, 0, 18, 1610612737, 0, 19, 1610612737, 0, 20, 1610612737, 0, 21, 1610612737, 0, 22, 1610612736, 0, 23, 1610612736, 0, 24, 1610612736, 0, 25, 1610612740, 0, 28, 15, 0, 65542, 15, 0, 65564, 1073741839, 0, 131078, 15, 0, 131100, 1073741839, 0, 196615, 7, 0, 196616, 9, 0, 196617, 8, 0, 196618, 8, 0, 196619, 7, 0, 196620, 7, 0, 196621, 7, 0, 196622, 7, 0, 196623, 536870919, 0, 196624, 536870919, 0, 196629, 15, 0, 196633, 536870927, 0, 196636, -1073741818, 0, 196637, 1, 0, 196638, 1, 0, 196639, 1, 0, 196640, 536870916, 0, 262161, 8, 0, 262162, 536870920, 0, 262163, 536870920, 0, 262164, 536870920, 0, 262165, 536870920, 0, 262185, 1, 0, 327701, 1073741839, 0, 458774, 10, 0, 458775, 10, 0, 458776, 536870922, 0, 458782, 10, 0, 458783, 10, 0, 458784, 10, 0, 458785, 10, 0, 458786, 10, 0, 458787, 10, 0, 458788, 10, 0, 458789, 10, 0, 458790, 10, 0, 458791, 8, 0, 524314, 536870921, 0, 524315, 536870921, 0, 524316, 536870921, 0, 524317, 536870921, 0, 524327, 15, 0, 589864, 8, 0, 589865, 8, 0, 589866, 8, 0 )
+tile_data = PoolIntArray( -196590, 14, 0, -131071, 1073741835, 0, -131054, 14, 0, -65494, 4, 0, -65493, 0, 0, -65492, 1, 0, 6, 1073741839, 0, 65542, 1073741839, 0, 131078, 15, 0, 131079, 536870922, 0, 131080, 536870922, 0, 131081, 536870922, 0, 131082, 536870922, 0, 131083, 536870922, 0, 131084, 536870922, 0, 131085, 1073741834, 0, 131086, 1073741834, 0, 131093, 1073741834, 0, 131094, 1073741834, 0, 131095, 1073741834, 0, 131096, 1073741834, 0, 131097, 1073741834, 0, 131098, 1073741834, 0, 196623, 536870919, 0, 196624, 536870919, 0, 196625, 536870922, 0, 196626, 536870922, 0, 196627, 536870922, 0, 196628, 536870922, 0, 458776, 536870922, 0, 458777, 10, 0, 458778, 10, 0, 458779, 10, 0, 458780, 10, 0, 458781, 10, 0, 458782, 10, 0, 458783, 10, 0, 589864, 8, 0, 589865, 8, 0, 589866, 8, 0 )
 
 [node name="Platforms" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Platform" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 4288, 1008 )
-
-[node name="Platform2" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 4186, 1008 )
-
-[node name="Platform3" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 5642.4, 1007.7 )
-
-[node name="Platform4" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 5540.4, 1007.7 )
-
 [node name="Platform7" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 7277.4, 1433.7 )
+position = Vector2( 6468.4, 1051.7 )
 
 [node name="Platform8" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 7175.4, 1433.7 )
+position = Vector2( 6366.4, 1051.7 )
 
 [node name="Platform9" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 7597.4, 1067.7 )
+position = Vector2( 6841.4, 773.7 )
 
 [node name="Platform10" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 7495.4, 1067.7 )
+position = Vector2( 6739.4, 773.7 )
 
 [node name="Platform11" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 8122.4, 956.7 )
+position = Vector2( 7439.8, 796.7 )
 
 [node name="Platform21" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 8020, 956.7 )
+position = Vector2( 7337.4, 796.7 )
 
 [node name="Platform13" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 8622.4, 867.7 )
+position = Vector2( 8045.4, 793.7 )
 
 [node name="Platform14" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 8520.4, 867.7 )
+position = Vector2( 7943.4, 793.7 )
 
-[node name="Platform25" parent="Platforms" instance=ExtResource( 10 )]
-position = Vector2( 16745, 3497 )
+[node name="Platform16" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 14138, 3364 )
+
+[node name="Platform17" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 14528.4, 3111.7 )
+
+[node name="Platform18" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 14426.4, 3111.7 )
 
 [node name="Platform26" parent="Platforms" instance=ExtResource( 10 )]
 position = Vector2( 16996, 3261 )
 
-[node name="Platform36" parent="Platforms" instance=ExtResource( 10 )]
-position = Vector2( 16844, 2360 )
+[node name="Platform41" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 9633, 2354 )
 
-[node name="Platform37" parent="Platforms" instance=ExtResource( 10 )]
-position = Vector2( 17254, 2360 )
+[node name="Platform78" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 10486, 2633 )
 
-[node name="Platform38" parent="Platforms" instance=ExtResource( 10 )]
-position = Vector2( 16377, 2578 )
+[node name="Platform42" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 9224, 2354 )
+
+[node name="Platform43" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8815, 2354 )
+
+[node name="Platform44" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8148, 2831 )
+
+[node name="Platform45" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8557, 2831 )
+
+[node name="Platform47" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8967, 2831 )
+
+[node name="Platform51" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8590, 3258 )
+
+[node name="Platform75" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 11238, 3214 )
+
+[node name="Platform76" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8996, 3258 )
+
+[node name="Platform80" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 9453, 4049 )
+
+[node name="Platform81" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 9461, 3603 )
+
+[node name="Platform82" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8151, 4071 )
+
+[node name="Platform84" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8807, 3827 )
+
+[node name="Platform85" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8801, 4248 )
+
+[node name="Platform77" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 8151, 3603 )
+
+[node name="Platform64" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 12090, 5179 )
+
+[node name="Platform68" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 11680, 5179 )
+
+[node name="Platform65" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 12500, 5179 )
+
+[node name="Platform66" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 12909, 5179 )
+
+[node name="Platform60" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 13565, 4869 )
+
+[node name="Platform61" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 13975, 4869 )
+
+[node name="Platform69" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 14383, 4869 )
+
+[node name="Platform62" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 13062, 5700 )
+
+[node name="Platform63" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 13470, 5700 )
+
+[node name="Platform67" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 14159, 3621 )
+
+[node name="Platform73" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 14786, 3872 )
+
+[node name="Platform74" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 14376, 3872 )
+
+[node name="Platform79" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 13763, 4187 )
+
+[node name="Platform83" parent="Platforms" instance=ExtResource( 10 )]
+position = Vector2( 14386, 4350 )
 
 [node name="Platform27" parent="Platforms" instance=ExtResource( 10 )]
 position = Vector2( 16589, 3261 )
-
-[node name="Platform24" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 10975.4, 3037.7 )
-
-[node name="Platform28" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 10873.4, 3037.7 )
 
 [node name="Platform31" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 17560.4, 3500.7 )
@@ -119,17 +189,50 @@ position = Vector2( 17560.4, 3500.7 )
 [node name="Platform32" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 17458.4, 3500.7 )
 
-[node name="Platform29" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 12067.4, 3032.7 )
+[node name="Platform33" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 11375.4, 5528.7 )
 
-[node name="Platform30" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 11965.4, 3032.7 )
+[node name="Platform34" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 11273.4, 5528.7 )
+
+[node name="Platform35" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 11830.4, 5782.7 )
+
+[node name="Platform36" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 11728.4, 5782.7 )
+
+[node name="Platform37" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 11375.4, 6004.7 )
+
+[node name="Platform38" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 11273.4, 6004.7 )
+
+[node name="Platform40" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 13310, 6404 )
+
+[node name="Platform48" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 14119, 5885 )
+
+[node name="Platform49" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 14017, 5885 )
+
+[node name="Platform50" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 13518.4, 5409.7 )
+
+[node name="Platform52" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 13416.4, 5409.7 )
 
 [node name="Platform22" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 10151.4, 2576.7 )
+position = Vector2( 10090, 2353 )
 
 [node name="Platform23" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 10049.4, 2576.7 )
+position = Vector2( 10192, 2353 )
+
+[node name="Platform24" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 9987.4, 2352.7 )
+
+[node name="Platform25" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 9885.4, 2352.7 )
 
 [node name="Doors" type="Node2D" parent="."]
 
@@ -137,32 +240,38 @@ position = Vector2( 10049.4, 2576.7 )
 position = Vector2( 4932, 522 )
 scale = Vector2( 1.2, 1.531 )
 
-[node name="Lift" parent="Doors" instance=ExtResource( 12 )]
-position = Vector2( 17816, 3351 )
-scale = Vector2( 0.8, 1 )
-
 [node name="AutomaticDoor2" parent="Doors" instance=ExtResource( 14 )]
 position = Vector2( 9863, 522 )
 scale = Vector2( 1.2, 1.531 )
 
 [node name="AutomaticDoor3" parent="Doors" instance=ExtResource( 14 )]
-position = Vector2( 9868, 2285 )
+position = Vector2( 9913, 2218 )
 script = ExtResource( 17 )
 
 [node name="Door" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 13188, 2687 )
 isLocked = true
 
-[node name="Socket2" parent="Doors" instance=ExtResource( 22 )]
-position = Vector2( 12683, 2829 )
-maxEnergy = 50.0
-energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../Door") ]
+[node name="Door5" parent="Doors" instance=ExtResource( 15 )]
+position = Vector2( 15894, 2697 )
+isLocked = true
+
+[node name="Door3" parent="Doors" instance=ExtResource( 15 )]
+position = Vector2( 12497, 4925 )
+isLocked = true
+
+[node name="Door4" parent="Doors" instance=ExtResource( 15 )]
+position = Vector2( 12497, 5437 )
+isLocked = true
+
+[node name="Door2" parent="Doors" instance=ExtResource( 15 )]
+position = Vector2( 11801, 640 )
+isLocked = true
 
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="Light2D18" type="Light2D" parent="Lights"]
-position = Vector2( 10859, 2583 )
+position = Vector2( 10896, 2456 )
 scale = Vector2( 0.231667, 0.231667 )
 texture = ExtResource( 9 )
 color = Color( 0.168627, 0.905882, 0.835294, 1 )
@@ -170,7 +279,7 @@ energy = 2.3
 mode = 2
 
 [node name="Light2D19" type="Light2D" parent="Lights"]
-position = Vector2( 10859, 2268 )
+position = Vector2( 10456, 2124 )
 rotation = 3.14159
 scale = Vector2( 0.231667, 0.231667 )
 texture = ExtResource( 9 )
@@ -179,7 +288,7 @@ energy = 2.3
 mode = 2
 
 [node name="Light2D22" type="Light2D" parent="Lights"]
-position = Vector2( 10456, 2582 )
+position = Vector2( 10456, 2444 )
 scale = Vector2( 0.231667, 0.231667 )
 texture = ExtResource( 9 )
 color = Color( 0.168627, 0.905882, 0.74902, 1 )
@@ -187,7 +296,7 @@ energy = 2.3
 mode = 2
 
 [node name="Light2D23" type="Light2D" parent="Lights"]
-position = Vector2( 10456, 2271 )
+position = Vector2( 10885, 2147 )
 rotation = 3.14159
 scale = Vector2( 0.231667, 0.231667 )
 texture = ExtResource( 9 )
@@ -281,6 +390,8 @@ energy = 2.3
 mode = 2
 
 [node name="TileMapForeground" parent="." instance=ExtResource( 3 )]
+show_collision = true
+tile_data = PoolIntArray( 28, 1073741826, 0, 393240, 1610612738, 0, 458776, 1610612738, 0 )
 
 [node name="Control" type="Control" parent="."]
 margin_left = 2.0
@@ -289,10 +400,10 @@ margin_right = 42.0
 margin_bottom = 12.0
 
 [node name="Label3" type="Label" parent="Control"]
-margin_left = 3754.0
-margin_top = 978.0
-margin_right = 4141.0
-margin_bottom = 1023.0
+margin_left = 5423.0
+margin_top = 589.0
+margin_right = 5810.0
+margin_bottom = 634.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 custom_fonts/font = SubResource( 1 )
 text = "Press                  to Jump
@@ -305,10 +416,10 @@ scale = Vector2( 0.605032, 0.605032 )
 texture = ExtResource( 7 )
 
 [node name="Label5" type="Label" parent="Control"]
-margin_left = 3098.0
-margin_top = 967.0
-margin_right = 3485.0
-margin_bottom = 1012.0
+margin_left = 3464.0
+margin_top = 550.0
+margin_right = 3851.0
+margin_bottom = 595.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 custom_fonts/font = SubResource( 1 )
 text = "Move"
@@ -325,10 +436,10 @@ scale = Vector2( 0.605032, 0.605032 )
 texture = ExtResource( 5 )
 
 [node name="Label4" type="Label" parent="Control"]
-margin_left = 11861.0
-margin_top = 2673.0
-margin_right = 12270.0
-margin_bottom = 2742.0
+margin_left = 10244.0
+margin_top = 4648.0
+margin_right = 10653.0
+margin_bottom = 4717.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 custom_fonts/font = SubResource( 1 )
 text = "Press            to energize your new Companion
@@ -341,24 +452,11 @@ position = Vector2( 75.7732, 9.75305 )
 scale = Vector2( 0.770088, 0.770088 )
 texture = ExtResource( 4 )
 
-[node name="Label6" type="Label" parent="Control"]
-margin_left = 16896.0
-margin_top = 3390.0
-margin_right = 17457.0
-margin_bottom = 3459.0
-rect_scale = Vector2( 1.33293, 1.33293 )
-rect_pivot_offset = Vector2( 238.571, 27.0083 )
-custom_fonts/font = SubResource( 1 )
-text = "Green Drops recharge your energy
-
-"
-uppercase = true
-
 [node name="Label7" type="Label" parent="Control"]
-margin_left = 6264.0
-margin_top = 1068.0
-margin_right = 6825.0
-margin_bottom = 1137.0
+margin_left = 8039.0
+margin_top = 3419.0
+margin_right = 8600.0
+margin_bottom = 3488.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 rect_pivot_offset = Vector2( 238.571, 27.0083 )
 custom_fonts/font = SubResource( 1 )
@@ -369,50 +467,39 @@ uppercase = true
 
 [node name="HealthDrops" type="Node2D" parent="."]
 
-[node name="HealthDrop" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 16864, 3488 )
-rotation = 0.785397
-
-[node name="HealthDrop3" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 16848, 3488 )
-
-[node name="HealthDrop4" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 16796, 3488 )
-
-[node name="HealthDrop5" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 16832, 3480 )
-rotation = -0.785397
-
-[node name="HealthDrop2" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 16856, 3464 )
-rotation = -2.35619
-
 [node name="HealthDrop6" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 6385, 1170 )
+position = Vector2( 8102, 3519 )
 rotation = -2.35619
 
 [node name="HealthDrop7" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 6424, 1205 )
+position = Vector2( 8125, 3553 )
+rotation = -2.35619
+
+[node name="HealthDrop10" parent="HealthDrops" instance=ExtResource( 13 )]
+position = Vector2( 12928, 5643 )
+rotation = -2.35619
+
+[node name="HealthDrop12" parent="HealthDrops" instance=ExtResource( 13 )]
+position = Vector2( 12952, 5680 )
+rotation = -2.35619
+
+[node name="HealthDrop11" parent="HealthDrops" instance=ExtResource( 13 )]
+position = Vector2( 12909, 5680 )
 rotation = -2.35619
 
 [node name="HealthDrop9" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 6462, 1225 )
+position = Vector2( 8163, 3573 )
 rotation = -2.35619
 
 [node name="HealthDrop8" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 6351, 1205 )
+position = Vector2( 8052, 3553 )
 rotation = -2.35619
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="introduction" parent="." instance=ExtResource( 16 )]
-dialougeStream = ExtResource( 19 )
-dialogueText = "[Initiating wake up sequence] Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the artificial intelligence got out of control and its army of war machines wiped out almost all of humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
-doorPath = NodePath("../Doors/AutomaticDoor3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="introduction"]
-position = Vector2( 9324.5, 2285 )
-shape = SubResource( 2 )
+[node name="Socket" parent="." instance=ExtResource( 19 )]
+position = Vector2( 15339, 2831 )
+triggerScenes = [ NodePath("../Doors/Door5") ]
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 9239, 2290 )
@@ -421,9 +508,21 @@ collision_mask = 2
 script = ExtResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -193.5, 57 )
+position = Vector2( -24, -52.75 )
 shape = SubResource( 3 )
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[node name="introduction" parent="." instance=ExtResource( 16 )]
+dialogueText = "[Initiating wake up sequence] Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the artificial intelligence got out of control and its army of war machines wiped out almost all of humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
+doorPath = NodePath("../Doors/AutomaticDoor3")
 
-[editable path="Doors/Lift"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="introduction"]
+position = Vector2( 9212.5, 2146 )
+shape = SubResource( 2 )
+
+[node name="Elevator" parent="." instance=ExtResource( 12 )]
+position = Vector2( 17819, 3355 )
+scale = Vector2( 0.821712, 1 )
+targetHeight = 488.0
+moveDuration = 6
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
