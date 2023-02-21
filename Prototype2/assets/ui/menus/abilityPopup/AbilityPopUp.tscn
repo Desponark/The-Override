@@ -109,3 +109,5 @@ pause_mode = 2
 stream = ExtResource( 8 )
 
 [connection signal="finished" from="Panel/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
+[connection signal="mouse_entered" from="Panel/Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]

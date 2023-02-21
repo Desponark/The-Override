@@ -14,3 +14,12 @@ func start():
 	
 func _on_VideoPlayer_finished():
 	$Panel/VideoPlayer.play()
+
+func _on_Button_pressed():
+	$ButtonPressSound.play()
+	hide()
+	$Panel/VideoPlayer.stop()
+	get_tree().paused = false
+
+func _on_Button_mouse_entered():
+	$ButtonHoverSound.play()
