@@ -4,8 +4,8 @@ extends Area2D
 signal interacted(area)
 
 func _init():
-	# set the interactionable box to always exist on the interaction layer 5 (value 16)
-	collision_layer = 16
+	# set the interactionable box to always exist on the interaction layer 5 (value 16, bit 4)
+	set_collision_layer_bit(4, true)
 	collision_mask = 0
 	
 func _ready():
