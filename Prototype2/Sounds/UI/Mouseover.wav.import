@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mouseover.wav-d247a4797a4d2b4224d430a0a00d156f.sample"
+
+[deps]
+
+source_file="res://Sounds/UI/Mouseover.wav"
+dest_files=[ "res://.import/Mouseover.wav-d247a4797a4d2b4224d430a0a00d156f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
