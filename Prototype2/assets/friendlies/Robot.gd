@@ -6,6 +6,9 @@ export var followSpeedMultiplier = 3
 export var lightScaleMultiplier = 0.5
 export var minimumLightScaleMultiplier = 0.3
 
+func _ready():
+	$InteractionableBox.setInteractionReadiness(true)
+
 # TODO: think about a better way to change light scale
 func _process(_delta):
 	changeLightScale()
@@ -68,6 +71,8 @@ func _on_InteractionableBox_interacted(area):
 			isFollowingPlayer = true
 			# disable robot interaction collision shape so it can't be activated again
 			$InteractionableBox/CollisionShape2D.disabled = true
+			$InteractionableBox.setInteractionReadiness(false)
+			EventBus.emit_signal("robotWasPickedUp")
 
 # TODO: implement properly
 func playSocketStoppedCharging():
