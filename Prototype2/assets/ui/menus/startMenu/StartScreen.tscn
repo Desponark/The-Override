@@ -58,11 +58,11 @@ color = Color( 0.0745098, 0.121569, 0.211765, 1 )
 
 [node name="TileMapBackground" parent="." instance=ExtResource( 8 )]
 position = Vector2( -70, -218 )
-tile_data = PoolIntArray( 0, 3, 0, 1, 1, 0, 2, 4, 0, 3, 5, 0, 4, 4, 0, 65536, 5, 0, 65537, 2, 0, 65538, 3, 0, 65539, 3, 0, 65540, 4, 0, 131072, 0, 0, 131073, 2, 0, 131074, 5, 0, 131075, 4, 0, 131076, 1, 0 )
+tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 4, 0, 3, 5, 0, 4, 4, 0, 65536, 5, 0, 65537, 2, 0, 65538, 3, 0, 65539, 3, 0, 65540, 4, 0, 131072, 0, 0, 131073, 2, 0, 131074, 5, 0, 131075, 1, 0, 131076, 0, 0 )
 
 [node name="TilemapGame" parent="." instance=ExtResource( 9 )]
 position = Vector2( -70, -218 )
-tile_data = PoolIntArray( 196608, 8, 0, 196609, 9, 0, 196610, 9, 0, 196611, 8, 0, 196612, 7, 0 )
+tile_data = PoolIntArray( 196608, 536870920, 0, 196609, 536870920, 0, 196610, 536870920, 0, 196611, 536870920, 0, 196612, 536870920, 0 )
 
 [node name="NewGame" type="Button" parent="."]
 margin_left = 404.0
