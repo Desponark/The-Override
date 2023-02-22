@@ -30,7 +30,7 @@ extents = Vector2( 305, 393.5 )
 extents = Vector2( 244.5, 177.75 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 141, 606.75 )
+extents = Vector2( 107, 613.938 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 66, 128 )
@@ -134,7 +134,7 @@ dialougeStream = ExtResource( 12 )
 dialogueText = "Careful! Hostile machines ahead. Now that I am activated, they will try to destroy us. You will have to deal with them."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstEnemy"]
-position = Vector2( 17816, 410 )
+position = Vector2( 18317, 223 )
 shape = SubResource( 3 )
 
 [node name="SecondSocket" parent="." instance=ExtResource( 10 )]
@@ -143,7 +143,8 @@ dialougeStream = ExtResource( 13 )
 dialogueText = "Another socket. You know what to do. Put me in."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecondSocket"]
-position = Vector2( 17925, -42 )
+position = Vector2( 21620.1, -272.001 )
+rotation = 1.57079
 shape = SubResource( 4 )
 
 [node name="AfterFirstEnemy" parent="." instance=ExtResource( 10 )]
