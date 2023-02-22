@@ -105,11 +105,11 @@ position = Vector2( 76, -6 )
 position = Vector2( 9169, 2339 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 4129, 620 )
+position = Vector2( 4112, 656 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 3304, 473 )
+position = Vector2( 3438, 395 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
@@ -117,7 +117,8 @@ dialougeStream = ExtResource( 11 )
 dialogueText = "I can do something about these closed passages. Put me into this socket and I will be able to open the door."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSocket"]
-position = Vector2( 12248, 2513 )
+position = Vector2( 15002, 2486 )
+rotation = 3.13787
 shape = SubResource( 2 )
 
 [node name="AfterFirstSocket" parent="." instance=ExtResource( 10 )]
@@ -125,7 +126,7 @@ dialougeStream = ExtResource( 15 )
 dialogueText = "When I am charging a socket, I lose energy and my light decreases. If I am low on energy, transfer your own energy into me. Always check on my wellbeing. My survival is of utmost importance."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstSocket"]
-position = Vector2( 15298, 2495 )
+position = Vector2( 15933, 2507 )
 shape = SubResource( 6 )
 
 [node name="FirstEnemy" parent="." instance=ExtResource( 10 )]
