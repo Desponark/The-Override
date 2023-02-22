@@ -6,6 +6,7 @@ export var moveDuration = 4
 export var moveOnlyOnce = false
 export var returnToStartPosition = false
 export var elevatorCooldown = 1
+export var isLocked = false
 
 var isDown = true
 var isActive = false
@@ -19,6 +20,8 @@ func _on_Area2D_body_entered(body):
 	moveElevator()
 
 func moveElevator():
+	if isLocked:
+		return
 	if isActive:
 		return
 	if isDown:
@@ -27,6 +30,9 @@ func moveElevator():
 		$Tween.interpolate_property(self, "global_position:y", targetHeight, startHeight, moveDuration, Tween.TRANS_QUAD)
 	$Tween.start()
 	isActive = true
+
+func socketFullyCharged():
+	isLocked = false
 
 func _on_Tween_tween_all_completed():
 	isDown = !isDown
