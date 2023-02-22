@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Teleporter.gd" type="Script" id=9]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sounds/Robot/voice/firstSocket.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/Robot/voice/firstEnemy.ogg" type="AudioStream" id=12]
@@ -164,5 +165,26 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 6508, -4495 )
 shape = SubResource( 7 )
+
+[node name="Teleporter" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="F1" type="Position2D" parent="Teleporter"]
+position = Vector2( 9074, 579 )
+
+[node name="F2" type="Position2D" parent="Teleporter"]
+position = Vector2( 12360, 2226 )
+
+[node name="F3" type="Position2D" parent="Teleporter"]
+position = Vector2( 23002, 2665 )
+
+[node name="F4" type="Position2D" parent="Teleporter"]
+position = Vector2( 25807, 5917 )
+
+[node name="F5" type="Position2D" parent="Teleporter"]
+position = Vector2( 3057, 593 )
+
+[node name="F6" type="Position2D" parent="Teleporter"]
+position = Vector2( 3057, 704 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
