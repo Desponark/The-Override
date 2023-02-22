@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -14,12 +14,13 @@
 [ext_resource path="res://Sounds/Robot/voice/firstEnemy.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/Robot/voice/secondSocket.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Sounds/Robot/voice/aftterFirstSocket.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/Robot/voice/afterFirstSocket_short.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/ui/menus/abilityPopup/AbilityPopUp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/ui/menus/pauseMenu/pauseMenu.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=21]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 112, 412 )
@@ -34,7 +35,7 @@ extents = Vector2( 244.5, 177.75 )
 extents = Vector2( 107, 613.938 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 66, 128 )
+extents = Vector2( 66, 666 )
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 1330.69
@@ -105,14 +106,14 @@ position = Vector2( 76, -6 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 23968, 5960 )
+position = Vector2( 9515, 2276 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 24283, 5565 )
+position = Vector2( 10978, 2649 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 24664, 5651 )
+position = Vector2( 11248, 2395 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
@@ -137,7 +138,7 @@ dialougeStream = ExtResource( 12 )
 dialogueText = "Careful! Hostile machines ahead. Now that I am activated, they will try to destroy us. You will have to deal with them."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstEnemy"]
-position = Vector2( 18317, 223 )
+position = Vector2( 17819, 480 )
 shape = SubResource( 3 )
 
 [node name="SecondSocket" parent="." instance=ExtResource( 10 )]
@@ -157,6 +158,15 @@ dialogueText = "Good. There are more of them ahead. Once, these machines were cr
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstEnemy"]
 position = Vector2( 21986, 240 )
+shape = SubResource( 5 )
+
+[node name="endLevelDoor" parent="." instance=ExtResource( 10 )]
+position = Vector2( -268, 0 )
+dialougeStream = ExtResource( 21 )
+dialogueText = "There! The activation unit is located behind this gate. Explore this place: There are sockets nearby to open it! We are very close."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endLevelDoor"]
+position = Vector2( 30986, -220 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -184,9 +194,9 @@ position = Vector2( 23002, 2665 )
 position = Vector2( 25807, 5917 )
 
 [node name="F5" type="Position2D" parent="Teleporter"]
-position = Vector2( 3057, 593 )
+position = Vector2( 29254, 327 )
 
 [node name="F6" type="Position2D" parent="Teleporter"]
-position = Vector2( 3057, 704 )
+position = Vector2( 29270, 327 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
