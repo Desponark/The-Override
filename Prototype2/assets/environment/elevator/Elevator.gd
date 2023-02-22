@@ -4,26 +4,27 @@ extends StaticBody2D
 export var targetHeight = -100.0
 export var moveDuration = 4
 export var moveOnlyOnce = false
+export var returnToStartPosition = false
+export var elevatorCooldown = 1
 
 var isDown = true
 var isActive = false
-#var startPosition
 var startHeight
 
 func _ready():
-#	startPosition = global_position
 	startHeight = global_position.y
+	$Timer.wait_time = elevatorCooldown
 
 func _on_Area2D_body_entered(body):
-	# toogle elevator moving up or down
+	moveElevator()
+
+func moveElevator():
 	if isActive:
 		return
-	
 	if isDown:
 		$Tween.interpolate_property(self, "global_position:y", startHeight, targetHeight, moveDuration, Tween.TRANS_QUAD)
 	else:
 		$Tween.interpolate_property(self, "global_position:y", targetHeight, startHeight, moveDuration, Tween.TRANS_QUAD)
-	
 	$Tween.start()
 	isActive = true
 
@@ -36,3 +37,5 @@ func _on_Timer_timeout():
 	if moveOnlyOnce:
 		return
 	isActive = false
+	if returnToStartPosition:
+		moveElevator()
