@@ -77,6 +77,7 @@ __meta__ = {
 }
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
+position = Vector2( -2, -1 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
@@ -91,6 +92,7 @@ healthDrop = null
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 20884, -179 )
+moveSpeed = 0.0
 healthDrop = null
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 8 )]
@@ -102,14 +104,14 @@ position = Vector2( 76, -6 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 9169, 2339 )
+position = Vector2( 23461, 264 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 4112, 656 )
+position = Vector2( 23922, 305 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 3438, 395 )
+position = Vector2( 24192, 51 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
@@ -126,7 +128,7 @@ dialougeStream = ExtResource( 15 )
 dialogueText = "When I am charging a socket, I lose energy and my light decreases. If I am low on energy, transfer your own energy into me. Always check on my wellbeing. My survival is of utmost importance."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstSocket"]
-position = Vector2( 15933, 2507 )
+position = Vector2( 16337, 2511 )
 shape = SubResource( 6 )
 
 [node name="FirstEnemy" parent="." instance=ExtResource( 10 )]
