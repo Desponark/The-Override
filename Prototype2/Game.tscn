@@ -106,14 +106,14 @@ position = Vector2( 76, -6 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 9515, 2276 )
+position = Vector2( 9310, 3179 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 10978, 2649 )
+position = Vector2( 3082, 734 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 11248, 2395 )
+position = Vector2( 3352, 480 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
@@ -185,13 +185,13 @@ script = ExtResource( 9 )
 position = Vector2( 9074, 579 )
 
 [node name="F2" type="Position2D" parent="Teleporter"]
-position = Vector2( 12360, 2226 )
+position = Vector2( 13565, 2633 )
 
 [node name="F3" type="Position2D" parent="Teleporter"]
 position = Vector2( 23002, 2665 )
 
 [node name="F4" type="Position2D" parent="Teleporter"]
-position = Vector2( 25807, 5917 )
+position = Vector2( 28409, 5631 )
 
 [node name="F5" type="Position2D" parent="Teleporter"]
 position = Vector2( 29254, 327 )
