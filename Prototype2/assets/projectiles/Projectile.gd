@@ -25,9 +25,8 @@ func fixRotation():
 func takeDamage(damage):
 	# change projectile direction
 	linear_velocity = linear_velocity * -1
-	print("hi")
 	$ReflectVFX.play("default")
-	$Particles2D.show()
+	$Particles2D.emitting = true
 	# change projectile collisions so it can hit enemies too
 	$HitBox.set_collision_layer_bit(2, true)
 	set_collision_layer_bit(2, true)
@@ -35,11 +34,7 @@ func takeDamage(damage):
 	$HitBox.damage = damage
 
 func _on_Projectile_body_entered(_body):
-	$Particles2D.hide()
-	$ReflectVFX.hide()
 	queue_free()
 
 func _on_Timer_timeout():
-	$Particles2D.hide()
-	$ReflectVFX.hide()
 	queue_free()
