@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/customNodes/InteractionableBox.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/environment/switch/Hebel.png" type="Texture" id=2]
 [ext_resource path="res://assets/environment/switch/Switch.gd" type="Script" id=3]
 [ext_resource path="res://Sounds/Switch/Menu_Select_00.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Switch/Alarm_Loop_01.mp3" type="AudioStream" id=5]
@@ -17,6 +17,8 @@ light_mode = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 62, 0 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 
 [node name="InteractionableBox" type="Area2D" parent="."]
