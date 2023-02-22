@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/levels/BuildTutorial.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sounds/Robot/voice/firstSocket.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/Robot/voice/firstEnemy.ogg" type="AudioStream" id=12]
@@ -70,15 +69,14 @@ visible = false
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.027451, 0.027451, 0.027451, 1 )
-position = Vector2( 34904, 1129 )
+position = Vector2( 38166, 3732 )
 scale = Vector2( 103.282, 472.734 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 15657, -42 )
-
-[node name="BuildTutorial" parent="." instance=ExtResource( 9 )]
-position = Vector2( 12288, 1638 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
@@ -87,16 +85,16 @@ position = Vector2( 12288, 1638 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 37186, -177 )
+position = Vector2( 21747, -177 )
 moveSpeed = 0.0
 healthDrop = null
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 36521, -192 )
+position = Vector2( 20884, -179 )
 healthDrop = null
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 21308, 263 )
+position = Vector2( 19229, 268 )
 
 [node name="Loot" type="Node2D" parent="."]
 position = Vector2( 76, -6 )
@@ -104,14 +102,14 @@ position = Vector2( 76, -6 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 44674, 3029 )
+position = Vector2( 9169, 2339 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 44508, 2975 )
+position = Vector2( 4129, 620 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 44523, 3016 )
+position = Vector2( 3304, 473 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
@@ -144,7 +142,7 @@ dialougeStream = ExtResource( 13 )
 dialogueText = "Another socket. You know what to do. Put me in."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecondSocket"]
-position = Vector2( 32214, -200.25 )
+position = Vector2( 17925, -42 )
 shape = SubResource( 4 )
 
 [node name="AfterFirstEnemy" parent="." instance=ExtResource( 10 )]
@@ -157,7 +155,7 @@ position = Vector2( 21986, 240 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 43503, 240 )
+position = Vector2( 29214, 398.25 )
 collision_layer = 0
 collision_mask = 2
 

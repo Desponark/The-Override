@@ -399,13 +399,13 @@ tile_data = PoolIntArray( -327618, 536870927, 0, -262092, 536870914, 0, -262091,
 [node name="platforms" type="Node2D" parent="."]
 
 [node name="Platform28" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 19204, 440 )
+position = Vector2( 19200, 393 )
 
 [node name="Platform33" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 19610, 394 )
+position = Vector2( 19609, 393 )
 
 [node name="Platform34" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 20019, 394 )
+position = Vector2( 20018, 393 )
 
 [node name="Platform35" parent="platforms" instance=ExtResource( 8 )]
 position = Vector2( 20428, 394 )
@@ -566,19 +566,19 @@ position = Vector2( 22044, -1038 )
 scale = Vector2( 0.8, 0.919998 )
 
 [node name="DashDoor" parent="doors" instance=ExtResource( 12 )]
-position = Vector2( 27751, 908 )
+position = Vector2( 27570, 904 )
 rotation = 4.71238
-scale = Vector2( 1, 1.2 )
+scale = Vector2( 1, 1.1 )
 isLocked = true
 
 [node name="DashDoor2" parent="doors" instance=ExtResource( 12 )]
-position = Vector2( 28364, 910 )
+position = Vector2( 28499, 900 )
 rotation = 1.57079
-scale = Vector2( 1, 1.2 )
+scale = Vector2( 1, 1.1 )
 isLocked = true
 
 [node name="DashDoor3" parent="doors" instance=ExtResource( 12 )]
-position = Vector2( 28589, 2681 )
+position = Vector2( 28589, 2670 )
 rotation = 3.14159
 scale = Vector2( 0.817, 0.9 )
 isLocked = true
@@ -736,10 +736,10 @@ margin_right = 42.0
 margin_bottom = 13.0
 
 [node name="Label3" type="Label" parent="Control"]
-margin_left = 19047.0
-margin_top = 155.0
-margin_right = 19434.0
-margin_bottom = 224.0
+margin_left = 18218.0
+margin_top = 138.0
+margin_right = 18605.0
+margin_bottom = 207.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 custom_fonts/font = SubResource( 1 )
 text = "[LMB] to Attack
