@@ -126,9 +126,11 @@ script = ExtResource( 3 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 2 )
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 258
 collision_mask = 0
 script = ExtResource( 2 )
@@ -142,6 +144,7 @@ one_shot = true
 autostart = true
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 4096
 collision_mask = 0
 script = ExtResource( 4 )
@@ -155,9 +158,9 @@ scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 39 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
-visible = false
 position = Vector2( 8, 0 )
 rotation = 3.14159
+emitting = false
 lifetime = 0.5
 process_material = SubResource( 40 )
 
