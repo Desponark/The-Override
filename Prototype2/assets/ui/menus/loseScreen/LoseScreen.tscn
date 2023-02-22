@@ -1,42 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=1]
-[ext_resource path="res://assets/player/runner-hero-sheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=5]
-
-[sub_resource type="GDScript" id=6]
-script/source = "extends Control
-
-func _ready():
-	visible = false
-
-func setup(text):
-	if text:
-		$Control/Label.text = text
-
-func start():
-	show()
-	$AnimationPlayer.play(\"zoom\")
-	get_tree().paused = true
-
-func _on_Button_pressed():
-	$ButtonPressSound.play()
-	get_tree().paused = false
-	get_tree().reload_current_scene()
-	
-func _on_Button2_pressed():
-	$ButtonPressSound.play()
-	get_tree().quit()
-
-
-func _on_Button_mouse_entered():
-	$ButtonHoverSound.play()
-
-func _on_Button2_mouse_entered():
-	$ButtonHoverSound.play()
-"
 
 [sub_resource type="DynamicFont" id=1]
 size = 139
@@ -124,7 +92,7 @@ margin_left = 808.0
 margin_top = 376.0
 margin_right = -791.0
 margin_bottom = -562.0
-script = SubResource( 6 )
+script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.137
@@ -172,14 +140,6 @@ margin_right = 583.0
 margin_bottom = 288.152
 custom_fonts/font = SubResource( 5 )
 text = "End Game"
-
-[node name="Runner-hero-sheet" type="Sprite" parent="."]
-visible = false
-position = Vector2( 216.233, 31.3044 )
-scale = Vector2( 1.278, 1.273 )
-texture = ExtResource( 2 )
-hframes = 10
-vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )

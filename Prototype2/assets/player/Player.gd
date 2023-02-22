@@ -33,6 +33,8 @@ export var healthTransferMultiplier = 2.0 # this multiplies the player health wh
 var isDashUnlocked = false
 var isProjectileReflectUnlocked = false
 
+var checkPointPos = null
+
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
@@ -205,6 +207,13 @@ func getRobotRef():
 # TODO: think about different solution
 func getPriority():
 	return 3
+	
+func setCheckPoint(pos):
+	checkPointPos = pos
+
+func setPlayerToCheckpoint():
+	global_position = checkPointPos
+	$CanvasLayer/HealthBar.setup()
 	
 func _on_HealthBar_healthReachedZero():
 	EventBus.emit_signal("loseEvent", "You Died!")

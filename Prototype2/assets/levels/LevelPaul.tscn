@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/environment/triggers/UpgradeTrigger.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -7,14 +7,19 @@
 [ext_resource path="res://assets/environment/roomAssets/BackgroundWalls/background.png" type="Texture" id=5]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/environment/spawner/Spawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/ui/keyIcons/shiftButton.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/enemies/loot/HealthDrop.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/ui/keyIcons/leftMouseButton.png" type="Texture" id=11]
 [ext_resource path="res://assets/ui/menus/abilityPopup/reflect.webm" type="VideoStream" id=12]
+[ext_resource path="res://assets/environment/checkpoint/CheckPoint.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/ui/keyIcons/shiftButton.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 281, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 287, 506 )
 
 [node name="LevelPaul" type="Node2D"]
 
@@ -70,7 +75,7 @@ shape = SubResource( 1 )
 position = Vector2( 1707, 758 )
 videoStream = ExtResource( 4 )
 headline = "Unlocked: Dash"
-button = ExtResource( 8 )
+button = ExtResource( 14 )
 explainationText = "dash"
 
 [node name="UpgradeTrigger2" parent="." instance=ExtResource( 1 )]
@@ -80,3 +85,12 @@ headline = "Unlocked: Reflect"
 button = ExtResource( 11 )
 explainationText = "reflect"
 ability = "reflect"
+
+[node name="CheckPoint" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2198, 641 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoint"]
+shape = SubResource( 2 )
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1010, 707 )
