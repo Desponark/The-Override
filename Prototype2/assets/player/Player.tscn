@@ -213,7 +213,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
+"times": PoolRealArray( 0, 0.1, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -557,7 +557,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=20]
-radius = 66.6877
+radius = 72.0625
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 61.0

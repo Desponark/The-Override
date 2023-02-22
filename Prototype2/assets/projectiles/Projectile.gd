@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var maxSpeed
+var player = null
 
 onready var startPosition = global_position
 
@@ -24,6 +25,8 @@ func fixRotation():
 func takeDamage(damage):
 	# change projectile direction
 	linear_velocity = linear_velocity * -1
+	$ReflectVFX.play("default")
+	$Particles2D.emitting = true
 	# change projectile collisions so it can hit enemies too
 	$HitBox.set_collision_layer_bit(2, true)
 	set_collision_layer_bit(2, true)
