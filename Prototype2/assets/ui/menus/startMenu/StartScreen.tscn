@@ -115,13 +115,13 @@ valign = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="Label" type="Label" parent="."]
-margin_left = 112.0
+[node name="GameTitle" type="Label" parent="."]
 margin_top = 104.0
-margin_right = 1813.0
+margin_right = 1921.0
 margin_bottom = 330.0
 custom_fonts/font = SubResource( 2 )
-text = "Projekt Nettelnburg"
+text = "The Override"
+align = 1
 
 [node name="Robot" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1375, 559 )
