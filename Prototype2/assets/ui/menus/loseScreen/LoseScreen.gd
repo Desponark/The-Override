@@ -1,16 +1,37 @@
 extends Control
 
+var player = null
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visible = false
+
+func setup(text, playerRef):
+	if text:
+		$Control/Label.text = text
+	player = playerRef
+
+func start():
+	show()
+	$AnimationPlayer.play("zoom")
+	get_tree().paused = true
+
+func _on_Button_pressed():
+	$ButtonPressSound.play()
+	get_tree().paused = false
+	print(player)
+	if player:
+		player.setPlayerToCheckpoint()
+		hide()
+	else:
+		get_tree().reload_current_scene()
+	
+func _on_Button2_pressed():
+	$ButtonPressSound.play()
+	get_tree().quit()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Button_mouse_entered():
+	$ButtonHoverSound.play()
+
+func _on_Button2_mouse_entered():
+	$ButtonHoverSound.play()

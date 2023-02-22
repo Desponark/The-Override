@@ -3,6 +3,8 @@ extends Node2D
 export var freezeSlow = 0.07
 export var freezeTime = 0.3
 export(PackedScene) var startScreen
+export(NodePath) var playerPath
+onready var player = get_node_or_null(playerPath)
 
 func _ready():
 	# warning-ignore-all:RETURN_VALUE_DISCARDED
@@ -42,7 +44,7 @@ func showAbilityPopup(videoStream, headline, button, explainationText):
 	$MenuElements/AbilityPopUp.start()
 
 func showLoseScreen(message):
-	$MenuElements/LoseScreen.setup(message)
+	$MenuElements/LoseScreen.setup(message, player)
 	$MenuElements/LoseScreen.start()
 
 func _on_Area2D_body_entered(body):
