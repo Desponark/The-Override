@@ -87,16 +87,6 @@ position = Vector2( -2, -1 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 21747, -177 )
-moveSpeed = 0.0
-healthDrop = null
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 20884, -179 )
-moveSpeed = 0.0
-healthDrop = null
-
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 19229, 268 )
 
@@ -106,14 +96,14 @@ position = Vector2( 76, -6 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 9515, 2276 )
+position = Vector2( 29239, -2620 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 10978, 2649 )
+position = Vector2( 29133, -2463 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 11248, 2395 )
+position = Vector2( 29332, -2714 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
