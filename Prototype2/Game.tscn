@@ -53,7 +53,7 @@ autoplay = true
 bus = "Music"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.470588, 0.470588, 0.470588, 1 )
+color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="MenuElements" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -99,6 +99,9 @@ healthDrop = null
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 19229, 268 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 26049, 5957 )
 
 [node name="Loot" type="Node2D" parent="."]
 position = Vector2( 76, -6 )
@@ -182,7 +185,7 @@ shape = SubResource( 7 )
 script = ExtResource( 9 )
 
 [node name="F1" type="Position2D" parent="Teleporter"]
-position = Vector2( 9074, 579 )
+position = Vector2( 10480, 578 )
 
 [node name="F2" type="Position2D" parent="Teleporter"]
 position = Vector2( 13565, 2633 )
@@ -197,6 +200,6 @@ position = Vector2( 28409, 5631 )
 position = Vector2( 29254, 327 )
 
 [node name="F6" type="Position2D" parent="Teleporter"]
-position = Vector2( 29270, 327 )
+position = Vector2( 26717, 256 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

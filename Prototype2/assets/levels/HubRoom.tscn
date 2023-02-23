@@ -617,6 +617,7 @@ texture = ExtResource( 14 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D18" type="Light2D" parent="Lights"]
 position = Vector2( 21304, -47 )
@@ -625,6 +626,7 @@ texture = ExtResource( 14 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D19" type="Light2D" parent="Lights"]
 position = Vector2( 23137, -462 )
@@ -633,6 +635,7 @@ texture = ExtResource( 14 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="TileMapForeground" parent="." instance=ExtResource( 3 )]
 show_collision = true
@@ -816,8 +819,8 @@ initialMoveDirection = 1
 
 [node name="Spawner5" parent="Spawner" instance=ExtResource( 29 )]
 position = Vector2( 27654, 5822 )
-minSpawnRate = 4
-maxSpawnRate = 4
+minSpawnRate = 1
+maxSpawnRate = 1
 waveSpawnAmount = 2
 initialMoveDirection = -1
 
@@ -846,7 +849,7 @@ button = ExtResource( 22 )
 explainationText = "to dash forward and avoid all damage"
 
 [node name="UpgradeTrigger2" parent="." instance=ExtResource( 19 )]
-position = Vector2( 27776, 5924 )
+position = Vector2( 27770, 5950 )
 videoStream = ExtResource( 20 )
 headline = "Unlocked: Reflect"
 button = ExtResource( 17 )
@@ -880,7 +883,6 @@ scale = Vector2( 0.818614, 0.84121 )
 position = Vector2( 30515, 5674 )
 scale = Vector2( 0.8, 0.8 )
 targetHeight = 3288.0
-returnToStartPosition = true
 
 [node name="Socket and switches" type="Node2D" parent="."]
 
@@ -888,7 +890,7 @@ returnToStartPosition = true
 position = Vector2( 28053, -117 )
 maxEnergy = 250.0
 energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../../doors/DashDoor2"), NodePath("../../doors/DashDoor"), NodePath(""), NodePath("") ]
+triggerScenes = [ NodePath("../../doors/DashDoor2"), NodePath("../../doors/DashDoor") ]
 
 [node name="DashSocket2" parent="Socket and switches" instance=ExtResource( 11 )]
 position = Vector2( 21929, 2211 )
