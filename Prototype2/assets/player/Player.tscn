@@ -646,15 +646,17 @@ margin_left = 122.0
 margin_top = 572.0
 margin_right = 202.0
 margin_bottom = 592.0
-rect_rotation = -90.0
+rect_rotation = -90.1798
 rect_scale = Vector2( 0.7, 0.7 )
 health = 75.0
 
 [node name="Position2D" type="Position2D" parent="CanvasLayer"]
 position = Vector2( 122, 509 )
+rotation = -0.00313872
 
 [node name="HealthAbsorbtionArea" type="Area2D" parent="."]
 position = Vector2( 61, 254.5 )
+rotation = -0.00313872
 collision_layer = 32
 collision_mask = 32
 
