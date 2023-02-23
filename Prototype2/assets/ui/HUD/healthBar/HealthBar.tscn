@@ -18,12 +18,12 @@ value = 50.0
 
 [node name="progressbar" type="Sprite" parent="."]
 light_mask = 0
-position = Vector2( -361, -64 )
-scale = Vector2( 1.13881, 1.10133 )
+position = Vector2( -351, -70 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
-position = Vector2( 1, 0 )
+position = Vector2( -39, 5.72205e-06 )
+scale = Vector2( 0.865234, 0.865234 )
 texture = ExtResource( 2 )
