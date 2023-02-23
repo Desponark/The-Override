@@ -46,6 +46,7 @@ texture = ExtResource( 9 )
 color = Color( 0.788235, 0.937255, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D3" type="Light2D" parent="Lights"]
 position = Vector2( 6328, 765 )
@@ -53,6 +54,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D4" type="Light2D" parent="Lights"]
 position = Vector2( 3438, 497 )
@@ -61,6 +63,7 @@ offset = Vector2( 68, 271 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D5" type="Light2D" parent="Lights"]
 position = Vector2( 11695, 797 )
@@ -69,6 +72,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D10" type="Light2D" parent="Lights"]
 position = Vector2( 11694, 1610 )
@@ -77,6 +81,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D11" type="Light2D" parent="Lights"]
 position = Vector2( 11693, 2423 )
@@ -85,6 +90,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D6" type="Light2D" parent="Lights"]
 position = Vector2( 16592, 2352 )
@@ -93,6 +99,7 @@ texture = ExtResource( 9 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D15" type="Light2D" parent="Lights"]
 position = Vector2( 15373, 2352 )
@@ -101,6 +108,7 @@ texture = ExtResource( 9 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D16" type="Light2D" parent="Lights"]
 position = Vector2( 14115, 2352 )
@@ -109,6 +117,7 @@ texture = ExtResource( 9 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D7" type="Light2D" parent="Lights"]
 position = Vector2( 17816, 1930 )
@@ -117,6 +126,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D17" type="Light2D" parent="Lights"]
 position = Vector2( 17816, 2738 )
@@ -125,6 +135,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D8" type="Light2D" parent="Lights"]
 position = Vector2( 17816, 1110 )
@@ -133,6 +144,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D9" type="Light2D" parent="Lights"]
 position = Vector2( 17809, 321 )
@@ -141,6 +153,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="TilemapGame" parent="." instance=ExtResource( 2 )]
 show_collision = true
@@ -450,10 +463,10 @@ scale = Vector2( 0.770088, 0.770088 )
 texture = ExtResource( 4 )
 
 [node name="Label7" type="Label" parent="Control"]
-margin_left = 12256.0
-margin_top = 2381.0
-margin_right = 12817.0
-margin_bottom = 2450.0
+margin_left = 13492.0
+margin_top = 2679.0
+margin_right = 14053.0
+margin_bottom = 2748.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 rect_pivot_offset = Vector2( 238.571, 27.0083 )
 custom_fonts/font = SubResource( 1 )
@@ -477,15 +490,15 @@ position = Vector2( 12909, 5680 )
 rotation = -2.35619
 
 [node name="HealthDrop13" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 12094, 2386 )
+position = Vector2( 13338, 2778 )
 rotation = -2.35619
 
 [node name="HealthDrop14" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 12118, 2423 )
+position = Vector2( 13362, 2815 )
 rotation = -2.35619
 
 [node name="HealthDrop15" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 12075, 2423 )
+position = Vector2( 13319, 2815 )
 rotation = -2.35619
 
 [node name="Enemies" type="Node2D" parent="."]
