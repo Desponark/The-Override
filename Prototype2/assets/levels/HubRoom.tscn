@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/spawner/Spawner.tscn" type="PackedScene" id=2]
@@ -39,61 +39,6 @@ extents = Vector2( 386.664, 670.002 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 387.777, 559.257 )
-
-[sub_resource type="Animation" id=7]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "open"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 2.54912, 0.615572, 0.615572 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0.403149, -100.997 ), Vector2( 0, -510 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 2.54912, 0.615572, 0.615572 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0.403149, -100.997 ), Vector2( 0, -510 ) ]
-}
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -651,16 +596,7 @@ disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="doors/AutomaticDoor4/Area2D" index="1"]
 shape = SubResource( 7 )
-
 disabled = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="doors/AutomaticDoor6/Area2D" index="1"]
-position = Vector2( -4.44531, 162.222 )
-shape = SubResource( 3 )
-
-[node name="AnimationPlayer" parent="doors/AutomaticDoor6" index="2"]
-anims/RESET = SubResource( 7 )
-anims/open = SubResource( 8 )
 
 [node name="AutomaticDoor7" parent="doors" instance=ExtResource( 6 )]
 position = Vector2( 30980, -4407 )
