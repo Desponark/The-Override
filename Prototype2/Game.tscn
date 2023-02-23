@@ -53,7 +53,7 @@ autoplay = true
 bus = "Music"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.54902, 0.54902, 0.54902, 1 )
+color = Color( 0.470588, 0.470588, 0.470588, 1 )
 
 [node name="MenuElements" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -175,7 +175,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 6508, -4495 )
+position = Vector2( 3157, -577.25 )
 shape = SubResource( 7 )
 
 [node name="Teleporter" type="Node2D" parent="."]

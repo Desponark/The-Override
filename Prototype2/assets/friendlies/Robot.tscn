@@ -114,6 +114,7 @@ scale = Vector2( 2, 2 )
 collision_layer = 256
 collision_mask = 0
 script = ExtResource( 6 )
+lightScaleMultiplier = 0.75
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 5 )

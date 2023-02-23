@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sounds/Door/door_open.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Sounds/Door/doorClosing.mp3" type="AudioStream" id=2]
@@ -39,6 +39,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("LightOccluder2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "open"
@@ -67,6 +79,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0.403149, -100.997 ), Vector2( 0, -510 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("LightOccluder2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 2.54912, 0.615572, 0.615572 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -101 ), Vector2( 0, -510 ) ]
+}
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( -64, -256, 64, -256, 64, 179, 50, 256, -51, 256, -64, 179 )
 
 [node name="Door" type="StaticBody2D"]
 script = ExtResource( 5 )
@@ -77,9 +104,11 @@ texture = ExtResource( 3 )
 region_rect = Rect2( 37.1725, 427.134, 512.531, 155.986 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="InteractionableBox" type="Area2D" parent="."]
+visible = false
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionableBox"]
@@ -96,5 +125,8 @@ bus = "Sound Effects"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
 anims/open = SubResource( 5 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 6 )
 
 [connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
