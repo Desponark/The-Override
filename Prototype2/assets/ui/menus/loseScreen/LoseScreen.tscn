@@ -24,7 +24,9 @@ func start():
 func _on_Button_pressed():
 	$ButtonPressSound.play()
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+#	get_tree().reload_current_scene()
+	$\"../../Teleporter\".teleportToLastPos()
+	hide()
 	
 func _on_Button2_pressed():
 	$ButtonPressSound.play()
