@@ -53,7 +53,7 @@ autoplay = true
 bus = "Music"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.54902, 0.54902, 0.54902, 1 )
+color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="MenuElements" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -87,18 +87,11 @@ position = Vector2( -2, -1 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 21747, -177 )
-moveSpeed = 0.0
-healthDrop = null
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 20884, -179 )
-moveSpeed = 0.0
-healthDrop = null
-
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 19229, 268 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 26049, 5957 )
 
 [node name="Loot" type="Node2D" parent="."]
 position = Vector2( 76, -6 )
@@ -106,14 +99,14 @@ position = Vector2( 76, -6 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 9515, 2276 )
+position = Vector2( 9310, 3179 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 10978, 2649 )
+position = Vector2( 3082, 734 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 11248, 2395 )
+position = Vector2( 3352, 480 )
 playerPath = NodePath("../Player")
 
 [node name="FirstSocket" parent="." instance=ExtResource( 10 )]
@@ -175,28 +168,28 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 6508, -4495 )
+position = Vector2( 3157, -577.25 )
 shape = SubResource( 7 )
 
 [node name="Teleporter" type="Node2D" parent="."]
 script = ExtResource( 9 )
 
 [node name="F1" type="Position2D" parent="Teleporter"]
-position = Vector2( 9074, 579 )
+position = Vector2( 10480, 578 )
 
 [node name="F2" type="Position2D" parent="Teleporter"]
-position = Vector2( 12360, 2226 )
+position = Vector2( 13565, 2633 )
 
 [node name="F3" type="Position2D" parent="Teleporter"]
 position = Vector2( 23002, 2665 )
 
 [node name="F4" type="Position2D" parent="Teleporter"]
-position = Vector2( 25807, 5917 )
+position = Vector2( 28409, 5631 )
 
 [node name="F5" type="Position2D" parent="Teleporter"]
 position = Vector2( 29254, 327 )
 
 [node name="F6" type="Position2D" parent="Teleporter"]
-position = Vector2( 29270, 327 )
+position = Vector2( 26717, 256 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
