@@ -35,4 +35,4 @@ func _on_DialogueTrigger_body_entered(body):
 		set_collision_mask_bit(8, false)
 		
 	if door and door.has_method("lock"):
-		door.lock(dialougeStream.get_length())
+		door.lock(10)

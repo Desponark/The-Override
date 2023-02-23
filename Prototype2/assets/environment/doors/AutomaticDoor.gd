@@ -1,5 +1,9 @@
 extends "res://assets/environment/doors/SpawnerDoor.gd"
 
+func _ready():
+	isLocked = true
+	$Sprite.self_modulate = Color(1,0,0)
+
 func lock(seconds):
 	isLocked = true
 	$Sprite.self_modulate = Color(1,0,0)

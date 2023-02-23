@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -17,8 +17,12 @@
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.gd" type="Script" id=17]
+[ext_resource path="res://assets/environment/tilemaps/TileMapCable.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/environment/roomAssets/Floors/FloorPlatform.tscn" type="PackedScene" id=20]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 299, 336 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -42,6 +46,7 @@ texture = ExtResource( 9 )
 color = Color( 0.788235, 0.937255, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D3" type="Light2D" parent="Lights"]
 position = Vector2( 6328, 765 )
@@ -49,6 +54,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D4" type="Light2D" parent="Lights"]
 position = Vector2( 3438, 497 )
@@ -57,6 +63,7 @@ offset = Vector2( 68, 271 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D5" type="Light2D" parent="Lights"]
 position = Vector2( 11695, 797 )
@@ -65,6 +72,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D10" type="Light2D" parent="Lights"]
 position = Vector2( 11694, 1610 )
@@ -73,6 +81,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D11" type="Light2D" parent="Lights"]
 position = Vector2( 11693, 2423 )
@@ -81,6 +90,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D6" type="Light2D" parent="Lights"]
 position = Vector2( 16592, 2352 )
@@ -89,6 +99,7 @@ texture = ExtResource( 9 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D15" type="Light2D" parent="Lights"]
 position = Vector2( 15373, 2352 )
@@ -97,6 +108,7 @@ texture = ExtResource( 9 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D16" type="Light2D" parent="Lights"]
 position = Vector2( 14115, 2352 )
@@ -105,6 +117,7 @@ texture = ExtResource( 9 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D7" type="Light2D" parent="Lights"]
 position = Vector2( 17816, 1930 )
@@ -113,6 +126,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D17" type="Light2D" parent="Lights"]
 position = Vector2( 17816, 2738 )
@@ -121,6 +135,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D8" type="Light2D" parent="Lights"]
 position = Vector2( 17816, 1110 )
@@ -129,6 +144,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="Light2D9" type="Light2D" parent="Lights"]
 position = Vector2( 17809, 321 )
@@ -137,6 +153,7 @@ texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
 energy = 2.3
 mode = 2
+shadow_enabled = true
 
 [node name="TilemapGame" parent="." instance=ExtResource( 2 )]
 show_collision = true
@@ -148,7 +165,10 @@ modulate = Color( 1, 0, 0, 0.635294 )
 show_collision = true
 collision_layer = 2048
 collision_mask = 2048
-tile_data = PoolIntArray( -196590, 14, 0, -131071, 1073741835, 0, -131054, 14, 0, -65529, 2, 0, -65528, 2, 0, -65527, 2, 0, -65526, 2, 0, -65525, 2, 0, -65524, 2, 0, -65523, 2, 0, -65522, 2, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0, -65509, 1, 0, -65494, 4, 0, -65493, 0, 0, -65492, 1, 0, 131079, -2147483633, 0, 131080, -2147483633, 0, 131081, -2147483633, 0, 131082, -2147483633, 0, 131083, -2147483633, 0, 131093, 1073741834, 0, 131094, 1073741834, 0, 131095, 1073741834, 0, 196623, 536870919, 0, 196624, 536870919, 0, 196625, 536870922, 0, 196626, 536870922, 0, 196627, 536870922, 0, 196628, 536870922, 0, 262163, 536870914, 0, 262164, 536870914, 0, 262165, 536870914, 0, 262166, 536870914, 0, 262167, 536870914, 0, 262168, 536870914, 0, 262169, 536870914, 0, 262175, 1, 0, 262176, 1, 0, 262177, 1, 0, 262178, 2, 0, 262179, 536870913, 0, 262180, 536870913, 0, 262181, 536870913, 0, 262182, 536870913, 0, 262183, 536870913, 0, 262184, 536870913, 0, 262185, 536870913, 0, 458788, 0, 0, 458789, 0, 0, 458790, 0, 0, 524327, 0, 0, 589864, 0, 0, 589865, 0, 0, 589866, 0, 0, 720915, 536870920, 0, 720916, 536870920, 0, 720917, 536870920, 0, 786455, 536870920, 0, 786456, 536870920, 0, 786457, 536870920, 0, 983073, 536870920, 0, 983074, 536870920, 0, 1048603, 536870920, 0, 1048604, 536870920, 0, 1048605, 536870920, 0, 1048606, 536870920, 0, 1048607, 536870920, 0, 1048608, 536870920, 0 )
+tile_data = PoolIntArray( -196590, 14, 0, -131071, 1073741835, 0, -131054, 14, 0, -65529, 2, 0, -65528, 2, 0, -65527, 2, 0, -65526, 2, 0, -65525, 2, 0, -65524, 2, 0, -65523, 2, 0, -65522, 2, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0, -65509, 1, 0, -65494, 4, 0, -65493, 0, 0, -65492, 1, 0, 6, 1610612741, 0, 65542, 1610612753, 0, 131079, -2147483633, 0, 131080, -2147483633, 0, 131081, -2147483633, 0, 131082, -2147483633, 0, 131083, -2147483633, 0, 131093, 1073741834, 0, 131094, 1073741834, 0, 131095, 1073741834, 0, 131096, 1610612745, 0, 196623, 536870919, 0, 196624, 536870919, 0, 196625, 536870922, 0, 196626, 536870922, 0, 196627, 536870922, 0, 196628, 536870922, 0, 262163, 536870914, 0, 262164, 536870914, 0, 262165, 536870914, 0, 262166, 536870914, 0, 262167, 536870914, 0, 262168, 536870914, 0, 262169, 536870914, 0, 262175, 1, 0, 262176, 1, 0, 262177, 1, 0, 262178, 2, 0, 262179, 536870913, 0, 262180, 536870913, 0, 262181, 536870913, 0, 262182, 536870913, 0, 262183, 536870913, 0, 262184, 536870913, 0, 262185, 536870913, 0, 458788, 0, 0, 458789, 0, 0, 458790, 0, 0, 524327, 0, 0, 589864, 0, 0, 589865, 0, 0, 589866, 0, 0, 720915, 536870920, 0, 720916, 536870920, 0, 720917, 536870920, 0, 786455, 536870920, 0, 786456, 536870920, 0, 786457, 536870920, 0, 983073, 536870920, 0, 983074, 536870920, 0, 1048603, 536870920, 0, 1048604, 536870920, 0, 1048605, 536870920, 0, 1048606, 536870920, 0, 1048607, 536870920, 0, 1048608, 536870920, 0 )
+
+[node name="TileMapCable" parent="." instance=ExtResource( 18 )]
+tile_data = PoolIntArray( 1507477, -1610612735, 0, 1507478, 0, 0, 1507479, 0, 0, 1507480, 0, 0, 1507481, 0, 0, 1507482, 0, 0, 1573013, -1610612736, 0, 1638549, -1610612736, 0, 1704085, -1610612736, 0, 1769621, -1610612736, 0 )
 
 [node name="Platforms" type="Node2D" parent="."]
 __meta__ = {
@@ -329,12 +349,22 @@ scale = Vector2( 1.2, 1.531 )
 position = Vector2( 9863, 522 )
 scale = Vector2( 1.2, 1.531 )
 
-[node name="AutomaticDoor3" parent="Doors" instance=ExtResource( 14 )]
-position = Vector2( 9830, 2222 )
+[node name="SpecialDoor" parent="Doors" instance=ExtResource( 14 )]
+position = Vector2( 8835, 3355 )
+rotation = 1.5708
 script = ExtResource( 17 )
 
+[node name="CollisionShape2D" parent="Doors/SpecialDoor/Area2D" index="0"]
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Doors/SpecialDoor/Area2D" index="1"]
+shape = SubResource( 3 )
+
+[node name="AutomaticDoor4" parent="Doors" instance=ExtResource( 14 )]
+position = Vector2( 9830, 2252 )
+
 [node name="Door5" parent="Doors" instance=ExtResource( 15 )]
-position = Vector2( 15908, 2697 )
+position = Vector2( 15892, 2697 )
 isLocked = true
 
 [node name="Door3" parent="Doors" instance=ExtResource( 15 )]
@@ -355,12 +385,6 @@ position = Vector2( 11931, 2252 )
 scale = Vector2( 0.8, 0.8 )
 isLocked = true
 
-[node name="Door8" parent="Doors" instance=ExtResource( 15 )]
-position = Vector2( 8773, 3364 )
-rotation = -4.71238
-scale = Vector2( 0.9, 1 )
-isLocked = true
-
 [node name="Door6" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 11928, 614 )
 scale = Vector2( 0.8, 0.8 )
@@ -377,7 +401,7 @@ position = Vector2( 10035, 3235 )
 
 [node name="TileMapForeground" parent="." instance=ExtResource( 3 )]
 show_collision = true
-tile_data = PoolIntArray( 11, 1073741828, 0, 12, 1073741828, 0, 23, 1610612740, 0, 24, 1610612740, 0, 29, 3, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 65580, 1610612738, 0, 131101, 1073741827, 0, 131102, -536870910, 0, 131103, 4, 0, 131104, 4, 0, 196623, -536870908, 0, 196628, -1073741820, 0, 196646, 1073741826, 0, 262167, 4, 0, 262168, 4, 0, 262173, 3, 0, 262174, 536870916, 0, 262175, 536870916, 0, 262176, 536870916, 0, 262177, 536870916, 0, 262182, 1073741826, 0, 262186, 1073741826, 0, 327718, 2, 0, 393239, -2147483645, 0, 393240, -1610612733, 0, 393245, 1073741827, 0, 393246, 1073741828, 0, 393247, 1073741828, 0, 393248, -1610612733, 0, 458775, 1073741829, 0, 458776, 1073741826, 0, 458784, 1073741827, 0, 458785, -536870910, 0, 458786, -1610612733, 0, 524308, 2, 0, 524312, 1073741826, 0, 524322, -536870909, 0, 524330, -2147483645, 0, 589848, 1073741826, 0, 655389, 2, 0, 786455, 536870914, 0, 1048603, 536870913, 0, 1048608, 1, 0 )
+tile_data = PoolIntArray( 11, 1073741828, 0, 12, 1073741828, 0, 23, 1610612740, 0, 24, 1610612740, 0, 29, 3, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 65580, 1610612738, 0, 131101, 1073741827, 0, 131102, -536870910, 0, 131103, 4, 0, 131104, 4, 0, 196623, -536870908, 0, 196628, -1073741820, 0, 196646, 1073741826, 0, 262167, 4, 0, 262168, 4, 0, 262173, 3, 0, 262174, 536870916, 0, 262175, 536870916, 0, 262176, 536870916, 0, 262177, 536870916, 0, 262182, 1073741826, 0, 262186, 1073741826, 0, 327718, 2, 0, 393239, -2147483645, 0, 393240, -1610612733, 0, 393245, 1073741827, 0, 393246, 1073741828, 0, 393247, 1073741828, 0, 393248, -1610612733, 0, 458775, 1073741829, 0, 458776, 1073741826, 0, 458784, 1073741827, 0, 458785, 1073741828, 0, 458786, -1610612733, 0, 524308, 2, 0, 524312, 1073741826, 0, 524322, -536870909, 0, 524330, -2147483645, 0, 589848, 1073741826, 0, 655389, 2, 0, 786455, 536870914, 0, 1048603, 536870913, 0, 1048608, 1, 0 )
 
 [node name="Control" type="Control" parent="."]
 margin_left = 2.0
@@ -439,10 +463,10 @@ scale = Vector2( 0.770088, 0.770088 )
 texture = ExtResource( 4 )
 
 [node name="Label7" type="Label" parent="Control"]
-margin_left = 12256.0
-margin_top = 2381.0
-margin_right = 12817.0
-margin_bottom = 2450.0
+margin_left = 13492.0
+margin_top = 2679.0
+margin_right = 14053.0
+margin_bottom = 2748.0
 rect_scale = Vector2( 1.33293, 1.33293 )
 rect_pivot_offset = Vector2( 238.571, 27.0083 )
 custom_fonts/font = SubResource( 1 )
@@ -466,15 +490,15 @@ position = Vector2( 12909, 5680 )
 rotation = -2.35619
 
 [node name="HealthDrop13" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 12094, 2386 )
+position = Vector2( 13338, 2778 )
 rotation = -2.35619
 
 [node name="HealthDrop14" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 12118, 2423 )
+position = Vector2( 13362, 2815 )
 rotation = -2.35619
 
 [node name="HealthDrop15" parent="HealthDrops" instance=ExtResource( 13 )]
-position = Vector2( 12075, 2423 )
+position = Vector2( 13319, 2815 )
 rotation = -2.35619
 
 [node name="Enemies" type="Node2D" parent="."]
@@ -487,10 +511,10 @@ triggerScenes = [ NodePath("../Doors/Door5") ]
 
 [node name="introduction" parent="." instance=ExtResource( 16 )]
 dialogueText = "[Initiating wake up sequence] Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the artificial intelligence got out of control and its army of war machines wiped out almost all of humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
-doorPath = NodePath("../Doors/AutomaticDoor3")
+doorPath = NodePath("../Doors/SpecialDoor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="introduction"]
-position = Vector2( 9692.38, 3043 )
+position = Vector2( 9428, 2978 )
 shape = SubResource( 2 )
 
 [node name="Elevator" parent="." instance=ExtResource( 12 )]
@@ -498,3 +522,5 @@ position = Vector2( 17819, 3355 )
 scale = Vector2( 0.821712, 1 )
 targetHeight = 488.0
 moveDuration = 6
+
+[editable path="Doors/SpecialDoor"]
