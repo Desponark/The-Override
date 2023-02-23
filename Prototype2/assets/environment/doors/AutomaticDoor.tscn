@@ -6,7 +6,7 @@
 [ext_resource path="res://Sounds/Door/door_open.ogg" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 20.2469, 18.05 )
+extents = Vector2( 20.2469, 23.7 )
 
 [sub_resource type="Animation" id=6]
 length = 0.001
