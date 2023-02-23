@@ -76,7 +76,7 @@ position = Vector2( 28870, -186 )
 position = Vector2( 29277, -186 )
 
 [node name="Platform114" parent="Platforms Hubroom" instance=ExtResource( 8 )]
-position = Vector2( 29269, 83 )
+position = Vector2( 29267, 155 )
 
 [node name="Platform135" parent="Platforms Hubroom" instance=ExtResource( 8 )]
 position = Vector2( 27237, -187 )
@@ -85,7 +85,7 @@ position = Vector2( 27237, -187 )
 position = Vector2( 30095, -186 )
 
 [node name="Platform140" parent="Platforms Hubroom" instance=ExtResource( 8 )]
-position = Vector2( 30098, -724 )
+position = Vector2( 30098, -726 )
 
 [node name="Platform69" parent="Platforms Hubroom" instance=ExtResource( 8 )]
 position = Vector2( 29075, -724 )
@@ -431,34 +431,34 @@ tile_data = PoolIntArray( -917431, 536870918, 0, -851895, -1073741818, 0, -85189
 [node name="platforms" type="Node2D" parent="."]
 
 [node name="Platform28" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 19454, 397 )
+position = Vector2( 19452, 425 )
 
 [node name="Platform33" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 19046, 397 )
+position = Vector2( 19046, 394 )
 
 [node name="Platform34" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 19862, 397 )
+position = Vector2( 19862, 394 )
 
 [node name="Platform35" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 20271, 397 )
+position = Vector2( 20271, 394 )
 
 [node name="Platform36" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 20679, 397 )
+position = Vector2( 20679, 394 )
 
 [node name="Platform37" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 21088, 397 )
+position = Vector2( 21088, 394 )
 
 [node name="Platform38" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 21496, 397 )
+position = Vector2( 21496, 394 )
 
 [node name="Platform39" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 21904, 397 )
+position = Vector2( 21904, 394 )
 
 [node name="Platform40" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 22310, 397 )
+position = Vector2( 22310, 394 )
 
 [node name="Platform41" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 22717, 397 )
+position = Vector2( 22717, 394 )
 
 [node name="Platform53" parent="platforms" instance=ExtResource( 8 )]
 position = Vector2( 23497, -103 )
@@ -482,13 +482,13 @@ position = Vector2( 21753, -90 )
 position = Vector2( 22894, -323 )
 
 [node name="Platform31" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 18638, 397 )
+position = Vector2( 18638, 394 )
 
 [node name="Platform32" parent="platforms" instance=ExtResource( 8 )]
-position = Vector2( 18230, 397 )
+position = Vector2( 18230, 394 )
 
 [node name="Platform16" parent="platforms" instance=ExtResource( 9 )]
-position = Vector2( 22940.4, 135.7 )
+position = Vector2( 23027.4, 135.7 )
 
 [node name="Platform21" parent="platforms" instance=ExtResource( 9 )]
 position = Vector2( 23130, 619 )
@@ -497,7 +497,7 @@ position = Vector2( 23130, 619 )
 position = Vector2( 22167, 619 )
 
 [node name="Platform17" parent="platforms" instance=ExtResource( 9 )]
-position = Vector2( 23042.4, 135.7 )
+position = Vector2( 23129.4, 135.7 )
 
 [node name="Platform19" parent="platforms" instance=ExtResource( 9 )]
 position = Vector2( 20983.4, 3043.7 )
@@ -515,12 +515,11 @@ position = Vector2( 21085.4, 3043.7 )
 position = Vector2( 26513.4, 1995.7 )
 
 [node name="TilemapCamera" parent="." instance=ExtResource( 1 )]
-visible = false
 modulate = Color( 1, 0, 0, 0.635294 )
 show_collision = true
 collision_layer = 2048
 collision_mask = 2048
-tile_data = PoolIntArray( -327618, 536870927, 0, -262092, 536870914, 0, -262091, 536870914, 0, -262090, 536870914, 0, -262089, 536870918, 0, -262082, 536870927, 0, -262072, 1, 0, -262071, 1, 0, -262070, 1, 0, -262069, 1, 0, -262068, 1610612751, 0, -262067, 1073741839, 0, -196553, 536870917, 0, -196552, 536870913, 0, -196551, 536870918, 0, -196546, 536870922, 0, -196545, 536870924, 0, -196532, 1610612751, 0, -196531, 1073741839, 0, -131027, 6, 0, -131026, 536870913, 0, -131025, 536870913, 0, -131024, 536870918, 0, -131022, 6, 0, -131021, 536870912, 0, -131020, 1, 0, -131019, 536870918, 0, -130996, 15, 0, -65492, 536870913, 0, -65491, 5, 0, -65460, 15, 0, 76, 15, 0, 65594, 9, 0, 65595, 9, 0, 65596, 7, 0, 65597, 536870919, 0, 65598, 536870922, 0, 65599, 536870922, 0, 65608, 6, 0, 65609, 9, 0, 65610, 9, 0, 65611, 9, 0, 65612, 1610612751, 0, 65613, 1073741839, 0, 131126, 7, 0, 131127, 7, 0, 131128, 8, 0, 131129, 9, 0, 131134, 0, 0, 131135, 1, 0, 131136, 0, 0, 131137, 0, 0, 131148, 1610612751, 0, 196653, 1073741830, 0, 196654, 1610612737, 0, 196655, 1610612737, 0, 196656, 1610612742, 0, 196658, 1073741830, 0, 196659, 1073741824, 0, 196660, 1073741824, 0, 196661, 1610612742, 0, 1048634, 536870921, 0, 1048635, 536870921, 0, 1048636, 536870921, 0, 1048637, 536870921, 0, 1048638, 536870921, 0, 1048639, 536870921, 0 )
+tile_data = PoolIntArray( -327618, 536870927, 0, -262092, 536870914, 0, -262091, 536870914, 0, -262090, 536870914, 0, -262089, 536870918, 0, -262082, 536870927, 0, -262072, 1, 0, -262071, 1, 0, -262070, 1, 0, -262069, 1, 0, -262068, 1610612751, 0, -262067, 1073741839, 0, -196553, 536870917, 0, -196552, 536870913, 0, -196551, 536870918, 0, -196546, 536870922, 0, -196545, 536870924, 0, -196532, 1610612751, 0, -196531, 1073741839, 0, -131027, 6, 0, -131026, 536870913, 0, -131025, 536870913, 0, -131024, 536870918, 0, -131022, 6, 0, -131021, 536870912, 0, -131020, 1, 0, -131019, 536870918, 0, -130996, 15, 0, -65492, 536870913, 0, -65491, 5, 0, -65460, 15, 0, 76, 15, 0, 65594, 1, 0, 65595, 1, 0, 65596, 1, 0, 65597, 536870919, 0, 65598, 536870922, 0, 65599, 536870922, 0, 65608, 6, 0, 65609, 9, 0, 65610, 9, 0, 65611, 9, 0, 65612, 1610612751, 0, 65613, 1073741839, 0, 131126, 7, 0, 131127, 7, 0, 131128, 8, 0, 131129, 9, 0, 131134, 0, 0, 131135, 1, 0, 131136, 0, 0, 131137, 0, 0, 131148, 1610612751, 0, 196653, 1073741830, 0, 196654, 1610612737, 0, 196655, 1610612737, 0, 196656, 1610612742, 0, 196658, 1073741830, 0, 196659, 1073741824, 0, 196660, 1073741824, 0, 196661, 1610612742, 0, 1048634, 536870921, 0, 1048635, 536870921, 0, 1048636, 536870921, 0, 1048637, 536870921, 0, 1048638, 536870921, 0, 1048639, 536870921, 0 )
 
 [node name="FloorPlatform" type="Node2D" parent="."]
 
@@ -556,6 +555,7 @@ isLocked = true
 
 [node name="AutomaticDoor2" parent="doors" instance=ExtResource( 6 )]
 position = Vector2( 20280, 622 )
+rotation = 3.14159
 scale = Vector2( 0.9, 0.9 )
 
 [node name="Sprite" parent="doors/AutomaticDoor2" index="0"]
@@ -904,10 +904,14 @@ initialMoveDirection = -1
 
 [node name="Spawner4" parent="Spawner" instance=ExtResource( 29 )]
 position = Vector2( 26084, -629 )
+minSpawnRate = 4
+maxSpawnRate = 4
 initialMoveDirection = 1
 
 [node name="Spawner6" parent="Spawner" instance=ExtResource( 29 )]
-position = Vector2( 30234, -459 )
+position = Vector2( 30087, -805 )
+minSpawnRate = 4
+maxSpawnRate = 4
 initialMoveDirection = -1
 
 [node name="VoiceLines" type="Node2D" parent="."]
@@ -981,7 +985,7 @@ targetHeight = 3288.0
 position = Vector2( 28053, -231 )
 maxEnergy = 250.0
 energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../../doors/DashDoor2"), NodePath("../../doors/DashDoor") ]
+triggerScenes = [ NodePath("../../doors/DashDoor2"), NodePath("../../doors/DashDoor"), NodePath("../../Spawner/Spawner4"), NodePath("../../Spawner/Spawner6") ]
 
 [node name="DashSocket2" parent="Socket and switches" instance=ExtResource( 11 )]
 position = Vector2( 21929, 2211 )
