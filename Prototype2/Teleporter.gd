@@ -6,6 +6,8 @@ onready var player =  $"../Alive/Player"
 onready var camera = $"../Alive/CameraBody"
 onready var robot = $"../Alive/Robot"
 
+var lastPosition
+
 func _unhandled_input(event):
 	# cheats TODO: remove after showcase
 	if event.is_action_pressed("F1"):
@@ -32,3 +34,28 @@ func teleport(pos, teleportRobot = true):
 	camera.global_position = pos
 	if teleportRobot:
 		robot.global_position = pos
+		
+func teleportToLastPos():
+	player.gainHealth(100)
+	teleport(lastPosition)
+
+func _on_Checkpoint1_body_entered(body):
+	lastPosition = $"../Checkpoint1".global_position
+
+func _on_Checkpoint2_body_entered(body):
+	lastPosition = $"../Checkpoint2".global_position
+
+func _on_Checkpoint3_body_entered(body):
+	lastPosition = $"../Checkpoint3".global_position
+
+func _on_Checkpoint7_body_entered(body):
+	lastPosition = $"../Checkpoint7".global_position
+
+func _on_Checkpoint4_body_entered(body):
+	lastPosition = $"../Checkpoint4".global_position
+
+func _on_Checkpoint5_body_entered(body):
+	lastPosition = $"../Checkpoint5".global_position
+
+func _on_Checkpoint6_body_entered(body):
+	lastPosition = $"../Checkpoint6".global_position
