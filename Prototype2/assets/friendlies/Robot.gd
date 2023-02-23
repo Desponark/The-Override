@@ -54,7 +54,9 @@ func getPriority():
 	
 func playSpeech(dialougeStream, dialogueText, delay):
 	if !dialougeStream:
-		return	
+		$VoicePlayer.stop()
+		$SpeechBubble.setup("", 2)
+		return
 	$VoicePlayer.stream = dialougeStream
 	$VoicePlayer.play()
 	$SpeechBubble.setup(dialogueText, dialougeStream.get_length())
