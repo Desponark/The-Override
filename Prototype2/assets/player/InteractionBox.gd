@@ -8,6 +8,7 @@ func _unhandled_input(event):
 			interactable.interact(self)
 
 func _on_InteractionBox_area_entered(area):
+	print(area.owner)
 	# make previous interactable prompt invisible on changing interact targets
 	if interactable and interactable.has_method("changePromptVisibility"):
 		interactable.changePromptVisibility(false)
