@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Collect.mp3-6195503a3b1ae8c05d3af5da01628bd3.mp3str"
+
+[deps]
+
+source_file="res://Sounds/HealthDrop/Collect.mp3"
+dest_files=[ "res://.import/Collect.mp3-6195503a3b1ae8c05d3af5da01628bd3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sounds/Robot/Hover.mp3" type="AudioStream" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/ui/SpeechBubble/SpeechBubble.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Sounds/Robot/voice/socketStoppedCharging.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/Robot/voice/firstSocket.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/HealthDrop/Charge.mp3" type="AudioStream" id=15]
 
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
@@ -109,6 +110,127 @@ light_mode = 1
 [sub_resource type="CircleShape2D" id=3]
 radius = 17.0294
 
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "healthGain"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Light2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "healthLose"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.0705882, 0.0705882, 1 ) ]
+}
+
 [node name="Robot" type="KinematicBody2D" groups=["robot"]]
 scale = Vector2( 2, 2 )
 collision_layer = 256
@@ -143,15 +265,6 @@ shadow_enabled = true
 [node name="Spotlight" type="Sprite" parent="Light2D"]
 visible = false
 texture = ExtResource( 5 )
-
-[node name="HealthBar" parent="." instance=ExtResource( 1 )]
-margin_left = 1.52588e-05
-margin_top = -28.5
-margin_right = 1.52588e-05
-margin_bottom = -28.5
-rect_rotation = -359.999
-rect_scale = Vector2( 0.1, 0.1 )
-health = 40.0
 
 [node name="InteractionableBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -202,5 +315,35 @@ margin_top = -81.0
 margin_right = 218.0
 margin_bottom = -36.0
 
-[connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 1 )]
+margin_left = 324.0
+margin_top = 1012.8
+margin_right = 324.0
+margin_bottom = 1012.8
+rect_scale = Vector2( 0.5, 0.5 )
+health = 40.0
+
+[node name="Light2D" type="Light2D" parent="CanvasLayer/HealthBar"]
+position = Vector2( -35, -1 )
+scale = Vector2( 1.08301, 0.378265 )
+enabled = false
+texture = ExtResource( 3 )
+energy = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HealthBar"]
+anims/RESET = SubResource( 11 )
+anims/healthGain = SubResource( 12 )
+anims/healthLose = SubResource( 13 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="CanvasLayer/HealthBar"]
+stream = ExtResource( 15 )
+
+[node name="Robot" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 59, 996.8 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
 [connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
+[connection signal="healthReachedZero" from="CanvasLayer/HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
