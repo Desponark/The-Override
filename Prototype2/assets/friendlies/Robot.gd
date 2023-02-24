@@ -34,20 +34,27 @@ func putRobotInSocket(position):
 
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
+	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
+		$CanvasLayer/HealthBar.subtractHealth(damage)
 		$DamagedSound.play()
+		$CanvasLayer/HealthBar/AnimationPlayer.play("healthLose")
 		
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
 func transferHealth(damage):
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
+	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
+		$CanvasLayer/HealthBar.subtractHealth(damage)
+		$CanvasLayer/HealthBar/AnimationPlayer.play("healthGain")
+		
+func gainHealth(healAmount):
+	if $CanvasLayer/HealthBar.has_method("addHealth"):
+		$CanvasLayer/HealthBar.addHealth(healAmount)
+		
 		
 func getHealth():
-	return $HealthBar.getHealth()
+	return $CanvasLayer/HealthBar.getHealth()
 	
 func getMaxHealth():
-	return $HealthBar.getMaxHealth()
+	return $CanvasLayer/HealthBar.getMaxHealth()
 
 func getPriority():
 	return 2

@@ -13,6 +13,7 @@ func _integrate_forces(state):
 
 func _on_Area2D_body_entered(body):
 	player = body
+	$Collect.play()
 	# disable all physics collisions if setting collision shape to disabled it wants to be called deferred
 	$CollisionShape2D.set_deferred("disabled", true)
 	# disable possible player collisions
