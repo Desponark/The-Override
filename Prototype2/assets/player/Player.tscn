@@ -573,7 +573,7 @@ height = 182.0
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 34, 48 )
 
-[node name="Player" type="KinematicBody2D" groups=["player"]]
+[node name="Player" type="KinematicBody2D" groups=["persist", "player"]]
 scale = Vector2( 2, 2 )
 collision_layer = 515
 collision_mask = 515

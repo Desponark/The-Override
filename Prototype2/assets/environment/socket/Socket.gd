@@ -20,9 +20,6 @@ func _ready():
 	$HealthBar.health = startEnergy
 	$HealthBar.maxHealth = maxEnergy
 	$HealthBar.setup()
-	EventBus.connect("robotWasPickedUp", self, "socketReadyForInteraction")
-
-func socketReadyForInteraction():
 	$InteractionableBox.setInteractionReadiness(true)
 
 # TODO: cleanup this mess; make sure things happen only when they need to happen and not all the time
@@ -80,7 +77,7 @@ func _on_HealthBar_healthReachedMax():
 	$ChargingSound.stop()
 	robot.isFollowingPlayer = true
 	$InteractionableBox/CollisionShape2D.disabled = true # disable socket interaction completely if fully charged
-	$InteractionableBox.setInteractionReadiness(true)
+	$InteractionableBox.setInteractionReadiness(false)
 	triggerEachScene() # trigger everything on socket being full that is connected
 	# Play ChargingFinished sound
 	$ChargingFinishedSound.play()
