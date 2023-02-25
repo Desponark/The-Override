@@ -3,16 +3,17 @@ extends RichTextLabel
 export var duration = 100
 export var scrollAfterXLines = 2
 export var scrollAmount = 2
-onready var scrollXLines = scrollAfterXLines
+var scrollXLines
 
 func _ready():
 	hide()
 
 func setup(dialogueText, duration):
+	clear()
 	hide()
 	$Timer.stop()
 	$Tween.stop_all()
-	scrollAfterXLines = scrollXLines
+	scrollXLines = scrollAfterXLines
 	text = dialogueText
 	$Tween.interpolate_property(self, "percent_visible", 0, 1, duration)
 
@@ -31,11 +32,12 @@ func _on_Timer_timeout():
 	# therefore another way of scrolling down was needed
 	# by enabling scroll_following and adding newline() the text will look like its scrolling "down" like before.
 	scroll_following = true
-	if scrollAfterXLines > 0:
+	if scrollXLines > 0:
 		newline()
-		scrollAfterXLines -= 1
+		scrollXLines -= 1
 		$Timer.start()
 	else:
+		clear()
 		hide()
 
 func _on_Tween_tween_started(object, key):
