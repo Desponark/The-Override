@@ -25,7 +25,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("quickSave"):
 		saveGame()
 	if event.is_action_pressed("quickLoad"):
-		loadGame()
+		get_tree().reload_current_scene()
 
 func freezeEngine(): # this is for creating a nice hit stop / freeze effect for making melee hit feel more impactful
 	Engine.time_scale = freezeSlow
@@ -38,6 +38,8 @@ func freezeEngine(): # this is for creating a nice hit stop / freeze effect for 
 	Engine.time_scale = 1
 
 func saveGame():
+	# TODO: Possible solution for things like enemies that can't be saved after already being destroyed
+	#		-> node sends signal that calls function which simply appends the nodes save data to the save file.
 	print("save game")
 	var file = File.new()
 	file.open(saveGamePath, File.WRITE)
