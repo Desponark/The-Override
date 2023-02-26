@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 44.5, 46 )
 
-[node name="UpgradeTrigger" type="Area2D"]
+[node name="UpgradeTrigger" type="Area2D" groups=["persist"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )

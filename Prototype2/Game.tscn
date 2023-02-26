@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -26,9 +26,6 @@ extents = Vector2( 66, 666 )
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 1330.69
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 364, 490 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -83,14 +80,14 @@ position = Vector2( 76, -6 )
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 5465, 313 )
+position = Vector2( 9315, 3163 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 6115, 553 )
+position = Vector2( 3153, 679 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 5986, 484 )
+position = Vector2( 3024, 610 )
 playerPath = NodePath("../Player")
 
 [node name="SecondSocket" parent="." instance=ExtResource( 10 )]
@@ -145,64 +142,4 @@ position = Vector2( 23002, 2665 )
 [node name="F4" type="Position2D" parent="Teleporter"]
 position = Vector2( 28409, 5631 )
 
-[node name="F5" type="Position2D" parent="Teleporter"]
-position = Vector2( 29254, 327 )
-
-[node name="F6" type="Position2D" parent="Teleporter"]
-position = Vector2( 26717, 256 )
-
-[node name="Checkpoint2" type="Area2D" parent="."]
-position = Vector2( 26430, 110 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint3" type="Area2D" parent="."]
-position = Vector2( 27239, 2549 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint3"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint7" type="Area2D" parent="."]
-position = Vector2( 23002, 2595 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint7"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint4" type="Area2D" parent="."]
-position = Vector2( 28362, 5579 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint4"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint5" type="Area2D" parent="."]
-position = Vector2( 28517, -2516 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint5"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint6" type="Area2D" parent="."]
-position = Vector2( 30270, -4747 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint6"]
-shape = SubResource( 8 )
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Checkpoint2" to="Teleporter" method="_on_Checkpoint2_body_entered"]
-[connection signal="body_entered" from="Checkpoint3" to="Teleporter" method="_on_Checkpoint3_body_entered"]
-[connection signal="body_entered" from="Checkpoint7" to="Teleporter" method="_on_Checkpoint7_body_entered"]
-[connection signal="body_entered" from="Checkpoint4" to="Teleporter" method="_on_Checkpoint4_body_entered"]
-[connection signal="body_entered" from="Checkpoint5" to="Teleporter" method="_on_Checkpoint5_body_entered"]
-[connection signal="body_entered" from="Checkpoint6" to="Teleporter" method="_on_Checkpoint6_body_entered"]
