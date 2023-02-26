@@ -65,6 +65,22 @@ tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 4, 0, 3, 5, 0, 4, 4, 0, 65536, 5,
 position = Vector2( -70, -218 )
 tile_data = PoolIntArray( 196608, 1073741830, 0, 196609, -536870897, 0, 196610, -536870897, 0, 196611, -536870897, 0, 196612, 1610612742, 0 )
 
+[node name="Continue" type="Button" parent="."]
+margin_left = 404.0
+margin_top = 364.0
+margin_right = 964.0
+margin_bottom = 444.0
+
+[node name="Label" type="Label" parent="Continue"]
+anchor_top = -0.475
+margin_top = 38.0
+margin_right = 560.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 1 )
+text = "Continue"
+align = 1
+valign = 1
+
 [node name="NewGame" type="Button" parent="."]
 margin_left = 404.0
 margin_top = 488.0
@@ -73,12 +89,11 @@ margin_bottom = 568.0
 
 [node name="Label" type="Label" parent="NewGame"]
 anchor_top = -0.475
-margin_left = 217.0
-margin_top = 52.0
-margin_right = 339.0
-margin_bottom = 73.0
+margin_top = 38.0
+margin_right = 560.0
+margin_bottom = 80.0
 custom_fonts/font = SubResource( 1 )
-text = "Start"
+text = "Start New Game"
 align = 1
 valign = 1
 
@@ -89,10 +104,8 @@ margin_right = 964.0
 margin_bottom = 696.0
 
 [node name="Label" type="Label" parent="Options"]
-margin_left = 208.0
-margin_top = 14.0
-margin_right = 339.0
-margin_bottom = 73.0
+margin_right = 560.0
+margin_bottom = 80.0
 custom_fonts/font = SubResource( 1 )
 text = "Options"
 align = 1
@@ -105,10 +118,8 @@ margin_right = 964.0
 margin_bottom = 831.0
 
 [node name="Label" type="Label" parent="QuitGame"]
-margin_left = 217.0
-margin_top = 14.0
-margin_right = 339.0
-margin_bottom = 73.0
+margin_right = 560.0
+margin_bottom = 80.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 align = 1
@@ -152,11 +163,13 @@ stream = ExtResource( 2 )
 pause_mode = 2
 stream = ExtResource( 4 )
 
-[connection signal="mouse_entered" from="NewGame" to="." method="_on_NewGame_mouse_entered"]
+[connection signal="mouse_entered" from="Continue" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="NewGame" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
-[connection signal="mouse_entered" from="Options" to="." method="_on_Options_mouse_entered"]
+[connection signal="mouse_entered" from="Options" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
-[connection signal="mouse_entered" from="QuitGame" to="." method="_on_QuitGame_mouse_entered"]
+[connection signal="mouse_entered" from="QuitGame" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="QuitGame" to="." method="_on_QuitGame_pressed"]
 
 [editable path="Robot"]

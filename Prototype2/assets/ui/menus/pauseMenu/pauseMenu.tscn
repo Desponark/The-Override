@@ -84,11 +84,11 @@ stream = ExtResource( 3 )
 pause_mode = 2
 stream = ExtResource( 4 )
 
-[connection signal="mouse_entered" from="Control/Continue" to="." method="_on_Continue_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Continue" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="mouse_entered" from="Control/Options" to="." method="_on_Options_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Options" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/Options" to="." method="_on_Options_pressed"]
-[connection signal="mouse_entered" from="Control/Main Menu" to="." method="_on_Main_Menu_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Main Menu" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/Main Menu" to="." method="_on_Main_Menu_pressed"]
-[connection signal="mouse_entered" from="Control/Quit Game" to="." method="_on_Quit_Game_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Quit Game" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/Quit Game" to="." method="_on_Quit_Game_pressed"]

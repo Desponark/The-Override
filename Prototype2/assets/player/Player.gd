@@ -20,7 +20,7 @@ var motionState = MOTIONSTATE.IDLING
 export var dashStrength = 2000.0
 export var dashDuration = 0.2
 
-var robotRef
+var robot
 
 var isTransferingHealth = false
 export var healthTransferAmount = 1.0
@@ -50,8 +50,8 @@ func _unhandled_input(event):
 func _process(_delta):
 	transferHealth()
 	
-	if robotRef: #shows right mouse button if robot is low health
-		var healthPercent = robotRef.getHealth() / robotRef.getMaxHealth()
+	if robot: #shows right mouse button if robot is low health
+		var healthPercent = robot.getHealth() / robot.getMaxHealth()
 		$RightMouseButton.visible = healthPercent <= .25
 		
 	$HealthAbsorbtionArea.global_position = getHealthBarPosition()
@@ -179,11 +179,11 @@ func getHealthBarPosition():
 	return get_viewport_transform().affine_inverse() * $CanvasLayer/Position2D.global_position
 	
 func transferHealth():
-	if isTransferingHealth and robotRef:
+	if isTransferingHealth and robot:
 		if $CanvasLayer/HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
 			return
 			
-		var missingHealth = robotRef.getMaxHealth() - robotRef.getHealth()
+		var missingHealth = robot.getMaxHealth() - robot.getHealth()
 		var incomingHealth = healthTransferAmount * healthTransferMultiplier
 		
 		if (missingHealth) < incomingHealth: # only allow health transfer if the robot has enough missing health to fit the health that is going to be transferred
@@ -191,16 +191,16 @@ func transferHealth():
 			
 		if $CanvasLayer/HealthBar.has_method("subtractHealth"):
 			$CanvasLayer/HealthBar.subtractHealth(healthTransferAmount)
-		robotRef.transferHealth(-(incomingHealth))
+		robot.transferHealth(-(incomingHealth))
 	
 func getRobotFollowPosition():
 	return $RobotFollowPosition.global_position
 	
-func setRobotRef(robot):
-	robotRef = robot
+func setRobotRef(robotValue):
+	robot = robotValue
 	
 func getRobotRef():
-	return robotRef
+	return robot
 	
 # TODO: think about different solution
 func getPriority():
@@ -231,3 +231,22 @@ func _on_Dash_dashEnd():
 func _on_FallThroughPlatformTimer_timeout():
 	set_collision_layer_bit(9, true)
 	set_collision_mask_bit(9, true)
+	
+func saveData():
+	return {
+		"nodePath" : get_path(),
+		"posX" : position.x,
+		"posY" : position.y,
+		"health" : $CanvasLayer/HealthBar.getHealth(),
+		"isDashUnlocked" : isDashUnlocked,
+		"isProjectileReflectUnlocked" : isProjectileReflectUnlocked,
+		"robotPath" : robot.get_path() if robot else ""
+	}
+	
+func loadData(data):
+	position.x = data["posX"]
+	position.y = data["posY"]
+	$CanvasLayer/HealthBar.health = data["health"]
+	isDashUnlocked = data["isDashUnlocked"]
+	isProjectileReflectUnlocked = data["isProjectileReflectUnlocked"]
+	robot = get_node_or_null(data["robotPath"])

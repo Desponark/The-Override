@@ -6,6 +6,7 @@ func setup(givenStartScreen):
 	startScreen = givenStartScreen
 
 func _unhandled_input(event):
+	# TODO: pressing ui_cancel with open pause menu hides it and immediately re-opens it...
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().paused = false
 		hide()
@@ -21,7 +22,6 @@ func _on_Continue_pressed():
 
 func _on_Options_pressed():
 	$ButtonPressSound.play()
-	pass # Replace with function body.
 
 func _on_Main_Menu_pressed():
 	$ButtonPressSound.play()
@@ -32,15 +32,5 @@ func _on_Quit_Game_pressed():
 	$ButtonPressSound.play()
 	get_tree().quit()
 
-
-func _on_Continue_mouse_entered():
-	$ButtonHoverSound.play()
-
-func _on_Options_mouse_entered():
-	$ButtonHoverSound.play()
-
-func _on_Main_Menu_mouse_entered():
-	$ButtonHoverSound.play()
-
-func _on_Quit_Game_mouse_entered():
+func _on_Button_mouse_entered():
 	$ButtonHoverSound.play()

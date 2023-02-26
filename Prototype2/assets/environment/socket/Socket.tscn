@@ -17,7 +17,7 @@ extents = Vector2( 84.5, 72.375 )
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 1
 
-[node name="Socket" type="Node2D"]
+[node name="Socket" type="Node2D" groups=["persist"]]
 script = ExtResource( 3 )
 startEnergy = 0.0
 
