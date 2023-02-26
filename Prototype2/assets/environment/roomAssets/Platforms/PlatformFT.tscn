@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/light/light.png" type="Texture" id=1]
+[ext_resource path="res://assets/environment/roomAssets/Platforms/Platform2.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 51.25, 30.75 )
+
+[node name="PlatformFT" type="Node2D"]
+
+[node name="Platform" type="Sprite" parent="."]
+position = Vector2( 2.38419e-07, 3.8147e-06 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -0.309538, 1740.23, 513.498, 308.026 )
+
+[node name="Light2D" type="Light2D" parent="Platform"]
+visible = false
+position = Vector2( 0, -0.00012207 )
+texture = ExtResource( 1 )
+color = Color( 0.905882, 0.533333, 0.168627, 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, 9.09495e-13 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+one_way_collision = true
