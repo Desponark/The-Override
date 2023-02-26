@@ -1,0 +1,186 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.gd" type="Script" id=4]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 43
+font_data = ExtResource( 3 )
+
+[node name="OptionsMenu" type="Control"]
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -280.0
+margin_top = -232.0
+margin_right = 2246.0
+margin_bottom = 1401.0
+color = Color( 0, 0, 0, 0.784314 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Back" type="Button" parent="."]
+margin_left = 656.0
+margin_top = 920.0
+margin_right = 1256.0
+margin_bottom = 1000.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 656.0
+margin_top = 164.0
+margin_right = 856.0
+margin_bottom = 366.0
+rect_scale = Vector2( 3, 3 )
+columns = 2
+
+[node name="Resolution" type="Label" parent="GridContainer"]
+margin_top = 3.0
+margin_right = 85.0
+margin_bottom = 17.0
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="GridContainer"]
+margin_left = 89.0
+margin_right = 189.0
+margin_bottom = 20.0
+text = "1920x1080"
+items = [ "1280x720", null, false, 0, null, "1920x1080", null, false, 1, null, "2560x1440", null, false, 2, null ]
+selected = 1
+
+[node name="Fullscreen" type="Label" parent="GridContainer"]
+margin_top = 29.0
+margin_right = 85.0
+margin_bottom = 43.0
+text = "Fullscreen"
+
+[node name="FullscreenChBx" type="CheckBox" parent="GridContainer"]
+margin_left = 89.0
+margin_top = 24.0
+margin_right = 189.0
+margin_bottom = 48.0
+
+[node name="BorderlessFullscreen" type="Label" parent="GridContainer"]
+margin_top = 57.0
+margin_right = 85.0
+margin_bottom = 71.0
+text = "Borderless"
+
+[node name="BorderlessChBx2" type="CheckBox" parent="GridContainer"]
+margin_left = 89.0
+margin_top = 52.0
+margin_right = 189.0
+margin_bottom = 76.0
+
+[node name="Vsync" type="Label" parent="GridContainer"]
+margin_top = 85.0
+margin_right = 85.0
+margin_bottom = 99.0
+text = "Vsync"
+
+[node name="VsyncChBx" type="CheckBox" parent="GridContainer"]
+margin_left = 89.0
+margin_top = 80.0
+margin_right = 189.0
+margin_bottom = 104.0
+
+[node name="Volume" type="Label" parent="GridContainer"]
+margin_top = 108.0
+margin_right = 85.0
+margin_bottom = 122.0
+text = "Volume:"
+
+[node name="Label" type="Label" parent="GridContainer"]
+margin_left = 89.0
+margin_top = 108.0
+margin_right = 189.0
+margin_bottom = 122.0
+
+[node name="Master" type="Label" parent="GridContainer"]
+margin_top = 127.0
+margin_right = 85.0
+margin_bottom = 141.0
+text = "Master"
+
+[node name="MasterHSlider" type="HSlider" parent="GridContainer"]
+margin_left = 89.0
+margin_top = 126.0
+margin_right = 189.0
+margin_bottom = 142.0
+max_value = 1.0
+step = 0.05
+
+[node name="Music" type="Label" parent="GridContainer"]
+margin_top = 147.0
+margin_right = 85.0
+margin_bottom = 161.0
+text = "Music"
+
+[node name="MusicHSlider" type="HSlider" parent="GridContainer"]
+margin_left = 89.0
+margin_top = 146.0
+margin_right = 189.0
+margin_bottom = 162.0
+max_value = 1.0
+step = 0.05
+
+[node name="SoundEffects" type="Label" parent="GridContainer"]
+margin_top = 167.0
+margin_right = 85.0
+margin_bottom = 181.0
+text = "Sound Effects"
+
+[node name="SFXHSlider3" type="HSlider" parent="GridContainer"]
+margin_left = 89.0
+margin_top = 166.0
+margin_right = 189.0
+margin_bottom = 182.0
+max_value = 1.0
+step = 0.05
+
+[node name="Voice" type="Label" parent="GridContainer"]
+margin_top = 187.0
+margin_right = 85.0
+margin_bottom = 201.0
+text = "Voice"
+
+[node name="VoiceHSlider4" type="HSlider" parent="GridContainer"]
+margin_left = 89.0
+margin_top = 186.0
+margin_right = 189.0
+margin_bottom = 202.0
+max_value = 1.0
+step = 0.05
+
+[node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 1 )
+bus = "Sound Effects"
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 2 )
+bus = "Sound Effects"
+
+[connection signal="mouse_entered" from="Back" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="toggled" from="GridContainer/OptionButton" to="." method="_on_OptionButton_toggled"]
+[connection signal="toggled" from="GridContainer/FullscreenChBx" to="." method="_on_FullscreenChBx_toggled"]
+[connection signal="toggled" from="GridContainer/BorderlessChBx2" to="." method="_on_BorderlessChBx2_toggled"]
+[connection signal="mouse_exited" from="GridContainer/VsyncChBx" to="." method="release_focus"]
+[connection signal="toggled" from="GridContainer/VsyncChBx" to="." method="_on_VsyncChBx_toggled"]
+[connection signal="mouse_exited" from="GridContainer/MasterHSlider" to="." method="release_focus"]
+[connection signal="value_changed" from="GridContainer/MasterHSlider" to="." method="_on_MasterHSlider_value_changed"]
+[connection signal="mouse_exited" from="GridContainer/MusicHSlider" to="." method="release_focus"]
+[connection signal="value_changed" from="GridContainer/MusicHSlider" to="." method="_on_MusicHSlider_value_changed"]
+[connection signal="mouse_exited" from="GridContainer/SFXHSlider3" to="." method="release_focus"]
+[connection signal="value_changed" from="GridContainer/SFXHSlider3" to="." method="_on_SFXHSlider3_value_changed"]
+[connection signal="mouse_exited" from="GridContainer/VoiceHSlider4" to="." method="release_focus"]
+[connection signal="value_changed" from="GridContainer/VoiceHSlider4" to="." method="_on_VoiceHSlider4_value_changed"]
