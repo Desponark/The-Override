@@ -79,10 +79,12 @@ text = "Quit Game"
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 3 )
+bus = "Sound Effects"
 
 [node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
+bus = "Sound Effects"
 
 [connection signal="mouse_entered" from="Control/Continue" to="." method="_on_Continue_mouse_entered"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_Continue_pressed"]
