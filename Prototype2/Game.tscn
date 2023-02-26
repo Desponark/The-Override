@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -7,29 +7,16 @@
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Teleporter.gd" type="Script" id=9]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sounds/Robot/voice/firstSocket.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Sounds/Robot/voice/firstEnemy.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/Robot/voice/secondSocket.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Sounds/Robot/voice/afterFirstSocket_short.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/ui/menus/abilityPopup/AbilityPopUp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/ui/menus/pauseMenu/pauseMenu.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=21]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 112, 412 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 305, 393.5 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 244.5, 177.75 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 107, 613.938 )
@@ -82,7 +69,7 @@ __meta__ = {
 }
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
-position = Vector2( -2, -1 )
+position = Vector2( 0, -3 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
@@ -90,49 +77,21 @@ position = Vector2( -2, -1 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 19229, 268 )
-
 [node name="Loot" type="Node2D" parent="."]
 position = Vector2( 76, -6 )
 
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 9310, 3179 )
+position = Vector2( 5465, 313 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 3082, 734 )
+position = Vector2( 6115, 553 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 3352, 480 )
+position = Vector2( 5986, 484 )
 playerPath = NodePath("../Player")
-
-[node name="FirstSocket" parent="." instance=ExtResource( 10 )]
-dialougeStream = ExtResource( 11 )
-dialogueText = "I can do something about these closed passages. Put me into this socket and I will be able to open the door."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSocket"]
-position = Vector2( 15002, 2486 )
-rotation = 3.13787
-shape = SubResource( 2 )
-
-[node name="AfterFirstSocket" parent="." instance=ExtResource( 10 )]
-dialougeStream = ExtResource( 15 )
-dialogueText = "When I am charging a socket, I lose energy and my light decreases. If I am low on energy, transfer your own energy into me. Always check on my wellbeing. My survival is of utmost importance."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstSocket"]
-position = Vector2( 16337, 2511 )
-shape = SubResource( 6 )
-
-[node name="FirstEnemy" parent="." instance=ExtResource( 10 )]
-dialougeStream = ExtResource( 12 )
-dialogueText = "Careful! Hostile machines ahead. Now that I am activated, they will try to destroy us. You will have to deal with them."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstEnemy"]
-position = Vector2( 17819, 480 )
-shape = SubResource( 3 )
 
 [node name="SecondSocket" parent="." instance=ExtResource( 10 )]
 position = Vector2( 6442, 64 )
@@ -150,7 +109,7 @@ dialougeStream = ExtResource( 14 )
 dialogueText = "Good. There are more of them ahead. Once, these machines were created as builders to support humans. I guess they are not building anymore, now they only destroy."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstEnemy"]
-position = Vector2( 21986, 240 )
+position = Vector2( 23550, 240 )
 shape = SubResource( 5 )
 
 [node name="endLevelDoor" parent="." instance=ExtResource( 10 )]
@@ -191,14 +150,6 @@ position = Vector2( 29254, 327 )
 
 [node name="F6" type="Position2D" parent="Teleporter"]
 position = Vector2( 26717, 256 )
-
-[node name="Checkpoint1" type="Area2D" parent="."]
-position = Vector2( 18282, 222 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint1"]
-shape = SubResource( 8 )
 
 [node name="Checkpoint2" type="Area2D" parent="."]
 position = Vector2( 26430, 110 )
@@ -249,7 +200,6 @@ collision_mask = 2
 shape = SubResource( 8 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Checkpoint1" to="Teleporter" method="_on_Checkpoint1_body_entered"]
 [connection signal="body_entered" from="Checkpoint2" to="Teleporter" method="_on_Checkpoint2_body_entered"]
 [connection signal="body_entered" from="Checkpoint3" to="Teleporter" method="_on_Checkpoint3_body_entered"]
 [connection signal="body_entered" from="Checkpoint7" to="Teleporter" method="_on_Checkpoint7_body_entered"]
