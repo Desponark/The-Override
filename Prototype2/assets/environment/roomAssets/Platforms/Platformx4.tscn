@@ -29,11 +29,6 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( -0.0522423, 1740.06, 512.68, 308.386 )
 
-[node name="Light2D2" type="Light2D" parent="."]
-visible = false
-texture = ExtResource( 2 )
-color = Color( 0.905882, 0.533333, 0.168627, 1 )
-
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 153, -71 )
 scale = Vector2( 0.2, 0.2 )
@@ -49,11 +44,6 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( -0.0522423, 1740.06, 512.68, 308.386 )
 
-[node name="Light2D3" type="Light2D" parent="."]
-visible = false
-texture = ExtResource( 2 )
-color = Color( 0.905882, 0.533333, 0.168627, 1 )
-
 [node name="Sprite5" type="Sprite" parent="."]
 position = Vector2( 51, -71 )
 scale = Vector2( 0.2, 0.2 )
@@ -68,11 +58,6 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( -0.0522423, 1740.06, 512.68, 308.386 )
-
-[node name="Light2D4" type="Light2D" parent="."]
-visible = false
-texture = ExtResource( 2 )
-color = Color( 0.905882, 0.533333, 0.168627, 1 )
 
 [node name="Sprite7" type="Sprite" parent="."]
 position = Vector2( -51, -71 )

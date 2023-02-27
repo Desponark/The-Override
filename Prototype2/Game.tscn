@@ -70,7 +70,6 @@ __meta__ = {
 }
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -3 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
@@ -79,23 +78,21 @@ position = Vector2( 0, -3 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Loot" type="Node2D" parent="."]
-position = Vector2( 76, -6 )
 
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 9315, 3163 )
+position = Vector2( 24367, -87 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 3153, 679 )
+position = Vector2( 25082, 36 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 3024, 610 )
+position = Vector2( 24953, -33 )
 playerPath = NodePath("../Player")
 
 [node name="SecondSocket" parent="." instance=ExtResource( 10 )]
-position = Vector2( 6442, 64 )
 dialougeStream = ExtResource( 13 )
 dialogueText = "Another socket. You know what to do. Put me in."
 
@@ -105,7 +102,6 @@ rotation = 1.57079
 shape = SubResource( 4 )
 
 [node name="AfterFirstEnemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( -268, 0 )
 dialougeStream = ExtResource( 14 )
 dialogueText = "Good. There are more of them ahead. Once, these machines were created as builders to support humans. I guess they are not building anymore, now they only destroy."
 
@@ -114,7 +110,6 @@ position = Vector2( 23550, 240 )
 shape = SubResource( 5 )
 
 [node name="endLevelDoor" parent="." instance=ExtResource( 10 )]
-position = Vector2( -268, 0 )
 dialougeStream = ExtResource( 21 )
 dialogueText = "There! The activation unit is located behind this gate. Explore this place: There are sockets nearby to open it! We are very close."
 
@@ -123,12 +118,12 @@ position = Vector2( 30986, -220 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 29935, 368 )
+position = Vector2( 33760, 232 )
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 3157, -577.25 )
+position = Vector2( 4817, -891 )
 shape = SubResource( 7 )
 
 [node name="Teleporter" type="Node2D" parent="."]
@@ -139,12 +134,6 @@ position = Vector2( 10480, 578 )
 
 [node name="F2" type="Position2D" parent="Teleporter"]
 position = Vector2( 13565, 2633 )
-
-[node name="F3" type="Position2D" parent="Teleporter"]
-position = Vector2( 23002, 2665 )
-
-[node name="F4" type="Position2D" parent="Teleporter"]
-position = Vector2( 28409, 5631 )
 
 [connection signal="optionsOpened" from="MenuElements/pauseMenu" to="MenuElements/OptionsMenu" method="_on_pauseMenu_optionsOpened"]
 [connection signal="optionsClosed" from="MenuElements/OptionsMenu" to="MenuElements/pauseMenu" method="_on_OptionsMenu_optionsClosed"]

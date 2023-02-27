@@ -10,14 +10,13 @@ extents = Vector2( 51.25, 30.75 )
 [node name="Platform" type="Node2D"]
 
 [node name="Light2D" type="Light2D" parent="."]
-visible = false
+scale = Vector2( 0.177734, 0.177734 )
 texture = ExtResource( 2 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -71 )
 scale = Vector2( 0.2, 0.2 )
-z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 37.4016, 22.8136, 512.543, 402.724 )
