@@ -67,3 +67,8 @@ collision_mask = 512
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource( 1 )
 one_way_collision = true
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+texture = ExtResource( 1 )
+color = Color( 0.905882, 0.533333, 0.168627, 1 )
