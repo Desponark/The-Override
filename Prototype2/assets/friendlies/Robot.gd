@@ -8,6 +8,7 @@ export var minimumLightScaleMultiplier = 0.3
 
 func _ready():
 	$InteractionableBox.setInteractionReadiness(true)
+	$CanvasLayer.hide()
 
 # TODO: think about a better way to change light scale
 func _process(_delta):
@@ -40,14 +41,15 @@ func takeDamage(damage):
 		$CanvasLayer/HealthBar/AnimationPlayer.play("healthLose")
 		
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
-func transferHealth(damage):
+func loseHealth(damage):
 	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
 		$CanvasLayer/HealthBar.subtractHealth(damage)
-		$CanvasLayer/HealthBar/AnimationPlayer.play("healthGain")
+		$CanvasLayer/HealthBar/AnimationPlayer.play("healthLose")
 		
 func gainHealth(healAmount):
 	if $CanvasLayer/HealthBar.has_method("addHealth"):
 		$CanvasLayer/HealthBar.addHealth(healAmount)
+		$CanvasLayer/HealthBar/AnimationPlayer.play("healthGain")
 		
 		
 func getHealth():
@@ -82,6 +84,7 @@ func _on_InteractionableBox_interacted(area):
 			$InteractionableBox/CollisionShape2D.disabled = true
 			$InteractionableBox.setInteractionReadiness(false)
 			EventBus.emit_signal("robotWasPickedUp")
+			$CanvasLayer/HealthBar/AnimationPlayer.play("initialize")
 
 # TODO: implement properly
 func playSocketStoppedCharging():

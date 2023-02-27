@@ -194,8 +194,8 @@ func transferHealth():
 			
 		if $CanvasLayer/HealthBar.has_method("subtractHealth"):
 			$CanvasLayer/HealthBar.subtractHealth(healthTransferAmount)
-			$CanvasLayer/HealthBar/AnimationPlayer.play("healthLose")
-		robotRef.transferHealth(-(incomingHealth))
+			$CanvasLayer/HealthBar/AnimationPlayer.play("transferHealth")
+		robotRef.gainHealth((incomingHealth))
 	
 func getRobotFollowPosition():
 	return $RobotFollowPosition.global_position
