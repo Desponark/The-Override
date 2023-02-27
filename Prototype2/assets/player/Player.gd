@@ -147,19 +147,25 @@ func playAnimations(horizontalDirection):
 		MOTIONSTATE.JUMPING, MOTIONSTATE.DOUBLEJUMPING:
 			$JumpSound.play()
 			$AnimationPlayer.play("jump")
+			$AnimationPlayer2.play("jump")
 		MOTIONSTATE.RUNNING:
 			if horizontalDirection == 0 and velocity.x != 0: # slow down animation speed if the player is decelerating
 				$AnimationPlayer.play("run", -1, 0.4)
+				$AnimationPlayer2.play("run", -1, 0.4)
 			else:
 				$AnimationPlayer.play("run")
+				$AnimationPlayer2.play("run")
 		MOTIONSTATE.FALLING:
 			$AnimationPlayer.play("fall")
+			$AnimationPlayer2.play("fall")
 		MOTIONSTATE.IDLING:
 			$AnimationPlayer.play("idle")
+			$AnimationPlayer2.play("idle")
 
 func switchSpriteDirection(horizontalDirection):
 	if horizontalDirection != 0:
 		$Sprite.flip_h = horizontalDirection < 0
+		$AnimatedSprite.flip_h = horizontalDirection < 0
 
 # TODO: implement heal function
 func takeDamage(damage):

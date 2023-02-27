@@ -749,10 +749,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0833333, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.0416667, 0.0833333, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0, 8, 31 ]
+"values": [ 8, 20, 27, 31 ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -843,17 +843,17 @@ maxJumpHeight = -1700.0
 minJumpHeight = -600.0
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
+self_modulate = Color( 1, 1, 1, 0.25098 )
 material = SubResource( 18 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 4
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 14.5 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 0, 12 )
+scale = Vector2( 0.16, 0.16 )
 frames = SubResource( 23 )
-animation = "run"
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
@@ -871,6 +871,7 @@ anims/run = SubResource( 4 )
 next/fall = "land"
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 anims/attack = SubResource( 28 )
 anims/fall = SubResource( 25 )
 anims/idle = SubResource( 26 )
