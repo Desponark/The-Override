@@ -103,10 +103,12 @@ stream = ExtResource( 1 )
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 7 )
+bus = "Sound Effects"
 
 [node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 8 )
+bus = "Sound Effects"
 
 [connection signal="finished" from="Panel/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="mouse_entered" from="Panel/Button" to="." method="_on_Button_mouse_entered"]
