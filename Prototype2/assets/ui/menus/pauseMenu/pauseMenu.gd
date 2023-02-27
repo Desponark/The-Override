@@ -2,6 +2,8 @@ extends Control
 
 var startScreen
 
+signal optionsOpened
+
 func setup(givenStartScreen):
 	startScreen = givenStartScreen
 
@@ -22,6 +24,8 @@ func _on_Continue_pressed():
 
 func _on_Options_pressed():
 	$ButtonPressSound.play()
+	emit_signal("optionsOpened")
+	hide()
 
 func _on_Main_Menu_pressed():
 	$ButtonPressSound.play()
@@ -34,3 +38,6 @@ func _on_Quit_Game_pressed():
 
 func _on_Button_mouse_entered():
 	$ButtonHoverSound.play()
+
+func _on_OptionsMenu_optionsClosed():
+	show()

@@ -6,6 +6,7 @@ onready var musicBusIndex = AudioServer.get_bus_index("Music")
 onready var SFXBusIndex = AudioServer.get_bus_index("Sound Effects")
 onready	var VoiceBusIndex = AudioServer.get_bus_index("Voice")
 
+signal optionsClosed
 # TODO: add config file saving and loading
 
 func _ready():
@@ -51,7 +52,11 @@ func _on_VoiceHSlider4_value_changed(value):
 
 func _on_Back_pressed():
 	$ButtonPressSound.play()
+	emit_signal("optionsClosed")
 	hide()
 
 func _on_Button_mouse_entered():
 	$ButtonHoverSound.play()
+
+func _on_pauseMenu_optionsOpened():
+	show()

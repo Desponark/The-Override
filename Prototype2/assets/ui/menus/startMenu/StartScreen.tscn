@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -65,13 +66,17 @@ tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 4, 0, 3, 5, 0, 4, 4, 0, 65536, 5,
 position = Vector2( -70, -218 )
 tile_data = PoolIntArray( 196608, 1073741830, 0, 196609, -536870897, 0, 196610, -536870897, 0, 196611, -536870897, 0, 196612, 1610612742, 0 )
 
-[node name="Continue" type="Button" parent="."]
+[node name="Buttons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Continue" type="Button" parent="Buttons"]
 margin_left = 404.0
 margin_top = 364.0
 margin_right = 964.0
 margin_bottom = 444.0
 
-[node name="Label" type="Label" parent="Continue"]
+[node name="Label" type="Label" parent="Buttons/Continue"]
 anchor_top = -0.475
 margin_top = 38.0
 margin_right = 560.0
@@ -81,13 +86,13 @@ text = "Continue"
 align = 1
 valign = 1
 
-[node name="NewGame" type="Button" parent="."]
+[node name="NewGame" type="Button" parent="Buttons"]
 margin_left = 404.0
 margin_top = 488.0
 margin_right = 964.0
 margin_bottom = 568.0
 
-[node name="Label" type="Label" parent="NewGame"]
+[node name="Label" type="Label" parent="Buttons/NewGame"]
 anchor_top = -0.475
 margin_top = 38.0
 margin_right = 560.0
@@ -97,13 +102,13 @@ text = "Start New Game"
 align = 1
 valign = 1
 
-[node name="Options" type="Button" parent="."]
+[node name="Options" type="Button" parent="Buttons"]
 margin_left = 404.0
 margin_top = 616.0
 margin_right = 964.0
 margin_bottom = 696.0
 
-[node name="Label" type="Label" parent="Options"]
+[node name="Label" type="Label" parent="Buttons/Options"]
 margin_right = 560.0
 margin_bottom = 80.0
 custom_fonts/font = SubResource( 1 )
@@ -111,23 +116,19 @@ text = "Options"
 align = 1
 valign = 1
 
-[node name="QuitGame" type="Button" parent="."]
+[node name="QuitGame" type="Button" parent="Buttons"]
 margin_left = 404.0
 margin_top = 751.0
 margin_right = 964.0
 margin_bottom = 831.0
 
-[node name="Label" type="Label" parent="QuitGame"]
+[node name="Label" type="Label" parent="Buttons/QuitGame"]
 margin_right = 560.0
 margin_bottom = 80.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 align = 1
 valign = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
-bus = "Music"
 
 [node name="GameTitle" type="Label" parent="."]
 margin_left = -32.0
@@ -155,6 +156,13 @@ anims/hit = SubResource( 8 )
 visible = false
 health = 20.0
 
+[node name="OptionsMenu" parent="." instance=ExtResource( 11 )]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "Music"
+
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 2 )
@@ -163,13 +171,14 @@ stream = ExtResource( 2 )
 pause_mode = 2
 stream = ExtResource( 4 )
 
-[connection signal="mouse_entered" from="Continue" to="." method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
-[connection signal="mouse_entered" from="NewGame" to="." method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
-[connection signal="mouse_entered" from="Options" to="." method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
-[connection signal="mouse_entered" from="QuitGame" to="." method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="QuitGame" to="." method="_on_QuitGame_pressed"]
+[connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="Buttons/NewGame" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="mouse_entered" from="Buttons/Options" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_Options_pressed"]
+[connection signal="mouse_entered" from="Buttons/QuitGame" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Buttons/QuitGame" to="." method="_on_QuitGame_pressed"]
+[connection signal="optionsClosed" from="OptionsMenu" to="." method="_on_OptionsMenu_optionsClosed"]
 
 [editable path="Robot"]

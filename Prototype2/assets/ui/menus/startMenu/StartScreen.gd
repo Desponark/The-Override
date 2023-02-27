@@ -7,8 +7,8 @@ const saveGamePath = "user://savegame.save"
 func _ready():
 	var dir = Directory.new()
 	if !dir.file_exists(saveGamePath):
-		$Continue.hide()
-		$Continue/Label.hide()
+		$Buttons/Continue.hide()
+		$Buttons/Continue/Label.hide()
 
 func _on_Continue_pressed():
 	$ButtonPressSound.play()
@@ -23,6 +23,8 @@ func _on_NewGame_pressed():
 
 func _on_Options_pressed():
 	$ButtonPressSound.play()
+	$OptionsMenu.show()
+	$Buttons.hide()
 	
 func _on_QuitGame_pressed():
 	$ButtonPressSound.play()
@@ -30,3 +32,6 @@ func _on_QuitGame_pressed():
 
 func _on_Button_mouse_entered():
 	$ButtonHoverSound.play()
+
+func _on_OptionsMenu_optionsClosed():
+	$Buttons.show()
