@@ -32,7 +32,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Prototype 2"
+config/name="The Override"
 run/main_scene="res://assets/ui/menus/startMenu/StartScreen.tscn"
 config/icon="res://icon.png"
 
