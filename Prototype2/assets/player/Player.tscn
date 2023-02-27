@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=161 format=2]
 
 [ext_resource path="res://assets/player/SwordsmanIdle-sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
@@ -20,11 +20,157 @@
 [ext_resource path="res://Sounds/Player/Footsteps/footstep05.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/player/dash/DashGhost.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/ui/keyIcons/rightMouseButton.png" type="Texture" id=20]
+[ext_resource path="res://assets/player/newCharacter/Idle_Stance/Idle_Animation_DeMain_0000.png" type="Texture" id=21]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0024.png" type="Texture" id=22]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0025.png" type="Texture" id=23]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0023.png" type="Texture" id=24]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0026.png" type="Texture" id=25]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0016.png" type="Texture" id=26]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0018.png" type="Texture" id=27]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0019.png" type="Texture" id=28]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0015.png" type="Texture" id=29]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0020.png" type="Texture" id=30]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0021.png" type="Texture" id=31]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0022.png" type="Texture" id=32]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0017.png" type="Texture" id=33]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0003.png" type="Texture" id=34]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0009.png" type="Texture" id=35]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0010.png" type="Texture" id=36]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0011.png" type="Texture" id=37]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0006.png" type="Texture" id=38]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0008.png" type="Texture" id=39]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0012.png" type="Texture" id=40]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0007.png" type="Texture" id=41]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0014.png" type="Texture" id=42]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0001.png" type="Texture" id=43]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0002.png" type="Texture" id=44]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0013.png" type="Texture" id=45]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0004.png" type="Texture" id=46]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0000.png" type="Texture" id=47]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0005.png" type="Texture" id=48]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0027.png" type="Texture" id=49]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0028.png" type="Texture" id=50]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0022.png" type="Texture" id=51]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0014.png" type="Texture" id=52]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0015.png" type="Texture" id=53]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0017.png" type="Texture" id=54]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0021.png" type="Texture" id=55]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0017.png" type="Texture" id=56]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0013.png" type="Texture" id=57]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0029.png" type="Texture" id=58]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0007.png" type="Texture" id=59]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0022.png" type="Texture" id=60]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0007.png" type="Texture" id=61]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0018.png" type="Texture" id=62]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0026.png" type="Texture" id=63]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0029.png" type="Texture" id=64]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0031.png" type="Texture" id=65]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0031.png" type="Texture" id=66]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0011.png" type="Texture" id=67]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0001.png" type="Texture" id=68]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0027.png" type="Texture" id=69]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0023.png" type="Texture" id=70]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0014.png" type="Texture" id=71]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0024.png" type="Texture" id=72]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0002.png" type="Texture" id=73]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0018.png" type="Texture" id=74]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0002.png" type="Texture" id=75]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0025.png" type="Texture" id=76]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0006.png" type="Texture" id=77]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0020.png" type="Texture" id=78]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0012.png" type="Texture" id=79]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0013.png" type="Texture" id=80]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0028.png" type="Texture" id=81]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0026.png" type="Texture" id=82]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0027.png" type="Texture" id=83]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0010.png" type="Texture" id=84]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0024.png" type="Texture" id=85]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0016.png" type="Texture" id=86]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0016.png" type="Texture" id=87]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0028.png" type="Texture" id=88]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0005.png" type="Texture" id=89]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0023.png" type="Texture" id=90]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0019.png" type="Texture" id=91]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0001.png" type="Texture" id=92]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0005.png" type="Texture" id=93]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0003.png" type="Texture" id=94]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0008.png" type="Texture" id=95]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0015.png" type="Texture" id=96]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0025.png" type="Texture" id=97]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0000.png" type="Texture" id=98]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0011.png" type="Texture" id=99]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0020.png" type="Texture" id=100]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0000.png" type="Texture" id=101]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0003.png" type="Texture" id=102]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0004.png" type="Texture" id=103]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0010.png" type="Texture" id=104]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0004.png" type="Texture" id=105]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0021.png" type="Texture" id=106]
+[ext_resource path="res://assets/player/newCharacter/Fall/Fall_Animation_DeMain_0030.png" type="Texture" id=107]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0030.png" type="Texture" id=108]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0006.png" type="Texture" id=109]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0009.png" type="Texture" id=110]
+[ext_resource path="res://assets/player/newCharacter/Jump/Jump_Animation_DeMain_0019.png" type="Texture" id=111]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0008.png" type="Texture" id=112]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0009.png" type="Texture" id=113]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0012.png" type="Texture" id=114]
+[ext_resource path="res://assets/player/newCharacter/Run/1.png" type="Texture" id=115]
+[ext_resource path="res://assets/player/newCharacter/Run/2.png" type="Texture" id=116]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0030.png" type="Texture" id=117]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0029.png" type="Texture" id=118]
+[ext_resource path="res://assets/player/newCharacter/Land/Land_Animation_DeMain_0031.png" type="Texture" id=119]
+[ext_resource path="res://assets/player/newCharacter/Run/0.png" type="Texture" id=120]
+[ext_resource path="res://assets/player/newCharacter/Run/9.png" type="Texture" id=121]
+[ext_resource path="res://assets/player/newCharacter/Run/3.png" type="Texture" id=122]
+[ext_resource path="res://assets/player/newCharacter/Run/14.png" type="Texture" id=123]
+[ext_resource path="res://assets/player/newCharacter/Run/4.png" type="Texture" id=124]
+[ext_resource path="res://assets/player/newCharacter/Run/18.png" type="Texture" id=125]
+[ext_resource path="res://assets/player/newCharacter/Run/16.png" type="Texture" id=126]
+[ext_resource path="res://assets/player/newCharacter/Run/17.png" type="Texture" id=127]
+[ext_resource path="res://assets/player/newCharacter/Run/15.png" type="Texture" id=128]
+[ext_resource path="res://assets/player/newCharacter/Run/11.png" type="Texture" id=129]
+[ext_resource path="res://assets/player/newCharacter/Run/6.png" type="Texture" id=130]
+[ext_resource path="res://assets/player/newCharacter/Run/13.png" type="Texture" id=131]
+[ext_resource path="res://assets/player/newCharacter/Run/20.png" type="Texture" id=132]
+[ext_resource path="res://assets/player/newCharacter/Run/10.png" type="Texture" id=133]
+[ext_resource path="res://assets/player/newCharacter/Run/7.png" type="Texture" id=134]
+[ext_resource path="res://assets/player/newCharacter/Run/19.png" type="Texture" id=135]
+[ext_resource path="res://assets/player/newCharacter/Run/8.png" type="Texture" id=136]
+[ext_resource path="res://assets/player/newCharacter/Run/5.png" type="Texture" id=137]
+[ext_resource path="res://assets/player/newCharacter/Run/12.png" type="Texture" id=138]
 
 [sub_resource type="ShaderMaterial" id=18]
 resource_local_to_scene = true
 shader = ExtResource( 8 )
 shader_param/active = false
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ ExtResource( 47 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 34 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 38 ), ExtResource( 41 ), ExtResource( 39 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 40 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 26 ), ExtResource( 33 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 58 ), ExtResource( 107 ), ExtResource( 65 ) ],
+"loop": true,
+"name": "fall",
+"speed": 32.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "idle",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 98 ), ExtResource( 92 ), ExtResource( 75 ), ExtResource( 94 ), ExtResource( 105 ), ExtResource( 89 ), ExtResource( 77 ), ExtResource( 59 ), ExtResource( 95 ), ExtResource( 110 ), ExtResource( 104 ), ExtResource( 99 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 71 ), ExtResource( 96 ), ExtResource( 87 ), ExtResource( 56 ), ExtResource( 62 ), ExtResource( 111 ), ExtResource( 100 ), ExtResource( 106 ), ExtResource( 51 ), ExtResource( 90 ), ExtResource( 85 ), ExtResource( 97 ), ExtResource( 63 ), ExtResource( 69 ), ExtResource( 81 ), ExtResource( 64 ), ExtResource( 108 ), ExtResource( 66 ) ],
+"loop": true,
+"name": "jump",
+"speed": 32.0
+}, {
+"frames": [ ExtResource( 101 ), ExtResource( 68 ), ExtResource( 73 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 93 ), ExtResource( 109 ), ExtResource( 61 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 84 ), ExtResource( 67 ), ExtResource( 114 ), ExtResource( 57 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 86 ), ExtResource( 54 ), ExtResource( 74 ), ExtResource( 91 ), ExtResource( 78 ), ExtResource( 55 ), ExtResource( 60 ), ExtResource( 70 ), ExtResource( 72 ), ExtResource( 76 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 88 ), ExtResource( 118 ), ExtResource( 117 ), ExtResource( 119 ) ],
+"loop": true,
+"name": "land",
+"speed": 32.0
+}, {
+"frames": [ ExtResource( 120 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 122 ), ExtResource( 124 ), ExtResource( 137 ), ExtResource( 130 ), ExtResource( 134 ), ExtResource( 136 ), ExtResource( 121 ), ExtResource( 133 ), ExtResource( 129 ), ExtResource( 138 ), ExtResource( 131 ), ExtResource( 123 ), ExtResource( 128 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 125 ), ExtResource( 135 ), ExtResource( 132 ) ],
+"loop": true,
+"name": "run",
+"speed": 21.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=21]
 radius = 21.5
@@ -218,9 +364,6 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true, false, true ]
 }
-
-[sub_resource type="Animation" id=16]
-resource_name = "dash"
 
 [sub_resource type="Animation" id=14]
 resource_name = "fall"
@@ -523,6 +666,124 @@ tracks/5/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=28]
+resource_name = "attack"
+
+[sub_resource type="Animation" id=25]
+resource_name = "fall"
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fall" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 31 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "idle"
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "jump"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "jump" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0833333, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 8, 31 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "run"
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 20 ]
+}
+
 [sub_resource type="Animation" id=19]
 length = 0.001
 tracks/0/type = "value"
@@ -582,10 +843,17 @@ maxJumpHeight = -1700.0
 minJumpHeight = -600.0
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 material = SubResource( 18 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 4
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 14.5 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 23 )
+animation = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
@@ -595,7 +863,6 @@ shape = SubResource( 21 )
 autoplay = "idle"
 anims/RESET = SubResource( 6 )
 anims/attack = SubResource( 5 )
-anims/dash = SubResource( 16 )
 anims/fall = SubResource( 14 )
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 13 )
@@ -603,11 +870,19 @@ anims/land = SubResource( 15 )
 anims/run = SubResource( 4 )
 next/fall = "land"
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 28 )
+anims/fall = SubResource( 25 )
+anims/idle = SubResource( 26 )
+anims/jump = SubResource( 27 )
+anims/run = SubResource( 24 )
+
 [node name="VFXAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 19 )
 anims/hit = SubResource( 11 )
 
 [node name="ProjectileHitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 6 )
@@ -619,6 +894,7 @@ shape = SubResource( 20 )
 disabled = true
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 6 )
@@ -630,6 +906,7 @@ shape = SubResource( 7 )
 disabled = true
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, 12 )
 collision_layer = 0
 collision_mask = 2
@@ -664,6 +941,7 @@ collision_mask = 32
 shape = SubResource( 22 )
 
 [node name="InteractionBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource( 10 )
@@ -695,6 +973,12 @@ one_shot = true
 [node name="FallThroughPlatformTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="RightMouseButton" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -56 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
 
 [node name="DamagedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
@@ -733,12 +1017,6 @@ bus = "Sound Effects"
 pause_mode = 2
 stream = ExtResource( 17 )
 bus = "Sound Effects"
-
-[node name="RightMouseButton" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -56 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 20 )
 
 [connection signal="healthReachedZero" from="CanvasLayer/HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_InteractionBox_area_entered"]
