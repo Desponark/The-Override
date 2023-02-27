@@ -1,16 +1,27 @@
 extends Control
 
+const saveGamePath = "user://savegame.save"
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visible = false
 
+func setup(text):
+	if text:
+		$Control/Label.text = text
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func start():
+	show()
+	$AnimationPlayer.play("zoom")
+	get_tree().paused = true
+
+func _on_ButtonLeft_pressed():
+	$ButtonPressSound.play()
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	
+func _on_ButtonRight_pressed():
+	$ButtonPressSound.play()
+	get_tree().quit()
+
+func _on_Button_mouse_entered():
+	$ButtonHoverSound.play()

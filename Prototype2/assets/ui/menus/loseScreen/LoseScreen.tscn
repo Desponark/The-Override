@@ -5,51 +5,18 @@
 [ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=5]
-
-[sub_resource type="GDScript" id=6]
-script/source = "extends Control
-
-func _ready():
-	visible = false
-
-func setup(text):
-	if text:
-		$Control/Label.text = text
-
-func start():
-	show()
-	$AnimationPlayer.play(\"zoom\")
-	get_tree().paused = true
-
-func _on_Button_pressed():
-	$ButtonPressSound.play()
-	get_tree().paused = false
-#	get_tree().reload_current_scene()
-	$\"../../Teleporter\".teleportToLastPos()
-	hide()
-	
-func _on_Button2_pressed():
-	$ButtonPressSound.play()
-	get_tree().quit()
-
-
-func _on_Button_mouse_entered():
-	$ButtonHoverSound.play()
-
-func _on_Button2_mouse_entered():
-	$ButtonHoverSound.play()
-"
+[ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 139
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 70
+size = 35
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 70
+size = 35
 font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=2]
@@ -126,7 +93,7 @@ margin_left = 808.0
 margin_top = 376.0
 margin_right = -791.0
 margin_bottom = -562.0
-script = SubResource( 6 )
+script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.137
@@ -159,15 +126,15 @@ text = "You died!"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="Control"]
+[node name="ButtonLeft" type="Button" parent="Control"]
 margin_left = -504.0
 margin_top = 117.152
 margin_right = -62.0
 margin_bottom = 287.152
 custom_fonts/font = SubResource( 4 )
-text = "Restart"
+text = "Restart from Checkpoint"
 
-[node name="Button2" type="Button" parent="Control"]
+[node name="ButtonRight" type="Button" parent="Control"]
 margin_left = 114.0
 margin_top = 118.152
 margin_right = 583.0
@@ -190,12 +157,14 @@ anims/zoom = SubResource( 3 )
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 1 )
+bus = "Sound Effects"
 
 [node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 5 )
+bus = "Sound Effects"
 
-[connection signal="mouse_entered" from="Control/Button" to="." method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
-[connection signal="mouse_entered" from="Control/Button2" to="." method="_on_Button2_mouse_entered"]
-[connection signal="pressed" from="Control/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="mouse_entered" from="Control/ButtonLeft" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/ButtonLeft" to="." method="_on_ButtonLeft_pressed"]
+[connection signal="mouse_entered" from="Control/ButtonRight" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/ButtonRight" to="." method="_on_ButtonRight_pressed"]

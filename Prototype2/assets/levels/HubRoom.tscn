@@ -1,7 +1,6 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/environment/spawner/Spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=5]
@@ -28,7 +27,7 @@
 [ext_resource path="res://assets/customNodes/HitBox.gd" type="Script" id=26]
 [ext_resource path="res://assets/environment/doors/Lift.tscn" type="PackedScene" id=27]
 [ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=28]
-[ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=29]
+[ext_resource path="res://assets/environment/spawner/Spawner.tscn" type="PackedScene" id=29]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
@@ -864,7 +863,6 @@ position = Vector2( 32562, -2251 )
 scale = Vector2( 1.75, 1 )
 targetHeight = -4228.0
 moveDuration = 12
-returnToStartPosition = true
 
 [node name="ReflectDoor+" parent="Reflect Upgrade/Elevator, Doors" instance=ExtResource( 12 )]
 position = Vector2( 29985, -2686 )
@@ -930,19 +928,6 @@ minSpawnRate = 5
 maxSpawnRate = 5
 waveSpawnAmount = 2
 initialMoveDirection = -1
-
-[node name="Spawner" parent="Reflect Upgrade/Spawner" instance=ExtResource( 2 )]
-position = Vector2( 21719, -1161 )
-minSpawnRate = 2
-maxSpawnRate = 4
-waveSpawnAmount = 3
-waveCooldown = 40
-initialMoveDirection = 1
-
-[node name="Spawner2" parent="Reflect Upgrade/Spawner" instance=ExtResource( 2 )]
-position = Vector2( 19967, 264 )
-minSpawnRate = 6
-initialMoveDirection = 1
 
 [node name="Enemy" type="Node2D" parent="Reflect Upgrade"]
 
@@ -1079,7 +1064,6 @@ position = Vector2( 29686, -108 )
 scale = Vector2( 0.8, 0.8 )
 targetHeight = -646.0
 moveDuration = 2
-returnToStartPosition = true
 
 [node name="Lights" type="Node2D" parent="."]
 

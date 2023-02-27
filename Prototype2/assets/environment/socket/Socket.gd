@@ -7,7 +7,7 @@ export(Array, NodePath) var triggerScenes = []
 
 enum CHARGESTATE {EMPTY, CHARGING, PAUSED, FULLYCHARGED}
 var chargeState = CHARGESTATE.EMPTY
-var currentChargeState
+var lastChargeState
 
 # TODO: maybe change implementation so player and robot are accessed differently?
 var player
@@ -20,9 +20,6 @@ func _ready():
 	$HealthBar.health = startEnergy
 	$HealthBar.maxHealth = maxEnergy
 	$HealthBar.setup()
-	EventBus.connect("robotWasPickedUp", self, "socketReadyForInteraction")
-
-func socketReadyForInteraction():
 	$InteractionableBox.setInteractionReadiness(true)
 
 # TODO: cleanup this mess; make sure things happen only when they need to happen and not all the time
@@ -46,11 +43,11 @@ func _process(_delta):
 
 func pauseChargeProcess(isPaused):
 	if chargeState != CHARGESTATE.PAUSED:
-		currentChargeState = chargeState
+		lastChargeState = chargeState
 	if isPaused:
 		chargeState = CHARGESTATE.PAUSED
 	else:
-		chargeState = currentChargeState
+		chargeState = lastChargeState
 	triggerEachScene()
 
 func getRobotDockPosition():
@@ -80,7 +77,7 @@ func _on_HealthBar_healthReachedMax():
 	$ChargingSound.stop()
 	robot.isFollowingPlayer = true
 	$InteractionableBox/CollisionShape2D.disabled = true # disable socket interaction completely if fully charged
-	$InteractionableBox.setInteractionReadiness(true)
+	$InteractionableBox.setInteractionReadiness(false)
 	triggerEachScene() # trigger everything on socket being full that is connected
 	# Play ChargingFinished sound
 	$ChargingFinishedSound.play()
@@ -96,4 +93,19 @@ func _on_InteractionableBox_interacted(area):
 		$InteractionableBox.changePromptVisibility(false)
 		# trigger everything that triggers on socket charging up that is connected
 		chargeState = CHARGESTATE.CHARGING
+		triggerEachScene()
+
+func saveData():
+	return {
+		"nodePath" : get_path(),
+		"chargeState" : chargeState,
+		"health" : $HealthBar.getHealth()
+	}
+	
+func loadData(data):
+	chargeState = data["chargeState"]
+	$HealthBar.health = data["health"]
+	if chargeState == CHARGESTATE.FULLYCHARGED:
+		$InteractionableBox/CollisionShape2D.disabled = true
+		$InteractionableBox.setInteractionReadiness(false)
 		triggerEachScene()

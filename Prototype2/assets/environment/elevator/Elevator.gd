@@ -4,7 +4,7 @@ extends StaticBody2D
 export var targetHeight = -100.0
 export var moveDuration = 4
 export var moveOnlyOnce = false
-export var returnToStartPosition = false
+export var returnToStartPosition = true
 export var elevatorCooldown = 1
 export var isLocked = false
 
@@ -43,5 +43,5 @@ func _on_Timer_timeout():
 	if moveOnlyOnce:
 		return
 	isActive = false
-	if returnToStartPosition:
+	if returnToStartPosition and !isDown:
 		moveElevator()

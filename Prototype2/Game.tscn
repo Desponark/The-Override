@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Teleporter.gd" type="Script" id=9]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sounds/Robot/voice/secondSocket.ogg" type="AudioStream" id=13]
@@ -26,9 +27,6 @@ extents = Vector2( 66, 666 )
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 1330.69
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 364, 490 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -57,6 +55,9 @@ margin_left = 768.0
 margin_right = -831.0
 
 [node name="pauseMenu" parent="MenuElements" instance=ExtResource( 20 )]
+visible = false
+
+[node name="OptionsMenu" parent="MenuElements" instance=ExtResource( 8 )]
 visible = false
 
 [node name="Background" type="Sprite" parent="."]
@@ -134,25 +135,6 @@ position = Vector2( 10480, 578 )
 [node name="F2" type="Position2D" parent="Teleporter"]
 position = Vector2( 13565, 2633 )
 
-[node name="F5" type="Position2D" parent="Teleporter"]
-position = Vector2( 29254, 327 )
-
-[node name="Checkpoint5" type="Area2D" parent="."]
-position = Vector2( 28517, -2516 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint5"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint6" type="Area2D" parent="."]
-position = Vector2( 30270, -4747 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint6"]
-shape = SubResource( 8 )
-
+[connection signal="optionsOpened" from="MenuElements/pauseMenu" to="MenuElements/OptionsMenu" method="_on_pauseMenu_optionsOpened"]
+[connection signal="optionsClosed" from="MenuElements/OptionsMenu" to="MenuElements/pauseMenu" method="_on_OptionsMenu_optionsClosed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Checkpoint5" to="Teleporter" method="_on_Checkpoint5_body_entered"]
-[connection signal="body_entered" from="Checkpoint6" to="Teleporter" method="_on_Checkpoint6_body_entered"]
