@@ -69,7 +69,6 @@ __meta__ = {
 }
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -3 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 
@@ -78,23 +77,21 @@ position = Vector2( 0, -3 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Loot" type="Node2D" parent="."]
-position = Vector2( 76, -6 )
 
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 5465, 313 )
+position = Vector2( 24367, -87 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 6115, 553 )
+position = Vector2( 25082, 36 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 5986, 484 )
+position = Vector2( 24953, -33 )
 playerPath = NodePath("../Player")
 
 [node name="SecondSocket" parent="." instance=ExtResource( 10 )]
-position = Vector2( 6442, 64 )
 dialougeStream = ExtResource( 13 )
 dialogueText = "Another socket. You know what to do. Put me in."
 
@@ -104,7 +101,6 @@ rotation = 1.57079
 shape = SubResource( 4 )
 
 [node name="AfterFirstEnemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( -268, 0 )
 dialougeStream = ExtResource( 14 )
 dialogueText = "Good. There are more of them ahead. Once, these machines were created as builders to support humans. I guess they are not building anymore, now they only destroy."
 
@@ -113,7 +109,6 @@ position = Vector2( 23550, 240 )
 shape = SubResource( 5 )
 
 [node name="endLevelDoor" parent="." instance=ExtResource( 10 )]
-position = Vector2( -268, 0 )
 dialougeStream = ExtResource( 21 )
 dialogueText = "There! The activation unit is located behind this gate. Explore this place: There are sockets nearby to open it! We are very close."
 
@@ -122,12 +117,12 @@ position = Vector2( 30986, -220 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 29935, 368 )
+position = Vector2( 33760, 232 )
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 3157, -577.25 )
+position = Vector2( 4817, -891 )
 shape = SubResource( 7 )
 
 [node name="Teleporter" type="Node2D" parent="."]
@@ -139,49 +134,8 @@ position = Vector2( 10480, 578 )
 [node name="F2" type="Position2D" parent="Teleporter"]
 position = Vector2( 13565, 2633 )
 
-[node name="F3" type="Position2D" parent="Teleporter"]
-position = Vector2( 23002, 2665 )
-
-[node name="F4" type="Position2D" parent="Teleporter"]
-position = Vector2( 28409, 5631 )
-
 [node name="F5" type="Position2D" parent="Teleporter"]
 position = Vector2( 29254, 327 )
-
-[node name="F6" type="Position2D" parent="Teleporter"]
-position = Vector2( 26717, 256 )
-
-[node name="Checkpoint2" type="Area2D" parent="."]
-position = Vector2( 26430, 110 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint3" type="Area2D" parent="."]
-position = Vector2( 27239, 2549 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint3"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint7" type="Area2D" parent="."]
-position = Vector2( 23002, 2595 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint7"]
-shape = SubResource( 8 )
-
-[node name="Checkpoint4" type="Area2D" parent="."]
-position = Vector2( 28362, 5579 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint4"]
-shape = SubResource( 8 )
 
 [node name="Checkpoint5" type="Area2D" parent="."]
 position = Vector2( 28517, -2516 )
@@ -200,9 +154,5 @@ collision_mask = 2
 shape = SubResource( 8 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Checkpoint2" to="Teleporter" method="_on_Checkpoint2_body_entered"]
-[connection signal="body_entered" from="Checkpoint3" to="Teleporter" method="_on_Checkpoint3_body_entered"]
-[connection signal="body_entered" from="Checkpoint7" to="Teleporter" method="_on_Checkpoint7_body_entered"]
-[connection signal="body_entered" from="Checkpoint4" to="Teleporter" method="_on_Checkpoint4_body_entered"]
 [connection signal="body_entered" from="Checkpoint5" to="Teleporter" method="_on_Checkpoint5_body_entered"]
 [connection signal="body_entered" from="Checkpoint6" to="Teleporter" method="_on_Checkpoint6_body_entered"]
