@@ -26,6 +26,7 @@ func takeDamage(damage):
 	# change projectile direction
 	linear_velocity = linear_velocity * -1
 	$ReflectVFX.play("default")
+	$AudioStreamPlayer2D.play()
 	$Particles2D.emitting = true
 	# change projectile collisions so it can hit enemies too
 	$HitBox.set_collision_layer_bit(2, true)
