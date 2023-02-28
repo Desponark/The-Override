@@ -17,9 +17,9 @@ var robot
 var isSocketStoppedCharging = false
 
 func _ready():
-	$HealthBar.health = startEnergy
-	$HealthBar.maxHealth = maxEnergy
-	$HealthBar.setup()
+	$CanvasLayer/HealthBar.health = startEnergy
+	$CanvasLayer/HealthBar.maxHealth = maxEnergy
+	$CanvasLayer/HealthBar.setup()
 	$InteractionableBox.setInteractionReadiness(true)
 
 # TODO: cleanup this mess; make sure things happen only when they need to happen and not all the time
@@ -38,8 +38,8 @@ func _process(_delta):
 		$ChargingSound.play()
 		$ChargingStoppedSound.stop()
 		$Light2D.color = Color(0.49, 0.81, 0.34)
-		robot.transferHealth(energyTransferAmount)
-		$HealthBar.subtractHealth(-energyTransferAmount)
+		robot.loseHealth(energyTransferAmount)
+		$CanvasLayer/HealthBar.subtractHealth(-energyTransferAmount)
 
 func pauseChargeProcess(isPaused):
 	if chargeState != CHARGESTATE.PAUSED:
@@ -67,10 +67,10 @@ func triggerEachScene():
 					node.socketFullyCharged()
 
 func getEnergy():
-	return $HealthBar.health
+	return $CanvasLayer/HealthBar.health
 	
 func getMaxEnergy():
-	return $HealthBar.maxHealth
+	return $CanvasLayer/HealthBar.maxHealth
 
 func _on_HealthBar_healthReachedMax():
 	chargeState = CHARGESTATE.FULLYCHARGED

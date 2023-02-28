@@ -8,6 +8,7 @@ export var minimumLightScaleMultiplier = 0.3
 
 func _ready():
 	$InteractionableBox.setInteractionReadiness(true)
+	$CanvasLayer.hide()
 
 # TODO: think about a better way to change light scale
 func _process(_delta):
@@ -34,20 +35,28 @@ func putRobotInSocket(position):
 
 func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
+	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
+		$CanvasLayer/HealthBar.subtractHealth(damage)
 		$DamagedSound.play()
+		$CanvasLayer/HealthBar/AnimationPlayer.play("healthLose")
 		
 # TODO: implement properly. temporarily added this in order to not trigger hit vfx when transfering health
-func transferHealth(damage):
-	if $HealthBar.has_method("subtractHealth"):
-		$HealthBar.subtractHealth(damage)
+func loseHealth(damage):
+	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
+		$CanvasLayer/HealthBar.subtractHealth(damage)
+		$CanvasLayer/HealthBar/AnimationPlayer.play("healthLose")
+		
+func gainHealth(healAmount):
+	if $CanvasLayer/HealthBar.has_method("addHealth"):
+		$CanvasLayer/HealthBar.addHealth(healAmount)
+		$CanvasLayer/HealthBar/AnimationPlayer.play("healthGain")
+		
 		
 func getHealth():
-	return $HealthBar.getHealth()
+	return $CanvasLayer/HealthBar.getHealth()
 	
 func getMaxHealth():
-	return $HealthBar.getMaxHealth()
+	return $CanvasLayer/HealthBar.getMaxHealth()
 
 func getPriority():
 	return 2
@@ -76,6 +85,7 @@ func _on_InteractionableBox_interacted(area):
 func disableInteractions():
 	$InteractionableBox/CollisionShape2D.disabled = true
 	$InteractionableBox.setInteractionReadiness(false)
+	$CanvasLayer/HealthBar/AnimationPlayer.play("initialize")
 
 # TODO: implement properly
 func playSocketStoppedCharging():
