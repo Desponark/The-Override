@@ -36,6 +36,7 @@ var isProjectileReflectUnlocked = false
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
+		$AnimationPlayer2.play("attack")
 	
 	if event.is_action_pressed("transferHealth"):
 		isTransferingHealth = true
