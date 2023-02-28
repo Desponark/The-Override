@@ -217,7 +217,7 @@ mode = 2
 shadow_enabled = true
 
 [node name="Light2D18" type="Light2D" parent="Lights"]
-position = Vector2( 15311, 2293 )
+position = Vector2( 15374, 2291 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 9 )
 color = Color( 0.917647, 0.964706, 0.960784, 1 )
