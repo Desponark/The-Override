@@ -16,6 +16,9 @@ var robot
 # TODO: temporary solution for socket stopped charging being played on repeat
 var isSocketStoppedCharging = false
 
+signal socketIsCharging
+signal socketFullyCharged
+
 func _ready():
 	$CanvasLayer/HealthBar.health = startEnergy
 	$CanvasLayer/HealthBar.maxHealth = maxEnergy
@@ -56,6 +59,12 @@ func getRobotDockPosition():
 # TODO: think about a better name
 # TODO: think about using signals instead?
 func triggerEachScene():
+	match chargeState:
+		CHARGESTATE.CHARGING:
+			emit_signal("socketIsCharging")
+		CHARGESTATE.FULLYCHARGED:
+			emit_signal("socketFullyCharged")
+	
 	for nodePath in triggerScenes:
 		var node = get_node(nodePath)
 		match chargeState:
