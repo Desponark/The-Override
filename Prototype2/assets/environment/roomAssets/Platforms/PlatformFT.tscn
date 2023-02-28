@@ -16,7 +16,8 @@ region_enabled = true
 region_rect = Rect2( -0.309538, 1740.23, 513.498, 308.026 )
 
 [node name="Light2D" type="Light2D" parent="Platform"]
-position = Vector2( 0, -0.00012207 )
+visible = false
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 
@@ -26,5 +27,6 @@ collision_layer = 512
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 shape = SubResource( 1 )
 one_way_collision = true

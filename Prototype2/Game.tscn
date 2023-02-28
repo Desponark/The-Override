@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -9,24 +9,14 @@
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Teleporter.gd" type="Script" id=9]
-[ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sounds/Robot/voice/secondSocket.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/ui/menus/abilityPopup/AbilityPopUp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/ui/menus/pauseMenu/pauseMenu.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=21]
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 107, 613.938 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 66, 666 )
 
 [sub_resource type="CircleShape2D" id=7]
-radius = 1330.69
+radius = 131.309
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -70,8 +60,12 @@ __meta__ = {
 }
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3687, 0 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Projectiles" type="Node2D" parent="."]
 
@@ -82,48 +76,23 @@ __meta__ = {
 [node name="Alive" type="Node2D" parent="."]
 
 [node name="Robot" parent="Alive" instance=ExtResource( 5 )]
-position = Vector2( 24367, -87 )
+position = Vector2( 8390, 3191 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 25082, 36 )
+position = Vector2( 3689, 545 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 24953, -33 )
+position = Vector2( 3560, 476 )
 playerPath = NodePath("../Player")
 
-[node name="SecondSocket" parent="." instance=ExtResource( 10 )]
-dialougeStream = ExtResource( 13 )
-dialogueText = "Another socket. You know what to do. Put me in."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondSocket"]
-position = Vector2( 21620.1, -272.001 )
-rotation = 1.57079
-shape = SubResource( 4 )
-
-[node name="AfterFirstEnemy" parent="." instance=ExtResource( 10 )]
-dialougeStream = ExtResource( 14 )
-dialogueText = "Good. There are more of them ahead. Once, these machines were created as builders to support humans. I guess they are not building anymore, now they only destroy."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AfterFirstEnemy"]
-position = Vector2( 23550, 240 )
-shape = SubResource( 5 )
-
-[node name="endLevelDoor" parent="." instance=ExtResource( 10 )]
-dialougeStream = ExtResource( 21 )
-dialogueText = "There! The activation unit is located behind this gate. Explore this place: There are sockets nearby to open it! We are very close."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="endLevelDoor"]
-position = Vector2( 30986, -220 )
-shape = SubResource( 5 )
-
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 33760, 232 )
+position = Vector2( 44984, 309 )
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4817, -891 )
+position = Vector2( -6273, -3186 )
 shape = SubResource( 7 )
 
 [node name="Teleporter" type="Node2D" parent="."]
