@@ -20,6 +20,7 @@ func _ready():
 	$CanvasLayer/HealthBar.health = startEnergy
 	$CanvasLayer/HealthBar.maxHealth = maxEnergy
 	$CanvasLayer/HealthBar.setup()
+	$CanvasLayer.hide()
 	EventBus.connect("robotWasPickedUp", self, "socketReadyForInteraction")
 
 func socketReadyForInteraction():
@@ -28,6 +29,8 @@ func socketReadyForInteraction():
 # TODO: cleanup this mess; make sure things happen only when they need to happen and not all the time
 func _process(_delta):
 	if chargeState == CHARGESTATE.CHARGING:
+		$CanvasLayer.show()
+		$CanvasLayer/Light2D.hide()
 		if robot.getHealth() <= 1:
 			if !isSocketStoppedCharging:
 				$ChargingSound.stop()
@@ -43,7 +46,8 @@ func _process(_delta):
 		$Light2D.color = Color(0.49, 0.81, 0.34)
 		robot.loseHealth(energyTransferAmount)
 		$CanvasLayer/HealthBar.subtractHealth(-energyTransferAmount)
-
+	if CHARGESTATE.EMPTY:
+		$CanvasLayer.hide()
 func pauseChargeProcess(isPaused):
 	if chargeState != CHARGESTATE.PAUSED:
 		currentChargeState = chargeState
@@ -68,6 +72,8 @@ func triggerEachScene():
 			CHARGESTATE.FULLYCHARGED:
 				if node.has_method("socketFullyCharged"):
 					node.socketFullyCharged()
+					$CanvasLayer/HealthBar.hide()
+					$CanvasLayer/Socket.hide()
 
 func getEnergy():
 	return $CanvasLayer/HealthBar.health
