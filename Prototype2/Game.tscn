@@ -60,7 +60,7 @@ __meta__ = {
 }
 
 [node name="HubRoom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 3687, 0 )
+position = Vector2( 3685, -1 )
 
 [node name="Jump&Run" parent="." instance=ExtResource( 2 )]
 __meta__ = {
