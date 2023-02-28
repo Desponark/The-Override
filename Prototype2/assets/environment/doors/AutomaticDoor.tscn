@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/environment/doors/Door.png" type="Texture" id=1]
 [ext_resource path="res://assets/environment/doors/SpawnerDoor.gd" type="Script" id=2]
-[ext_resource path="res://Sounds/Door/doorClosing.mp3" type="AudioStream" id=3]
-[ext_resource path="res://Sounds/Door/door_open.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/Door/tick.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 20.2469, 23.7 )
@@ -132,7 +131,7 @@ scale = Vector2( 0.931, 0.95 )
 shape = SubResource( 1 )
 
 [node name="DoorOpeningSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 3 )
 bus = "Sound Effects"
 
 [node name="DoorClosingSound" type="AudioStreamPlayer2D" parent="."]
