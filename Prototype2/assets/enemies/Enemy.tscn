@@ -1,5 +1,6 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=77 format=2]
 
+[ext_resource path="res://Sounds/Enemy/Destroyed.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/enemies/loot/HealthDrop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/Enemy/Shoot.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/Player/Footsteps/footstep04.ogg" type="AudioStream" id=4]
@@ -297,6 +298,20 @@ tracks/7/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/8/type = "audio"
+tracks/8/path = NodePath("DestroyedSound")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "walk"
@@ -509,6 +524,10 @@ volume_db = -10.0
 
 [node name="DamagedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="DestroyedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 volume_db = -10.0
 
 [connection signal="body_entered" from="AggroZone" to="." method="_on_AggroZone_body_entered"]

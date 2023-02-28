@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Destroyed.mp3-be053e67ac50085cdb8e6b4cb4386324.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Enemy/Destroyed.mp3"
+dest_files=[ "res://.import/Destroyed.mp3-be053e67ac50085cdb8e6b4cb4386324.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
