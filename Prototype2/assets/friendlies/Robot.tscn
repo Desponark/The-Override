@@ -203,7 +203,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=13]
 resource_name = "healthLose"
-length = 0.2
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Light2D:color")
 tracks/0/interp = 1
@@ -215,46 +215,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 0.0705882, 0.0705882, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Light2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Light2D:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=14]
-resource_name = "initialize"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.3, 0.5 ), Vector2( 1, 1 ), Vector2( 0.3, 0.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Light2D:visible")
@@ -278,6 +238,45 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
+"values": [ 0.0, 10.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "initialize"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.5 ), Vector2( 1, 1 ), Vector2( 0.3, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Light2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
 "values": [ 1.0, 3.0, 1.0 ]
 }
 tracks/3/type = "value"
@@ -291,6 +290,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Light2D:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.0705882, 0.0705882, 1 ) ]
 }
 
 [node name="Robot" type="KinematicBody2D" groups=["robot"]]
@@ -400,9 +411,10 @@ stream = ExtResource( 15 )
 [node name="Light2D" type="Light2D" parent="CanvasLayer/HealthBar"]
 visible = false
 light_mask = 2
-position = Vector2( -35, -1 )
-scale = Vector2( 1.08301, 0.378265 )
+position = Vector2( -33.3334, 0.399902 )
+scale = Vector2( 0.778046, 0.212047 )
 texture = ExtResource( 3 )
+color = Color( 1, 0.0705882, 0.0705882, 1 )
 energy = 10.0
 
 [node name="Robot" type="Sprite" parent="CanvasLayer"]

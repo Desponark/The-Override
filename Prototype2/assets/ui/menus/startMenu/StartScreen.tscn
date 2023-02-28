@@ -140,9 +140,6 @@ material = SubResource( 7 )
 [node name="VFXAnimationPlayer" parent="Robot" index="3"]
 anims/hit = SubResource( 8 )
 
-[node name="Light2D" parent="Robot/CanvasLayer/HealthBar" index="3"]
-visible = false
-
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 2 )
