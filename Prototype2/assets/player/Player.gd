@@ -167,10 +167,13 @@ func takeDamage(damage):
 	$VFXAnimationPlayer.play("hit")
 	if $CanvasLayer/HealthBar.has_method("subtractHealth"):
 		$CanvasLayer/HealthBar.subtractHealth(damage)
+		$CanvasLayer/HealthBar/AnimationPlayer.play("healthLose")
 
 func gainHealth(healAmount):
+	$CanvasLayer/HealthBar/AnimationPlayer.play("healthGain")
 	if $CanvasLayer/HealthBar.has_method("addHealth"):
 		$CanvasLayer/HealthBar.addHealth(healAmount)
+		$VFXAnimationPlayer.play("healthGain")
 		
 func getHealthBarPosition():
 	# TODO: look at this
@@ -191,7 +194,8 @@ func transferHealth():
 			
 		if $CanvasLayer/HealthBar.has_method("subtractHealth"):
 			$CanvasLayer/HealthBar.subtractHealth(healthTransferAmount)
-		robot.transferHealth(-(incomingHealth))
+			$CanvasLayer/HealthBar/AnimationPlayer.play("transferHealth")
+		robot.gainHealth((incomingHealth))
 	
 func getRobotFollowPosition():
 	return $RobotFollowPosition.global_position
