@@ -85,11 +85,11 @@ __meta__ = {
 position = Vector2( 24367, -87 )
 
 [node name="Player" parent="Alive" instance=ExtResource( 7 )]
-position = Vector2( 25082, 36 )
+position = Vector2( 3238, 677 )
 maxSpeed = 800.0
 
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
-position = Vector2( 24953, -33 )
+position = Vector2( 3238, 677 )
 playerPath = NodePath("../Player")
 
 [node name="SecondSocket" parent="." instance=ExtResource( 10 )]
