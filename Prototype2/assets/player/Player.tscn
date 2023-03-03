@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/player/SwordsmanIdle-sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
@@ -21,8 +21,9 @@
 [ext_resource path="res://assets/player/dash/DashGhost.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/ui/keyIcons/rightMouseButton.png" type="Texture" id=20]
 [ext_resource path="res://assets/ui/Health/HealthPlus.png" type="Texture" id=21]
-[ext_resource path="res://assets/light/light.png" type="Texture" id=22]
+[ext_resource path="res://assets/ui/HUD/healthBar/HealthGain.png" type="Texture" id=22]
 [ext_resource path="res://Sounds/HealthDrop/Charge.mp3" type="AudioStream" id=23]
+[ext_resource path="res://assets/ui/HUD/healthBar/HealthLose.png" type="Texture" id=24]
 
 [sub_resource type="ParticlesMaterial" id=23]
 lifetime_randomness = 0.26
@@ -597,10 +598,73 @@ radius = 61.0
 radius = 22.0
 height = 28.0
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 22 )
+region = Rect2( 0, 0, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 22 )
+region = Rect2( 0, 409, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 22 )
+region = Rect2( 0, 818, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 22 )
+region = Rect2( 0, 1227, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 22 )
+region = Rect2( 0, 1636, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 24 )
+region = Rect2( 0, 0, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 24 )
+region = Rect2( 0, 409, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 24 )
+region = Rect2( 0, 818, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 24 )
+region = Rect2( 0, 1227, 1024, 409 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 24 )
+region = Rect2( 0, 1636, 1024, 409 )
+
+[sub_resource type="SpriteFrames" id=36]
+animations = [ {
+"frames": [ SubResource( 29 ), SubResource( 17 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"loop": true,
+"name": "healthGain",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 33 ), SubResource( 22 ), SubResource( 34 ), SubResource( 35 ), SubResource( 25 ) ],
+"loop": true,
+"name": "healthLose",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=37]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Light2D:energy")
+tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -609,10 +673,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 3.0 ]
+"values": [ 1 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Light2D:enabled")
+tracks/1/path = NodePath("AnimatedSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -627,126 +691,88 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=26]
 resource_name = "healthGain"
 length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Light2D:energy")
+step = 0.02
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer2D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Light2D:enabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Light2D:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/3/type = "audio"
-tracks/3/path = NodePath("AudioStreamPlayer2D")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 23 )
 } ],
 "times": PoolRealArray( 0 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.12, 0.24, 0.36 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "healthGain" ]
 }
 
 [sub_resource type="Animation" id=27]
 resource_name = "healthLose"
 length = 0.2
+step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Light2D:energy")
+tracks/0/path = NodePath("AnimatedSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Light2D:enabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Light2D:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0.0705882, 0.0705882, 1 ) ]
-}
-
-[sub_resource type="Animation" id=28]
-resource_name = "transferHealth"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Light2D:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0, 0.0 ]
-}
 tracks/1/type = "value"
-tracks/1/path = NodePath("Light2D:enabled")
+tracks/1/path = NodePath("AnimatedSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ 0, 1, 2, 3 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Light2D:color")
+tracks/2/path = NodePath("AnimatedSprite:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -754,16 +780,21 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0.0705882, 0.0705882, 1 ) ]
+"update": 1,
+"values": [ "healthLose" ]
 }
-tracks/3/type = "audio"
-tracks/3/path = NodePath("AudioStreamPlayer2D")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+
+[sub_resource type="Animation" id=28]
+resource_name = "transferHealth"
+length = 0.2
+step = 0.01
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -771,12 +802,48 @@ tracks/3/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "healthLose" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.06, 0.11, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
-[sub_resource type="CapsuleShape2D" id=22]
+[sub_resource type="CapsuleShape2D" id=38]
 radius = 18.0
 height = 182.0
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 34, 48 )
 
 [node name="Player" type="KinematicBody2D" groups=["persist", "player"]]
@@ -789,6 +856,7 @@ minJumpHeight = -600.0
 healthTransferAmount = 0.1
 
 [node name="HealthGainParticles" type="Particles2D" parent="."]
+modulate = Color( 0.733333, 1, 0, 1 )
 position = Vector2( 0, 36 )
 scale = Vector2( 0.5, 0.5 )
 emitting = false
@@ -869,17 +937,17 @@ margin_bottom = 71.1428
 rect_scale = Vector2( 0.5, 0.5 )
 health = 75.0
 
-[node name="Light2D" type="Light2D" parent="CanvasLayer/HealthBar"]
-light_mask = 2
-position = Vector2( -31.5637, 3.45374 )
-scale = Vector2( 0.735227, 0.237772 )
-enabled = false
-texture = ExtResource( 22 )
-color = Color( 1, 0.0705882, 0.0705882, 1 )
-energy = 3.0
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/HealthBar"]
+visible = false
+position = Vector2( -40, 1.7144 )
+scale = Vector2( 0.875, 0.899755 )
+z_index = -10
+frames = SubResource( 36 )
+animation = "healthLose"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HealthBar"]
-anims/RESET = SubResource( 25 )
+anims/RESET = SubResource( 37 )
 anims/healthGain = SubResource( 26 )
 anims/healthLose = SubResource( 27 )
 anims/transferHealth = SubResource( 28 )
@@ -905,7 +973,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthAbsorbtionArea"]
 position = Vector2( -3.99998, -2.10911 )
-shape = SubResource( 22 )
+shape = SubResource( 38 )
 
 [node name="InteractionBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -913,7 +981,7 @@ collision_mask = 16
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
-shape = SubResource( 17 )
+shape = SubResource( 39 )
 
 [node name="RobotFollowPosition" type="Position2D" parent="."]
 position = Vector2( 0, -45 )
