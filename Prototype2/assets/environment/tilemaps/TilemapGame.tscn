@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling_2.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/environment/roomAssets/Corners/floorCorners/Floor_corner_medium_Flipped.png" type="Texture" id=14]
 [ext_resource path="res://assets/environment/roomAssets/Walls/SideWall_2.png" type="Texture" id=15]
 [ext_resource path="res://assets/environment/roomAssets/Walls/Floor_Corner_Small.png" type="Texture" id=16]
+[ext_resource path="res://assets/environment/roomAssets/Corners/floorCorners/CornerFlipped.png" type="Texture" id=17]
 
 [sub_resource type="OccluderPolygon2D" id=34]
 polygon = PoolVector2Array( 2048, 2048, 0, 2048, 0, 1241.62, 2048, 1241.62 )
@@ -68,17 +69,23 @@ points = PoolVector2Array( 2048, 2048, 1236.95, 2048, 1220.67, 255.946, 2048, 25
 [sub_resource type="ConvexPolygonShape2D" id=52]
 points = PoolVector2Array( 2048, 384, 0, 384, 0, 256, 2048, 256 )
 
-[sub_resource type="OccluderPolygon2D" id=56]
-polygon = PoolVector2Array( 0, 0, 803.381, 0, 803.381, 2043.67, 0, 2043.67 )
+[sub_resource type="OccluderPolygon2D" id=59]
+polygon = PoolVector2Array( 2048, 0, 1241.25, 0, 1240.53, 2048, 2048, 2048 )
 
-[sub_resource type="ConvexPolygonShape2D" id=53]
-points = PoolVector2Array( 811, 2048, 0, 2048, 0, 0, 805.245, 0 )
+[sub_resource type="ConvexPolygonShape2D" id=60]
+points = PoolVector2Array( 2048, 2048, 1241.07, 2048, 1241.07, 0, 2048, 0 )
 
 [sub_resource type="OccluderPolygon2D" id=55]
 polygon = PoolVector2Array( 2048, 2048, 2033.81, 1888.66, 1990.61, 1743.5, 1914.58, 1596.62, 1811.31, 1469.17, 1692.08, 1370.67, 1550.38, 1296.37, 1396.59, 1247.98, 1235.89, 1228.97, 0, 1234.16, 0, 2048 )
 
 [sub_resource type="ConvexPolygonShape2D" id=54]
 points = PoolVector2Array( 0, 2048, 0, 1235, 1236.95, 1231.14, 1393.89, 1246.87, 1547.61, 1294.09, 1689.16, 1366.66, 1810.83, 1470.83, 1913, 1595, 1987.17, 1736.66, 2032.17, 1892.17, 2038, 2043 )
+
+[sub_resource type="OccluderPolygon2D" id=58]
+polygon = PoolVector2Array( 811.839, 2045.94, 812.241, 2007.77, 802.596, 1892.89, 754.583, 1740, 681.667, 1599.03, 577.5, 1476.11, 489.306, 1403.89, 399.028, 1348.33, 191.389, 1266.39, 3.1944, 1236.53, 0, 2048 )
+
+[sub_resource type="ConvexPolygonShape2D" id=57]
+points = PoolVector2Array( 0, 2048, 0.416656, 1235.37, 191.968, 1267.2, 396.829, 1347.64, 488.264, 1403.19, 579.12, 1476.11, 680.393, 1599.37, 755.625, 1738.26, 801.342, 1891.33, 811.759, 2003.6, 812.338, 2047 )
 
 [sub_resource type="OccluderPolygon2D" id=31]
 polygon = PoolVector2Array( 2042.86, 2039.34, 2040.79, 2045.56, 1240.38, 2043.49, 1252.82, 1896.26, 1298.44, 1738.67, 1362.72, 1616.32, 1468.48, 1475.32, 1597.04, 1373.71, 1746.34, 1296.99, 1881.12, 1255.52, 2042.86, 1236.85 )
@@ -439,18 +446,18 @@ points = PoolVector2Array( 2048, 384, 0, 384, 0, 256, 2048, 256 )
 22/region = Rect2( 0, 0, 2048, 2048 )
 22/tile_mode = 0
 22/occluder_offset = Vector2( 0, 0 )
-22/occluder = SubResource( 56 )
+22/occluder = SubResource( 59 )
 22/navigation_offset = Vector2( 0, 0 )
 22/shape_offset = Vector2( 0, 0 )
 22/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-22/shape = SubResource( 53 )
+22/shape = SubResource( 60 )
 22/shape_one_way = false
 22/shape_one_way_margin = 1.0
 22/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 53 ),
+"shape": SubResource( 60 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 22/z_index = 0
@@ -476,6 +483,28 @@ points = PoolVector2Array( 2048, 384, 0, 384, 0, 256, 2048, 256 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 23/z_index = 0
+24/name = "CornerFlipped.png 24"
+24/texture = ExtResource( 17 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 0, 0, 2048, 2048 )
+24/tile_mode = 0
+24/occluder_offset = Vector2( 0, 0 )
+24/occluder = SubResource( 58 )
+24/navigation_offset = Vector2( 0, 0 )
+24/shape_offset = Vector2( 0, 0 )
+24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+24/shape = SubResource( 57 )
+24/shape_one_way = false
+24/shape_one_way_margin = 1.0
+24/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 57 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+24/z_index = 0
 
 [node name="TilemapGame" type="TileMap"]
 scale = Vector2( 0.2, 0.2 )
