@@ -28,6 +28,7 @@ autoplay = true
 bus = "Music"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.392157, 0.392157, 0.392157, 1 )
 __meta__ = {
 "_edit_lock_": true
