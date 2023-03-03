@@ -81,7 +81,7 @@ texture = ExtResource( 1 )
 visible = false
 frames = SubResource( 225 )
 animation = "spark"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
