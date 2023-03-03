@@ -11,6 +11,7 @@ extents = Vector2( 42.5, 16 )
 radius = 58.0775
 
 [node name="HealthDrop" type="RigidBody2D"]
+modulate = Color( 0.733333, 1, 0, 1 )
 collision_layer = 513
 collision_mask = 513
 gravity_scale = 10.0
