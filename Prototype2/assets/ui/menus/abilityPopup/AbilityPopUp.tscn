@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Sounds/Popup/ability.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/Popup/PopupOpen.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/ui/menus/abilityPopup/reflect.webm" type="VideoStream" id=2]
 [ext_resource path="res://assets/ui/menus/abilityPopup/AbilityPopUp.gd" type="Script" id=3]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=4]
