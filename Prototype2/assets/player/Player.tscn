@@ -871,8 +871,8 @@ health = 75.0
 
 [node name="Light2D" type="Light2D" parent="CanvasLayer/HealthBar"]
 light_mask = 2
-position = Vector2( -35, -1 )
-scale = Vector2( 1.08301, 0.378265 )
+position = Vector2( -31.5637, 3.45374 )
+scale = Vector2( 0.735227, 0.237772 )
 enabled = false
 texture = ExtResource( 22 )
 color = Color( 1, 0.0705882, 0.0705882, 1 )
@@ -904,6 +904,7 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthAbsorbtionArea"]
+position = Vector2( -3.99998, -2.10911 )
 shape = SubResource( 22 )
 
 [node name="InteractionBox" type="Area2D" parent="."]
