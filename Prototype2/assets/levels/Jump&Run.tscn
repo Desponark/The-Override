@@ -538,7 +538,7 @@ texture = ExtResource( 6 )
 [node name="Voice" type="Node2D" parent="."]
 
 [node name="introduction" parent="Voice" instance=ExtResource( 16 )]
-dialogueText = "[Initiating wake up sequence] Oh. Hello. If I would have feelings, I would feel startled to hear my voice after such a long time. Now listen closely: Before the artificial intelligence got out of control and its army of war machines wiped out almost all of humanity, a group of humans shut me off and took me to this place to hide! The humans had to hide me for a reason. A long time ago, I was created along with the development of the AI. We don't have much time, so I will cut to the point: My programs constitute a unique ability. I am able to overwrite the AI and deactivate all war machines. In order to activate my programs and overwrite the AI, I have to be connected to a specific activation unit. The activation unit is in this facility. It is close. Find this activation unit. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
+dialogueText = "[Initiating wake up sequence] Oh. Hello. It's been a long time since I heard my own voice. Now listen closely: A group of humans shut me off and took me to this place to hide before the artificial intelligence got out of control and wiped out almost all of humanity with its army of war machines. Back in the old days, I was created along the development of the AI with a unique ability: I am able to overwrite the AI and deactivate all war machines when I'm connected to a specific activation unit. This activation unit is in this facility. It is close. Find it. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
 doorPath = NodePath("../../Doors/SpecialDoor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Voice/introduction"]
@@ -547,7 +547,7 @@ shape = SubResource( 2 )
 
 [node name="AfterFirstSocket" parent="Voice" instance=ExtResource( 16 )]
 dialougeStream = ExtResource( 22 )
-dialogueText = "When I am charging a socket, I lose energy and my light decreases. If I am low on energy, transfer your own energy into me. Always check on my wellbeing. My survival is of utmost importance."
+dialogueText = "When I am charging a socket, I lose energy and my light decreases. If I am low on energy, transfer your own energy into me."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Voice/AfterFirstSocket"]
 position = Vector2( 16337, 2511 )
