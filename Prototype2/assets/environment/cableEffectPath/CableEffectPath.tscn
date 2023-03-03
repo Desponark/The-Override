@@ -7,7 +7,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 15307, 2807, 0, 0, 0, 0, 15310, 2407, 0, 0, 0, 0, 15815, 2406 )
+"points": PoolVector2Array( 0, 0, 0, 0, 15310, 2800.37, 0, 0, 0, 0, 15313, 2408.21, 0, 0, 0, 0, 15813, 2406 )
 }
 
 [sub_resource type="AtlasTexture" id=207]
@@ -69,19 +69,17 @@ script = ExtResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 visible = false
-position = Vector2( 15307, 2807 )
-rotation = -1.5636
 loop = false
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D"]
+visible = false
 texture = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D"]
-visible = false
 frames = SubResource( 225 )
 animation = "spark"
-frame = 1
+frame = 4
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
