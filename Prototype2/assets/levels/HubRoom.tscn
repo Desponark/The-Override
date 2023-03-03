@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=3]
@@ -62,6 +62,9 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 184.5, 277.5 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 152, 435 )
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 364, 490 )
@@ -1137,6 +1140,13 @@ dialogueText = "Done. I'd say we make a good team. I open things, you destroy th
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/afterFirstWaveDefense"]
 position = Vector2( 23966, 204 )
 shape = SubResource( 2 )
+
+[node name="DialogueTrigger" parent="VoiceLines" instance=ExtResource( 15 )]
+dialogueText = "Charging sockets may attrackt enemies, so be alert!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/DialogueTrigger"]
+position = Vector2( 23966, 19 )
+shape = SubResource( 14 )
 
 [node name="Checkpoint" type="Node2D" parent="."]
 
