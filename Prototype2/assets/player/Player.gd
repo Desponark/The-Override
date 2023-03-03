@@ -36,6 +36,7 @@ var isProjectileReflectUnlocked = false
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
 		$AnimationPlayer.play("attack")
+		$AnimationPlayer2.play("attack")
 	
 	if event.is_action_pressed("transferHealth"):
 		isTransferingHealth = true
@@ -141,25 +142,33 @@ func fallThroughPlatform():
 		$FallThroughPlatformTimer.start()
 
 func playAnimations(horizontalDirection):
+	if $AnimationPlayer2.current_animation == "attack":
+		return
 	if $AnimationPlayer.current_animation == "attack": # if attack animation plays dont play any other animation
 		return
 	match motionState:
 		MOTIONSTATE.JUMPING, MOTIONSTATE.DOUBLEJUMPING:
 			$JumpSound.play()
 			$AnimationPlayer.play("jump")
+			$AnimationPlayer2.play("jump")
 		MOTIONSTATE.RUNNING:
 			if horizontalDirection == 0 and velocity.x != 0: # slow down animation speed if the player is decelerating
 				$AnimationPlayer.play("run", -1, 0.4)
+				$AnimationPlayer2.play("run", -1, 0.4)
 			else:
 				$AnimationPlayer.play("run")
+				$AnimationPlayer2.play("run")
 		MOTIONSTATE.FALLING:
 			$AnimationPlayer.play("fall")
+			$AnimationPlayer2.play("fall")
 		MOTIONSTATE.IDLING:
 			$AnimationPlayer.play("idle")
+			$AnimationPlayer2.play("idle")
 
 func switchSpriteDirection(horizontalDirection):
 	if horizontalDirection != 0:
-		$Sprite.flip_h = horizontalDirection < 0
+		$Sprite.scale.x = abs($Sprite.scale.x) * -1.0 if horizontalDirection < 0 else abs($Sprite.scale.x)
+		$AnimatedSprite.scale.x = abs($AnimatedSprite.scale.x) * -1.0 if horizontalDirection < 0 else abs($AnimatedSprite.scale.x)
 
 # TODO: implement heal function
 func takeDamage(damage):
