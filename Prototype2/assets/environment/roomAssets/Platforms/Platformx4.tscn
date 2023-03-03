@@ -14,6 +14,11 @@ visible = false
 texture = ExtResource( 2 )
 color = Color( 0.905882, 0.533333, 0.168627, 1 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -153, -71 )
 scale = Vector2( 0.2, 0.2 )
@@ -73,8 +78,3 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( -0.0522423, 1740.06, 512.68, 308.386 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )

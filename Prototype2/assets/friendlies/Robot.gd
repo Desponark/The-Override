@@ -97,7 +97,7 @@ func saveData():
 		"nodePath" : get_path(),
 		"posX" : position.x,
 		"posY" : position.y,
-		"health" : $HealthBar.getHealth(),
+		"health" : $CanvasLayer/HealthBar.getHealth(),
 		"playerPath" : player.get_path() if player else "",
 		"isFollowingPlayer" : isFollowingPlayer
 	}
@@ -105,7 +105,7 @@ func saveData():
 func loadData(data):
 	position.x = data["posX"]
 	position.y = data["posY"]
-	$HealthBar.health = data["health"]
+	$CanvasLayer/HealthBar.health = data["health"]
 	player = get_node_or_null(data["playerPath"])
 	isFollowingPlayer = data["isFollowingPlayer"]
 	disableInteractions() if player else null
