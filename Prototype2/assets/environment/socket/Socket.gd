@@ -114,12 +114,12 @@ func saveData():
 	return {
 		"nodePath" : get_path(),
 		"chargeState" : chargeState,
-		"health" : $HealthBar.getHealth()
+		"health" : $CanvasLayer/HealthBar.getHealth()
 	}
 	
 func loadData(data):
 	chargeState = data["chargeState"]
-	$HealthBar.health = data["health"]
+	$CanvasLayer/HealthBar.health = data["health"]
 	if chargeState == CHARGESTATE.FULLYCHARGED:
 		$InteractionableBox/CollisionShape2D.disabled = true
 		$InteractionableBox.setInteractionReadiness(false)

@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/environment/doors/Door.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 52, 204 )
+extents = Vector2( 63, 254 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 89.0
@@ -104,7 +104,6 @@ texture = ExtResource( 3 )
 region_rect = Rect2( 37.1725, 427.134, 512.531, 155.986 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="InteractionableBox" type="Area2D" parent="."]
