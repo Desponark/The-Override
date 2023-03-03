@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/firstWaveDefenseWarning.mp3-59625e40225c3494acfc62b638343b02.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/firstWaveDefenseWarning.mp3"
+dest_files=[ "res://.import/firstWaveDefenseWarning.mp3-59625e40225c3494acfc62b638343b02.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
