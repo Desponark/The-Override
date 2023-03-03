@@ -388,7 +388,7 @@ tracks/5/path = NodePath("PunchSound:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -678,7 +678,7 @@ tracks/4/path = NodePath("StepSound")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/keys = {
 "clips": [ {
 "end_offset": 0.0,
@@ -696,7 +696,7 @@ tracks/5/path = NodePath("StepSound")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
 "times": PoolRealArray( 0.25, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -782,7 +782,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.166667, 0.208333, 0.458333, 0.875 ),
+"times": PoolRealArray( 0, 0.166667, 0.208333, 0.333333, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.690196 ), Color( 1, 1, 1, 0.690196 ), Color( 1, 1, 1, 0 ) ]
@@ -798,6 +798,30 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 95, -142.5 ), Vector2( 95, -142.5 ), Vector2( 175.042, -142.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ProjectileHitBox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.166667, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.208333, 0.416667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
 }
 
 [sub_resource type="Animation" id=44]
@@ -911,6 +935,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0, 20 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StepSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0416667, 0.125, 0.5, 0.583333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -1246,17 +1282,17 @@ position = Vector2( 0, 12 )
 shape = SubResource( 21 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 material = SubResource( 18 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 4
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 3 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 0, 9 )
+scale = Vector2( 0.17, 0.17 )
 frames = SubResource( 40 )
-animation = "attack"
-frame = 36
+animation = "run"
 
 [node name="attackSprite" type="AnimatedSprite" parent="AnimatedSprite"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -1292,7 +1328,6 @@ anims/healthGain = SubResource( 24 )
 anims/hit = SubResource( 11 )
 
 [node name="ProjectileHitBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 6 )
@@ -1304,7 +1339,6 @@ shape = SubResource( 20 )
 disabled = true
 
 [node name="HitBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 6 )
@@ -1336,7 +1370,6 @@ shape = SubResource( 39 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 9 )]
 modulate = Color( 0.733333, 1, 0, 1 )
@@ -1399,7 +1432,7 @@ process_material = SubResource( 23 )
 texture = ExtResource( 21 )
 
 [node name="RobotFollowPosition" type="Position2D" parent="."]
-position = Vector2( 0, -68.5 )
+position = Vector2( 0, -71.5 )
 
 [node name="Dash" type="Node2D" parent="."]
 script = ExtResource( 11 )
@@ -1442,7 +1475,7 @@ bus = "Sound Effects"
 [node name="StepSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 15 )
-volume_db = -25.0
+volume_db = -20.0
 bus = "Sound Effects"
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]

@@ -35,7 +35,7 @@ var isProjectileReflectUnlocked = false
 
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
-		$AnimationPlayer.play("attack")
+#		$AnimationPlayer.play("attack")
 		$AnimationPlayer2.play("attack")
 	
 	if event.is_action_pressed("transferHealth"):
@@ -144,8 +144,8 @@ func fallThroughPlatform():
 func playAnimations(horizontalDirection):
 	if $AnimationPlayer2.current_animation == "attack":
 		return
-	if $AnimationPlayer.current_animation == "attack": # if attack animation plays dont play any other animation
-		return
+#	if $AnimationPlayer.current_animation == "attack": # if attack animation plays dont play any other animation
+#		return
 	match motionState:
 		MOTIONSTATE.JUMPING, MOTIONSTATE.DOUBLEJUMPING:
 			$JumpSound.play()
