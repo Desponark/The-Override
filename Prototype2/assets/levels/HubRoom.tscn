@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://Sounds/Robot/voice/secondSocket.ogg" type="AudioStream" id=35]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=37]
+[ext_resource path="res://Sounds/Robot/voice/firstWaveDefenseWarning.mp3" type="AudioStream" id=38]
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 6, 34 )
@@ -98,6 +99,9 @@ extents = Vector2( 135.125, 265.25 )
 
 [sub_resource type="CircleShape2D" id=25]
 radius = 131.309
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 114, 154.375 )
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 238.5, 480.25 )
@@ -2017,6 +2021,14 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/EndScreen"]
 shape = SubResource( 25 )
+
+[node name="firstWaveDefenseWarning" parent="VoiceLines" instance=ExtResource( 15 )]
+dialougeStream = ExtResource( 38 )
+dialogueText = "Charging sockets may attrackt enemies, so be alert!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/firstWaveDefenseWarning"]
+position = Vector2( 23961, 317.375 )
+shape = SubResource( 26 )
 
 [node name="Checkpoint" type="Node2D" parent="."]
 
