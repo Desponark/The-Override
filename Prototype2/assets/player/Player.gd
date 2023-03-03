@@ -167,6 +167,12 @@ func switchSpriteDirection(horizontalDirection):
 	if horizontalDirection != 0:
 		$Sprite.flip_h = horizontalDirection < 0
 		$AnimatedSprite.flip_h = horizontalDirection < 0
+	if horizontalDirection < 0:
+		$PunchVFX.position = Vector2(-68, -20)
+		$PunchVFX.flip_h = horizontalDirection < 0
+	else:
+		$PunchVFX.position = Vector2(68, -20)
+		$PunchVFX.flip_h = horizontalDirection < 0
 
 # TODO: implement heal function
 func takeDamage(damage):
