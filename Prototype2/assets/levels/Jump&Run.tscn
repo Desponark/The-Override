@@ -747,3 +747,5 @@ position = Vector2( 17205, 3197 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint6"]
 shape = SubResource( 9 )
+
+[connection signal="startedPlaying" from="Voice/introduction" to="Doors/RobotFindRoomDoor" method="_on_introduction_startedPlaying"]
