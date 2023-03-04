@@ -3,15 +3,15 @@ extends StaticBody2D
 
 export var isOpen = false
 var currentlyOpen = false
-var isLocked = false
+export var isLocked = false
 
-func _ready():
-#	isLocked = true
-	$Sprite.self_modulate = Color(1,0,0)
 
 func _process(delta):
 	if isLocked:
+		$Sprite.self_modulate = Color(1,0,0)
 		return
+	else:
+		$Sprite.self_modulate = Color(1,1,1)
 	
 	var bodies = $Area2D.get_overlapping_bodies()
 	if bodies.size() > 0:
@@ -28,10 +28,6 @@ func _process(delta):
 		$DoorClosingSound.play()
 		currentlyOpen = false
 
-func lock(seconds):
-	isLocked = true
-	$Sprite.self_modulate = Color(1,0,0)
-	
-	yield(get_tree().create_timer(seconds), "timeout")
+
+func _on_introduction_startedPlaying():
 	isLocked = false
-	$Sprite.self_modulate = Color(1,1,1)
