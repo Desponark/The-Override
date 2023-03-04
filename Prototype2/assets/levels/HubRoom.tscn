@@ -1709,10 +1709,12 @@ rotation = -1.57079
 
 [node name="EndLevelDoor" parent="Hubroom/Doors" instance=ExtResource( 12 )]
 position = Vector2( 31550, -400 )
+isLocked = true
 
 [node name="EndLevelDoor2" parent="Hubroom/Doors" instance=ExtResource( 12 )]
 position = Vector2( 31550, 111 )
 rotation = -3.14159
+isLocked = true
 
 [node name="DashDoor" parent="Hubroom/Doors" instance=ExtResource( 12 )]
 position = Vector2( 27777, 882 )
