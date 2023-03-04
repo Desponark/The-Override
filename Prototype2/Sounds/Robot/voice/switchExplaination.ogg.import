@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/switchExplaination.ogg-c7c8081cd2b98d21ac3579a838e2bf72.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/switchExplaination.ogg"
+dest_files=[ "res://.import/switchExplaination.ogg-c7c8081cd2b98d21ac3579a838e2bf72.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
