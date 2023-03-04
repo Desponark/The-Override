@@ -28,6 +28,5 @@ func _process(delta):
 		$DoorClosingSound.play()
 		currentlyOpen = false
 
-
 func _on_introduction_startedPlaying():
 	isLocked = false
