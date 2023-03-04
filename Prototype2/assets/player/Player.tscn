@@ -216,7 +216,7 @@ animations = [ {
 "frames": [ SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 20.0
 } ]
 
 [sub_resource type="Animation" id=6]
@@ -738,6 +738,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=43]
 resource_name = "attack"
+length = 0.5
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -758,7 +759,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0833333, 0.208333, 0.375, 1 ),
+"times": PoolRealArray( 0, 0.0833333, 0.208333, 0.375, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0, 9, 26, 26, 36 ]
@@ -782,7 +783,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.166667, 0.208333, 0.333333, 1 ),
+"times": PoolRealArray( 0, 0.166667, 0.208333, 0.333333, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.690196 ), Color( 1, 1, 1, 0.690196 ), Color( 1, 1, 1, 0 ) ]
@@ -1292,15 +1293,17 @@ hframes = 4
 position = Vector2( 0, 9 )
 scale = Vector2( 0.17, 0.17 )
 frames = SubResource( 40 )
-animation = "run"
+animation = "idle"
 
 [node name="attackSprite" type="AnimatedSprite" parent="AnimatedSprite"]
 self_modulate = Color( 1, 1, 1, 0 )
+light_mask = 0
 position = Vector2( 36, -20 )
 rotation = -1.5708
 scale = Vector2( 1.0045, 0.97046 )
 frames = SubResource( 52 )
-frame = 1
+frame = 2
+playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
