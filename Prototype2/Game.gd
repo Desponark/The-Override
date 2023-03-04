@@ -40,7 +40,6 @@ func freezeEngine(): # this is for creating a nice hit stop / freeze effect for 
 func saveGame():
 	# TODO: Possible solution for things like enemies that can't be saved after already being destroyed
 	#		-> node sends signal that calls function which simply appends the nodes save data to the save file.
-	print("save game")
 	var file = File.new()
 	file.open(saveGamePath, File.WRITE)
 	var saveNodes = get_tree().get_nodes_in_group("persist")
