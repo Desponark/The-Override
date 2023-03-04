@@ -34,7 +34,6 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/environment/socket/Socket.png" type="Texture" id=34]
-[ext_resource path="res://Sounds/Robot/voice/secondSocket.ogg" type="AudioStream" id=35]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=37]
 [ext_resource path="res://Sounds/Robot/voice/firstWaveDefenseWarning.mp3" type="AudioStream" id=38]
@@ -89,9 +88,6 @@ font_data = ExtResource( 4 )
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 244.5, 177.75 )
 
-[sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 107, 459.969 )
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 184.5, 277.5 )
 
@@ -109,6 +105,12 @@ extents = Vector2( 413, 179 )
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 238.5, 480.25 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 459.5, 132.502 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 120, 275 )
 
 [node name="HubRoom" type="Node2D"]
 __meta__ = {
@@ -2034,15 +2036,6 @@ dialogueText = "Careful! Hostile machines ahead. Now that I am activated, they w
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/FirstEnemy"]
 shape = SubResource( 24 )
 
-[node name="SecondSocket" parent="VoiceLines" instance=ExtResource( 15 )]
-position = Vector2( 22482, 257 )
-dialougeStream = ExtResource( 35 )
-dialogueText = "Another socket. You know what to do. Put me in."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/SecondSocket"]
-rotation = 1.57079
-shape = SubResource( 18 )
-
 [node name="afterFirstWaveDefense" parent="VoiceLines" instance=ExtResource( 15 )]
 position = Vector2( 23864, 209 )
 collision_mask = 0
@@ -2167,6 +2160,16 @@ shape = SubResource( 17 )
 [node name="Checkpoint10" parent="Checkpoint" instance=ExtResource( 33 )]
 position = Vector2( 30571, -4539 )
 rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint/Checkpoint10"]
+position = Vector2( -1656.99, 1134.01 )
+shape = SubResource( 28 )
+
+[node name="Checkpoint12" parent="Checkpoint" instance=ExtResource( 33 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint/Checkpoint12"]
+position = Vector2( 21843, 3261 )
+shape = SubResource( 29 )
 
 [node name="Socket" type="Sprite" parent="."]
 position = Vector2( 38715, -2988.5 )
