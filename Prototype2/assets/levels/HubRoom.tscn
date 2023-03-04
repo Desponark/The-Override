@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://assets/environment/roomAssets/Floors/FloorPlatform.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/environment/doors/SpawnerDoor.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/light/conelight.png" type="Texture" id=14]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstWaveDefense.ogg" type="AudioStream" id=16]
@@ -1095,9 +1094,9 @@ position = Vector2( 17284, 718 )
 rotation = -3.14159
 isLocked = true
 
-[node name="TutorialEndSpawnerDoor" parent="TutorialEnd/Doors" instance=ExtResource( 13 )]
-position = Vector2( 22056, -1038 )
-scale = Vector2( 0.8, 0.919998 )
+[node name="Door" parent="TutorialEnd/Doors" instance=ExtResource( 12 )]
+position = Vector2( 22040, -1029 )
+isLocked = true
 
 [node name="TutorialEndSocket" parent="TutorialEnd" instance=ExtResource( 11 )]
 position = Vector2( 23961, 373 )
