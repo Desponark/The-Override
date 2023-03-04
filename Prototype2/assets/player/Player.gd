@@ -257,9 +257,12 @@ func saveData():
 	}
 	
 func loadData(data):
+	print(data)
 	position.x = data["posX"]
 	position.y = data["posY"]
 	$CanvasLayer/HealthBar.health = data["health"]
 	isDashUnlocked = data["isDashUnlocked"]
 	isProjectileReflectUnlocked = data["isProjectileReflectUnlocked"]
+	if isProjectileReflectUnlocked:
+		$ProjectileHitBox.set_collision_mask_bit(12, true)
 	robot = get_node_or_null(data["robotPath"])
