@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=16]
-[ext_resource path="res://assets/environment/doors/AutomaticDoor.gd" type="Script" id=17]
 [ext_resource path="res://assets/environment/tilemaps/TileMapCable.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/customNodes/HitBox.gd" type="Script" id=20]
@@ -25,9 +24,6 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT.tscn" type="PackedScene" id=25]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=26]
 [ext_resource path="res://assets/environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=27]
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 299, 336 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 695.188, 85 )
@@ -472,21 +468,12 @@ scale = Vector2( 1.2, 1.531 )
 position = Vector2( 9863, 522 )
 scale = Vector2( 1.2, 1.531 )
 
-[node name="SpecialDoor" parent="Doors" instance=ExtResource( 14 )]
-position = Vector2( 7857, 3110 )
-script = ExtResource( 17 )
-
-[node name="Sprite" parent="Doors/SpecialDoor" index="0"]
-scale = Vector2( 0.223, 0.235141 )
-
-[node name="CollisionShape2D" parent="Doors/SpecialDoor/Area2D" index="0"]
-disabled = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Doors/SpecialDoor/Area2D" index="1"]
-shape = SubResource( 3 )
-
 [node name="AutomaticDoor4" parent="Doors" instance=ExtResource( 14 )]
 position = Vector2( 9830, 2252 )
+
+[node name="RobotFindRoomDoor" parent="Doors" instance=ExtResource( 14 )]
+position = Vector2( 7867, 3078 )
+isLocked = true
 
 [node name="Door5" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 15892, 2697 )
@@ -537,7 +524,6 @@ texture = ExtResource( 6 )
 
 [node name="introduction" parent="Voice" instance=ExtResource( 16 )]
 dialogueText = "[Initiating wake up sequence] Oh. Hello. It's been a long time since I heard my own voice. Now listen closely: A group of humans shut me off and took me to this place to hide before the artificial intelligence got out of control and wiped out almost all of humanity with its army of war machines. Back in the old days, I was created along the development of the AI with a unique ability: I am able to overwrite the AI and deactivate all war machines when I'm connected to a specific activation unit. This activation unit is in this facility. It is close. Find it. Connect me to it. If my programs function correct, I am the last hope for humanity to survive."
-doorPath = NodePath("../../Doors/SpecialDoor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Voice/introduction"]
 position = Vector2( 8367, 3040 )
@@ -752,4 +738,4 @@ position = Vector2( 17205, 3197 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint6"]
 shape = SubResource( 9 )
 
-[editable path="Doors/SpecialDoor"]
+[connection signal="startedPlaying" from="Voice/introduction" to="Doors/RobotFindRoomDoor" method="_on_introduction_startedPlaying"]

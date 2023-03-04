@@ -9,11 +9,9 @@ export(NodePath) var socketPath
 onready var socket = get_node_or_null(socketPath)
 export var socketTriggerPercent = 80.0
 
-# TODO: use signal instead of using getting door node
-export(NodePath) var doorPath
-onready var door = get_node_or_null(doorPath)
-
 var wasUsed = false
+
+signal startedPlaying
 
 func _process(delta):
 	# TODO: when there is more time change implementation
@@ -39,11 +37,10 @@ func _on_DialogueTrigger_body_entered(body):
 	if body.has_method("playSpeech"):
 		body.playSpeech(dialougeStream, dialogueText, delay)
 	set_collision_mask_bit(8, false)
-		
-	if door and door.has_method("lock"):
-		door.lock(10)
 	
 	wasUsed = true
+	
+	emit_signal("startedPlaying")
 
 func saveData():
 	return {
