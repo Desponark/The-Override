@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var maxSpeed
+var maxSpeed = 1000.0
 var player = null
 
 onready var startPosition = global_position
@@ -21,6 +21,7 @@ func _process(_delta):
 func fixRotation():
 	var rotation = Vector2.RIGHT.angle_to(linear_velocity)
 	$Sprite.global_rotation = rotation
+	$Particles2D.global_rotation = Vector2.LEFT.angle_to(linear_velocity)
 
 func takeDamage(damage):
 	# change projectile direction
