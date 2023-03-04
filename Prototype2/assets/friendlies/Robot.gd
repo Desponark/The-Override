@@ -87,11 +87,6 @@ func disableInteractions():
 	$InteractionableBox.setInteractionReadiness(false)
 	$CanvasLayer/HealthBar/AnimationPlayer.play("initialize")
 
-# TODO: implement properly
-func playSocketStoppedCharging():
-	if !$SocketStoppedCharging.playing:
-		$SocketStoppedCharging.play()
-		
 func saveData():
 	return {
 		"nodePath" : get_path(),

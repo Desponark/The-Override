@@ -20,13 +20,15 @@ func _process(delta):
 		if socketEnergyPercent >= (socketTriggerPercent / 100.0):
 			enableDialogueTrigger()
 			socket = null
-	
 
 func enableDialogueTrigger():
 	set_collision_mask_bit(8, true)
 
 func socketFullyCharged():
 	enableDialogueTrigger()
+	
+func socketIsCharging():
+	pass
 
 func _on_DialogueTrigger_body_entered(body):
 	if wasUsed:
