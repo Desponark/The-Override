@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/environment/doors/AutomaticDoor.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/environment/cableEffectPath/CableEffectPath.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/environment/tilemaps/TileMapCable.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/customNodes/HitBox.gd" type="Script" id=20]
@@ -37,6 +38,11 @@ extents = Vector2( 112, 412 )
 [sub_resource type="DynamicFont" id=1]
 size = 17
 font_data = ExtResource( 11 )
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -13, -72, 0, 0, 0, 0, -7, -424, 0, 0, 0, 0, 439, -426 )
+}
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 665.508, 175.5 )
@@ -668,6 +674,10 @@ maxEnergy = 50.0
 energyTransferAmount = 0.2
 triggerScenes = [ NodePath("../Doors/Door5") ]
 
+[node name="CableEffectPath" parent="Socket" instance=ExtResource( 17 )]
+curve = SubResource( 10 )
+socketPath = NodePath("..")
+
 [node name="Elevator" parent="." instance=ExtResource( 12 )]
 position = Vector2( 17819, 3396 )
 scale = Vector2( 0.8, 1 )
@@ -737,5 +747,3 @@ position = Vector2( 17205, 3197 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint6"]
 shape = SubResource( 9 )
-
-[connection signal="startedPlaying" from="Voice/introduction" to="Doors/RobotFindRoomDoor" method="_on_introduction_startedPlaying"]
