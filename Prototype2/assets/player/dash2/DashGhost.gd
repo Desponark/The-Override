@@ -1,4 +1,4 @@
-extends Sprite
+extends AnimatedSprite
 
 func _ready():
 	$Tween.interpolate_property(self, "modulate:a", 1.0, 0.0, 0.5, Tween.TRANS_QUART, Tween.EASE_OUT)

@@ -22,9 +22,8 @@ func instanceDashGhost():
 	get_parent().get_parent().add_child(ghost)
 	
 	ghost.global_position = global_position
-	ghost.texture = sprite.texture
-	ghost.vframes = sprite.vframes
-	ghost.hframes = sprite.hframes
+	ghost.frames = sprite.frames
+	ghost.animation = sprite.animation
 	ghost.frame = sprite.frame
 	ghost.flip_h = sprite.flip_h
 	ghost.scale = sprite.scale
