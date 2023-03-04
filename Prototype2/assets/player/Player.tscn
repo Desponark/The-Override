@@ -807,7 +807,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.166667, 0.5 ),
+"times": PoolRealArray( 0, 0.084, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -1302,7 +1302,6 @@ position = Vector2( 36, -20 )
 rotation = -1.5708
 scale = Vector2( 1.0045, 0.97046 )
 frames = SubResource( 52 )
-frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
