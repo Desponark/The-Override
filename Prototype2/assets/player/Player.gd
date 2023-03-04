@@ -46,7 +46,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("dash") and isDashUnlocked:
 		if $Dash.canDash and !$Dash.isDashing():
 			$DodgeSound.play()
-			$Dash.startDash($Sprite, dashDuration)
+			$Dash.startDash($AnimatedSprite, dashDuration)
 		
 func _process(_delta):
 	transferHealth()
