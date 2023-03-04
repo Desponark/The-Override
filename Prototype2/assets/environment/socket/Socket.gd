@@ -30,11 +30,11 @@ func _ready():
 func _process(_delta):
 	if chargeState == CHARGESTATE.CHARGING:
 		$CanvasLayer.show()
-		$CanvasLayer/Light2D.hide()
 		if robot.getHealth() <= 1:
 			if !isSocketStoppedCharging:
 				$ChargingSound.stop()
 				$ChargingStoppedSound.play()
+				$CanvasLayer/HealthBar/AnimatedSprite.play("healthLose")
 				if robot.has_method("playSocketStoppedCharging"):
 					robot.playSocketStoppedCharging()
 				$Light2D.color = Color(0.81, 0.38, 0.34)
@@ -53,8 +53,10 @@ func pauseChargeProcess(isPaused):
 		lastChargeState = chargeState
 	if isPaused:
 		chargeState = CHARGESTATE.PAUSED
+		
 	else:
 		chargeState = lastChargeState
+		$CanvasLayer/HealthBar/AnimatedSprite.stop()
 	triggerEachScene()
 
 func getRobotDockPosition():
