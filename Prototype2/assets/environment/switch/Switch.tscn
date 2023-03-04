@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/customNodes/InteractionableBox.gd" type="Script" id=1]
 [ext_resource path="res://assets/environment/switch/Hebel.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sounds/Switch/Menu_Select_00.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Switch/Alarm_Loop_01.mp3" type="AudioStream" id=5]
 [ext_resource path="res://assets/ui/keyIcons/EButton.png" type="Texture" id=6]
+[ext_resource path="res://assets/light/light.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -42,12 +43,20 @@ one_shot = true
 [node name="SwitchOnSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 volume_db = -5.0
+max_distance = 10000.0
 bus = "Sound Effects"
 
 [node name="SwitchOffSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-volume_db = -5.0
+max_distance = 10000.0
 bus = "Sound Effects"
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.590402, 0.590402 )
+texture = ExtResource( 7 )
+texture_scale = 0.7
+color = Color( 0.223529, 0.984314, 0.984314, 1 )
+energy = 3.0
 
 [connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
 [connection signal="timeout" from="RandomPause" to="." method="_on_RandomPause_timeout"]
