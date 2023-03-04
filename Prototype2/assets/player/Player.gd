@@ -257,7 +257,6 @@ func saveData():
 	}
 	
 func loadData(data):
-	print(data)
 	position.x = data["posX"]
 	position.y = data["posY"]
 	$CanvasLayer/HealthBar.health = data["health"]

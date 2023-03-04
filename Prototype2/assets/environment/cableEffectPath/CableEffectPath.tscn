@@ -1,14 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://assets/environment/cableEffectPath/CableEffectPath.gd" type="Script" id=2]
 [ext_resource path="res://assets/environment/cableEffectPath/PathFollow2D.gd" type="Script" id=3]
 [ext_resource path="res://assets/environment/cableEffectPath/CableSparks.png" type="Texture" id=4]
-
-[sub_resource type="Curve2D" id=230]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 171, 92, 0, 0, 0, 0, 1766, 143, 0, 0, 0, 0, 1592, 709, 0, 0, 0, 0, 327, 907, 0, 0, 0, 0, 123, 499 )
-}
 
 [sub_resource type="AtlasTexture" id=226]
 flags = 4
@@ -40,7 +35,6 @@ animations = [ {
 
 [node name="CableEffectPath" type="Path2D"]
 position = Vector2( 1, 0 )
-curve = SubResource( 230 )
 script = ExtResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
