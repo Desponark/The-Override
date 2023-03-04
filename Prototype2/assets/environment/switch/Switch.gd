@@ -15,6 +15,7 @@ func togglePause():
 		if socket.has_method("pauseChargeProcess"):
 			socket.pauseChargeProcess(true)
 			$SwitchOffSound.play()
+			$Light2D.color = Color(0.81, 0.38, 0.34)
 		$Sprite.self_modulate = Color(1,0,0)
 		wasPaused = true
 		$InteractionableBox.setInteractionReadiness(true)
@@ -23,6 +24,7 @@ func togglePause():
 		if socket.has_method("pauseChargeProcess"):
 			socket.pauseChargeProcess(false)
 			$SwitchOnSound.play()
+			$Light2D.color = Color(0.49, 0.81, 0.34)
 		$Sprite.self_modulate = Color(1,1,1)
 		wasPaused = false
 		$InteractionableBox.setInteractionReadiness(false)
