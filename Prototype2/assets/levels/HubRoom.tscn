@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/environment/socket/Socket.png" type="Texture" id=34]
+[ext_resource path="res://assets/environment/cableEffectPath/CableEffectPath.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=37]
 [ext_resource path="res://Sounds/Robot/voice/firstWaveDefenseWarning.mp3" type="AudioStream" id=38]
@@ -48,8 +49,28 @@ extents = Vector2( 6.75, 20.5 )
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 8, 22.5 )
 
+[sub_resource type="Curve2D" id=29]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -4, -75, 0, 0, 0, 0, -2, -2492 )
+}
+
+[sub_resource type="Curve2D" id=36]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -71, -46, 0, 0, 0, 0, -816, -46 )
+}
+
+[sub_resource type="Curve2D" id=37]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 67, -48, 0, 0, 0, 0, 815, -51 )
+}
+
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 237.779, 444.444 )
+
+[sub_resource type="Curve2D" id=28]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, -76, 0, 0, 0, 0, 2, -421, 0, 0, 0, 0, 449, -426 )
+}
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 386.664, 670.002 )
@@ -57,11 +78,36 @@ extents = Vector2( 386.664, 670.002 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 387.777, 559.257 )
 
+[sub_resource type="Curve2D" id=30]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 74, -12, 0, 0, 0, 0, 1479, -10, 0, 0, 0, 0, 1497, 594, 0, 0, 0, 0, 2099, 607, 0, 0, 0, 0, 2108, 805, 0, 0, 0, 0, 2611, 809, 0, 0, 0, 0, 2622, 605, 0, 0, 0, 0, 3131, 605, 0, 0, 0, 0, 3131, -5, 0, 0, 0, 0, 6301, -10, 0, 0, 0, 0, 6306, 188, 0, 0, 0, 0, 6685, 192 )
+}
+
+[sub_resource type="Curve2D" id=31]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -3, -96, 0, 0, 0, 0, -10, -637, 0, 0, 0, 0, 2859, -634, 0, 0, 0, 0, 2863, -1548, 0, 0, 0, 0, 5035, -1548, 0, 0, 0, 0, 5024, -3806, 0, 0, 0, 0, 3583, -3814, 0, 0, 0, 0, 3583, -6150, 0, 0, 0, 0, 4401, -6157, 0, 0, 0, 0, 4405, -6262, 0, 0, 0, 0, 6044, -6257 )
+}
+
+[sub_resource type="Curve2D" id=32]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -4, -636, 0, 0, 0, 0, 0, -829, 0, 0, 0, 0, 2552, -837, 0, 0, 0, 0, 2562, -3287, 0, 0, 0, 0, 2412, -3287 )
+}
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 1747, 272.5 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 236.672, 618.074 )
+
+[sub_resource type="Curve2D" id=33]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -13.0762, -77, 0, 0, 0, 0, -3.07617, -432, 0, 0, 0, 0, 602.924, -435 )
+}
+
+[sub_resource type="Curve2D" id=34]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.0761719, -74, 0, 0, 0, 0, 3.07617, -197, 0, 0, 0, 0, -2047.92, -194, 0, 0, 0, 0, -2047.92, 1851, 0, 0, 0, 0, -2151.92, 1853, 0, 0, 0, 0, -2145.92, 2769, 0, 0, 0, 0, 820.076, 2774, 0, 0, 0, 0, 822.076, 3081, 0, 0, 0, 0, 1548.08, 3089 )
+}
 
 [sub_resource type="ShaderMaterial" id=23]
 resource_local_to_scene = true
@@ -80,6 +126,11 @@ radius = 1100.0
 resource_local_to_scene = true
 shader = ExtResource( 9 )
 shader_param/active = false
+
+[sub_resource type="Curve2D" id=35]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -71, -25, 0, 0, 0, 0, -303, -22, 0, 0, 0, 0, -303, 1048 )
+}
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -105,12 +156,6 @@ extents = Vector2( 413, 179 )
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 238.5, 480.25 )
-
-[sub_resource type="RectangleShape2D" id=28]
-extents = Vector2( 459.5, 132.502 )
-
-[sub_resource type="RectangleShape2D" id=29]
-extents = Vector2( 120, 275 )
 
 [node name="HubRoom" type="Node2D"]
 __meta__ = {
@@ -1065,6 +1110,18 @@ maxEnergy = 500.0
 energyTransferAmount = 0.1
 triggerScenes = [ NodePath("../../switch/Switch"), NodePath("../../switch/Switch2"), NodePath("../../Spawner/Spawner"), NodePath("../../Spawner/Spawner2"), NodePath("../../Spawner/Spawner3"), NodePath("../../../Reflect Upgrade/Elevator, Doors/Elevator5"), NodePath("../../../Reflect Upgrade/Elevator, Doors/Elevator5"), NodePath("../../Spawner/Spawner4") ]
 
+[node name="CableEffectPath" parent="Endlevel/socket/Socket" instance=ExtResource( 35 )]
+curve = SubResource( 29 )
+socketPath = NodePath("..")
+
+[node name="CableEffectPath2" parent="Endlevel/socket/Socket" instance=ExtResource( 35 )]
+curve = SubResource( 36 )
+socketPath = NodePath("..")
+
+[node name="CableEffectPath3" parent="Endlevel/socket/Socket" instance=ExtResource( 35 )]
+curve = SubResource( 37 )
+socketPath = NodePath("..")
+
 [node name="TutorialEnd" type="Node2D" parent="."]
 
 [node name="Doors" type="Node2D" parent="TutorialEnd"]
@@ -1109,6 +1166,10 @@ position = Vector2( 23961, 373 )
 maxEnergy = 100.0
 energyTransferAmount = 0.05
 triggerScenes = [ NodePath("../Doors/TutorialEndDoor"), NodePath("../../VoiceLines/afterFirstWaveDefense"), NodePath("../Spawner/Spawner"), NodePath("../Spawner/Spawner2") ]
+
+[node name="CableEffectPath" parent="TutorialEnd/TutorialEndSocket" instance=ExtResource( 35 )]
+curve = SubResource( 28 )
+socketPath = NodePath("..")
 
 [node name="Pickups" type="Node2D" parent="TutorialEnd"]
 
@@ -1211,10 +1272,22 @@ position = Vector2( 21855, 2213 )
 energyTransferAmount = 0.3
 triggerScenes = [ NodePath("../../Elevator, Doors/DashDoor3") ]
 
+[node name="CableEffectPath" parent="Dash Upgrade/Socket, Switch/DashSocket1" instance=ExtResource( 35 )]
+curve = SubResource( 30 )
+socketPath = NodePath("..")
+
 [node name="DashSocket2" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 11 )]
 position = Vector2( 25192, 6516 )
 energyTransferAmount = 0.1
 triggerScenes = [ NodePath("../../Spawner/Spawner3"), NodePath("../../Spawner/Spawner5"), NodePath("../../Elevator, Doors/DashDoor4"), NodePath("../../Elevator, Doors/DashDoor5"), NodePath("../Switch"), NodePath("../../Elevator, Doors/Elevator") ]
+
+[node name="CableEffectPath" parent="Dash Upgrade/Socket, Switch/DashSocket2" instance=ExtResource( 35 )]
+curve = SubResource( 31 )
+socketPath = NodePath("..")
+
+[node name="CableEffectPath2" parent="Dash Upgrade/Socket, Switch/DashSocket2" instance=ExtResource( 35 )]
+curve = SubResource( 32 )
+socketPath = NodePath("..")
 
 [node name="Switch" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 28 )]
 position = Vector2( 25192, 5887 )
@@ -1401,12 +1474,20 @@ maxEnergy = 50.0
 energyTransferAmount = 0.2
 triggerScenes = [ NodePath("../../Elevator, Doors/ReflectDoor+") ]
 
+[node name="CableEffectPath" parent="Reflect Upgrade/Socket/SocketReflect1" instance=ExtResource( 35 )]
+curve = SubResource( 33 )
+socketPath = NodePath("..")
+
 [node name="SocketReflect2" parent="Reflect Upgrade/Socket" instance=ExtResource( 11 )]
 position = Vector2( 16969.1, -3748 )
 scale = Vector2( 0.571429, 1 )
 maxEnergy = 400.0
 energyTransferAmount = 0.12
 triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Hubroom/Doors/EndLevelDoor2") ]
+
+[node name="CableEffectPath" parent="Reflect Upgrade/Socket/SocketReflect2" instance=ExtResource( 35 )]
+curve = SubResource( 34 )
+socketPath = NodePath("..")
 
 [node name="Spawner" type="Node2D" parent="Reflect Upgrade"]
 
@@ -1662,6 +1743,10 @@ initialMoveDirection = -1
 position = Vector2( 28053, -231 )
 energyTransferAmount = 0.07
 triggerScenes = [ NodePath("../Doors/DashDoor2"), NodePath("../Doors/DashDoor"), NodePath("../Spawner/Spawner4"), NodePath("../Spawner/Spawner6") ]
+
+[node name="CableEffectPath" parent="Hubroom/DashSocket" instance=ExtResource( 35 )]
+curve = SubResource( 35 )
+socketPath = NodePath("..")
 
 [node name="Pickups" type="Node2D" parent="Hubroom"]
 
@@ -2156,20 +2241,6 @@ rotation = -1.57079
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint/Checkpoint9"]
 position = Vector2( -1897.01, -1174.99 )
 shape = SubResource( 17 )
-
-[node name="Checkpoint10" parent="Checkpoint" instance=ExtResource( 33 )]
-position = Vector2( 30571, -4539 )
-rotation = -1.57079
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint/Checkpoint10"]
-position = Vector2( -1656.99, 1134.01 )
-shape = SubResource( 28 )
-
-[node name="Checkpoint12" parent="Checkpoint" instance=ExtResource( 33 )]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint/Checkpoint12"]
-position = Vector2( 21843, 3261 )
-shape = SubResource( 29 )
 
 [node name="Socket" type="Sprite" parent="."]
 position = Vector2( 38715, -2988.5 )
