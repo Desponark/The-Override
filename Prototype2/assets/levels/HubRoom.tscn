@@ -1165,7 +1165,7 @@ isLocked = true
 position = Vector2( 23961, 373 )
 maxEnergy = 100.0
 energyTransferAmount = 0.05
-triggerScenes = [ NodePath("../Doors/TutorialEndDoor"), NodePath("../../VoiceLines/afterFirstWaveDefense"), NodePath("../Spawner/Spawner"), NodePath("../Spawner/Spawner2") ]
+triggerScenes = [ NodePath("../../VoiceLines/afterFirstWaveDefense"), NodePath("../Doors/TutorialEndDoor"), NodePath("../Spawner/Spawner"), NodePath("../Spawner/Spawner2") ]
 
 [node name="CableEffectPath" parent="TutorialEnd/TutorialEndSocket" instance=ExtResource( 35 )]
 curve = SubResource( 28 )
@@ -1189,7 +1189,7 @@ moveSpeed = 0.0
 [node name="Spawner" type="Node2D" parent="TutorialEnd"]
 
 [node name="Spawner" parent="TutorialEnd/Spawner" instance=ExtResource( 2 )]
-position = Vector2( 21349, -1146 )
+position = Vector2( 22248, -559 )
 minSpawnRate = 1
 maxSpawnRate = 1
 waveSpawnAmount = 1
