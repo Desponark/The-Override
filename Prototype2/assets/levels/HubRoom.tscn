@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/environment/roomAssets/Floors/FloorPlatform.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/environment/socket/Socket.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sounds/Robot/voice/switchExplaination.ogg" type="AudioStream" id=13]
 [ext_resource path="res://assets/light/conelight.png" type="Texture" id=14]
 [ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstWaveDefense.ogg" type="AudioStream" id=16]
@@ -102,6 +103,9 @@ radius = 131.309
 
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 114, 154.375 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 413, 179 )
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 238.5, 480.25 )
@@ -1206,7 +1210,7 @@ energyTransferAmount = 0.3
 triggerScenes = [ NodePath("../../Elevator, Doors/DashDoor3") ]
 
 [node name="DashSocket2" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 11 )]
-position = Vector2( 25191, 6516 )
+position = Vector2( 25192, 6516 )
 energyTransferAmount = 0.1
 triggerScenes = [ NodePath("../../Spawner/Spawner3"), NodePath("../../Spawner/Spawner5"), NodePath("../../Elevator, Doors/DashDoor4"), NodePath("../../Elevator, Doors/DashDoor5"), NodePath("../Switch"), NodePath("../../Elevator, Doors/Elevator") ]
 
@@ -2079,6 +2083,14 @@ dialogueText = "Charging sockets may attrackt enemies, so be alert!"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/firstWaveDefenseWarning"]
 position = Vector2( 23961, 317.375 )
 shape = SubResource( 26 )
+
+[node name="switchExplaination" parent="VoiceLines" instance=ExtResource( 15 )]
+dialougeStream = ExtResource( 13 )
+dialogueText = "You see the switch above? It may deactivate itself while the socket is charging. If that happens, go to the switch and turn it back on to continue the charging process."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/switchExplaination"]
+position = Vector2( 25303, 6439 )
+shape = SubResource( 27 )
 
 [node name="Checkpoint" type="Node2D" parent="."]
 
