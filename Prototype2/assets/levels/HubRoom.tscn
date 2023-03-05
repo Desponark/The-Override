@@ -229,7 +229,7 @@ extents = Vector2( 114, 154.375 )
 extents = Vector2( 413, 179 )
 
 [sub_resource type="RectangleShape2D" id=38]
-extents = Vector2( 242.5, 95.5 )
+extents = Vector2( 242.5, 97.75 )
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 238.5, 480.25 )
@@ -2278,7 +2278,7 @@ dialougeStream = ExtResource( 41 )
 dialogueText = "This is it. There is the activation unit. Connect me and I will initiate the process to overwrite the AI."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/beforeActivationUnit"]
-position = Vector2( 38704, -1219 )
+position = Vector2( 38711, -1501 )
 shape = SubResource( 38 )
 
 [node name="Checkpoint" type="Node2D" parent="."]
