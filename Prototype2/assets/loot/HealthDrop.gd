@@ -12,12 +12,13 @@ func _integrate_forces(state):
 		state.linear_velocity = global_position.direction_to(player.getHealthBarPosition()) * speed
 
 func _on_Area2D_body_entered(body):
-	player = body
-	$Collect.play()
-	# disable all physics collisions if setting collision shape to disabled it wants to be called deferred
-	$CollisionShape2D.set_deferred("disabled", true)
-	# disable possible player collisions
-	$Area2D.set_collision_mask_bit(1, false)
+	if !body.isHealthFull():
+		player = body	
+		$Collect.play()
+		# disable all physics collisions if setting collision shape to disabled it wants to be called deferred
+		$CollisionShape2D.set_deferred("disabled", true)
+		# disable possible player collisions
+		$Area2D.set_collision_mask_bit(1, false)
 	
 func _on_Area2D_area_entered(area):
 	if player and player.has_method("gainHealth"):
