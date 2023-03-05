@@ -34,7 +34,7 @@ _global_script_class_icons={
 
 config/name="The Override"
 run/main_scene="res://assets/ui/menus/startMenu/StartScreen.tscn"
-config/icon="res://icon.png"
+config/icon="res://TheOverrideIcon.png"
 
 [autoload]
 
