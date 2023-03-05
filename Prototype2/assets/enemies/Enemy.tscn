@@ -1,7 +1,7 @@
 [gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Sounds/Enemy/Destroyed.mp3" type="AudioStream" id=1]
-[ext_resource path="res://assets/enemies/loot/HealthDrop.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/loot/HealthDrop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/Enemy/Shoot.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/Player/Footsteps/footstep04.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/customNodes/HurtBox.gd" type="Script" id=5]
