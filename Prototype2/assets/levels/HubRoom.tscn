@@ -80,7 +80,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:self_modulate")
@@ -1215,6 +1215,7 @@ anims/endScreen = SubResource( 41 )
 layer = 5
 
 [node name="Panel" type="Panel" parent="Endlevel/EndScene/CanvasLayer"]
+visible = false
 self_modulate = Color( 0, 0, 0, 1 )
 margin_left = -1411.0
 margin_top = -927.0
