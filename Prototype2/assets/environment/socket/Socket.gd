@@ -36,7 +36,7 @@ func _ready():
 func _process(_delta):
 	if chargeState == CHARGESTATE.CHARGING:
 		$CanvasLayer.show()
-		if robot.getHealth() <= 1:
+		if robot.getHealth() / robot.getMaxHealth() <= 0.25:
 			if !isSocketStoppedCharging:
 				$ChargingSound.stop()
 				$ChargingStoppedSound.play()
@@ -80,7 +80,6 @@ func _on_HealthBar_healthReachedMax():
 	$InteractionableBox/CollisionShape2D.disabled = true # disable socket interaction completely if fully charged
 	$InteractionableBox.setInteractionReadiness(false)
 	emit_signal("socketFullyCharged")
-	# Play ChargingFinished sound
 	$ChargingFinishedSound.play()
 	$CanvasLayer/HealthBar.hide()
 	$CanvasLayer/Socket.hide()
@@ -89,12 +88,10 @@ func _on_InteractionableBox_interacted(area):
 	player = area.owner
 	robot = player.getRobotRef()
 	if robot != null and robot.isFollowingPlayer and chargeState != CHARGESTATE.FULLYCHARGED:
-		# socket the robot
 		robot.putRobotInSocket($Position2D.global_position)
 		$InsertSound.play()
 		$InteractionableBox.setInteractionReadiness(false)
 		$InteractionableBox.changePromptVisibility(false)
-		# trigger everything that triggers on socket charging up that is connected
 		chargeState = CHARGESTATE.CHARGING
 		emit_signal("socketIsCharging")
 
