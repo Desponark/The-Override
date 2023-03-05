@@ -1,7 +1,6 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/environment/Spawner/Spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/environment/tilemaps/TileMapForeground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/fonts/Roboto-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=5]
@@ -14,7 +13,7 @@
 [ext_resource path="res://assets/environment/doors/Door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Sounds/Robot/voice/switchExplaination.ogg" type="AudioStream" id=13]
 [ext_resource path="res://assets/light/conelight.png" type="Texture" id=14]
-[ext_resource path="res://assets/environment/narrative/DialogueTrigger.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/environment/triggers/DialogueTrigger.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstWaveDefense.ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/ui/keyIcons/leftMouseButton.png" type="Texture" id=17]
 [ext_resource path="res://assets/ui/keyIcons/spaceKey.png" type="Texture" id=18]
@@ -28,7 +27,7 @@
 [ext_resource path="res://assets/customNodes/HitBox.gd" type="Script" id=26]
 [ext_resource path="res://Sounds/Robot/voice/firstEnemy.ogg" type="AudioStream" id=27]
 [ext_resource path="res://assets/environment/switch/Switch.tscn" type="PackedScene" id=28]
-[ext_resource path="res://assets/environment/spawner/Spawner.tscn" type="PackedScene" id=29]
+[ext_resource path="res://assets/environment/spawner2/Spawner.tscn" type="PackedScene" id=29]
 [ext_resource path="res://assets/enemies/Enemy.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
@@ -1059,27 +1058,27 @@ tile_data = PoolIntArray( -851894, 536870912, 0, -851893, 536870912, 0, -851892,
 
 [node name="Spawner" type="Node2D" parent="Endlevel"]
 
-[node name="Spawner" parent="Endlevel/Spawner" instance=ExtResource( 2 )]
+[node name="Spawner" parent="Endlevel/Spawner" instance=ExtResource( 29 )]
 position = Vector2( 35079, -1960 )
 minSpawnRate = 2
 maxSpawnRate = 2
 waveSpawnAmount = 1
 initialMoveDirection = 1
 
-[node name="Spawner2" parent="Endlevel/Spawner" instance=ExtResource( 2 )]
+[node name="Spawner2" parent="Endlevel/Spawner" instance=ExtResource( 29 )]
 position = Vector2( 41626, -1415 )
 maxSpawnRate = 3
 waveSpawnAmount = 1
 initialMoveDirection = -1
 
-[node name="Spawner4" parent="Endlevel/Spawner" instance=ExtResource( 2 )]
+[node name="Spawner4" parent="Endlevel/Spawner" instance=ExtResource( 29 )]
 position = Vector2( 39220, -2362 )
 minSpawnRate = 2
 maxSpawnRate = 2
 waveSpawnAmount = 1
 initialMoveDirection = -1
 
-[node name="Spawner3" parent="Endlevel/Spawner" instance=ExtResource( 2 )]
+[node name="Spawner3" parent="Endlevel/Spawner" instance=ExtResource( 29 )]
 position = Vector2( 35215, -172 )
 minSpawnRate = 2
 maxSpawnRate = 2
@@ -1188,7 +1187,7 @@ moveSpeed = 0.0
 
 [node name="Spawner" type="Node2D" parent="TutorialEnd"]
 
-[node name="Spawner" parent="TutorialEnd/Spawner" instance=ExtResource( 2 )]
+[node name="Spawner" parent="TutorialEnd/Spawner" instance=ExtResource( 29 )]
 position = Vector2( 22248, -559 )
 minSpawnRate = 1
 maxSpawnRate = 1
@@ -1196,7 +1195,7 @@ waveSpawnAmount = 1
 waveCooldown = 15
 initialMoveDirection = 1
 
-[node name="Spawner2" parent="TutorialEnd/Spawner" instance=ExtResource( 2 )]
+[node name="Spawner2" parent="TutorialEnd/Spawner" instance=ExtResource( 29 )]
 position = Vector2( 19759, 114 )
 minSpawnRate = 2
 maxSpawnRate = 2
