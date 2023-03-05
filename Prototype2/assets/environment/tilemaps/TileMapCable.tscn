@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/ui/HUD/Cable.png" type="Texture" id=1]
-[ext_resource path="res://assets/ui/HUD/Cable round.png" type="Texture" id=2]
-[ext_resource path="res://assets/ui/HUD/Cable Cross.png" type="Texture" id=3]
-[ext_resource path="res://assets/ui/HUD/Cable_T.png" type="Texture" id=4]
+[ext_resource path="res://assets/environment/cables/Cable.png" type="Texture" id=1]
+[ext_resource path="res://assets/environment/cables/Cable round.png" type="Texture" id=2]
+[ext_resource path="res://assets/environment/cables/Cable Cross.png" type="Texture" id=3]
+[ext_resource path="res://assets/environment/cables/Cable_T.png" type="Texture" id=4]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Cable.png 0"

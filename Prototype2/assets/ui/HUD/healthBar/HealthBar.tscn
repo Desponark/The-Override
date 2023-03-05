@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/ui/HUD/healthBar/PROGRESS BAR.png" type="Texture" id=1]
 [ext_resource path="res://assets/ui/HUD/healthBar/Healthbar2nd.png" type="Texture" id=2]
-[ext_resource path="res://assets/ui/HUD/trace_03.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/HUD/healthBar/trace_03.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.gd" type="Script" id=4]
 
 [sub_resource type="Gradient" id=1]

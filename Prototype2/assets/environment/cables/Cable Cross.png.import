@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cable_T.png-edd79a665fd659af6fb258b079e72400.stex"
+path="res://.import/Cable Cross.png-eb4d222fd84e06943b09af835abb236c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/HUD/Cable_T.png"
-dest_files=[ "res://.import/Cable_T.png-edd79a665fd659af6fb258b079e72400.stex" ]
+source_file="res://assets/environment/cables/Cable Cross.png"
+dest_files=[ "res://.import/Cable Cross.png-eb4d222fd84e06943b09af835abb236c.stex" ]
 
 [params]
 
