@@ -219,6 +219,9 @@ func getRobotRef():
 func getPriority():
 	return 3
 	
+func isHealthFull():
+	return $CanvasLayer/HealthBar.getHealthPercent() == 1.0
+	
 func _on_HealthBar_healthReachedZero():
 	EventBus.emit_signal("loseEvent", "You Died!")
 	
