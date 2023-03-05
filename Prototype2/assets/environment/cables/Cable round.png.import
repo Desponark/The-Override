@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cable round.png-0732c534c1028e9575b21c2666d95eab.stex"
+path="res://.import/Cable round.png-18dc1110343946c4bee07715ed1a53ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/HUD/Cable round.png"
-dest_files=[ "res://.import/Cable round.png-0732c534c1028e9575b21c2666d95eab.stex" ]
+source_file="res://assets/environment/cables/Cable round.png"
+dest_files=[ "res://.import/Cable round.png-18dc1110343946c4bee07715ed1a53ad.stex" ]
 
 [params]
 

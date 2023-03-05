@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cable.png-27c570fbc8cd98746c2a45494beff29b.stex"
+path="res://.import/trace_03.png-9f9fb5594ed7fd2284752ced4d7075b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/HUD/Cable.png"
-dest_files=[ "res://.import/Cable.png-27c570fbc8cd98746c2a45494beff29b.stex" ]
+source_file="res://assets/ui/HUD/healthBar/trace_03.png"
+dest_files=[ "res://.import/trace_03.png-9f9fb5594ed7fd2284752ced4d7075b3.stex" ]
 
 [params]
 
