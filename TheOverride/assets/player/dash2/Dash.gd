@@ -18,8 +18,7 @@ func startDash(givenSprite, duration):
 	
 func instanceDashGhost():
 	var ghost = dashGhostScene.instance()
-	# TODO: change how child gets added
-	get_parent().get_parent().add_child(ghost)
+	EventBus.emit_signal("spawnLoot", ghost) # TODO: think about using a generic child adding signal for cases like this
 	
 	ghost.global_position = global_position
 	ghost.frames = sprite.frames

@@ -10,6 +10,7 @@ onready var socket = get_node_or_null(socketPath)
 export var socketTriggerPercent = 80.0
 
 var wasUsed = false
+var player
 
 signal startedPlaying
 
@@ -33,15 +34,14 @@ func socketIsCharging():
 func _on_DialogueTrigger_body_entered(body):
 	if wasUsed:
 		return
-	# TODO: replace with timer node?
-	yield(get_tree().create_timer(delay), "timeout")
-	
-	if body.has_method("playSpeech"):
-		body.playSpeech(dialougeStream, dialogueText, delay)
+	player = body
+	$Timer.start(delay)
+
+func _on_Timer_timeout():
+	if player.has_method("playSpeech"):
+		player.playSpeech(dialougeStream, dialogueText, delay)
 	set_collision_mask_bit(8, false)
-	
 	wasUsed = true
-	
 	emit_signal("startedPlaying")
 
 func saveData():
