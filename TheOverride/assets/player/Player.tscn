@@ -1306,7 +1306,7 @@ collision_mask = 515
 script = ExtResource( 2 )
 maxJumpHeight = -1700.0
 minJumpHeight = -600.0
-healthTransferAmount = 0.1
+healthTransferAmount = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
