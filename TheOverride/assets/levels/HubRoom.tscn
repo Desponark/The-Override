@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/hazards/electricHazard/electricHazard.tscn" type="PackedScene" id=2]
@@ -41,6 +41,9 @@
 [ext_resource path="res://assets/environment/roomAssets/Deko-Assets/Platformholder/PlattformHolder.png" type="Texture" id=39]
 [ext_resource path="res://assets/levels/EndScene.gd" type="Script" id=40]
 [ext_resource path="res://Sounds/Robot/voice/beforeActivationUnit.ogg" type="AudioStream" id=41]
+[ext_resource path="res://Sounds/Robot/voice/bigGateOpen.ogg" type="AudioStream" id=42]
+[ext_resource path="res://Sounds/Robot/voice/enemyLore.ogg" type="AudioStream" id=43]
+[ext_resource path="res://Sounds/Robot/voice/connectedToActivationUnit.ogg" type="AudioStream" id=44]
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 6, 34 )
@@ -155,6 +158,15 @@ extents = Vector2( 413, 179 )
 
 [sub_resource type="RectangleShape2D" id=38]
 extents = Vector2( 242.5, 97.75 )
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 175.5, 227.5 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 206, 109 )
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 60.5, 147.75 )
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 238.5, 575.531 )
@@ -1590,7 +1602,7 @@ position = Vector2( 16969.1, -3748 )
 scale = Vector2( 0.571429, 1 )
 maxEnergy = 400.0
 energyTransferAmount = 0.12
-triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Hubroom/Doors/EndLevelDoor2"), NodePath("CableEffectPath") ]
+triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Hubroom/Doors/EndLevelDoor2"), NodePath("CableEffectPath"), NodePath("../../../VoiceLines/bigGateOpen") ]
 
 [node name="CableEffectPath" parent="Reflect Upgrade/Socket/SocketReflect2" instance=ExtResource( 35 )]
 curve = SubResource( 34 )
@@ -2279,6 +2291,29 @@ dialogueText = "This is it. There is the activation unit. Connect me and I will 
 position = Vector2( 38711, -1501 )
 shape = SubResource( 38 )
 
+[node name="bigGateOpen" parent="VoiceLines" instance=ExtResource( 15 )]
+dialougeStream = ExtResource( 42 )
+dialogueText = "Done. The big gate should be open now. Let's finish this."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/bigGateOpen"]
+position = Vector2( 29688.5, -3887.5 )
+shape = SubResource( 45 )
+
+[node name="enemyLore" parent="VoiceLines" instance=ExtResource( 15 )]
+dialougeStream = ExtResource( 43 )
+dialogueText = "The machines attacking us have once been created as builders to support humans. It seems they are not building anymore, now they only destroy."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/enemyLore"]
+position = Vector2( 30514, 4419 )
+shape = SubResource( 46 )
+
+[node name="connectedToActivationUnit" parent="VoiceLines" instance=ExtResource( 15 )]
+dialougeStream = ExtResource( 44 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/connectedToActivationUnit"]
+position = Vector2( 38707.5, -2907.25 )
+shape = SubResource( 47 )
+
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 33 )]
@@ -2344,30 +2379,27 @@ shape = SubResource( 17 )
 position = Vector2( 30571, -4539 )
 rotation = -1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint9"]
-position = Vector2( -1897.01, -1174.99 )
-shape = SubResource( 17 )
-
-[node name="EndScene" type="Area2D" parent="."]
-position = Vector2( 39324, -2802 )
+[node name="EndScene" type="Area2D" parent="Checkpoints/Checkpoint9"]
+position = Vector2( -1736.95, 8753.01 )
+rotation = 1.57079
 collision_layer = 0
 collision_mask = 256
 script = ExtResource( 40 )
 gamePath = "res://assets/ui/endScreen/endScreen.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndScene"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint9/EndScene"]
 position = Vector2( -613, -234 )
 shape = SubResource( 39 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EndScene"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Checkpoints/Checkpoint9/EndScene"]
 root_node = NodePath("../CanvasLayer/Panel")
 anims/RESET = SubResource( 40 )
 anims/endScreen = SubResource( 41 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="EndScene"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Checkpoints/Checkpoint9/EndScene"]
 layer = 5
 
-[node name="Panel" type="Panel" parent="EndScene/CanvasLayer"]
+[node name="Panel" type="Panel" parent="Checkpoints/Checkpoint9/EndScene/CanvasLayer"]
 visible = false
 self_modulate = Color( 0, 0, 0, 1 )
 margin_left = -1411.0
@@ -2375,12 +2407,16 @@ margin_top = -927.0
 margin_right = 3648.0
 margin_bottom = 2133.0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint9"]
+position = Vector2( -1897.01, -1174.99 )
+shape = SubResource( 17 )
+
 [node name="EndSocket" type="Sprite" parent="."]
 position = Vector2( 38715, -2988.5 )
 scale = Vector2( 0.301271, 0.301271 )
 texture = ExtResource( 34 )
 
-[connection signal="body_entered" from="EndScene" to="EndScene" method="_on_EndScene_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint9/EndScene" to="Checkpoints/Checkpoint9/EndScene" method="_on_EndScene_body_entered"]
 
 [editable path="Platforms/Reflect Platforms/Platform158"]
 [editable path="Platforms/Reflect Platforms/Platform159"]
