@@ -17,6 +17,13 @@ light_mode = 1
 [node name="Switch" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.370536, 0.370536 )
+texture = ExtResource( 7 )
+texture_scale = 0.7
+color = Color( 0.223529, 0.984314, 0.984314, 1 )
+energy = 3.0
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 62, 0 )
 scale = Vector2( 0.2, 0.2 )
@@ -50,13 +57,6 @@ bus = "Sound Effects"
 stream = ExtResource( 5 )
 max_distance = 10000.0
 bus = "Sound Effects"
-
-[node name="Light2D" type="Light2D" parent="."]
-scale = Vector2( 0.590402, 0.590402 )
-texture = ExtResource( 7 )
-texture_scale = 0.7
-color = Color( 0.223529, 0.984314, 0.984314, 1 )
-energy = 3.0
 
 [connection signal="interacted" from="InteractionableBox" to="." method="_on_InteractionableBox_interacted"]
 [connection signal="timeout" from="RandomPause" to="." method="_on_RandomPause_timeout"]
