@@ -85,7 +85,6 @@ func _physics_process(delta: float):
 	switchSpriteDirection(horizontalDirection)
 	
 func calculateMoveVelocity(horizontalDirection, delta):
-	# TODO: look at this
 	var speedGoal = 0.0
 	var duration = friction
 	if horizontalDirection != 0:
@@ -173,7 +172,6 @@ func switchSpriteDirection(horizontalDirection):
 		$Sprite.scale.x = abs($Sprite.scale.x) * -1.0 if horizontalDirection < 0 else abs($Sprite.scale.x)
 		$AnimatedSprite.scale.x = abs($AnimatedSprite.scale.x) * -1.0 if horizontalDirection < 0 else abs($AnimatedSprite.scale.x)
 
-# TODO: implement heal function
 func takeDamage(damage):
 	$DamagedSound.play()
 	$VFXAnimationPlayer.play("hit")
@@ -188,7 +186,6 @@ func gainHealth(healAmount):
 		$VFXAnimationPlayer.play("healthGain")
 		
 func getHealthBarPosition():
-	# TODO: look at this
 	# https://stackoverflow.com/questions/73038798/is-there-an-easier-way-to-turn-canvas-locations-into-node2d-locations
 	# turns a different canvas position into the main canvas position
 	return get_viewport_transform().affine_inverse() * $CanvasLayer/Position2D.global_position
@@ -227,8 +224,7 @@ func setRobotRef(robotValue):
 	
 func getRobotRef():
 	return robot
-	
-# TODO: think about different solution
+
 func getPriority():
 	return 3
 	
