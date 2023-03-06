@@ -194,7 +194,6 @@ func getHealthBarPosition():
 	return get_viewport_transform().affine_inverse() * $CanvasLayer/Position2D.global_position
 	
 func changeVignette():
-	print($CanvasLayer/LowHealthVignette.self_modulate)
 	if $CanvasLayer/HealthBar.getHealthPercent() <= 0.1:
 		$CanvasLayer/LowHealthVignette.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 	elif $CanvasLayer/HealthBar.getHealthPercent() <= 0.2:
