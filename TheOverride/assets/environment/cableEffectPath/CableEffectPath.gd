@@ -1,23 +1,29 @@
 extends Path2D
 
-export var effectSpeed = 500
-export var effectFrequency = 1.0
+export var ChargingEffectSpeed = 500
+export var ChargingEffectFrequency = 1.0
+export var FullyChargedEffectSpeed = 250
+export var FullyChargedEffectFrequency = 2.0
 
 func _ready():
-	$Timer.wait_time = effectFrequency
+	$ChargingTimer.wait_time = ChargingEffectFrequency
+	$FullyChargedTimer.wait_time = FullyChargedEffectFrequency
 
 func socketIsCharging():
-	$Timer.start()
+	$ChargingTimer.start()
 	
 func socketFullyCharged():
-	$Timer.stop()
-	# TODO: add effect for when the socket is fully charged
+	$ChargingTimer.stop()
+	$FullyChargedTimer.start()
 
-func createNewPathFollowInstance():
-	var pathFollow2d = $PathFollow2D.duplicate()
+func createNewPathFollowInstance(parentPathFollow, effectSpeed):
+	var pathFollow2d = parentPathFollow.duplicate()
 	pathFollow2d.setup(effectSpeed)
 	pathFollow2d.start()
 	add_child(pathFollow2d)
 
-func _on_Timer_timeout():
-	createNewPathFollowInstance()
+func _on_ChargingTimer_timeout():
+	createNewPathFollowInstance($ChargingPathFollow, ChargingEffectSpeed)
+
+func _on_FullyChargedTimer_timeout():
+	createNewPathFollowInstance($FullyChargedPathFollow, FullyChargedEffectSpeed)
