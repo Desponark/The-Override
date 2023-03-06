@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/ui/endScreen/epilogueGoodEnding.webm" type="VideoStream" id=2]
+[ext_resource path="res://assets/ui/endScreen/endScreen.webm" type="VideoStream" id=2]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/endScreen/endScreen.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/Environment/EndScreenMusic.mp3" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -32,7 +33,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/Panel:self_modulate")
+tracks/2/path = NodePath("CanvasLayer/Label:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -41,10 +42,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CanvasLayer/Label:visible")
+tracks/3/path = NodePath("CanvasLayer/VideoPlayer:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -56,7 +57,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("CanvasLayer/VideoPlayer:visible")
+tracks/4/path = NodePath("CanvasLayer/BackToMainMenu:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -68,7 +69,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("CanvasLayer/Panel:visible")
+tracks/5/path = NodePath("CanvasLayer/BackToMainMenu:self_modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -77,10 +78,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("CanvasLayer/BackToMainMenu:visible")
+tracks/6/path = NodePath("CanvasLayer/BackToMainMenu/Label:self_modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -89,36 +90,12 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("CanvasLayer/BackToMainMenu:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("CanvasLayer/BackToMainMenu/Label:self_modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "endingScreen"
-length = 30.0
+length = 50.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/VideoPlayer:self_modulate")
 tracks/0/interp = 1
@@ -138,7 +115,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2.1, 2.9, 21.3, 25.5 ),
+"times": PoolRealArray( 2.1, 2.9, 45, 49.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -164,70 +141,72 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 2.1, 25.7 ),
+"times": PoolRealArray( 0, 2.1, 49.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("CanvasLayer/Panel:visible")
+tracks/4/path = NodePath("CanvasLayer/VideoPlayer:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 2.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("CanvasLayer/VideoPlayer:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/BackToMainMenu:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 49.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 tracks/6/type = "value"
-tracks/6/path = NodePath("CanvasLayer/BackToMainMenu:visible")
+tracks/6/path = NodePath("CanvasLayer/BackToMainMenu:self_modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 25.7 ),
+"times": PoolRealArray( 49.4, 49.8 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("CanvasLayer/BackToMainMenu:self_modulate")
+tracks/7/path = NodePath("CanvasLayer/BackToMainMenu/Label:self_modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 25.7, 26.1 ),
+"times": PoolRealArray( 49.4, 49.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("CanvasLayer/BackToMainMenu/Label:self_modulate")
+tracks/8/type = "audio"
+tracks/8/path = NodePath("AudioStreamPlayer")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 25.7, 26.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 5.7 )
 }
 
 [sub_resource type="DynamicFont" id=3]
@@ -254,13 +233,6 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 stream = ExtResource( 2 )
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-self_modulate = Color( 0, 0, 0, 1 )
-margin_left = -1291.0
-margin_top = -415.0
-margin_right = 3089.0
-margin_bottom = 583.0
-
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -286,5 +258,8 @@ custom_fonts/font = SubResource( 4 )
 text = "Back to Main Menu"
 align = 1
 valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="pressed" from="CanvasLayer/BackToMainMenu" to="." method="_on_NewGame_pressed"]

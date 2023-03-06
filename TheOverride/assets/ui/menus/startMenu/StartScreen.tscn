@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/Environment/MainMusic.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
@@ -157,6 +157,7 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+autoplay = true
 bus = "Music"
 
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
