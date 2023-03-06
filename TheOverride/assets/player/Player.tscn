@@ -1332,7 +1332,6 @@ position = Vector2( 36, -20 )
 rotation = -1.5708
 scale = Vector2( 1.0045, 0.97046 )
 frames = SubResource( 52 )
-frame = 4
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1437,12 +1436,12 @@ position = Vector2( 298, 59.1428 )
 rotation = 1.57079
 
 [node name="SwordsmanIdle-sheet" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 56.25, 38.5714 )
-scale = Vector2( 2.27381, 2.27381 )
-texture = ExtResource( 1 )
-hframes = 4
+position = Vector2( 69, 69 )
+scale = Vector2( 0.221429, 0.221429 )
+texture = ExtResource( 25 )
 
 [node name="LowHealthVignette" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource( 54 )
 anchor_right = 1.0
 anchor_bottom = 1.0
