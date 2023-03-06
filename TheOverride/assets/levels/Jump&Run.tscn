@@ -709,8 +709,6 @@ triggerScenes = [ NodePath("../Doors/Door5"), NodePath("CableEffectPath") ]
 
 [node name="CableEffectPath" parent="Socket" instance=ExtResource( 17 )]
 curve = SubResource( 10 )
-effectFrequency = 0.5
-socketPath = NodePath("..")
 
 [node name="Elevator" parent="." instance=ExtResource( 12 )]
 position = Vector2( 17819, 3396 )

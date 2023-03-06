@@ -1228,15 +1228,12 @@ triggerScenes = [ NodePath("../../switch/Switch"), NodePath("../../switch/Switch
 
 [node name="CableEffectPath" parent="Endlevel/socket/Socket" instance=ExtResource( 35 )]
 curve = SubResource( 29 )
-socketPath = NodePath("..")
 
 [node name="CableEffectPath2" parent="Endlevel/socket/Socket" instance=ExtResource( 35 )]
 curve = SubResource( 36 )
-socketPath = NodePath("..")
 
 [node name="CableEffectPath3" parent="Endlevel/socket/Socket" instance=ExtResource( 35 )]
 curve = SubResource( 37 )
-socketPath = NodePath("..")
 
 [node name="TutorialEnd" type="Node2D" parent="."]
 
@@ -1285,7 +1282,6 @@ triggerScenes = [ NodePath("../../VoiceLines/afterFirstWaveDefense"), NodePath("
 
 [node name="CableEffectPath" parent="TutorialEnd/TutorialEndSocket" instance=ExtResource( 35 )]
 curve = SubResource( 28 )
-socketPath = NodePath("..")
 
 [node name="Pickups" type="Node2D" parent="TutorialEnd"]
 
@@ -1390,7 +1386,6 @@ triggerScenes = [ NodePath("../../Elevator, Doors/DashDoor3"), NodePath("CableEf
 
 [node name="CableEffectPath" parent="Dash Upgrade/Socket, Switch/DashSocket1" instance=ExtResource( 35 )]
 curve = SubResource( 30 )
-socketPath = NodePath("..")
 
 [node name="DashSocket2" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 11 )]
 position = Vector2( 25192, 6516 )
@@ -1399,11 +1394,9 @@ triggerScenes = [ NodePath("../../Spawner/Spawner3"), NodePath("../../Spawner/Sp
 
 [node name="CableEffectPath" parent="Dash Upgrade/Socket, Switch/DashSocket2" instance=ExtResource( 35 )]
 curve = SubResource( 31 )
-socketPath = NodePath("..")
 
 [node name="CableEffectPath2" parent="Dash Upgrade/Socket, Switch/DashSocket2" instance=ExtResource( 35 )]
 curve = SubResource( 32 )
-socketPath = NodePath("..")
 
 [node name="Switch" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 28 )]
 position = Vector2( 25192, 5887 )
@@ -1591,7 +1584,6 @@ triggerScenes = [ NodePath("../../Elevator, Doors/ReflectDoor+"), NodePath("Cabl
 
 [node name="CableEffectPath" parent="Reflect Upgrade/Socket/SocketReflect1" instance=ExtResource( 35 )]
 curve = SubResource( 33 )
-socketPath = NodePath("..")
 
 [node name="SocketReflect2" parent="Reflect Upgrade/Socket" instance=ExtResource( 11 )]
 position = Vector2( 16969.1, -3748 )
@@ -1602,7 +1594,6 @@ triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../
 
 [node name="CableEffectPath" parent="Reflect Upgrade/Socket/SocketReflect2" instance=ExtResource( 35 )]
 curve = SubResource( 34 )
-socketPath = NodePath("..")
 
 [node name="Spawner" type="Node2D" parent="Reflect Upgrade"]
 
@@ -1861,7 +1852,6 @@ triggerScenes = [ NodePath("../Doors/DashDoor2"), NodePath("../Doors/DashDoor"),
 
 [node name="CableEffectPath" parent="Hubroom/DashSocket" instance=ExtResource( 35 )]
 curve = SubResource( 35 )
-socketPath = NodePath("..")
 
 [node name="Pickups" type="Node2D" parent="Hubroom"]
 
