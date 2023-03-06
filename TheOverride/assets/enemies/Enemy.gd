@@ -57,18 +57,21 @@ func moveEnemyTowardsTarget(approachTarget):
 func switchSpriteDirection(approachTarget):
 	if horizontalDirection != 0:
 		var facingRight = horizontalDirection < 0
-		$Sprite.flip_h = facingRight
+		$AnimatedSprite.flip_h = facingRight
 	elif approachTarget: # face in the diretion of the target if not otherwise moving in another direction
 		var facingRight = approachTarget.global_position.x < global_position.x
-		$Sprite.flip_h = facingRight
+		$AnimatedSprite.flip_h = facingRight
 
 func playAnimations():
 	if $AnimationPlayer.current_animation == "destroyed":
 		return
+	if $AnimationPlayer.current_animation == "shoot":
+		velocity.x = 0.0 # stop moving while shooting
+		return
 	if is_zero_approx(velocity.x):
 		$AnimationPlayer.stop(false)
 	else:
-		$AnimationPlayer.play("walk")
+		$AnimationPlayer.play("walk2")
 
 func takeDamage(damage):
 	$DamagedSound.play()
@@ -101,7 +104,7 @@ func _on_HealthBar_healthReachedZero():
 		var newHealthDrop = healthDrop.instance()
 		newHealthDrop.global_position = global_position
 		EventBus.emit_signal("spawnLoot", newHealthDrop)
-	$Sprite.scale.x *= -1 # swap x direction because destroyed animation sprites have swapped directions
+	$AnimatedSprite.scale.x *= -1 # swap x direction because destroyed animation sprites have swapped directions
 	$AnimationPlayer.play("destroyed")
 	
 func _on_AggroZone_body_entered(body):
@@ -112,3 +115,6 @@ func _on_AggroZone_body_exited(body):
 	var found = approachTargets.find(body)
 	if found != -1:
 		approachTargets.remove(found)
+
+func _on_Gun_shooting():
+	$AnimationPlayer.play("shoot")

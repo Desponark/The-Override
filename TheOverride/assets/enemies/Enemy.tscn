@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://Sounds/Enemy/Destroyed.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/loot/HealthDrop.tscn" type="PackedScene" id=2]
@@ -12,63 +12,106 @@
 [ext_resource path="res://assets/projectiles/Projectile.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sounds/Enemy/Damaged.wav" type="AudioStream" id=12]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0000.png" type="Texture" id=13]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0039.png" type="Texture" id=14]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0036.png" type="Texture" id=15]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0035.png" type="Texture" id=16]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0038.png" type="Texture" id=17]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0040.png" type="Texture" id=18]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0018.png" type="Texture" id=19]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0019.png" type="Texture" id=20]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0022.png" type="Texture" id=21]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0025.png" type="Texture" id=22]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0023.png" type="Texture" id=23]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0024.png" type="Texture" id=24]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0020.png" type="Texture" id=25]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0021.png" type="Texture" id=26]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0026.png" type="Texture" id=27]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0011.png" type="Texture" id=28]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0008.png" type="Texture" id=29]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0003.png" type="Texture" id=30]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0001.png" type="Texture" id=31]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0004.png" type="Texture" id=32]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0002.png" type="Texture" id=33]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0006.png" type="Texture" id=34]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0009.png" type="Texture" id=35]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0010.png" type="Texture" id=36]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0005.png" type="Texture" id=37]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0007.png" type="Texture" id=38]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0012.png" type="Texture" id=39]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0016.png" type="Texture" id=40]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0017.png" type="Texture" id=41]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0013.png" type="Texture" id=42]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0015.png" type="Texture" id=43]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0014.png" type="Texture" id=44]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0027.png" type="Texture" id=45]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0030.png" type="Texture" id=46]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0032.png" type="Texture" id=47]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0031.png" type="Texture" id=48]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0033.png" type="Texture" id=49]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0029.png" type="Texture" id=50]
-[ext_resource path="res://assets/enemies/walkAnimation/Walk_Animation_DeMain_0034.png" type="Texture" id=51]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0000.png" type="Texture" id=52]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0003.png" type="Texture" id=53]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0005.png" type="Texture" id=54]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0001.png" type="Texture" id=55]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0007.png" type="Texture" id=56]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0006.png" type="Texture" id=57]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0002.png" type="Texture" id=58]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0004.png" type="Texture" id=59]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0010.png" type="Texture" id=60]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0014.png" type="Texture" id=61]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0013.png" type="Texture" id=62]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0012.png" type="Texture" id=63]
-[ext_resource path="res://assets/enemies/destroyedAnimation/Die_Animation_DeMain_0009.png" type="Texture" id=64]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0031.png" type="Texture" id=65]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0038.png" type="Texture" id=66]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0039.png" type="Texture" id=67]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0037.png" type="Texture" id=68]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0032.png" type="Texture" id=69]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0034.png" type="Texture" id=70]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0029.png" type="Texture" id=71]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0033.png" type="Texture" id=72]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0036.png" type="Texture" id=73]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0030.png" type="Texture" id=74]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0035.png" type="Texture" id=75]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0001.png" type="Texture" id=76]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0005.png" type="Texture" id=77]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0008.png" type="Texture" id=78]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0009.png" type="Texture" id=79]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0019.png" type="Texture" id=80]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0013.png" type="Texture" id=81]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0022.png" type="Texture" id=82]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0023.png" type="Texture" id=83]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0028.png" type="Texture" id=84]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0018.png" type="Texture" id=85]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0025.png" type="Texture" id=86]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0003.png" type="Texture" id=87]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0015.png" type="Texture" id=88]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0006.png" type="Texture" id=89]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0024.png" type="Texture" id=90]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0000.png" type="Texture" id=91]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0004.png" type="Texture" id=92]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0011.png" type="Texture" id=93]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0010.png" type="Texture" id=94]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0012.png" type="Texture" id=95]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0016.png" type="Texture" id=96]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0017.png" type="Texture" id=97]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0026.png" type="Texture" id=98]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0027.png" type="Texture" id=99]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0014.png" type="Texture" id=100]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0021.png" type="Texture" id=101]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0002.png" type="Texture" id=102]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0020.png" type="Texture" id=103]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0007.png" type="Texture" id=104]
+[ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0040.png" type="Texture" id=105]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0008.png" type="Texture" id=106]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0007.png" type="Texture" id=107]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0012.png" type="Texture" id=108]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0010.png" type="Texture" id=109]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0013.png" type="Texture" id=110]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0011.png" type="Texture" id=111]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0009.png" type="Texture" id=112]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0014.png" type="Texture" id=113]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0000.png" type="Texture" id=114]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0003.png" type="Texture" id=115]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0004.png" type="Texture" id=116]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0005.png" type="Texture" id=117]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0006.png" type="Texture" id=118]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0002.png" type="Texture" id=119]
+[ext_resource path="res://assets/enemies/animations/Die/Die_Animation_DeMain_0001.png" type="Texture" id=120]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0011.png" type="Texture" id=121]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0014.png" type="Texture" id=122]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0001.png" type="Texture" id=123]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0004.png" type="Texture" id=124]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0007.png" type="Texture" id=125]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0017.png" type="Texture" id=126]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0016.png" type="Texture" id=127]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0013.png" type="Texture" id=128]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0018.png" type="Texture" id=129]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0009.png" type="Texture" id=130]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0000.png" type="Texture" id=131]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0005.png" type="Texture" id=132]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0010.png" type="Texture" id=133]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0019.png" type="Texture" id=134]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0012.png" type="Texture" id=135]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0008.png" type="Texture" id=136]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0020.png" type="Texture" id=137]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0006.png" type="Texture" id=138]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0015.png" type="Texture" id=139]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0002.png" type="Texture" id=140]
+[ext_resource path="res://assets/enemies/animations/Shoot/Shoot_Animation_DeMain_0003.png" type="Texture" id=141]
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=23]
 resource_local_to_scene = true
 shader = ExtResource( 7 )
 shader_param/active = false
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ ExtResource( 114 ), ExtResource( 120 ), ExtResource( 119 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 107 ), ExtResource( 106 ), ExtResource( 112 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 108 ), ExtResource( 110 ), ExtResource( 113 ) ],
+"loop": true,
+"name": "die",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 131 ), ExtResource( 123 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 124 ), ExtResource( 132 ), ExtResource( 138 ), ExtResource( 125 ), ExtResource( 136 ), ExtResource( 130 ), ExtResource( 133 ), ExtResource( 121 ), ExtResource( 135 ), ExtResource( 128 ), ExtResource( 122 ), ExtResource( 139 ), ExtResource( 127 ), ExtResource( 126 ), ExtResource( 129 ), ExtResource( 134 ), ExtResource( 137 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 21.0
+}, {
+"frames": [ ExtResource( 91 ), ExtResource( 76 ), ExtResource( 102 ), ExtResource( 87 ), ExtResource( 92 ), ExtResource( 77 ), ExtResource( 89 ), ExtResource( 104 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 81 ), ExtResource( 100 ), ExtResource( 88 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 85 ), ExtResource( 80 ), ExtResource( 103 ), ExtResource( 101 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 90 ), ExtResource( 86 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 84 ), ExtResource( 71 ), ExtResource( 74 ), ExtResource( 65 ), ExtResource( 69 ), ExtResource( 72 ), ExtResource( 70 ), ExtResource( 75 ), ExtResource( 73 ), ExtResource( 68 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 105 ) ],
+"loop": true,
+"name": "walk",
+"speed": 41.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 93.5, 63.0001 )
@@ -76,7 +119,7 @@ extents = Vector2( 93.5, 63.0001 )
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/path = NodePath("HitParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -85,10 +128,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:material:shader_param/active")
+tracks/1/path = NodePath("HurtBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -100,7 +143,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("HitParticles:emitting")
+tracks/2/path = NodePath("AggroZone/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -112,7 +155,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:texture")
+tracks/3/path = NodePath("RangedAggroZone/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -121,10 +164,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ ExtResource( 13 ) ]
+"values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:modulate")
+tracks/4/path = NodePath("CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -133,10 +176,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/5/path = NodePath(".:gravity")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -145,10 +188,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ 4500.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("AggroZone/CollisionShape2D:disabled")
+tracks/6/path = NodePath("DestroyedSound:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -160,7 +203,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RangedAggroZone/CollisionShape2D:disabled")
+tracks/7/path = NodePath("AnimatedSprite:self_modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -169,10 +212,10 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("CollisionShape2D:disabled")
+tracks/8/path = NodePath("AnimatedSprite:animation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -180,11 +223,11 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
+"update": 1,
+"values": [ "shoot" ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath(".:gravity")
+tracks/9/path = NodePath("AnimatedSprite:frame")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -192,8 +235,8 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 4500.0 ]
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -201,31 +244,31 @@ resource_name = "destroyed"
 length = 2.0
 step = 0.07
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("HurtBox/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.7, 0.77, 0.84 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 52 ), ExtResource( 55 ), ExtResource( 58 ), ExtResource( 53 ), ExtResource( 59 ), ExtResource( 54 ), ExtResource( 57 ), ExtResource( 56 ), ExtResource( 64 ), ExtResource( 60 ), ExtResource( 63 ), ExtResource( 62 ), ExtResource( 61 ) ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/path = NodePath("AggroZone/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.91, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/2/path = NodePath("RangedAggroZone/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -237,7 +280,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("AggroZone/CollisionShape2D:disabled")
+tracks/3/path = NodePath("CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -248,37 +291,13 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("RangedAggroZone/CollisionShape2D:disabled")
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/6/type = "method"
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
 "times": PoolRealArray( 1.96 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -286,98 +305,151 @@ tracks/6/keys = {
 "method": "queue_free"
 } ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath(".:gravity")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:gravity")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
-tracks/8/type = "audio"
-tracks/8/path = NodePath("DestroyedSound")
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimatedSprite:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "die" ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AnimatedSprite:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.839983 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 14 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AnimatedSprite:self_modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 1 )
-} ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0, 0.909982, 1.95996 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("DestroyedSound:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 2.03 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "walk"
-length = 1.9
-loop = true
-step = 0.05
+[sub_resource type="Animation" id=22]
+resource_name = "shoot"
+length = 0.75
+step = 0.0416667
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 13 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 38 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 28 ), ExtResource( 39 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 43 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 27 ), ExtResource( 45 ), ExtResource( 50 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 18 ) ]
+"values": [ "shoot" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
+tracks/1/path = NodePath("AnimatedSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3, 20 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "walk2"
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "walk" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 40 ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 28 ) ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=13]
 resource_name = "hit"
 length = 0.3
 step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/type = "method"
+tracks/0/path = NodePath("HitParticles")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ -20.0, 20.0, -10.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:material:shader_param/active")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("HitParticles")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -385,17 +457,41 @@ tracks/2/keys = {
 "method": "restart"
 } ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -20.0, 20.0, -10.0, 0.0 ]
+}
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitParticles:emitting")
+tracks/3/path = NodePath("AnimatedSprite:material:shader_param/active")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false, true, false ]
 }
 
 [sub_resource type="Curve" id=10]
@@ -436,11 +532,12 @@ moveSpeed = 300.0
 stopDistance = 600
 healthDrop = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 8 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 23 )
 position = Vector2( 0, 28 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 13 )
+frames = SubResource( 19 )
+animation = "shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 5.5, 22.9999 )
@@ -449,9 +546,11 @@ shape = SubResource( 15 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/destroyed = SubResource( 18 )
-anims/walk = SubResource( 16 )
+anims/shoot = SubResource( 22 )
+anims/walk2 = SubResource( 20 )
 
 [node name="VFXAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 24 )
 anims/hit = SubResource( 13 )
 
 [node name="HitParticles" type="Particles2D" parent="."]
@@ -525,14 +624,17 @@ volume_db = -10.0
 [node name="DamagedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -10.0
+bus = "Sound Effects"
 
 [node name="DestroyedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -10.0
+bus = "Sound Effects"
 
 [connection signal="body_entered" from="AggroZone" to="." method="_on_AggroZone_body_entered"]
 [connection signal="body_exited" from="AggroZone" to="." method="_on_AggroZone_body_exited"]
 [connection signal="body_entered" from="RangedAggroZone" to="." method="_on_RangedAggroZone_body_entered"]
 [connection signal="body_exited" from="RangedAggroZone" to="." method="_on_RangedAggroZone_body_exited"]
+[connection signal="shooting" from="Gun" to="." method="_on_Gun_shooting"]
 [connection signal="timeout" from="Gun/Timer" to="Gun" method="_on_Timer_timeout"]
 [connection signal="healthReachedZero" from="HealthBar" to="." method="_on_HealthBar_healthReachedZero"]
