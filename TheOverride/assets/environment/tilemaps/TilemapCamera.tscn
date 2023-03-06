@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://assets/environment/roomAssets/Corners/wallCorner/SideWallCorner_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/environment/roomAssets/Corners/SideWallCorner_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/environment/roomAssets/Corners/wallCorner/SideWallCorner_3.png" type="Texture" id=4]
 [ext_resource path="res://assets/environment/roomAssets/Corners/wallCorner/SideWallCorner_2.png" type="Texture" id=8]
 [ext_resource path="res://assets/environment/roomAssets/Walls/SideWall_1.png" type="Texture" id=9]
