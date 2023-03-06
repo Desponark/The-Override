@@ -693,22 +693,22 @@ scale = Vector2( 0.8, 1 )
 targetHeight = 388.0
 moveDuration = 8
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="Deathzone" type="Area2D" parent="."]
 position = Vector2( 7257, 4037 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 20 )
 damage = 100
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Deathzone"]
 position = Vector2( -1942.51, 1715 )
 shape = SubResource( 8 )
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Deathzone"]
 position = Vector2( -454, -472 )
 shape = SubResource( 8 )
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Deathzone"]
 position = Vector2( -250, 2453 )
 shape = SubResource( 8 )
 
