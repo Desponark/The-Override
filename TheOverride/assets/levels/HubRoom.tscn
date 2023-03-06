@@ -1224,7 +1224,7 @@ maxRandomPause = 20
 position = Vector2( 38707, -105 )
 maxEnergy = 500.0
 energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../../switch/Switch"), NodePath("../../switch/Switch2"), NodePath("../../Spawner/Spawner"), NodePath("../../Spawner/Spawner2"), NodePath("../../Spawner/Spawner3"), NodePath("../../../Reflect Upgrade/Elevator, Doors/Elevator5"), NodePath("../../../Reflect Upgrade/Elevator, Doors/Elevator5"), NodePath("../../Spawner/Spawner4") ]
+triggerScenes = [ NodePath("../../switch/Switch"), NodePath("../../switch/Switch2"), NodePath("../../Spawner/Spawner"), NodePath("../../Spawner/Spawner2"), NodePath("../../Spawner/Spawner3"), NodePath("../../../Reflect Upgrade/Elevator, Doors/Elevator5"), NodePath("../../../Reflect Upgrade/Elevator, Doors/Elevator5"), NodePath("../../Spawner/Spawner4"), NodePath("CableEffectPath"), NodePath("CableEffectPath2"), NodePath("CableEffectPath3") ]
 
 [node name="CableEffectPath" parent="Endlevel/socket/Socket" instance=ExtResource( 35 )]
 curve = SubResource( 29 )
@@ -1281,7 +1281,7 @@ isLocked = true
 position = Vector2( 23961, 373 )
 maxEnergy = 100.0
 energyTransferAmount = 0.05
-triggerScenes = [ NodePath("../../VoiceLines/afterFirstWaveDefense"), NodePath("../Doors/TutorialEndDoor"), NodePath("../Spawner/Spawner"), NodePath("../Spawner/Spawner2") ]
+triggerScenes = [ NodePath("../../VoiceLines/afterFirstWaveDefense"), NodePath("../Doors/TutorialEndDoor"), NodePath("../Spawner/Spawner"), NodePath("../Spawner/Spawner2"), NodePath("CableEffectPath") ]
 
 [node name="CableEffectPath" parent="TutorialEnd/TutorialEndSocket" instance=ExtResource( 35 )]
 curve = SubResource( 28 )
@@ -1386,7 +1386,7 @@ targetHeight = 3247.0
 [node name="DashSocket1" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 11 )]
 position = Vector2( 21855, 2213 )
 energyTransferAmount = 0.3
-triggerScenes = [ NodePath("../../Elevator, Doors/DashDoor3") ]
+triggerScenes = [ NodePath("../../Elevator, Doors/DashDoor3"), NodePath("CableEffectPath") ]
 
 [node name="CableEffectPath" parent="Dash Upgrade/Socket, Switch/DashSocket1" instance=ExtResource( 35 )]
 curve = SubResource( 30 )
@@ -1395,7 +1395,7 @@ socketPath = NodePath("..")
 [node name="DashSocket2" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 11 )]
 position = Vector2( 25192, 6516 )
 energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../../Spawner/Spawner3"), NodePath("../../Spawner/Spawner5"), NodePath("../../Elevator, Doors/DashDoor4"), NodePath("../../Elevator, Doors/DashDoor5"), NodePath("../Switch"), NodePath("../../Elevator, Doors/Elevator") ]
+triggerScenes = [ NodePath("../../Spawner/Spawner3"), NodePath("../../Spawner/Spawner5"), NodePath("../../Elevator, Doors/DashDoor4"), NodePath("../../Elevator, Doors/DashDoor5"), NodePath("../Switch"), NodePath("../../Elevator, Doors/Elevator"), NodePath("CableEffectPath"), NodePath("CableEffectPath2") ]
 
 [node name="CableEffectPath" parent="Dash Upgrade/Socket, Switch/DashSocket2" instance=ExtResource( 35 )]
 curve = SubResource( 31 )
@@ -1587,7 +1587,7 @@ position = Vector2( 16738.9, -2488 )
 scale = Vector2( 0.571429, 1 )
 maxEnergy = 50.0
 energyTransferAmount = 0.2
-triggerScenes = [ NodePath("../../Elevator, Doors/ReflectDoor+") ]
+triggerScenes = [ NodePath("../../Elevator, Doors/ReflectDoor+"), NodePath("CableEffectPath") ]
 
 [node name="CableEffectPath" parent="Reflect Upgrade/Socket/SocketReflect1" instance=ExtResource( 35 )]
 curve = SubResource( 33 )
@@ -1598,7 +1598,7 @@ position = Vector2( 16969.1, -3748 )
 scale = Vector2( 0.571429, 1 )
 maxEnergy = 400.0
 energyTransferAmount = 0.12
-triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Hubroom/Doors/EndLevelDoor2") ]
+triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Hubroom/Doors/EndLevelDoor2"), NodePath("CableEffectPath") ]
 
 [node name="CableEffectPath" parent="Reflect Upgrade/Socket/SocketReflect2" instance=ExtResource( 35 )]
 curve = SubResource( 34 )
@@ -1857,7 +1857,7 @@ initialMoveDirection = -1
 [node name="DashSocket" parent="Hubroom" instance=ExtResource( 11 )]
 position = Vector2( 28053, -231 )
 energyTransferAmount = 0.07
-triggerScenes = [ NodePath("../Doors/DashDoor2"), NodePath("../Doors/DashDoor"), NodePath("../Spawner/Spawner4"), NodePath("../Spawner/Spawner6") ]
+triggerScenes = [ NodePath("../Doors/DashDoor2"), NodePath("../Doors/DashDoor"), NodePath("../Spawner/Spawner4"), NodePath("../Spawner/Spawner6"), NodePath("CableEffectPath") ]
 
 [node name="CableEffectPath" parent="Hubroom/DashSocket" instance=ExtResource( 35 )]
 curve = SubResource( 35 )

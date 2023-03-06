@@ -158,7 +158,7 @@ scale = Vector2( 0.875, 0.899755 )
 z_index = -10
 frames = SubResource( 36 )
 animation = "healthLose"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Socket" type="Sprite" parent="CanvasLayer"]

@@ -2,14 +2,8 @@ extends Path2D
 
 export var effectSpeed = 500
 export var effectFrequency = 1.0
-export(NodePath) var socketPath
-onready var socket = get_node_or_null(socketPath)
 
 func _ready():
-	# TODO: think about how to connect to socket.
-	if socket:
-		socket.connect("socketIsCharging", self, "socketIsCharging")
-		socket.connect("socketFullyCharged", self, "socketFullyCharged")
 	$Timer.wait_time = effectFrequency
 
 func socketIsCharging():

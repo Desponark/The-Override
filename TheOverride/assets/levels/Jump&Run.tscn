@@ -703,12 +703,13 @@ rotation = -1.57079
 
 [node name="Socket" parent="." instance=ExtResource( 19 )]
 position = Vector2( 15367, 2831 )
-maxEnergy = 50.0
+maxEnergy = 100.0
 energyTransferAmount = 0.2
-triggerScenes = [ NodePath("../Doors/Door5") ]
+triggerScenes = [ NodePath("../Doors/Door5"), NodePath("CableEffectPath") ]
 
 [node name="CableEffectPath" parent="Socket" instance=ExtResource( 17 )]
 curve = SubResource( 10 )
+effectFrequency = 0.5
 socketPath = NodePath("..")
 
 [node name="Elevator" parent="." instance=ExtResource( 12 )]
