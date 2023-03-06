@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/EndScreenBadMusic.mp3-5c319a3aefa52fa4debc6dc385ac70a0.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Environment/EndScreenBadMusic.mp3"
+dest_files=[ "res://.import/EndScreenBadMusic.mp3-5c319a3aefa52fa4debc6dc385ac70a0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
