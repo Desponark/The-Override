@@ -27,9 +27,9 @@ func _ready():
 	$InteractionableBox.setInteractionReadiness(true)
 	for nodePath in triggerScenes:
 		var node = get_node(nodePath)
-		if !is_connected("socketFullyCharged", node, "socketFullyCharged"):
+		if !is_connected("socketFullyCharged", node, "socketFullyCharged") and node.has_method("socketFullyCharged"):
 			connect("socketFullyCharged", node, "socketFullyCharged")
-		if !is_connected("socketIsCharging", node, "socketIsCharging"):
+		if !is_connected("socketIsCharging", node, "socketIsCharging") and node.has_method("socketIsCharging"):
 			connect("socketIsCharging", node, "socketIsCharging")
 
 # TODO: cleanup this mess; make sure things happen only when they need to happen and not all the time
