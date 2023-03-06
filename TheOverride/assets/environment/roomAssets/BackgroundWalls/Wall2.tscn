@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/Wall_1_Gitter.png-f072d60cfe99445ae0ca71c8f38c2584.stex"
-
-[node name="Wall2" type="Sprite"]
-scale = Vector2( 0.2, 0.2 )
-texture = SubResource( 1 )
