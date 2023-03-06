@@ -111,12 +111,12 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0.0761719, -74, 0, 0, 0, 0, 3.07617, -197, 0, 0, 0, 0, -2047.92, -194, 0, 0, 0, 0, -2047.92, 1851, 0, 0, 0, 0, -2151.92, 1853, 0, 0, 0, 0, -2145.92, 2769, 0, 0, 0, 0, 820.076, 2774, 0, 0, 0, 0, 822.076, 3081, 0, 0, 0, 0, 1548.08, 3089 )
 }
 
-[sub_resource type="ShaderMaterial" id=23]
+[sub_resource type="ShaderMaterial" id=42]
 resource_local_to_scene = true
 shader = ExtResource( 9 )
 shader_param/active = false
 
-[sub_resource type="ShaderMaterial" id=20]
+[sub_resource type="ShaderMaterial" id=43]
 resource_local_to_scene = true
 shader = ExtResource( 9 )
 shader_param/active = false
@@ -124,7 +124,7 @@ shader_param/active = false
 [sub_resource type="CircleShape2D" id=21]
 radius = 1100.0
 
-[sub_resource type="ShaderMaterial" id=22]
+[sub_resource type="ShaderMaterial" id=44]
 resource_local_to_scene = true
 shader = ExtResource( 9 )
 shader_param/active = false
@@ -135,7 +135,7 @@ _data = {
 }
 
 [sub_resource type="DynamicFont" id=1]
-size = 17
+size = 24
 font_data = ExtResource( 4 )
 
 [sub_resource type="RectangleShape2D" id=24]
@@ -280,7 +280,7 @@ rotation = -3.14159
 position = Vector2( 24002, 3480 )
 
 [node name="AnimatedSprite" parent="electricHazards/electricHazard2" index="0"]
-frame = 2
+frame = 1
 flip_h = true
 
 [node name="electricHazard3" parent="electricHazards" instance=ExtResource( 2 )]
@@ -1664,8 +1664,8 @@ position = Vector2( 27777, 5962 )
 position = Vector2( 31525, -3771 )
 healthDrop = null
 
-[node name="Sprite" parent="Reflect Upgrade/Enemy/ReflectEnemy5" index="0"]
-material = SubResource( 23 )
+[node name="AnimatedSprite" parent="Reflect Upgrade/Enemy/ReflectEnemy5" index="0"]
+material = SubResource( 42 )
 
 [node name="RangedAggroZone" parent="Reflect Upgrade/Enemy/ReflectEnemy5" index="7"]
 visible = true
@@ -1677,8 +1677,8 @@ visible = false
 position = Vector2( 33641, -3356 )
 healthDrop = null
 
-[node name="Sprite" parent="Reflect Upgrade/Enemy/ReflectEnemy4" index="0"]
-material = SubResource( 20 )
+[node name="AnimatedSprite" parent="Reflect Upgrade/Enemy/ReflectEnemy4" index="0"]
+material = SubResource( 43 )
 
 [node name="RangedAggroZone" parent="Reflect Upgrade/Enemy/ReflectEnemy4" index="7"]
 visible = true
@@ -1697,8 +1697,8 @@ position = Vector2( 33290, -2512 )
 position = Vector2( 33616, -4345 )
 healthDrop = null
 
-[node name="Sprite" parent="Reflect Upgrade/Enemy/ReflectEnemy6" index="0"]
-material = SubResource( 22 )
+[node name="AnimatedSprite" parent="Reflect Upgrade/Enemy/ReflectEnemy6" index="0"]
+material = SubResource( 44 )
 
 [node name="AggroZone" parent="Reflect Upgrade/Enemy/ReflectEnemy6" index="6"]
 visible = true
@@ -2187,13 +2187,12 @@ margin_right = 42.0
 margin_bottom = 13.0
 
 [node name="Label3" type="Label" parent="Control"]
-margin_left = 18063.0
-margin_top = 159.0
-margin_right = 18450.0
-margin_bottom = 228.0
-rect_scale = Vector2( 1.33293, 1.33293 )
+margin_left = 18598.0
+margin_top = 178.0
+margin_right = 18985.0
+margin_bottom = 247.0
 custom_fonts/font = SubResource( 1 )
-text = "[LMB] to Attack
+text = "to Attack
 
 "
 uppercase = true
@@ -2203,7 +2202,6 @@ margin_left = 21310.0
 margin_top = 134.0
 margin_right = 21697.0
 margin_bottom = 203.0
-rect_scale = Vector2( 1.33293, 1.33293 )
 custom_fonts/font = SubResource( 1 )
 text = "+
 
@@ -2212,6 +2210,10 @@ uppercase = true
 
 [node name="LeftMouseButton" type="Sprite" parent="Control"]
 position = Vector2( 21365, 144 )
+texture = ExtResource( 17 )
+
+[node name="LeftMouseButton2" type="Sprite" parent="Control"]
+position = Vector2( 18565, 190 )
 texture = ExtResource( 17 )
 
 [node name="SpaceKey" type="Sprite" parent="Control"]
