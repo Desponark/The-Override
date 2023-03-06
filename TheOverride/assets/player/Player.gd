@@ -57,6 +57,9 @@ func _process(_delta):
 		
 	$HealthAbsorbtionArea.global_position = getHealthBarPosition()
 	
+	changeVignette()
+	
+	
 func _physics_process(delta: float):
 	var horizontalDirection = Input.get_action_strength("right") - Input.get_action_strength("left")
 	
@@ -190,6 +193,17 @@ func getHealthBarPosition():
 	# turns a different canvas position into the main canvas position
 	return get_viewport_transform().affine_inverse() * $CanvasLayer/Position2D.global_position
 	
+func changeVignette():
+	print($CanvasLayer/LowHealthVignette.self_modulate)
+	if $CanvasLayer/HealthBar.getHealthPercent() <= 0.1:
+		$CanvasLayer/LowHealthVignette.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+	elif $CanvasLayer/HealthBar.getHealthPercent() <= 0.2:
+		$CanvasLayer/LowHealthVignette.self_modulate = Color(1.0, 1.0, 1.0, 0.75)
+	elif $CanvasLayer/HealthBar.getHealthPercent() <= 0.3:
+		$CanvasLayer/LowHealthVignette.self_modulate = Color(1.0, 1.0, 1.0, 0.5)
+	else:
+		$CanvasLayer/LowHealthVignette.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
+
 func transferHealth():
 	if isTransferingHealth and robot:
 		if $CanvasLayer/HealthBar.getHealth() <= healthTransferAmount: # if player has 1 health or less disallow transfering of health
