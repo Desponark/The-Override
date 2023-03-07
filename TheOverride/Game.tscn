@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/ui/menus/decisionPopup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/ui/menus/abilityPopup/AbilityPopUp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.tscn" type="PackedScene" id=18]
@@ -47,6 +48,9 @@ margin_right = -831.0
 visible = false
 
 [node name="OptionsMenu" parent="MenuElements" instance=ExtResource( 8 )]
+visible = false
+
+[node name="DecisionPopup" parent="MenuElements" instance=ExtResource( 9 )]
 visible = false
 
 [node name="Background" type="Sprite" parent="."]
@@ -91,3 +95,4 @@ playerPath = NodePath("../Player")
 
 [connection signal="optionsOpened" from="MenuElements/pauseMenu" to="MenuElements/OptionsMenu" method="_on_pauseMenu_optionsOpened"]
 [connection signal="optionsClosed" from="MenuElements/OptionsMenu" to="MenuElements/pauseMenu" method="_on_OptionsMenu_optionsClosed"]
+[connection signal="endGameDecision" from="HubRoom" to="." method="_on_HubRoom_endGameDecision"]

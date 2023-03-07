@@ -233,6 +233,7 @@ func isHealthFull():
 	
 func _on_HealthBar_healthReachedZero():
 	EventBus.emit_signal("loseEvent", "You Died!")
+	$DeathSound.play()
 	
 # TODO: make this implementation proper when there is time
 func unlockAbility(ability, videoStream, headline, button, explainationText):
