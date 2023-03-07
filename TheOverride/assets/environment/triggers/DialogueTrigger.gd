@@ -10,9 +10,10 @@ onready var socket = get_node_or_null(socketPath)
 export var socketTriggerPercent = 80.0
 
 var wasUsed = false
-var player
+var robot
 
 signal startedPlaying
+signal finishedPlaying
 
 func _process(delta):
 	# TODO: when there is more time change implementation
@@ -34,15 +35,19 @@ func socketIsCharging():
 func _on_DialogueTrigger_body_entered(body):
 	if wasUsed:
 		return
-	player = body
+	robot = body
+	robot.connect("voiceLineFinished", self, "voiceLineFinished")
 	$Timer.start(delay)
 
 func _on_Timer_timeout():
-	if player.has_method("playSpeech"):
-		player.playSpeech(dialougeStream, dialogueText, delay)
+	if robot.has_method("playSpeech"):
+		robot.playSpeech(dialougeStream, dialogueText, delay)
 	set_collision_mask_bit(8, false)
 	wasUsed = true
 	emit_signal("startedPlaying")
+	
+func voiceLineFinished():
+	emit_signal("finishedPlaying")
 
 func saveData():
 	return {
