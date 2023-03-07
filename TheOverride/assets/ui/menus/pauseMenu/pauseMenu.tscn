@@ -4,8 +4,7 @@
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=4]
-
-[sub_resource type="Theme" id=5]
+[ext_resource path="res://assets/ui/buttonsTheme/Button.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -45,7 +44,7 @@ margin_left = 672.0
 margin_top = 288.0
 margin_right = 1232.0
 margin_bottom = 368.0
-theme = SubResource( 5 )
+theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 1 )
 text = "Continue"
 
@@ -55,6 +54,7 @@ margin_left = 672.0
 margin_top = 425.0
 margin_right = 1232.0
 margin_bottom = 505.0
+theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 2 )
 text = "Options"
 
@@ -64,6 +64,7 @@ margin_left = 672.0
 margin_top = 565.0
 margin_right = 1232.0
 margin_bottom = 645.0
+theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 3 )
 text = "Quit to Main Menu"
 
@@ -73,6 +74,7 @@ margin_left = 672.0
 margin_top = 702.0
 margin_right = 1232.0
 margin_bottom = 782.0
+theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 4 )
 text = "Quit Game"
 
