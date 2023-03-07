@@ -6,6 +6,8 @@ export var followSpeedMultiplier = 3
 export var lightScaleMultiplier = 0.5
 export var minimumLightScaleMultiplier = 0.3
 
+signal voiceLineFinished
+
 func _ready():
 	$InteractionableBox.setInteractionReadiness(true)
 	$CanvasLayer.hide()
@@ -105,3 +107,7 @@ func loadData(data):
 	player = get_node_or_null(data["playerPath"])
 	isFollowingPlayer = data["isFollowingPlayer"]
 	disableInteractions() if player else null
+
+
+func _on_VoicePlayer_finished():
+	emit_signal("voiceLineFinished")
