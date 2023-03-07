@@ -43,7 +43,7 @@ font_data = ExtResource( 11 )
 
 [sub_resource type="Curve2D" id=10]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -13, -72, 0, 0, 0, 0, -7, -424, 0, 0, 0, 0, 439, -426 )
+"points": PoolVector2Array( 0, 0, 0, 0, -8, -69, 0, 0, 0, 0, -7, -424, 0, 0, 0, 0, 439, -426 )
 }
 
 [sub_resource type="RectangleShape2D" id=8]
