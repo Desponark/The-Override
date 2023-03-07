@@ -172,10 +172,12 @@ bus = "Music"
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 2 )
+bus = "Sound Effects"
 
 [node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
+bus = "Sound Effects"
 
 [connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
