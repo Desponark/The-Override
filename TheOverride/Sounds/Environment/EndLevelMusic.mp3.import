@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/EndLevelMusic.mp3-f305f91cfccd5b89372bd930e219fc4e.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Environment/EndLevelMusic.mp3"
+dest_files=[ "res://.import/EndLevelMusic.mp3-f305f91cfccd5b89372bd930e219fc4e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
