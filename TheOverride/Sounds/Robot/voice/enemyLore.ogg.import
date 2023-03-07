@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/enemyLore.ogg-e7a2e5623b01825f936d2c1a303be2eb.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/enemyLore.ogg"
+dest_files=[ "res://.import/enemyLore.ogg-e7a2e5623b01825f936d2c1a303be2eb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
