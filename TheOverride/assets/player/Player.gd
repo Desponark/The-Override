@@ -156,10 +156,10 @@ func playAnimations(horizontalDirection):
 		MOTIONSTATE.RUNNING:
 			if horizontalDirection == 0 and velocity.x != 0: # slow down animation speed if the player is decelerating
 				$AnimationPlayer.play("run", -1, 0.4)
-				$AnimationPlayer2.play("run2", -1, 0.4)
+				$AnimationPlayer2.play("run", -1, 0.4)
 			else:
 				$AnimationPlayer.play("run")
-				$AnimationPlayer2.play("run2")
+				$AnimationPlayer2.play("run")
 		MOTIONSTATE.FALLING:
 			$AnimationPlayer.play("fall")
 			$AnimationPlayer2.play("fall")
