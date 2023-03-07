@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/hazards/electricHazard/electricHazard.tscn" type="PackedScene" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://Sounds/Robot/voice/beforeActivationUnit.ogg" type="AudioStream" id=41]
 [ext_resource path="res://Sounds/Robot/voice/bigGateOpen.ogg" type="AudioStream" id=42]
 [ext_resource path="res://Sounds/Robot/voice/enemyLore.ogg" type="AudioStream" id=43]
+[ext_resource path="res://Sounds/Robot/voice/connectedToActivationUnit.ogg" type="AudioStream" id=44]
 
 [sub_resource type="GDScript" id=48]
 script/source = "extends Node2D
@@ -2245,8 +2246,10 @@ shape = SubResource( 46 )
 [node name="connectedToActivationUnit" parent="VoiceLines" instance=ExtResource( 15 )]
 position = Vector2( 38710, -2903 )
 collision_mask = 0
-dialougeStream = null
-dialogueText = ""
+dialougeStream = ExtResource( 44 )
+dialogueText = "It works. I can't complete the process I… I need more power. I withheld this information but… to finish I need you to transfer your energy reserves. All of your reserves. If you do this, you won't survive. Remember: this is the only way to save the last remaining humans. Overwrite the AI and humanity can start over. Only without you. You've brought me this far. Please make the right decision."
+socketPath = NodePath("../../EndSocket")
+socketTriggerPercent = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/connectedToActivationUnit"]
 shape = SubResource( 47 )
@@ -2320,9 +2323,10 @@ rotation = -1.57079
 position = Vector2( -1897.01, -1174.99 )
 shape = SubResource( 17 )
 
-[node name="EndSocket2" parent="." instance=ExtResource( 11 )]
+[node name="EndSocket" parent="." instance=ExtResource( 11 )]
 position = Vector2( 38710, -2824 )
-startEnergy = 50.0
+maxEnergy = 1000.0
+energyTransferAmount = 0.01
 
 [connection signal="finishedPlaying" from="VoiceLines/connectedToActivationUnit" to="." method="_on_connectedToActivationUnit_finishedPlaying"]
 
