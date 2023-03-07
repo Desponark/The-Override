@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sounds/Environment/MainMusic.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/Environment/MainScreenMusic.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/ui/buttonsTheme/Button.tres" type="Theme" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -51,10 +52,10 @@ gamePath = "res://Game.tscn"
 color = Color( 0.54902, 0.54902, 0.54902, 1 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
-margin_left = -1000.0
-margin_top = -824.0
-margin_right = 920.0
-margin_bottom = 256.0
+margin_left = -986.0
+margin_top = -819.0
+margin_right = 934.0
+margin_bottom = 261.0
 rect_scale = Vector2( 2.15656, 2.76648 )
 color = Color( 0.0745098, 0.121569, 0.211765, 1 )
 
@@ -75,6 +76,7 @@ margin_left = 404.0
 margin_top = 364.0
 margin_right = 964.0
 margin_bottom = 444.0
+theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/Continue"]
 anchor_top = -0.475
@@ -91,6 +93,7 @@ margin_left = 404.0
 margin_top = 488.0
 margin_right = 964.0
 margin_bottom = 568.0
+theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/NewGame"]
 anchor_top = -0.475
@@ -107,6 +110,7 @@ margin_left = 404.0
 margin_top = 616.0
 margin_right = 964.0
 margin_bottom = 696.0
+theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/Options"]
 margin_right = 560.0
@@ -121,6 +125,7 @@ margin_left = 404.0
 margin_top = 751.0
 margin_right = 964.0
 margin_bottom = 831.0
+theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/QuitGame"]
 margin_right = 560.0
@@ -152,10 +157,14 @@ material = SubResource( 7 )
 [node name="VFXAnimationPlayer" parent="Robot" index="3"]
 anims/hit = SubResource( 8 )
 
+[node name="Light2D" parent="Robot" index="4"]
+position = Vector2( 0.249993, 2.91038e-11 )
+scale = Vector2( 1.29492, 1 )
+
 [node name="OptionsMenu" parent="." instance=ExtResource( 11 )]
 visible = false
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MainScreenMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 autoplay = true
 bus = "Music"

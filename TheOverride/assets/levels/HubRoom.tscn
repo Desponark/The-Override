@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/hazards/electricHazard/electricHazard.tscn" type="PackedScene" id=2]
@@ -33,14 +33,24 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=33]
-[ext_resource path="res://assets/environment/socket/Socket.png" type="Texture" id=34]
 [ext_resource path="res://assets/environment/cableEffectPath/CableEffectPath.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=37]
 [ext_resource path="res://Sounds/Robot/voice/firstWaveDefenseWarning.mp3" type="AudioStream" id=38]
 [ext_resource path="res://assets/environment/roomAssets/Deko-Assets/Platformholder/PlattformHolder.png" type="Texture" id=39]
-[ext_resource path="res://assets/levels/EndScene.gd" type="Script" id=40]
 [ext_resource path="res://Sounds/Robot/voice/beforeActivationUnit.ogg" type="AudioStream" id=41]
+[ext_resource path="res://Sounds/Robot/voice/bigGateOpen.ogg" type="AudioStream" id=42]
+[ext_resource path="res://Sounds/Robot/voice/enemyLore.ogg" type="AudioStream" id=43]
+[ext_resource path="res://Sounds/Robot/voice/connectedToActivationUnit.ogg" type="AudioStream" id=44]
+
+[sub_resource type="GDScript" id=48]
+script/source = "extends Node2D
+
+signal endGameDecision
+
+func _on_connectedToActivationUnit_finishedPlaying():
+	emit_signal(\"endGameDecision\")
+"
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 6, 34 )
@@ -156,82 +166,20 @@ extents = Vector2( 413, 179 )
 [sub_resource type="RectangleShape2D" id=38]
 extents = Vector2( 242.5, 97.75 )
 
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 175.5, 227.5 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 206, 109 )
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 155.5, 179.25 )
+
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 238.5, 575.531 )
 
-[sub_resource type="RectangleShape2D" id=39]
-extents = Vector2( 91, 281.75 )
-
-[sub_resource type="Animation" id=40]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=41]
-resource_name = "endScreen"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("../..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "changeScene"
-} ]
-}
-
 [node name="HubRoom" type="Node2D"]
+script = SubResource( 48 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
@@ -1590,7 +1538,7 @@ position = Vector2( 16969.1, -3748 )
 scale = Vector2( 0.571429, 1 )
 maxEnergy = 400.0
 energyTransferAmount = 0.12
-triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Hubroom/Doors/EndLevelDoor2"), NodePath("CableEffectPath") ]
+triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Hubroom/Doors/EndLevelDoor2"), NodePath("CableEffectPath"), NodePath("../../../VoiceLines/bigGateOpen") ]
 
 [node name="CableEffectPath" parent="Reflect Upgrade/Socket/SocketReflect2" instance=ExtResource( 35 )]
 curve = SubResource( 34 )
@@ -2279,6 +2227,33 @@ dialogueText = "This is it. There is the activation unit. Connect me and I will 
 position = Vector2( 38711, -1501 )
 shape = SubResource( 38 )
 
+[node name="bigGateOpen" parent="VoiceLines" instance=ExtResource( 15 )]
+dialougeStream = ExtResource( 42 )
+dialogueText = "Done. The big gate should be open now. Let's finish this."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/bigGateOpen"]
+position = Vector2( 29688.5, -3887.5 )
+shape = SubResource( 45 )
+
+[node name="enemyLore" parent="VoiceLines" instance=ExtResource( 15 )]
+dialougeStream = ExtResource( 43 )
+dialogueText = "The machines attacking us have once been created as builders to support humans. It seems they are not building anymore, now they only destroy."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/enemyLore"]
+position = Vector2( 30514, 4419 )
+shape = SubResource( 46 )
+
+[node name="connectedToActivationUnit" parent="VoiceLines" instance=ExtResource( 15 )]
+position = Vector2( 38710, -2903 )
+collision_mask = 0
+dialougeStream = ExtResource( 44 )
+dialogueText = "It works. I can't complete the process I… I need more power. I withheld this information but… to finish I need you to transfer your energy reserves. All of your reserves. If you do this, you won't survive. Remember: this is the only way to save the last remaining humans. Overwrite the AI and humanity can start over. Only without you. You've brought me this far. Please make the right decision."
+socketPath = NodePath("../../EndSocket")
+socketTriggerPercent = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/connectedToActivationUnit"]
+shape = SubResource( 47 )
+
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 33 )]
@@ -2348,39 +2323,12 @@ rotation = -1.57079
 position = Vector2( -1897.01, -1174.99 )
 shape = SubResource( 17 )
 
-[node name="EndScene" type="Area2D" parent="."]
-position = Vector2( 39324, -2802 )
-collision_layer = 0
-collision_mask = 256
-script = ExtResource( 40 )
-gamePath = "res://assets/ui/endScreen/endScreen.tscn"
+[node name="EndSocket" parent="." instance=ExtResource( 11 )]
+position = Vector2( 38710, -2824 )
+maxEnergy = 1000.0
+energyTransferAmount = 0.01
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndScene"]
-position = Vector2( -613, -234 )
-shape = SubResource( 39 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EndScene"]
-root_node = NodePath("../CanvasLayer/Panel")
-anims/RESET = SubResource( 40 )
-anims/endScreen = SubResource( 41 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="EndScene"]
-layer = 5
-
-[node name="Panel" type="Panel" parent="EndScene/CanvasLayer"]
-visible = false
-self_modulate = Color( 0, 0, 0, 1 )
-margin_left = -1411.0
-margin_top = -927.0
-margin_right = 3648.0
-margin_bottom = 2133.0
-
-[node name="EndSocket" type="Sprite" parent="."]
-position = Vector2( 38715, -2988.5 )
-scale = Vector2( 0.301271, 0.301271 )
-texture = ExtResource( 34 )
-
-[connection signal="body_entered" from="EndScene" to="EndScene" method="_on_EndScene_body_entered"]
+[connection signal="finishedPlaying" from="VoiceLines/connectedToActivationUnit" to="." method="_on_connectedToActivationUnit_finishedPlaying"]
 
 [editable path="Platforms/Reflect Platforms/Platform158"]
 [editable path="Platforms/Reflect Platforms/Platform159"]
