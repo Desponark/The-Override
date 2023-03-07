@@ -7,6 +7,10 @@ func _ready():
 	$CanvasLayer/Panel.hide()
 	$CanvasLayer/ColorRect.hide()
 	
+func start():
+	show()
+	$AnimationPlayer.play("fadeIn")
+	
 func changeSceneToGoodEnding():
 	get_tree().change_scene(GoodEndingPath)
 	
@@ -15,7 +19,6 @@ func changeSceneToBadEnding():
 
 func _on_SaveHumanity_pressed():
 	$AnimationPlayer.play("goodEnding")
-
 
 func _on_SaveYourself_pressed():
 	$AnimationPlayer.play("badEnding")
