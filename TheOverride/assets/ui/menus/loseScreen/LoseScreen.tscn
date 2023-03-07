@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/player/runner-hero-sheet.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.gd" type="Script" id=6]
+[ext_resource path="res://assets/ui/buttonsTheme/buttonBig/buttonBig.tres" type="Theme" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 139
@@ -101,9 +102,9 @@ anchor_top = 0.201
 anchor_right = 0.137
 anchor_bottom = 0.201
 margin_left = -1754.98
-margin_top = -1200.54
+margin_top = -1202.54
 margin_right = 2245.02
-margin_bottom = 2799.46
+margin_bottom = 2797.46
 color = Color( 0, 0, 0, 0.694118 )
 
 [node name="Control" type="Control" parent="."]
@@ -127,10 +128,11 @@ align = 1
 valign = 1
 
 [node name="ButtonLeft" type="Button" parent="Control"]
-margin_left = -504.0
-margin_top = 117.152
-margin_right = -62.0
-margin_bottom = 287.152
+margin_left = -508.0
+margin_top = 117.0
+margin_right = -14.0
+margin_bottom = 287.0
+theme = ExtResource( 7 )
 custom_fonts/font = SubResource( 4 )
 text = "Restart from Checkpoint"
 
@@ -139,6 +141,7 @@ margin_left = 114.0
 margin_top = 118.152
 margin_right = 583.0
 margin_bottom = 288.152
+theme = ExtResource( 7 )
 custom_fonts/font = SubResource( 5 )
 text = "End Game"
 

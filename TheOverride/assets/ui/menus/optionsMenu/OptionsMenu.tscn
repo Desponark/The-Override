@@ -1,15 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.gd" type="Script" id=4]
-
-[sub_resource type="Theme" id=1]
+[ext_resource path="res://assets/ui/buttonsTheme/Button.tres" type="Theme" id=5]
+[ext_resource path="res://assets/ui/buttonsTheme/bar/slider.tres" type="Theme" id=7]
 
 [sub_resource type="DynamicFont" id=2]
 size = 43
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=5]
 
 [node name="OptionsMenu" type="Control"]
 script = ExtResource( 4 )
@@ -25,137 +31,154 @@ __meta__ = {
 }
 
 [node name="Back" type="Button" parent="."]
-margin_left = 656.0
-margin_top = 920.0
-margin_right = 1256.0
-margin_bottom = 1000.0
-theme = SubResource( 1 )
+margin_left = 633.0
+margin_top = 927.0
+margin_right = 1233.0
+margin_bottom = 1007.0
+theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 2 )
 text = "Back"
 
 [node name="GridContainer" type="GridContainer" parent="."]
-margin_left = 656.0
-margin_top = 164.0
-margin_right = 856.0
-margin_bottom = 366.0
+margin_left = 554.0
+margin_top = 89.0
+margin_right = 816.0
+margin_bottom = 367.0
 rect_scale = Vector2( 3, 3 )
 columns = 2
 
 [node name="Resolution" type="Label" parent="GridContainer"]
-margin_top = 3.0
+margin_top = 8.0
 margin_right = 85.0
-margin_bottom = 17.0
+margin_bottom = 22.0
 text = "Resolution"
 
 [node name="OptionButton" type="OptionButton" parent="GridContainer"]
 margin_left = 89.0
-margin_right = 189.0
-margin_bottom = 20.0
-text = "1920x1080"
+margin_right = 216.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 7 )
+text = "2560x1440"
+align = 1
+icon_align = 1
 items = [ "1280x720", null, false, 0, null, "1920x1080", null, false, 1, null, "2560x1440", null, false, 2, null ]
-selected = 1
+selected = 2
+
+[node name="Label" type="Label" parent="GridContainer/OptionButton"]
+visible = false
+margin_left = 52.0
+margin_top = 4.0
+margin_right = 123.0
+margin_bottom = 18.0
+text = "1920x1080"
 
 [node name="Fullscreen" type="Label" parent="GridContainer"]
-margin_top = 29.0
+margin_top = 39.0
 margin_right = 85.0
-margin_bottom = 43.0
+margin_bottom = 53.0
 text = "Fullscreen"
 
 [node name="FullscreenChBx" type="CheckBox" parent="GridContainer"]
 margin_left = 89.0
-margin_top = 24.0
-margin_right = 189.0
-margin_bottom = 48.0
+margin_top = 34.0
+margin_right = 216.0
+margin_bottom = 58.0
+theme = SubResource( 5 )
 
 [node name="BorderlessFullscreen" type="Label" parent="GridContainer"]
-margin_top = 57.0
+margin_top = 67.0
 margin_right = 85.0
-margin_bottom = 71.0
+margin_bottom = 81.0
 text = "Borderless"
 
 [node name="BorderlessChBx2" type="CheckBox" parent="GridContainer"]
 margin_left = 89.0
-margin_top = 52.0
-margin_right = 189.0
-margin_bottom = 76.0
+margin_top = 62.0
+margin_right = 216.0
+margin_bottom = 86.0
 
 [node name="Vsync" type="Label" parent="GridContainer"]
-margin_top = 85.0
+margin_top = 95.0
 margin_right = 85.0
-margin_bottom = 99.0
+margin_bottom = 109.0
 text = "Vsync"
 
 [node name="VsyncChBx" type="CheckBox" parent="GridContainer"]
 margin_left = 89.0
-margin_top = 80.0
-margin_right = 189.0
-margin_bottom = 104.0
+margin_top = 90.0
+margin_right = 216.0
+margin_bottom = 114.0
 
 [node name="Volume" type="Label" parent="GridContainer"]
-margin_top = 108.0
+margin_top = 118.0
 margin_right = 85.0
-margin_bottom = 122.0
+margin_bottom = 132.0
 text = "Volume:"
 
 [node name="Label" type="Label" parent="GridContainer"]
 margin_left = 89.0
-margin_top = 108.0
-margin_right = 189.0
-margin_bottom = 122.0
+margin_top = 118.0
+margin_right = 216.0
+margin_bottom = 132.0
+theme = ExtResource( 7 )
 
 [node name="Master" type="Label" parent="GridContainer"]
-margin_top = 127.0
+margin_top = 137.0
 margin_right = 85.0
-margin_bottom = 141.0
+margin_bottom = 151.0
 text = "Master"
 
 [node name="MasterHSlider" type="HSlider" parent="GridContainer"]
 margin_left = 89.0
-margin_top = 126.0
-margin_right = 189.0
-margin_bottom = 142.0
+margin_top = 136.0
+margin_right = 216.0
+margin_bottom = 152.0
+theme = ExtResource( 7 )
 max_value = 1.0
 step = 0.05
 
 [node name="Music" type="Label" parent="GridContainer"]
-margin_top = 147.0
+margin_top = 157.0
 margin_right = 85.0
-margin_bottom = 161.0
+margin_bottom = 171.0
 text = "Music"
 
 [node name="MusicHSlider" type="HSlider" parent="GridContainer"]
 margin_left = 89.0
-margin_top = 146.0
-margin_right = 189.0
-margin_bottom = 162.0
+margin_top = 156.0
+margin_right = 216.0
+margin_bottom = 172.0
+theme = ExtResource( 7 )
 max_value = 1.0
 step = 0.05
 
 [node name="SoundEffects" type="Label" parent="GridContainer"]
-margin_top = 167.0
+margin_top = 177.0
 margin_right = 85.0
-margin_bottom = 181.0
+margin_bottom = 191.0
 text = "Sound Effects"
 
 [node name="SFXHSlider3" type="HSlider" parent="GridContainer"]
 margin_left = 89.0
-margin_top = 166.0
-margin_right = 189.0
-margin_bottom = 182.0
+margin_top = 176.0
+margin_right = 216.0
+margin_bottom = 192.0
+theme = ExtResource( 7 )
 max_value = 1.0
 step = 0.05
 
 [node name="Voice" type="Label" parent="GridContainer"]
-margin_top = 187.0
+margin_top = 197.0
 margin_right = 85.0
-margin_bottom = 201.0
+margin_bottom = 211.0
 text = "Voice"
 
 [node name="VoiceHSlider4" type="HSlider" parent="GridContainer"]
 margin_left = 89.0
-margin_top = 186.0
-margin_right = 189.0
-margin_bottom = 202.0
+margin_top = 196.0
+margin_right = 216.0
+margin_bottom = 212.0
+theme = ExtResource( 7 )
 max_value = 1.0
 step = 0.05
 
