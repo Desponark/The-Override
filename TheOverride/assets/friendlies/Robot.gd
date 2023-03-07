@@ -73,6 +73,7 @@ func playSpeech(dialougeStream, dialogueText, delay):
 
 func _on_HealthBar_healthReachedZero():
 	EventBus.emit_signal("loseEvent", "Your Robot died!")
+	$DeathSound.play()
 
 func _on_InteractionableBox_interacted(area):
 	if player == null:
