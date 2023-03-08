@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/hazards/electricHazard/electricHazard.tscn" type="PackedScene" id=2]
@@ -34,7 +34,6 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/environment/cableEffectPath/CableEffectPath.tscn" type="PackedScene" id=35]
-[ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=37]
 [ext_resource path="res://Sounds/Robot/voice/firstWaveDefenseWarning.mp3" type="AudioStream" id=38]
 [ext_resource path="res://assets/environment/roomAssets/Deko-Assets/Platformholder/PlattformHolder.png" type="Texture" id=39]
@@ -170,7 +169,7 @@ extents = Vector2( 242.5, 97.75 )
 extents = Vector2( 175.5, 227.5 )
 
 [sub_resource type="RectangleShape2D" id=46]
-extents = Vector2( 206, 109 )
+extents = Vector2( 239, 109 )
 
 [sub_resource type="RectangleShape2D" id=47]
 extents = Vector2( 155.5, 179.25 )
@@ -2187,14 +2186,6 @@ dialogueText = "Done. I'd say we make a good team. I open things, you destroy th
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/afterFirstWaveDefense"]
 shape = SubResource( 2 )
 
-[node name="AfterFirstEnemy" parent="VoiceLines" instance=ExtResource( 15 )]
-dialougeStream = ExtResource( 36 )
-dialogueText = "Good. There are more of them ahead. Once, these machines were created as builders to support humans. I guess they are not building anymore, now they only destroy."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/AfterFirstEnemy"]
-position = Vector2( 20271, -1872 )
-shape = SubResource( 19 )
-
 [node name="endLevelDoor" parent="VoiceLines" instance=ExtResource( 15 )]
 position = Vector2( 30863, 359 )
 dialougeStream = ExtResource( 37 )
@@ -2228,8 +2219,10 @@ position = Vector2( 38711, -1501 )
 shape = SubResource( 38 )
 
 [node name="bigGateOpen" parent="VoiceLines" instance=ExtResource( 15 )]
+collision_mask = 0
 dialougeStream = ExtResource( 42 )
 dialogueText = "Done. The big gate should be open now. Let's finish this."
+delay = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/bigGateOpen"]
 position = Vector2( 29688.5, -3887.5 )
@@ -2240,7 +2233,7 @@ dialougeStream = ExtResource( 43 )
 dialogueText = "The machines attacking us have once been created as builders to support humans. It seems they are not building anymore, now they only destroy."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/enemyLore"]
-position = Vector2( 30514, 4419 )
+position = Vector2( 30534, 5560 )
 shape = SubResource( 46 )
 
 [node name="connectedToActivationUnit" parent="VoiceLines" instance=ExtResource( 15 )]
