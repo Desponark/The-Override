@@ -72,10 +72,10 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Continue" type="Button" parent="Buttons"]
-margin_left = 404.0
-margin_top = 364.0
-margin_right = 964.0
-margin_bottom = 444.0
+margin_left = 400.0
+margin_top = 368.0
+margin_right = 960.0
+margin_bottom = 448.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/Continue"]
@@ -89,10 +89,10 @@ align = 1
 valign = 1
 
 [node name="NewGame" type="Button" parent="Buttons"]
-margin_left = 404.0
-margin_top = 488.0
-margin_right = 964.0
-margin_bottom = 568.0
+margin_left = 400.0
+margin_top = 504.0
+margin_right = 960.0
+margin_bottom = 584.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/NewGame"]
@@ -106,10 +106,10 @@ align = 1
 valign = 1
 
 [node name="Options" type="Button" parent="Buttons"]
-margin_left = 404.0
-margin_top = 616.0
-margin_right = 964.0
-margin_bottom = 696.0
+margin_left = 400.0
+margin_top = 640.0
+margin_right = 960.0
+margin_bottom = 720.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/Options"]
@@ -121,10 +121,10 @@ align = 1
 valign = 1
 
 [node name="QuitGame" type="Button" parent="Buttons"]
-margin_left = 404.0
-margin_top = 751.0
-margin_right = 964.0
-margin_bottom = 831.0
+margin_left = 400.0
+margin_top = 776.0
+margin_right = 960.0
+margin_bottom = 856.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/QuitGame"]
