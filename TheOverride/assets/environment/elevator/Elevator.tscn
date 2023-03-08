@@ -5,7 +5,7 @@
 [ext_resource path="res://Sounds/Elevator/elevator.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 256, 40.5 )
+extents = Vector2( 256, 38 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 167, 130 )
@@ -92,12 +92,6 @@ tracks/2/keys = {
 [node name="Elevator" type="StaticBody2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.24965, 0.24965 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( -0.172127, 1740.41, 2048.46, 307.586 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
@@ -107,6 +101,12 @@ collision_mask = 262
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.24965, 0.24965 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -0.172127, 1740.41, 2048.46, 307.586 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Move = SubResource( 3 )
