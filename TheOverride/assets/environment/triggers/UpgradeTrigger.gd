@@ -16,7 +16,7 @@ func _on_UpgradeTrigger_body_entered(body):
 		body.unlockAbility(ability, videoStream, headline, button, explainationText)
 	wasUsed = true
 	hide()
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 
 func saveData():
 	return {
