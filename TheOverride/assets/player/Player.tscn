@@ -399,7 +399,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ "punchStraightLegs" ]
+"values": [ "punchStep" ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("PunchSound:playing")
@@ -565,6 +565,18 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=19]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "healthGain"
@@ -587,6 +599,18 @@ resource_local_to_scene = true
 resource_name = "hit"
 length = 0.3
 step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
 
 [sub_resource type="CircleShape2D" id=20]
 radius = 72.0625
@@ -894,7 +918,7 @@ shape = SubResource( 21 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.11, 0.11 )
 frames = SubResource( 40 )
-animation = "punchStraightLegs"
+animation = "run"
 
 [node name="attackSprite" type="AnimatedSprite" parent="AnimatedSprite"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -903,7 +927,6 @@ position = Vector2( 36, -20 )
 rotation = -1.5708
 scale = Vector2( 1.0045, 0.97046 )
 frames = SubResource( 52 )
-frame = 1
 playing = true
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
