@@ -2,7 +2,8 @@ extends KinematicBody2D
 
 const upDirection = Vector2.UP
 
-export var maxSpeed = 600.0
+export var maxSpeed = 800.0
+var originalMaxSpeed = maxSpeed
 export var maxJumpHeight = -1500.0
 export var minJumpHeight = -500.0
 export var maximumDoubleJumps = 0
@@ -60,9 +61,10 @@ func _process(_delta):
 	
 	changeVignette()
 	
-	
 func _physics_process(delta: float):
 	horizontalDirection = Input.get_action_strength("right") - Input.get_action_strength("left")
+	
+	changeMaxSpeedOnAttack()
 	
 	velocity = calculateMoveVelocity(horizontalDirection, delta)
 	
@@ -84,6 +86,14 @@ func _physics_process(delta: float):
 	velocity = move_and_slide(velocity, upDirection, true)
 	
 	switchSpriteDirection(horizontalDirection)
+	
+func changeMaxSpeedOnAttack():
+	if $AnimationPlayer2.current_animation == "runAttack":
+		maxSpeed = originalMaxSpeed - 100
+	elif $AnimationPlayer2.current_animation == "attack":
+		maxSpeed = 0
+	else:
+		maxSpeed = originalMaxSpeed
 	
 func calculateMoveVelocity(horizontalDirection, delta):
 	var speedGoal = 0.0
