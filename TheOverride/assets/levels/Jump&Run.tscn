@@ -39,7 +39,7 @@ font_data = ExtResource( 11 )
 
 [sub_resource type="Curve2D" id=10]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -8, -69, 0, 0, 0, 0, -7, -424, 0, 0, 0, 0, 439, -426 )
+"points": PoolVector2Array( 0, 0, 0, 0, -37.459, -67, 0, 0, 0, 0, -36.459, -423, 0, 0, 0, 0, 414.541, -427 )
 }
 
 [sub_resource type="RectangleShape2D" id=8]
@@ -466,7 +466,7 @@ position = Vector2( 6407, 4537 )
 
 [node name="TileMapCable" parent="." instance=ExtResource( 18 )]
 position = Vector2( -51, 0 )
-tile_data = PoolIntArray( 1507478, -1610612735, 0, 1507479, 0, 0, 1507480, 0, 0, 1507481, 0, 0, 1507482, 0, 0, 1507483, 1073741824, 0, 1507484, 1073741824, 0, 1507485, 1073741824, 0, 1507486, 1073741824, 0, 1507487, 1073741824, 0, 1507488, 1073741824, 0, 1507489, 1073741824, 0, 1507490, 1073741824, 0, 1507491, 1073741824, 0, 1507492, 1073741824, 0, 1507493, 1073741824, 0, 1507494, 1073741824, 0, 1507495, 1073741824, 0, 1507496, 1073741824, 0, 1507497, 1073741824, 0, 1507498, 1073741824, 0, 1507499, 1073741824, 0, 1573014, -1610612736, 0, 1638550, -1610612736, 0, 1704086, -1610612736, 0, 1769622, -1610612736, 0 )
+tile_data = PoolIntArray( 1507478, -1610612735, 0, 1507479, 0, 0, 1507480, 0, 0, 1507481, 0, 0, 1507482, 0, 0, 1507483, 1073741824, 0, 1507499, 1073741824, 0, 1573014, -1610612736, 0, 1638550, -1610612736, 0, 1704086, -1610612736, 0, 1769622, -1610612736, 0 )
 
 [node name="Lightning Effect" parent="." instance=ExtResource( 23 )]
 position = Vector2( 6119, 3450 )
@@ -713,7 +713,6 @@ triggerScenes = [ NodePath("../Doors/Door5"), NodePath("CableEffectPath") ]
 
 [node name="CableEffectPath" parent="Socket" instance=ExtResource( 17 )]
 position = Vector2( 30.4586, 3.05176e-05 )
-scale = Vector2( 4.68233, 1 )
 curve = SubResource( 10 )
 
 [node name="Elevator" parent="." instance=ExtResource( 12 )]
@@ -743,21 +742,6 @@ shape = SubResource( 8 )
 position = Vector2( 9100, 2953 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint"]
-shape = SubResource( 9 )
-
-[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 27 )]
-position = Vector2( 9100, 2953 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
-position = Vector2( -4798, 1799 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
-position = Vector2( 5286, 612 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
-position = Vector2( 414, 1705 )
 shape = SubResource( 9 )
 
 [node name="Checkpoint6" parent="Checkpoints" instance=ExtResource( 27 )]
