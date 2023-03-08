@@ -15,6 +15,7 @@ func _ready():
 	EventBus.connect("playerAbilityUnlocked", self, "showAbilityPopup")
 	EventBus.connect("loseEvent", self, "showLoseScreen")
 	EventBus.connect("saveGame", self, "saveGame")
+	EventBus.connect("changeMusicTo", self, "changeMusicTo")
 	loadGame()
 	
 func _unhandled_input(event):
@@ -81,3 +82,9 @@ func showLoseScreen(message):
 
 func _on_HubRoom_endGameDecision():
 	$MenuElements/DecisionPopup.start()
+	
+func changeMusicTo(music):
+	if music == null:
+		$BackgroundMusic.stop()
+	$BackgroundMusic.stream = music
+	$BackgroundMusic.play()
