@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/ui/menus/decisionPopup.gd" type="Script" id=2]
+[ext_resource path="res://assets/ui/buttonsTheme/Button.tres" type="Theme" id=3]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -184,9 +185,9 @@ anims/goodEnding = SubResource( 4 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 self_modulate = Color( 0, 0, 0, 0.388235 )
-margin_left = 488.0
+margin_left = 493.0
 margin_top = 766.0
-margin_right = 1432.0
+margin_right = 1437.0
 margin_bottom = 947.005
 
 [node name="SaveHumanity" type="Button" parent="CanvasLayer/Panel"]
@@ -194,6 +195,7 @@ margin_left = 65.0
 margin_top = 63.0
 margin_right = 436.0
 margin_bottom = 120.0
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
 text = "Save humanity"
 
@@ -202,6 +204,7 @@ margin_left = 509.0
 margin_top = 63.0
 margin_right = 880.0
 margin_bottom = 120.0
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
 text = "Save yourself"
 
