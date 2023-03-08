@@ -184,9 +184,9 @@ anims/goodEnding = SubResource( 4 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 self_modulate = Color( 0, 0, 0, 0.388235 )
-margin_left = 493.0
+margin_left = 488.0
 margin_top = 766.0
-margin_right = 1437.0
+margin_right = 1432.0
 margin_bottom = 947.005
 
 [node name="SaveHumanity" type="Button" parent="CanvasLayer/Panel"]
