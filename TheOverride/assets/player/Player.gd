@@ -34,7 +34,6 @@ var isProjectileReflectUnlocked = false
 
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
-		print(horizontalDirection)
 		if horizontalDirection != 0:
 			$AnimationPlayer2.play("runAttack")
 		else:
