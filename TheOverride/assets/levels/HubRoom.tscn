@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/hazards/electricHazard/electricHazard.tscn" type="PackedScene" id=2]
@@ -33,7 +33,7 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Sounds/Environment/EndLevelMusic2.mp3" type="AudioStream" id=34]
+[ext_resource path="res://Sounds/Environment/EndLevelMusic3.ogg" type="AudioStream" id=34]
 [ext_resource path="res://assets/environment/cableEffectPath/CableEffectPath.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Sounds/Robot/voice/lastSocket.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=37]
@@ -188,7 +188,10 @@ extents = Vector2( 466, 284 )
 extents = Vector2( 274.5, 51.5 )
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 238.5, 575.531 )
+extents = Vector2( 238.5, 64 )
+
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 218.999, 322 )
 
 [node name="HubRoom" type="Node2D"]
 script = SubResource( 48 )
@@ -246,12 +249,10 @@ curve = SubResource( 32 )
 
 [node name="CableEffectPath9" parent="Patheffects" instance=ExtResource( 35 )]
 position = Vector2( 29294.1, -2488 )
-scale = Vector2( 1, 1 )
 curve = SubResource( 33 )
 
 [node name="CableEffectPath10" parent="Patheffects" instance=ExtResource( 35 )]
 position = Vector2( 29696.9, -3748 )
-scale = Vector2( 1, 1 )
 curve = SubResource( 34 )
 
 [node name="Platformholders" type="Node2D" parent="."]
@@ -1627,7 +1628,7 @@ position = Vector2( 34523, -244 )
 position = Vector2( 37555, -163 )
 
 [node name="ReflectEnemy12" parent="Reflect Upgrade/Enemy" instance=ExtResource( 30 )]
-position = Vector2( 36796, -772 )
+position = Vector2( 36798, -736 )
 
 [node name="ReflectEnemy9" parent="Reflect Upgrade/Enemy" instance=ExtResource( 30 )]
 position = Vector2( 32781, -259 )
@@ -2301,7 +2302,7 @@ position = Vector2( 38709, -130 )
 shape = SubResource( 51 )
 
 [node name="MusicChangeTrigger" parent="VoiceLines" instance=ExtResource( 40 )]
-position = Vector2( 35584, -220 )
+position = Vector2( 36106, -208 )
 music = ExtResource( 34 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/MusicChangeTrigger"]
@@ -2344,7 +2345,7 @@ rotation = -1.57079
 shape = SubResource( 17 )
 
 [node name="Checkpoint8" parent="Checkpoints" instance=ExtResource( 33 )]
-position = Vector2( 35582, -219 )
+position = Vector2( 35636, -219 )
 rotation = -1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint8"]
@@ -2355,12 +2356,12 @@ position = Vector2( 38708, -2433 )
 rotation = -1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint10"]
-position = Vector2( -19.0049, -751 )
-shape = SubResource( 17 )
+position = Vector2( -3.00464, -748 )
+shape = SubResource( 52 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Checkpoints/Checkpoint10"]
-position = Vector2( -2.99487, 819 )
-shape = SubResource( 17 )
+position = Vector2( 0.00439453, 711 )
+shape = SubResource( 52 )
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource( 33 )]
 position = Vector2( 27113, 2715 )
