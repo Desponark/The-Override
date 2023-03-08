@@ -1,5 +1,6 @@
-[gd_scene load_steps=294 format=2]
+[gd_scene load_steps=297 format=2]
 
+[ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/customNodes/HitBox.gd" type="Script" id=6]
 [ext_resource path="res://assets/customNodes/HurtBox.gd" type="Script" id=7]
@@ -258,6 +259,10 @@
 radius = 21.5
 height = 29.0
 
+[sub_resource type="ShaderMaterial" id=56]
+shader = ExtResource( 1 )
+shader_param/active = false
+
 [sub_resource type="SpriteFrames" id=40]
 animations = [ {
 "frames": [ ExtResource( 224 ), ExtResource( 233 ), ExtResource( 207 ), ExtResource( 227 ), ExtResource( 222 ), ExtResource( 203 ), ExtResource( 218 ), ExtResource( 223 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 230 ), ExtResource( 204 ), ExtResource( 208 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 217 ), ExtResource( 228 ), ExtResource( 226 ), ExtResource( 212 ), ExtResource( 213 ), ExtResource( 221 ), ExtResource( 231 ), ExtResource( 205 ), ExtResource( 229 ), ExtResource( 214 ), ExtResource( 215 ), ExtResource( 206 ), ExtResource( 209 ), ExtResource( 216 ), ExtResource( 225 ), ExtResource( 232 ) ],
@@ -345,8 +350,32 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
+"update": 1,
 "values": [ Vector2( 36, -20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:maxSpeed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 700.0 ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -436,6 +465,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:maxSpeed")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 700.0 ]
 }
 
 [sub_resource type="Animation" id=44]
@@ -563,10 +604,98 @@ tracks/2/keys = {
 "values": [ true, false, true, false ]
 }
 
+[sub_resource type="Animation" id=55]
+resource_name = "runAttack"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.125, 0.208333, 0.291667, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 9, 9, 18, 18, 36 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite/attackSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.208334, 0.291667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 186.138, -180 ), Vector2( 186.138, -180 ), Vector2( 315, -180 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite/attackSprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.166667, 0.208333, 0.333333, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.690196 ), Color( 1, 1, 1, 0.690196 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "punchRun" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PunchSound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.125, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ProjectileHitBox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.084, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.208333, 0.416667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
 [sub_resource type="Animation" id=19]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -600,7 +729,7 @@ resource_name = "hit"
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -908,17 +1037,18 @@ script = ExtResource( 2 )
 maxSpeed = 700.0
 maxJumpHeight = -1700.0
 minJumpHeight = -600.0
-healthTransferAmount = 0.6
+healthTransferAmount = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
 shape = SubResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 56 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.11, 0.11 )
 frames = SubResource( 40 )
-animation = "run"
+animation = "punchStep"
 
 [node name="attackSprite" type="AnimatedSprite" parent="AnimatedSprite"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -927,6 +1057,7 @@ position = Vector2( 36, -20 )
 rotation = -1.5708
 scale = Vector2( 1.0045, 0.97046 )
 frames = SubResource( 52 )
+frame = 3
 playing = true
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
@@ -937,6 +1068,7 @@ anims/fall = SubResource( 44 )
 anims/idle = SubResource( 41 )
 anims/jump = SubResource( 45 )
 anims/run = SubResource( 42 )
+anims/runAttack = SubResource( 55 )
 
 [node name="VFXAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 19 )
@@ -1027,6 +1159,7 @@ scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 26 )
 
 [node name="LowHealthVignette" type="ColorRect" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 54 )
 anchor_right = 1.0
 anchor_bottom = 1.0

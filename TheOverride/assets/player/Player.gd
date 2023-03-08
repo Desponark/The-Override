@@ -13,6 +13,7 @@ export (float, 0, 1.0) var friction = 0.1
 
 var doubleJumpsMade = 0
 var velocity = Vector2.ZERO
+var horizontalDirection = 0
 
 enum MOTIONSTATE {FALLING, JUMPING, DOUBLEJUMPING, JUMPCANCELLED, IDLING, RUNNING, ASCENDING}
 var motionState = MOTIONSTATE.IDLING
@@ -26,8 +27,6 @@ var isTransferingHealth = false
 export var healthTransferAmount = 1.0
 export var healthTransferMultiplier = 2.0 # this multiplies the player health when charging the robot so the robot receives more (or less) health
 # TODO: Improve and cleanup health transfer system
-# Change where health is stored.
-# Change how robot and player are accessed.
 
 # TODO: implement properly when there is time
 var isDashUnlocked = false
@@ -35,7 +34,11 @@ var isProjectileReflectUnlocked = false
 
 func _unhandled_input(event):
 	if event.is_action_pressed("attack"):
-		$AnimationPlayer2.play("attack")
+		print(horizontalDirection)
+		if horizontalDirection != 0:
+			$AnimationPlayer2.play("runAttack")
+		else:
+			$AnimationPlayer2.play("attack")
 	
 	if event.is_action_pressed("transferHealth"):
 		isTransferingHealth = true
@@ -60,7 +63,7 @@ func _process(_delta):
 	
 	
 func _physics_process(delta: float):
-	var horizontalDirection = Input.get_action_strength("right") - Input.get_action_strength("left")
+	horizontalDirection = Input.get_action_strength("right") - Input.get_action_strength("left")
 	
 	velocity = calculateMoveVelocity(horizontalDirection, delta)
 	
@@ -143,7 +146,7 @@ func fallThroughPlatform():
 		$FallThroughPlatformTimer.start()
 
 func playAnimations(horizontalDirection):
-	if $AnimationPlayer2.current_animation == "attack":
+	if $AnimationPlayer2.current_animation == "runAttack" or $AnimationPlayer2.current_animation == "attack":
 		return
 	match motionState:
 		MOTIONSTATE.JUMPING, MOTIONSTATE.DOUBLEJUMPING:
@@ -151,7 +154,10 @@ func playAnimations(horizontalDirection):
 			$AnimationPlayer2.play("jump")
 		MOTIONSTATE.RUNNING:
 			if horizontalDirection == 0 and velocity.x != 0: # slow down animation speed if the player is decelerating
-				$AnimationPlayer2.play("run", -1, 0.4)
+				if abs(velocity.x) > 30:
+					$AnimationPlayer2.play("run", -1, 0.4)
+				else:
+					$AnimationPlayer2.play("idle")
 			else:
 				$AnimationPlayer2.play("run")
 		MOTIONSTATE.FALLING:
