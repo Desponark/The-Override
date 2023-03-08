@@ -7,12 +7,6 @@ signal optionsOpened
 func setup(givenStartScreen):
 	startScreen = givenStartScreen
 
-func _unhandled_input(event):
-	# TODO: pressing ui_cancel with open pause menu hides it and immediately re-opens it...
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().paused = false
-		hide()
-
 func start():
 	get_tree().paused = true
 	show()
