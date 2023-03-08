@@ -52,6 +52,7 @@ position = Vector2( -4, -5 )
 scale = Vector2( 0.427505, 0.427505 )
 frames = SubResource( 225 )
 animation = "cableSparks"
+frame = 1
 playing = true
 
 [node name="FullyChargedPathFollow" type="PathFollow2D" parent="."]
@@ -69,6 +70,7 @@ position = Vector2( -4, -5 )
 scale = Vector2( 0.427505, 0.427505 )
 frames = SubResource( 225 )
 animation = "cableSparks"
+frame = 1
 playing = true
 
 [node name="ChargingTimer" type="Timer" parent="."]

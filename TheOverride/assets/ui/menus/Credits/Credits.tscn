@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.gd" type="Script" id=4]
+[ext_resource path="res://assets/ui/buttonsTheme/Button.tres" type="Theme" id=5]
+[ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/ui/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 43
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 73
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 7 )
+
+[node name="OptionsMenu" type="Control"]
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -280.0
+margin_top = -232.0
+margin_right = 2246.0
+margin_bottom = 1401.0
+color = Color( 0, 0, 0, 0.784314 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Back" type="Button" parent="."]
+margin_left = 660.0
+margin_top = 927.0
+margin_right = 1260.0
+margin_bottom = 1007.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+
+[node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 1 )
+bus = "Sound Effects"
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 2 )
+bus = "Sound Effects"
+
+[node name="Credits" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 9.0
+margin_right = 1921.0
+margin_bottom = 172.0
+custom_fonts/font = SubResource( 3 )
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="Programming" type="Label" parent="."]
+margin_left = 841.0
+margin_top = 210.0
+margin_right = 1088.0
+margin_bottom = 258.0
+custom_fonts/font = SubResource( 4 )
+text = "Programming"
+
+[node name="Game Design" type="Label" parent="."]
+margin_left = 843.0
+margin_top = 342.0
+margin_right = 1090.0
+margin_bottom = 390.0
+custom_fonts/font = SubResource( 4 )
+text = "Game Design"
+align = 1
+
+[node name="Art" type="Label" parent="."]
+margin_left = 841.0
+margin_top = 531.0
+margin_right = 1088.0
+margin_bottom = 579.0
+custom_fonts/font = SubResource( 4 )
+text = "Art"
+align = 1
+
+[node name="Art2" type="Label" parent="."]
+margin_left = 841.0
+margin_top = 721.0
+margin_right = 1088.0
+margin_bottom = 769.0
+custom_fonts/font = SubResource( 4 )
+text = "Sound"
+align = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 883.0
+margin_top = 594.0
+margin_right = 1055.0
+margin_bottom = 655.0
+custom_fonts/font = SubResource( 5 )
+text = "Alec Schwerdter
+Philipp Maier"
+align = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 883.0
+margin_top = 421.0
+margin_right = 1055.0
+margin_bottom = 482.0
+custom_fonts/font = SubResource( 5 )
+text = "Felix Schäfer
+Finn Drexlmayer"
+align = 1
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 882.0
+margin_top = 268.0
+margin_right = 1054.0
+margin_bottom = 329.0
+custom_fonts/font = SubResource( 5 )
+text = "Paul Commerell"
+align = 1
+
+[connection signal="mouse_entered" from="Back" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
