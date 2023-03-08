@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/hazards/electricHazard/electricHazard.tscn" type="PackedScene" id=2]
@@ -33,11 +33,13 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Sounds/Environment/EndLevelMusic.mp3" type="AudioStream" id=34]
 [ext_resource path="res://assets/environment/cableEffectPath/CableEffectPath.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Sounds/Robot/voice/afterFirstEnemy.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=37]
 [ext_resource path="res://Sounds/Robot/voice/firstWaveDefenseWarning.mp3" type="AudioStream" id=38]
 [ext_resource path="res://assets/environment/roomAssets/Deko-Assets/Platformholder/PlattformHolder.png" type="Texture" id=39]
+[ext_resource path="res://assets/environment/triggers/MusicChangeTrigger.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Sounds/Robot/voice/beforeActivationUnit.ogg" type="AudioStream" id=41]
 [ext_resource path="res://Sounds/Robot/voice/bigGateOpen.ogg" type="AudioStream" id=42]
 [ext_resource path="res://Sounds/Robot/voice/enemyLore.ogg" type="AudioStream" id=43]
@@ -176,7 +178,10 @@ extents = Vector2( 206, 109 )
 extents = Vector2( 155.5, 179.25 )
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 238.5, 575.531 )
+extents = Vector2( 238.5, 311.691 )
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 466, 284 )
 
 [node name="HubRoom" type="Node2D"]
 script = SubResource( 48 )
@@ -2282,8 +2287,16 @@ rotation = -1.57079
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint8"]
 shape = SubResource( 17 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Checkpoints/Checkpoint8"]
-position = Vector2( 648.02, 3123 )
+[node name="Checkpoint10" parent="Checkpoints" instance=ExtResource( 33 )]
+position = Vector2( 38708, -2433 )
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint10"]
+position = Vector2( -19.0049, -751 )
+shape = SubResource( 17 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Checkpoints/Checkpoint10"]
+position = Vector2( -2.99487, 819 )
 shape = SubResource( 17 )
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource( 33 )]
@@ -2327,6 +2340,13 @@ shape = SubResource( 17 )
 position = Vector2( 38710, -2824 )
 maxEnergy = 1000.0
 energyTransferAmount = 0.01
+
+[node name="MusicChangeTrigger" parent="." instance=ExtResource( 40 )]
+position = Vector2( 35584, -220 )
+music = ExtResource( 34 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChangeTrigger"]
+shape = SubResource( 49 )
 
 [connection signal="finishedPlaying" from="VoiceLines/connectedToActivationUnit" to="." method="_on_connectedToActivationUnit_finishedPlaying"]
 

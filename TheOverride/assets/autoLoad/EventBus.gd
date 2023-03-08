@@ -11,3 +11,4 @@ signal spawnLoot(loot)
 signal playerAbilityUnlocked(videoStream, headline, button, explainationText)
 signal loseEvent(message)
 signal saveGame
+signal changeMusicTo(music)

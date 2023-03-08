@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/ui/HUD/healthBar/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/levels/Jump&Run.tscn" type="PackedScene" id=2]
@@ -9,11 +9,16 @@
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/ui/menus/optionsMenu/OptionsMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/ui/menus/decisionPopup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/environment/triggers/MusicChangeTrigger.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/Environment/EndLevelMusic2.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/Environment/Dark Intro.ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/ui/menus/abilityPopup/AbilityPopUp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/ui/menus/loseScreen/LoseScreen.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/ui/menus/pauseMenu/pauseMenu.tscn" type="PackedScene" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 345, 186 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -91,6 +96,13 @@ position = Vector2( 3689, 545 )
 [node name="CameraBody" parent="Alive" instance=ExtResource( 6 )]
 position = Vector2( 3560, 476 )
 playerPath = NodePath("../Player")
+
+[node name="MusicChangeTrigger" parent="." instance=ExtResource( 10 )]
+position = Vector2( 4602, 650 )
+music = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChangeTrigger"]
+shape = SubResource( 1 )
 
 [connection signal="optionsOpened" from="MenuElements/pauseMenu" to="MenuElements/OptionsMenu" method="_on_pauseMenu_optionsOpened"]
 [connection signal="optionsClosed" from="MenuElements/OptionsMenu" to="MenuElements/pauseMenu" method="_on_OptionsMenu_optionsClosed"]
