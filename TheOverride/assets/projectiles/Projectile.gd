@@ -30,7 +30,9 @@ func takeDamage(damage):
 	$AudioStreamPlayer2D.play()
 	$Particles2D.emitting = true
 	# change projectile collisions so it can hit enemies too
+	$HitBox.collision_layer = 0
 	$HitBox.set_collision_layer_bit(2, true)
+	collision_mask = 0
 	set_collision_layer_bit(2, true)
 	# change damage
 	$HitBox.damage = damage
