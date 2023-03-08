@@ -20,6 +20,7 @@ func _on_Area2D_body_entered(body):
 	moveElevator()
 
 func moveElevator():
+	$AudioStreamPlayer2D.play()
 	if isLocked:
 		return
 	if isActive:
@@ -37,6 +38,7 @@ func socketFullyCharged():
 func _on_Tween_tween_all_completed():
 	isDown = !isDown
 	$Timer.start()
+	$AudioStreamPlayer2D.stop()
 
 # cooldown timer for elevator
 func _on_Timer_timeout():
