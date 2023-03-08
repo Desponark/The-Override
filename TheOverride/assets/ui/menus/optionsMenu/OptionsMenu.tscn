@@ -64,14 +64,6 @@ icon_align = 1
 items = [ "1280x720", null, false, 0, null, "1920x1080", null, false, 1, null, "2560x1440", null, false, 2, null ]
 selected = 2
 
-[node name="Label" type="Label" parent="GridContainer/OptionButton"]
-visible = false
-margin_left = 52.0
-margin_top = 4.0
-margin_right = 123.0
-margin_bottom = 18.0
-text = "1920x1080"
-
 [node name="Fullscreen" type="Label" parent="GridContainer"]
 margin_top = 39.0
 margin_right = 85.0
