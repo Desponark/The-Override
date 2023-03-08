@@ -247,7 +247,7 @@ func unlockAbility(ability, videoStream, headline, button, explainationText):
 		isDashUnlocked = true
 	elif ability == "reflect":
 		isProjectileReflectUnlocked = true
-		$ProjectileHitBox.set_collision_mask_bit(12, true)
+		$AnimatedSprite/ProjectileHitBox.set_collision_mask_bit(12, true)
 	EventBus.emit_signal("playerAbilityUnlocked", videoStream, headline, button, explainationText)
 
 func _on_Dash_dashStart():
@@ -282,5 +282,5 @@ func loadData(data):
 	isDashUnlocked = data["isDashUnlocked"]
 	isProjectileReflectUnlocked = data["isProjectileReflectUnlocked"]
 	if isProjectileReflectUnlocked:
-		$ProjectileHitBox.set_collision_mask_bit(12, true)
+		$AnimatedSprite/ProjectileHitBox.set_collision_mask_bit(12, true)
 	robot = get_node_or_null(data["robotPath"])
