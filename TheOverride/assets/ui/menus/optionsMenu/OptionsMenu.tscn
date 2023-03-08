@@ -31,18 +31,18 @@ __meta__ = {
 }
 
 [node name="Back" type="Button" parent="."]
-margin_left = 633.0
+margin_left = 660.0
 margin_top = 927.0
-margin_right = 1233.0
+margin_right = 1260.0
 margin_bottom = 1007.0
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 2 )
 text = "Back"
 
 [node name="GridContainer" type="GridContainer" parent="."]
-margin_left = 554.0
+margin_left = 636.0
 margin_top = 89.0
-margin_right = 816.0
+margin_right = 852.0
 margin_bottom = 367.0
 rect_scale = Vector2( 3, 3 )
 columns = 2
