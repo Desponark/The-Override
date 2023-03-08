@@ -11,5 +11,5 @@ dest_files=[ "res://.import/EndLevelMusic2.mp3-ae8e90696575cee8f8748ae4d87083a3.
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

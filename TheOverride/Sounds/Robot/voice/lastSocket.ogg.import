@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lastSocket.ogg-8a6405c280789ecb5e7d85187b9bdd37.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Robot/voice/lastSocket.ogg"
+dest_files=[ "res://.import/lastSocket.ogg-8a6405c280789ecb5e7d85187b9bdd37.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ActivationUnit.mp3-87a69a9cbe7f56f239a2900a2b5b670f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Environment/ActivationUnit.mp3"
+dest_files=[ "res://.import/ActivationUnit.mp3-87a69a9cbe7f56f239a2900a2b5b670f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

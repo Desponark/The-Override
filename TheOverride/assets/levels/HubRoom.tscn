@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environment/hazards/electricHazard/electricHazard.tscn" type="PackedScene" id=2]
@@ -33,8 +33,9 @@
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/environment/roomAssets/Platforms/PlatformFT4x.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Sounds/Environment/EndLevelMusic.mp3" type="AudioStream" id=34]
+[ext_resource path="res://Sounds/Environment/EndLevelMusic2.mp3" type="AudioStream" id=34]
 [ext_resource path="res://assets/environment/cableEffectPath/CableEffectPath.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Sounds/Robot/voice/lastSocket.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Sounds/Robot/voice/endLevelDoor.ogg" type="AudioStream" id=37]
 [ext_resource path="res://Sounds/Robot/voice/firstWaveDefenseWarning.mp3" type="AudioStream" id=38]
 [ext_resource path="res://assets/environment/roomAssets/Deko-Assets/Platformholder/PlattformHolder.png" type="Texture" id=39]
@@ -43,6 +44,7 @@
 [ext_resource path="res://Sounds/Robot/voice/bigGateOpen.ogg" type="AudioStream" id=42]
 [ext_resource path="res://Sounds/Robot/voice/enemyLore.ogg" type="AudioStream" id=43]
 [ext_resource path="res://Sounds/Robot/voice/connectedToActivationUnit.ogg" type="AudioStream" id=44]
+[ext_resource path="res://Sounds/Environment/ActivationUnit2.ogg" type="AudioStream" id=45]
 
 [sub_resource type="GDScript" id=48]
 script/source = "extends Node2D
@@ -176,11 +178,17 @@ extents = Vector2( 239, 109 )
 [sub_resource type="RectangleShape2D" id=47]
 extents = Vector2( 155.5, 179.25 )
 
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 65, 97 )
+
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 238.5, 311.691 )
+extents = Vector2( 238.5, 575.531 )
 
 [sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 466, 284 )
+
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 274.5, 51.5 )
 
 [node name="HubRoom" type="Node2D"]
 script = SubResource( 48 )
@@ -2252,6 +2260,14 @@ socketTriggerPercent = 0.1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/connectedToActivationUnit"]
 shape = SubResource( 47 )
 
+[node name="lastSocket" parent="VoiceLines" instance=ExtResource( 15 )]
+dialougeStream = ExtResource( 36 )
+dialogueText = ""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/lastSocket"]
+position = Vector2( 38709, -130 )
+shape = SubResource( 51 )
+
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 33 )]
@@ -2340,6 +2356,13 @@ music = ExtResource( 34 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChangeTrigger"]
 shape = SubResource( 49 )
+
+[node name="MusicChangeTrigger2" parent="." instance=ExtResource( 40 )]
+music = ExtResource( 45 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChangeTrigger2"]
+position = Vector2( 38708, -1465 )
+shape = SubResource( 50 )
 
 [connection signal="finishedPlaying" from="VoiceLines/connectedToActivationUnit" to="." method="_on_connectedToActivationUnit_finishedPlaying"]
 
