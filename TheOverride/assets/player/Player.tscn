@@ -1004,7 +1004,6 @@ scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 26 )
 
 [node name="LowHealthVignette" type="ColorRect" parent="CanvasLayer"]
-visible = false
 material = SubResource( 54 )
 anchor_right = 1.0
 anchor_bottom = 1.0
