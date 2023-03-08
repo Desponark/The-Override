@@ -100,10 +100,10 @@ anchor_left = 0.137
 anchor_top = 0.201
 anchor_right = 0.137
 anchor_bottom = 0.201
-margin_left = -1754.98
-margin_top = -1202.54
-margin_right = 2245.02
-margin_bottom = 2797.46
+margin_left = -1749.98
+margin_top = -1174.54
+margin_right = 2250.02
+margin_bottom = 2825.46
 color = Color( 0, 0, 0, 0.694118 )
 
 [node name="Control" type="Control" parent="."]
@@ -117,9 +117,9 @@ margin_right = -5.5
 margin_bottom = 28.0
 
 [node name="Label" type="Label" parent="Control"]
-margin_left = -931.0
+margin_left = -963.0
 margin_top = -194.0
-margin_right = 916.0
+margin_right = 957.0
 margin_bottom = -31.0
 custom_fonts/font = SubResource( 1 )
 text = "You died!"
@@ -127,19 +127,19 @@ align = 1
 valign = 1
 
 [node name="ButtonLeft" type="Button" parent="Control"]
-margin_left = -508.0
-margin_top = 117.0
-margin_right = -14.0
-margin_bottom = 287.0
+margin_left = -515.0
+margin_top = 197.0
+margin_right = -21.0
+margin_bottom = 277.0
 theme = ExtResource( 7 )
 custom_fonts/font = SubResource( 4 )
 text = "Restart from Checkpoint"
 
 [node name="ButtonRight" type="Button" parent="Control"]
-margin_left = 114.0
-margin_top = 118.152
-margin_right = 583.0
-margin_bottom = 288.152
+margin_left = 101.0
+margin_top = 197.0
+margin_right = 570.0
+margin_bottom = 277.0
 theme = ExtResource( 7 )
 custom_fonts/font = SubResource( 5 )
 text = "End Game"
