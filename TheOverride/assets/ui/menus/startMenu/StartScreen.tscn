@@ -61,21 +61,21 @@ color = Color( 0.0745098, 0.121569, 0.211765, 1 )
 
 [node name="TileMapBackground" parent="." instance=ExtResource( 8 )]
 position = Vector2( -70, -218 )
-tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 4, 0, 3, 5, 0, 4, 4, 0, 65536, 5, 0, 65537, 2, 0, 65538, 3, 0, 65539, 3, 0, 65540, 4, 0, 131072, 0, 0, 131073, 2, 0, 131074, 5, 0, 131075, 1, 0, 131076, 0, 0 )
+tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 65536, 10, 0, 65537, 5, 0, 65538, 10, 0, 65539, 1, 0, 65540, 10, 0, 131072, 10, 0, 131073, 5, 0, 131074, 10, 0, 131075, 2, 0, 131076, 10, 0, 196608, 1610612741, 0, 196609, 1610612741, 0, 196610, 1610612741, 0, 196611, 1610612741, 0, 196612, 1610612741, 0 )
 
 [node name="TilemapGame" parent="." instance=ExtResource( 9 )]
 position = Vector2( -70, -218 )
-tile_data = PoolIntArray( 196608, 1073741830, 0, 196609, -536870897, 0, 196610, -536870897, 0, 196611, -536870897, 0, 196612, 1610612742, 0 )
 
 [node name="Buttons" type="Control" parent="."]
-margin_right = 40.0
+margin_left = -131.0
+margin_right = -91.0
 margin_bottom = 40.0
 
 [node name="Continue" type="Button" parent="Buttons"]
-margin_left = 400.0
-margin_top = 368.0
-margin_right = 960.0
-margin_bottom = 448.0
+margin_left = 402.0
+margin_top = 277.0
+margin_right = 962.0
+margin_bottom = 357.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/Continue"]
@@ -89,57 +89,59 @@ align = 1
 valign = 1
 
 [node name="NewGame" type="Button" parent="Buttons"]
-margin_left = 400.0
-margin_top = 504.0
-margin_right = 960.0
-margin_bottom = 584.0
+margin_left = 402.0
+margin_top = 402.0
+margin_right = 962.0
+margin_bottom = 482.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/NewGame"]
 anchor_top = -0.475
-margin_top = 38.0
+margin_top = 49.0
 margin_right = 560.0
-margin_bottom = 80.0
+margin_bottom = 91.0
 custom_fonts/font = SubResource( 1 )
 text = "Start New Game"
 align = 1
 valign = 1
 
 [node name="Options" type="Button" parent="Buttons"]
-margin_left = 400.0
-margin_top = 640.0
-margin_right = 960.0
-margin_bottom = 720.0
+margin_left = 402.0
+margin_top = 685.0
+margin_right = 962.0
+margin_bottom = 765.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/Options"]
+margin_top = 5.0
 margin_right = 560.0
-margin_bottom = 80.0
+margin_bottom = 85.0
 custom_fonts/font = SubResource( 1 )
 text = "Options"
 align = 1
 valign = 1
 
 [node name="QuitGame" type="Button" parent="Buttons"]
-margin_left = 400.0
-margin_top = 776.0
-margin_right = 960.0
-margin_bottom = 856.0
+margin_left = 402.0
+margin_top = 821.0
+margin_right = 962.0
+margin_bottom = 901.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/QuitGame"]
+margin_top = 5.0
 margin_right = 560.0
-margin_bottom = 80.0
+margin_bottom = 85.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 align = 1
 valign = 1
 
 [node name="GameTitle" type="Label" parent="."]
-margin_left = -32.0
-margin_top = 75.0
-margin_right = 1889.0
-margin_bottom = 301.0
+margin_left = -1.0
+margin_top = 20.0
+margin_right = 1920.0
+margin_bottom = 246.0
 custom_fonts/font = SubResource( 2 )
 text = "The Override"
 align = 1
