@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/environment/roomAssets/Ceilings/Ceiling_2.png" type="Texture" id=2]
@@ -48,11 +48,8 @@ polygon = PoolVector2Array( 0, 2048, 810.548, 2048, 810.548, 4.33276, 0, 4.33276
 [sub_resource type="ConvexPolygonShape2D" id=29]
 points = PoolVector2Array( 814.739, 2048, 0, 2048, 0, 0, 807.309, 0 )
 
-[sub_resource type="OccluderPolygon2D" id=45]
-polygon = PoolVector2Array( 802.16, 2048, 799.722, 2004.53, 795.556, 1960.78, 789.306, 1917.72, 778.195, 1867.03, 762.917, 1814.94, 746.945, 1768.42, 726.111, 1715, 726.806, 1693.47, 0, 1693.68, 0, 2048 )
-
-[sub_resource type="ConvexPolygonShape2D" id=44]
-points = PoolVector2Array( 0, 2048, 0, 1692, 726.111, 1695.44, 724.954, 1713.38, 753.31, 1783.98, 767.778, 1826.52, 779.352, 1874.55, 790.926, 1933, 797.639, 1987.17, 803.888, 2048 )
+[sub_resource type="ConvexPolygonShape2D" id=61]
+points = PoolVector2Array( 2048, 384, 1280, 384, 1280, 256, 2048, 256 )
 
 [sub_resource type="OccluderPolygon2D" id=32]
 polygon = PoolVector2Array( 2048, 2048, 0, 2048, 0, 1241.62, 2048, 1244.11 )
@@ -381,18 +378,17 @@ points = PoolVector2Array( 2048, 384, 0, 384, 0, 256, 2048, 256 )
 19/region = Rect2( 0, 0, 2048, 2048 )
 19/tile_mode = 0
 19/occluder_offset = Vector2( 0, 0 )
-19/occluder = SubResource( 45 )
 19/navigation_offset = Vector2( 0, 0 )
 19/shape_offset = Vector2( 0, 0 )
 19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-19/shape = SubResource( 44 )
+19/shape = SubResource( 61 )
 19/shape_one_way = false
 19/shape_one_way_margin = 1.0
 19/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 44 ),
+"shape": SubResource( 61 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 19/z_index = 0
@@ -510,4 +506,6 @@ points = PoolVector2Array( 2048, 384, 0, 384, 0, 256, 2048, 256 )
 scale = Vector2( 0.2, 0.2 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 2048, 2048 )
+collision_layer = 257
+collision_mask = 257
 format = 1
