@@ -1486,7 +1486,7 @@ position = Vector2( 22313, 1904 )
 rotation = -1.57079
 
 [node name="UpgradeTrigger" parent="Dash Upgrade/Pickups" instance=ExtResource( 19 )]
-position = Vector2( 21881, 3384 )
+position = Vector2( 21983, 3401 )
 videoStream = ExtResource( 21 )
 headline = "Unlocked: Dash"
 button = ExtResource( 22 )
