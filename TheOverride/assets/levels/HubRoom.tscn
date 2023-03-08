@@ -2205,7 +2205,7 @@ shape = SubResource( 19 )
 
 [node name="firstWaveDefenseWarning" parent="VoiceLines" instance=ExtResource( 15 )]
 dialougeStream = ExtResource( 38 )
-dialogueText = "Charging sockets may attrackt enemies, so be alert!"
+dialogueText = "Charging sockets may attract enemies. Be alert!"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceLines/firstWaveDefenseWarning"]
 position = Vector2( 23961, 317.375 )

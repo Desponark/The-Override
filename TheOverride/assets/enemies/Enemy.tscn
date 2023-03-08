@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=106 format=2]
 
 [ext_resource path="res://Sounds/Enemy/Destroyed.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/loot/HealthDrop.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/projectiles/Projectile.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/ui/HUD/healthBar/HealthBar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sounds/Enemy/Damaged.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/light/light.png" type="Texture" id=13]
 [ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0031.png" type="Texture" id=65]
 [ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0038.png" type="Texture" id=66]
 [ext_resource path="res://assets/enemies/animations/Walk/Walk_Animation_DeMain_0039.png" type="Texture" id=67]
@@ -654,6 +655,12 @@ bus = "Sound Effects"
 stream = ExtResource( 1 )
 volume_db = -10.0
 bus = "Sound Effects"
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, 34 )
+texture = ExtResource( 13 )
+color = Color( 1, 0.415686, 0.101961, 1 )
+energy = 0.75
 
 [connection signal="body_entered" from="AggroZone" to="." method="_on_AggroZone_body_entered"]
 [connection signal="body_exited" from="AggroZone" to="." method="_on_AggroZone_body_exited"]
