@@ -21,6 +21,7 @@ func _physics_process(_delta):
 		if isFollowingPlayer:
 			$AnimationPlayer.play("idle")
 			move_and_slide((player.getRobotFollowPosition() - global_position) * followSpeedMultiplier)
+			$Sprite.flip_h = player.getRobotFollowPosition().x < global_position.x
 
 func changeLightScale():
 	var lightScale = lightScaleMultiplier * (getHealth() / getMaxHealth())
