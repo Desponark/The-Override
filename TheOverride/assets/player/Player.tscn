@@ -1012,6 +1012,7 @@ position = Vector2( 36, -20 )
 rotation = -1.5708
 scale = Vector2( 1, 0.6 )
 frames = SubResource( 52 )
+frame = 2
 playing = true
 
 [node name="ProjectileHitBox" type="Area2D" parent="AnimatedSprite"]
