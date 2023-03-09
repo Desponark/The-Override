@@ -139,7 +139,7 @@ stream = ExtResource( 4 )
 bus = "Sound Effects"
 
 [node name="Robot" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1399, 472 )
+position = Vector2( 1282, 579 )
 scale = Vector2( 5, 5 )
 
 [connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_Button_mouse_entered"]

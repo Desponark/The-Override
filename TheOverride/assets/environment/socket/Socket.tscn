@@ -116,7 +116,7 @@ texture = ExtResource( 8 )
 [node name="Position2D" type="Position2D" parent="."]
 modulate = Color( 0.417969, 0.140411, 0.140411, 1 )
 self_modulate = Color( 0.188235, 0.0784314, 0.0784314, 1 )
-position = Vector2( 0, -77 )
+position = Vector2( 0, -96 )
 
 [node name="InsertSound" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2( 2, 2 )
@@ -159,7 +159,6 @@ scale = Vector2( 0.875, 0.899755 )
 z_index = -10
 frames = SubResource( 36 )
 animation = "healthLose"
-frame = 1
 playing = true
 
 [node name="Socket" type="Sprite" parent="CanvasLayer"]
