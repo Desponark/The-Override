@@ -31,14 +31,15 @@ func _on_Timer_timeout():
 	# once percent_visible is at 1 get_visible_line_count() will return all existing lines regardless of true visibility 
 	# therefore another way of scrolling down was needed
 	# by enabling scroll_following and adding newline() the text will look like its scrolling "down" like before.
-	scroll_following = true
-	if scrollXLines > 0:
-		newline()
-		scrollXLines -= 1
-		$Timer.start()
-	else:
-		clear()
-		hide()
+#	scroll_following = true
+#	if scrollXLines > 0:
+#		newline()
+#		scrollXLines -= 1
+#		$Timer.start()
+#	else:
+#		clear()
+#		hide()
+	hide()
 
 func _on_Tween_tween_started(object, key):
 	# when starting the speech bubble via a timer the text can only be made visible
