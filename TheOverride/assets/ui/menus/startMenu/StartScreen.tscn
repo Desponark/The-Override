@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=2]
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/ui/fonts/Valorax-lg25V.otf" type="DynamicFontData" id=5]
-[ext_resource path="res://assets/shaders/WhiteFlash.gdshader" type="Shader" id=6]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=9]
@@ -20,29 +19,6 @@ font_data = ExtResource( 7 )
 [sub_resource type="DynamicFont" id=2]
 size = 192
 font_data = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=7]
-resource_local_to_scene = true
-shader = ExtResource( 6 )
-shader_param/active = false
-
-[sub_resource type="Animation" id=8]
-resource_local_to_scene = true
-resource_name = "hit"
-length = 0.3
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material:shader_param/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false ]
-}
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -144,23 +120,6 @@ custom_fonts/font = SubResource( 2 )
 text = "The Override"
 align = 1
 
-[node name="Robot" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1375, 559 )
-scale = Vector2( 4, 4 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" parent="Robot" index="0"]
-material = SubResource( 7 )
-
-[node name="VFXAnimationPlayer" parent="Robot" index="3"]
-anims/hit = SubResource( 8 )
-
-[node name="Light2D" parent="Robot" index="4"]
-position = Vector2( 0.249993, 2.91038e-11 )
-scale = Vector2( 1.29492, 1 )
-
 [node name="OptionsMenu" parent="." instance=ExtResource( 11 )]
 visible = false
 
@@ -179,6 +138,10 @@ pause_mode = 2
 stream = ExtResource( 4 )
 bus = "Sound Effects"
 
+[node name="Robot" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1399, 472 )
+scale = Vector2( 5, 5 )
+
 [connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="mouse_entered" from="Buttons/NewGame" to="." method="_on_Button_mouse_entered"]
@@ -188,5 +151,3 @@ bus = "Sound Effects"
 [connection signal="mouse_entered" from="Buttons/QuitGame" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Buttons/QuitGame" to="." method="_on_QuitGame_pressed"]
 [connection signal="optionsClosed" from="OptionsMenu" to="." method="_on_OptionsMenu_optionsClosed"]
-
-[editable path="Robot"]
