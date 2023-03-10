@@ -67,7 +67,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=30]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 74, -12, 0, 0, 0, 0, 1479, -10, 0, 0, 0, 0, 1497, 594, 0, 0, 0, 0, 2099, 607, 0, 0, 0, 0, 2108, 805, 0, 0, 0, 0, 2611, 809, 0, 0, 0, 0, 2622, 605, 0, 0, 0, 0, 3131, 605, 0, 0, 0, 0, 3131, -5, 0, 0, 0, 0, 6301, -10, 0, 0, 0, 0, 6306, 188, 0, 0, 0, 0, 6685, 192 )
+"points": PoolVector2Array( 0, 0, 0, 0, 74, -12, 0, 0, 0, 0, 1479, -10, 0, 0, 0, 0, 1493, 602, 0, 0, 0, 0, 2104, 607, 0, 0, 0, 0, 2108, 805, 0, 0, 0, 0, 2611, 809, 0, 0, 0, 0, 2622, 605, 0, 0, 0, 0, 3131, 605, 0, 0, 0, 0, 3131, -5, 0, 0, 0, 0, 6301, -10, 0, 0, 0, 0, 6306, 188, 0, 0, 0, 0, 6685, 192 )
 }
 
 [sub_resource type="Curve2D" id=31]
@@ -1336,9 +1336,10 @@ targetHeight = 2318.0
 moveDuration = 2
 
 [node name="Elevator2" parent="Dash Upgrade/Elevator, Doors" instance=ExtResource( 24 )]
-position = Vector2( 30515, 3246 )
+position = Vector2( 30514, 5706 )
 scale = Vector2( 0.8, 0.8 )
 targetHeight = 3247.0
+isLocked = true
 
 [node name="Socket, Switch" type="Node2D" parent="Dash Upgrade"]
 
@@ -1350,7 +1351,7 @@ triggerScenes = [ NodePath("../../Elevator, Doors/DashDoor3"), NodePath("../../.
 [node name="DashSocket2" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 11 )]
 position = Vector2( 25192, 6516 )
 energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../../Spawner/Spawner3"), NodePath("../../Spawner/Spawner5"), NodePath("../../Elevator, Doors/DashDoor4"), NodePath("../../Elevator, Doors/DashDoor5"), NodePath("../Switch"), NodePath("../../Elevator, Doors/Elevator"), NodePath("../../../Patheffects/CableEffectPath6"), NodePath("../../../Patheffects/CableEffectPath6") ]
+triggerScenes = [ NodePath("../../Spawner/Spawner3"), NodePath("../../Spawner/Spawner5"), NodePath("../../Elevator, Doors/DashDoor4"), NodePath("../../Elevator, Doors/DashDoor5"), NodePath("../Switch"), NodePath("../../Elevator, Doors/Elevator"), NodePath("../../Elevator, Doors/Elevator2"), NodePath("../../../Patheffects/CableEffectPath7"), NodePath("../../../Patheffects/CableEffectPath8") ]
 
 [node name="Switch" parent="Dash Upgrade/Socket, Switch" instance=ExtResource( 28 )]
 position = Vector2( 25193, 5886 )
@@ -1535,7 +1536,7 @@ position = Vector2( 16969.1, -3748 )
 scale = Vector2( 0.571429, 1 )
 maxEnergy = 400.0
 energyTransferAmount = 0.1
-triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Hubroom/Doors/EndLevelDoor2"), NodePath("../../../Patheffects/CableEffectPath9"), NodePath("../../../VoiceLines/bigGateOpen") ]
+triggerScenes = [ NodePath("../../../Hubroom/Doors/EndLevelDoor"), NodePath("../../../Hubroom/Doors/EndLevelDoor2"), NodePath("../../Elevator, Doors/ReflectDoor2"), NodePath("../../Spawner/SpawnerReflect2"), NodePath("../../Spawner/SpawnerReflect1"), NodePath("../../Spawner/SpawnerReflect3"), NodePath("../../../Patheffects/CableEffectPath10"), NodePath("../../../VoiceLines/bigGateOpen") ]
 
 [node name="Spawner" type="Node2D" parent="Reflect Upgrade"]
 
