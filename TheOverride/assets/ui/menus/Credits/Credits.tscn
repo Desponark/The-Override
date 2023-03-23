@@ -161,68 +161,101 @@ text = "Credits"
 align = 1
 valign = 1
 
-[node name="Programming" type="Label" parent="."]
-margin_left = 841.0
-margin_top = 210.0
-margin_right = 1088.0
-margin_bottom = 258.0
+[node name="AlecSchwerdter" type="Label" parent="."]
+margin_left = 280.0
+margin_top = 256.0
+margin_right = 572.0
+margin_bottom = 304.0
 custom_fonts/font = SubResource( 4 )
-text = "Programming"
+text = "Alec Schwerdter"
 
-[node name="Game Design" type="Label" parent="."]
-margin_left = 843.0
-margin_top = 342.0
-margin_right = 1090.0
-margin_bottom = 390.0
+[node name="FelixSchäfer" type="Label" parent="."]
+margin_left = 832.0
+margin_top = 256.0
+margin_right = 1087.0
+margin_bottom = 304.0
 custom_fonts/font = SubResource( 4 )
-text = "Game Design"
+text = "Felix Schäfer"
 align = 1
 
-[node name="Art" type="Label" parent="."]
-margin_left = 841.0
-margin_top = 531.0
-margin_right = 1088.0
-margin_bottom = 579.0
+[node name="FinnDrexlmayer" type="Label" parent="."]
+margin_left = 1344.0
+margin_top = 256.0
+margin_right = 1632.0
+margin_bottom = 304.0
 custom_fonts/font = SubResource( 4 )
-text = "Art"
+text = "Finn Drexlmayer"
 align = 1
 
-[node name="Art2" type="Label" parent="."]
-margin_left = 841.0
-margin_top = 721.0
-margin_right = 1088.0
-margin_bottom = 769.0
+[node name="PaulCommerell" type="Label" parent="."]
+margin_left = 560.0
+margin_top = 576.0
+margin_right = 848.0
+margin_bottom = 624.0
 custom_fonts/font = SubResource( 4 )
-text = "Sound"
-align = 1
-
-[node name="Label" type="Label" parent="."]
-margin_left = 883.0
-margin_top = 594.0
-margin_right = 1055.0
-margin_bottom = 655.0
-custom_fonts/font = SubResource( 5 )
-text = "Alec Schwerdter
-Philipp Maier"
-align = 1
-
-[node name="Label2" type="Label" parent="."]
-margin_left = 883.0
-margin_top = 421.0
-margin_right = 1055.0
-margin_bottom = 482.0
-custom_fonts/font = SubResource( 5 )
-text = "Felix Schäfer
-Finn Drexlmayer"
-align = 1
-
-[node name="Label3" type="Label" parent="."]
-margin_left = 882.0
-margin_top = 268.0
-margin_right = 1054.0
-margin_bottom = 329.0
-custom_fonts/font = SubResource( 5 )
 text = "Paul Commerell"
+align = 1
+
+[node name="PhilippCramer" type="Label" parent="."]
+margin_left = 1072.0
+margin_top = 576.0
+margin_right = 1360.0
+margin_bottom = 624.0
+custom_fonts/font = SubResource( 4 )
+text = "Philipp Cramer"
+align = 1
+
+[node name="JobRolesAlec" type="Label" parent="."]
+margin_left = 288.0
+margin_top = 328.0
+margin_right = 562.0
+margin_bottom = 421.0
+custom_fonts/font = SubResource( 5 )
+text = "3D Modeling
+Texturing
+Animations"
+align = 1
+
+[node name="JobRolesFelix" type="Label" parent="."]
+margin_left = 784.0
+margin_top = 328.0
+margin_right = 1136.0
+margin_bottom = 421.0
+custom_fonts/font = SubResource( 5 )
+text = "Game Design
+Narrative Design
+Sound Design"
+align = 1
+
+[node name="JobRolesFinn" type="Label" parent="."]
+margin_left = 1320.0
+margin_top = 328.0
+margin_right = 1672.0
+margin_bottom = 421.0
+custom_fonts/font = SubResource( 5 )
+text = "Game Design
+Level Design
+Production"
+align = 1
+
+[node name="JobRolesPaul" type="Label" parent="."]
+margin_left = 608.0
+margin_top = 648.0
+margin_right = 802.0
+margin_bottom = 709.0
+custom_fonts/font = SubResource( 5 )
+text = "Team Lead
+Programming"
+align = 1
+
+[node name="JobRolesPhilipp" type="Label" parent="."]
+margin_left = 1072.0
+margin_top = 648.0
+margin_right = 1364.0
+margin_bottom = 709.0
+custom_fonts/font = SubResource( 5 )
+text = "3D Modeling
+Texturing"
 align = 1
 
 [connection signal="mouse_entered" from="Back" to="." method="_on_Button_mouse_entered"]
