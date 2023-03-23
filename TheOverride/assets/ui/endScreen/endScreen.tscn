@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/ui/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/ui/endScreen/endScreen.webm" type="VideoStream" id=2]
-[ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/endScreen/endScreen.gd" type="Script" id=4]
 [ext_resource path="res://Sounds/Environment/EndScreenMusic.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/ui/menus/Credits/Credits.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/Label:self_modulate")
+tracks/1/path = NodePath("CanvasLayer/TwoWeeksLater:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -33,7 +33,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/Label:visible")
+tracks/2/path = NodePath("CanvasLayer/TwoWeeksLater:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -56,42 +56,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [ true ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("CanvasLayer/BackToMainMenu:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("CanvasLayer/BackToMainMenu:self_modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("CanvasLayer/BackToMainMenu/Label:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "endingScreen"
@@ -109,7 +73,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/Label:self_modulate")
+tracks/1/path = NodePath("CanvasLayer/TwoWeeksLater:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -135,7 +99,7 @@ tracks/2/keys = {
 } ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CanvasLayer/Label:visible")
+tracks/3/path = NodePath("CanvasLayer/TwoWeeksLater:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -158,49 +122,13 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("CanvasLayer/BackToMainMenu:visible")
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 49.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("CanvasLayer/BackToMainMenu:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 49.4, 49.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("CanvasLayer/BackToMainMenu/Label:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 49.4, 49.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/8/type = "audio"
-tracks/8/path = NodePath("AudioStreamPlayer")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -208,16 +136,26 @@ tracks/8/keys = {
 } ],
 "times": PoolRealArray( 5.7 )
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("CanvasLayer/CreditsMenu")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 49.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
 
 [sub_resource type="DynamicFont" id=3]
 size = 46
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 43
-font_data = ExtResource( 3 )
-
-[node name="Node2D" type="Node2D"]
+[node name="EndScreen" type="Node2D"]
 script = ExtResource( 4 )
 gamePath = "res://assets/ui/menus/startMenu/StartScreen.tscn"
 
@@ -233,7 +171,7 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 stream = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="TwoWeeksLater" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 806.0
@@ -243,23 +181,10 @@ margin_bottom = -595.0
 custom_fonts/font = SubResource( 3 )
 text = "Two weeks later"
 
-[node name="BackToMainMenu" type="Button" parent="CanvasLayer"]
-margin_left = 710.0
-margin_top = 430.0
-margin_right = 1270.0
-margin_bottom = 510.0
-
-[node name="Label" type="Label" parent="CanvasLayer/BackToMainMenu"]
-anchor_top = -0.475
-margin_top = 38.0
-margin_right = 560.0
-margin_bottom = 80.0
-custom_fonts/font = SubResource( 4 )
-text = "Back to Main Menu"
-align = 1
-valign = 1
+[node name="CreditsMenu" parent="CanvasLayer" instance=ExtResource( 6 )]
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
-[connection signal="pressed" from="CanvasLayer/BackToMainMenu" to="." method="_on_NewGame_pressed"]
+[connection signal="creditsClosed" from="CanvasLayer/CreditsMenu" to="." method="_on_CreditsMenu_creditsClosed"]

@@ -209,7 +209,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Save yourself"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0

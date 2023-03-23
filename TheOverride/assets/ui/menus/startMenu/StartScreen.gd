@@ -35,3 +35,11 @@ func _on_Button_mouse_entered():
 
 func _on_OptionsMenu_optionsClosed():
 	$Buttons.show()
+
+func _on_Credits_pressed():
+	$ButtonPressSound.play()
+	$CreditsMenu.show()
+	$Buttons.hide()
+
+func _on_CreditsMenu_creditsClosed():
+	$Buttons.show()

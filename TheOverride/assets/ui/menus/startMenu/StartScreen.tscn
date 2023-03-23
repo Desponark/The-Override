@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/ui/menus/startMenu/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/UI/ButtonPress.mp3" type="AudioStream" id=2]
 [ext_resource path="res://assets/friendlies/Robot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/UI/Mouseover.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/ui/fonts/Valorax-lg25V.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/ui/menus/Credits/Credits.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/ui/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/environment/tilemaps/TileMapBackground.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environment/tilemaps/TilemapGame.tscn" type="PackedScene" id=9]
@@ -43,6 +44,10 @@ tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 4, 0, 3, 5, 0, 4, 4, 0, 65536, 5,
 position = Vector2( -70, -218 )
 tile_data = PoolIntArray( 196608, 1073741830, 0, 196609, -536870897, 0, 196610, -536870897, 0, 196611, -536870897, 0, 196612, 1610612742, 0 )
 
+[node name="Robot" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1282, 579 )
+scale = Vector2( 5, 5 )
+
 [node name="Buttons" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -66,9 +71,9 @@ valign = 1
 
 [node name="NewGame" type="Button" parent="Buttons"]
 margin_left = 400.0
-margin_top = 504.0
+margin_top = 472.0
 margin_right = 960.0
-margin_bottom = 584.0
+margin_bottom = 552.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/NewGame"]
@@ -83,9 +88,9 @@ valign = 1
 
 [node name="Options" type="Button" parent="Buttons"]
 margin_left = 400.0
-margin_top = 640.0
+margin_top = 576.0
 margin_right = 960.0
-margin_bottom = 720.0
+margin_bottom = 656.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/Options"]
@@ -96,11 +101,26 @@ text = "Options"
 align = 1
 valign = 1
 
+[node name="Credits" type="Button" parent="Buttons"]
+margin_left = 400.0
+margin_top = 680.0
+margin_right = 960.0
+margin_bottom = 760.0
+theme = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Buttons/Credits"]
+margin_right = 560.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 1 )
+text = "Credits"
+align = 1
+valign = 1
+
 [node name="QuitGame" type="Button" parent="Buttons"]
 margin_left = 400.0
-margin_top = 776.0
+margin_top = 784.0
 margin_right = 960.0
-margin_bottom = 856.0
+margin_bottom = 864.0
 theme = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Buttons/QuitGame"]
@@ -123,6 +143,9 @@ align = 1
 [node name="OptionsMenu" parent="." instance=ExtResource( 11 )]
 visible = false
 
+[node name="CreditsMenu" parent="." instance=ExtResource( 6 )]
+visible = false
+
 [node name="MainScreenMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 autoplay = true
@@ -138,16 +161,15 @@ pause_mode = 2
 stream = ExtResource( 4 )
 bus = "Sound Effects"
 
-[node name="Robot" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1282, 579 )
-scale = Vector2( 5, 5 )
-
 [connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="mouse_entered" from="Buttons/NewGame" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="mouse_entered" from="Buttons/Options" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_Options_pressed"]
+[connection signal="mouse_entered" from="Buttons/Credits" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="mouse_entered" from="Buttons/QuitGame" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Buttons/QuitGame" to="." method="_on_QuitGame_pressed"]
 [connection signal="optionsClosed" from="OptionsMenu" to="." method="_on_OptionsMenu_optionsClosed"]
+[connection signal="creditsClosed" from="CreditsMenu" to="." method="_on_CreditsMenu_creditsClosed"]
