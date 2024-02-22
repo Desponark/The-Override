@@ -26,6 +26,3 @@ Take on an adventure through a postapocalyptic underground facility. Protect and
   - SFX & music
   - Most VFX
   - Levels
-
-### Trailer
-https://youtu.be/HrsgQ2hjphg?si=1yamUd15XiVn36q8
