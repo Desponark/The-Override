@@ -1,5 +1,0 @@
-syntax: glob
-Prototype/.import/*
-Prototype2/.import/*
-*/.import/*
-*.orig
