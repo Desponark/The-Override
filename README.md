@@ -8,19 +8,19 @@ Homepage: https://s4g.itch.io/theoverride
 A long forgotten drone turns out to be the last hope for the survival of humanity.
 Take on an adventure through a postapocalyptic underground facility. Protect and escort the drone, fight your way through waves of hostile machines, explore the environment and unlock new abilities.
 
-### Gameplay
+## Gameplay
 - Defeat waves of enemies while protecting your Drone Companion
 - Manage the health of your Drone Companion by transfering your own health to it
 - Unlock upgrades to progress through the level
 - Listen to the story
 
-### Roles
+## Roles
 - Only Programmer & Team Lead
 
-### Engine / Language
+## Engine / Language
 - Godot, GDScript
 
-### Responsibilities
+## Responsibilities
 - Everything code-related done by me except:
   - Menu & other popup screens
   - SFX & music
